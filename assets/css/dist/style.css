@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Work Sans", sans-serif;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#canvas {
+  height: 850px;
+  background-image: url("../../img/muscle_chevy1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#canvas #btnTop {
+  z-index: 99;
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #242424;
+  color: #7a7a7a;
+}
+#canvas #btnTop:hover {
+  background-color: black;
+}
+#canvas #navigacija .navMenu {
+  color: #111111;
+  padding: 5px;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+#canvas #navigacija .navMenu:hover {
+  color: crimson;
+}
+#canvas .fab {
+  color: black;
+  font-size: 20px;
+}
+#canvas .tekstBoja {
+  color: black;
+}
+#canvas .logo .leviTekst {
+  color: red !important;
+}
+#canvas .logo img {
+  height: 80px;
+}
+#canvas .logo .logo-text {
+  font-size: 60px;
+  font-weight: bold;
+  color: black;
+}
+
+.secondRow-cars {
+  height: 350px;
+  border-top: 5px solid #d3002a;
+}
+.secondRow-cars .upcoming {
+  position: relative;
+  background: #e2e2e2;
+  background: linear-gradient(90deg, #e2e2e2 0%, #f4f4f4 100%);
+}
+.secondRow-cars .upcoming #tekstRelative1 {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  font-size: 100px;
+  font-weight: bold;
+}
+.secondRow-cars .upcoming #tekstRelative2 {
+  position: absolute;
+  bottom: 120px;
+  right: 15px;
+  font-size: 40px;
+}
+.secondRow-cars .upcoming #grupaDugmad {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+.secondRow-cars .upcoming #grupaDugmad button {
+  width: 50px;
+  height: 50px;
+  background-color: #414141;
+  border: none;
+  font-size: 30px;
+}
+.secondRow-cars .upcoming #grupaDugmad button:focus {
+  outline: none;
+}
+.secondRow-cars .upcoming #grupaDugmad button:hover {
+  background-color: #131313;
+  color: #b3b3b3;
+  transition: ease-in-out 0.2s;
+}
+.secondRow-cars #automobili .carHolder {
+  position: relative;
+  width: 33.3%;
+  background-color: #dadada;
+}
+.secondRow-cars #automobili .carHolder img {
+  width: 100%;
+}
+.secondRow-cars #automobili .carHolder:hover {
+  background-color: #d3002a;
+  color: #fff;
+}
+.secondRow-cars #automobili .carHolder h4 {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px;
+}
+.secondRow-cars #automobili .carHolder button {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  outline: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+}
