@@ -8,6 +8,7 @@ a:hover{
     text-decoration: none;
 }
 #canvas{
+    position: relative;
     #btnTop{
         z-index: 99;
         display: none;
@@ -28,19 +29,26 @@ a:hover{
         }
     }
     #navigacija{
-        .navMenu{
-            color:rgb(17, 17, 17);
-            padding: 5px;
-            margin-right: 10px;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            &:hover{
-                color: crimson;
+        ul{
+            list-style-type: none;
+            li{
+                padding: 5px;
+                margin-right: 10px;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                a{
+                    color: rgb(36, 36, 36);
+                    &:hover{
+                        color: rgb(230, 0, 0);
+                        border-bottom: 3px solid rgb(230, 0, 0);
+                    }
+                }
             }
         }
     }
     height:850px;
+    position: relative;
     background-image: url('../../img/muscle_chevy1.jpg');
     background-size: cover;
     background-position: center;
@@ -65,24 +73,101 @@ a:hover{
             color: black;
         }
     }
+    .searchForm{
+        display: none;
+        position: absolute;
+        right: 20%;
+        top: 25%;
+        width: 350px;
+        height: 420px;
+        background-color: rgb(221, 221, 221);
+        .search{
+            padding: 0px;
+            h4{
+                width: 100%;
+                height: 70px;
+                background-color: rgb(230, 0, 0);
+                color: #fff;
+                border-radius: 0px 0px 25% 25%;
+                text-align: center;
+                line-height: 50px;
+                font-weight: bold;
+            }
+            .buttonGroup{
+                .activeButton{
+                    background-color: rgb(230, 0, 0);
+                    color: #fff;
+                }
+                .dugme{
+                    font-weight: bold;
+                    outline: none;
+                    border: none;
+                    padding: 10px;
+                    transition: ease-in-out 0.2s;
+                    width: 100px;
+                }
+            }
+            .labelInput{
+                padding: 10px;
+                color: rgb(230, 0, 0);
+                font-weight: bold;
+                input{
+                    margin-right: 3px;
+                }
+                label{
+                    margin: 0px;
+                }
+            }
+            .ddlCar{
+                select{
+                    font-size: 20px;
+                    padding: 5px 20px;
+                    font-weight: bold;
+                    width: 80%;
+                    &:focus{
+                        outline: none;
+                    };
+                }
+            }
+            .submitButton{
+                button{
+                    border: none;
+                    outline: none;
+                    padding: 10px 30px;
+                    font-weight: bold;
+                    font-size: 20px;
+                    background-color: rgb(230, 0, 0);
+                    color: #fff;
+                    width: 80%;
+                }
+            }
+            a{
+                color: rgb(230, 0, 0);
+                font-size: 18px;
+            }
+        }
+    }
 }
 .secondRow-cars{
-    height: 350px;
+    position: relative;
+    height: 450px;
     border-top: 5px solid rgb(211, 0, 42);
     .upcoming{
         position: relative;
+        z-index: 9999;
+        height: 100%;
         background: rgb(226,226,226);
         background: linear-gradient(90deg, rgba(226,226,226,1) 0%, rgba(244,244,244,1) 100%);
         #tekstRelative1{
             position: absolute;
             right: 30px;
-            top: 15px;
+            top: 80px;
             font-size: 100px;
             font-weight: bold;
         }
         #tekstRelative2{
             position: absolute;
-            bottom:120px;
+            bottom:150px;
             right: 15px;
             font-size: 40px;
         }
@@ -107,9 +192,51 @@ a:hover{
             }
         }
     }
-    #automobili{
+    #automobili, #automobili1{
+        height: 100%;
+        overflow: hidden;
         .carHolder{
             position: relative;
+            width: 33.3%;
+            height: 100%;
+            background-color: rgb(218, 218, 218);
+            img{
+                width: 100%;
+            }
+            &:hover{
+                    background-color: rgb(211, 0, 42);
+                    color: #fff;
+            }
+            h4{
+                font-size: 30px;
+                font-weight: bold;
+                padding: 10px;
+            }
+            button{
+                position: absolute;
+                bottom: 20px;
+                right: 10px;
+                outline: none;
+                border: none;
+                width: 50px;
+                height: 50px;
+                background-color: rgb(65, 65, 65);
+                color: rgb(19, 19, 19);
+                a{
+                    color: rgb(17, 17, 17);
+                }
+            }
+        }
+    }
+    #automobili1{
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: -50%;
+        height: 100%;
+        .carHolder1{
+            position: relative;
+            height: 100%;
             width: 33.3%;
             background-color: rgb(218, 218, 218);
             img{
@@ -130,8 +257,13 @@ a:hover{
                 right: 10px;
                 outline: none;
                 border: none;
-                width: 30px;
-                height: 30px;
+                width: 50px;
+                height: 50px;
+                background-color: rgb(65, 65, 65);
+                color: rgb(19, 19, 19);
+                a{
+                    color: rgb(17, 17, 17);
+                }
             }
         }
     }

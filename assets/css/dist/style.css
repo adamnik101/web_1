@@ -10,7 +10,9 @@ a:hover {
 }
 
 #canvas {
+  position: relative;
   height: 850px;
+  position: relative;
   background-image: url("../../img/muscle_chevy1.jpg");
   background-size: cover;
   background-position: center;
@@ -35,16 +37,22 @@ a:hover {
 #canvas #btnTop:hover {
   background-color: black;
 }
-#canvas #navigacija .navMenu {
-  color: #111111;
+#canvas #navigacija ul {
+  list-style-type: none;
+}
+#canvas #navigacija ul li {
   padding: 5px;
   margin-right: 10px;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
 }
-#canvas #navigacija .navMenu:hover {
-  color: crimson;
+#canvas #navigacija ul li a {
+  color: #242424;
+}
+#canvas #navigacija ul li a:hover {
+  color: #e60000;
+  border-bottom: 3px solid #e60000;
 }
 #canvas .fab {
   color: black;
@@ -64,26 +72,97 @@ a:hover {
   font-weight: bold;
   color: black;
 }
+#canvas .searchForm {
+  display: none;
+  position: absolute;
+  right: 20%;
+  top: 25%;
+  width: 350px;
+  height: 420px;
+  background-color: #dddddd;
+}
+#canvas .searchForm .search {
+  padding: 0px;
+}
+#canvas .searchForm .search h4 {
+  width: 100%;
+  height: 70px;
+  background-color: #e60000;
+  color: #fff;
+  border-radius: 0px 0px 25% 25%;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+}
+#canvas .searchForm .search .buttonGroup .activeButton {
+  background-color: #e60000;
+  color: #fff;
+}
+#canvas .searchForm .search .buttonGroup .dugme {
+  font-weight: bold;
+  outline: none;
+  border: none;
+  padding: 10px;
+  transition: ease-in-out 0.2s;
+  width: 100px;
+}
+#canvas .searchForm .search .labelInput {
+  padding: 10px;
+  color: #e60000;
+  font-weight: bold;
+}
+#canvas .searchForm .search .labelInput input {
+  margin-right: 3px;
+}
+#canvas .searchForm .search .labelInput label {
+  margin: 0px;
+}
+#canvas .searchForm .search .ddlCar select {
+  font-size: 20px;
+  padding: 5px 20px;
+  font-weight: bold;
+  width: 80%;
+}
+#canvas .searchForm .search .ddlCar select:focus {
+  outline: none;
+}
+#canvas .searchForm .search .submitButton button {
+  border: none;
+  outline: none;
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #e60000;
+  color: #fff;
+  width: 80%;
+}
+#canvas .searchForm .search a {
+  color: #e60000;
+  font-size: 18px;
+}
 
 .secondRow-cars {
-  height: 350px;
+  position: relative;
+  height: 450px;
   border-top: 5px solid #d3002a;
 }
 .secondRow-cars .upcoming {
   position: relative;
+  z-index: 9999;
+  height: 100%;
   background: #e2e2e2;
   background: linear-gradient(90deg, #e2e2e2 0%, #f4f4f4 100%);
 }
 .secondRow-cars .upcoming #tekstRelative1 {
   position: absolute;
   right: 30px;
-  top: 15px;
+  top: 80px;
   font-size: 100px;
   font-weight: bold;
 }
 .secondRow-cars .upcoming #tekstRelative2 {
   position: absolute;
-  bottom: 120px;
+  bottom: 150px;
   right: 15px;
   font-size: 40px;
 }
@@ -107,29 +186,78 @@ a:hover {
   color: #b3b3b3;
   transition: ease-in-out 0.2s;
 }
-.secondRow-cars #automobili .carHolder {
+.secondRow-cars #automobili, .secondRow-cars #automobili1 {
+  height: 100%;
+  overflow: hidden;
+}
+.secondRow-cars #automobili .carHolder, .secondRow-cars #automobili1 .carHolder {
   position: relative;
   width: 33.3%;
+  height: 100%;
   background-color: #dadada;
 }
-.secondRow-cars #automobili .carHolder img {
+.secondRow-cars #automobili .carHolder img, .secondRow-cars #automobili1 .carHolder img {
   width: 100%;
 }
-.secondRow-cars #automobili .carHolder:hover {
+.secondRow-cars #automobili .carHolder:hover, .secondRow-cars #automobili1 .carHolder:hover {
   background-color: #d3002a;
   color: #fff;
 }
-.secondRow-cars #automobili .carHolder h4 {
+.secondRow-cars #automobili .carHolder h4, .secondRow-cars #automobili1 .carHolder h4 {
   font-size: 30px;
   font-weight: bold;
   padding: 10px;
 }
-.secondRow-cars #automobili .carHolder button {
+.secondRow-cars #automobili .carHolder button, .secondRow-cars #automobili1 .carHolder button {
   position: absolute;
   bottom: 20px;
   right: 10px;
   outline: none;
   border: none;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #414141;
+  color: #131313;
+}
+.secondRow-cars #automobili .carHolder button a, .secondRow-cars #automobili1 .carHolder button a {
+  color: #111111;
+}
+.secondRow-cars #automobili1 {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: -50%;
+  height: 100%;
+}
+.secondRow-cars #automobili1 .carHolder1 {
+  position: relative;
+  height: 100%;
+  width: 33.3%;
+  background-color: #dadada;
+}
+.secondRow-cars #automobili1 .carHolder1 img {
+  width: 100%;
+}
+.secondRow-cars #automobili1 .carHolder1:hover {
+  background-color: #d3002a;
+  color: #fff;
+}
+.secondRow-cars #automobili1 .carHolder1 h4 {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px;
+}
+.secondRow-cars #automobili1 .carHolder1 button {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  outline: none;
+  border: none;
+  width: 50px;
+  height: 50px;
+  background-color: #414141;
+  color: #131313;
+}
+.secondRow-cars #automobili1 .carHolder1 button a {
+  color: #111111;
 }
