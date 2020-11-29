@@ -218,17 +218,16 @@ function ispis3() {
     for (var i = 0; i < carIspis1.length; i++) {
       document.getElementById("showCars").innerHTML += "<div class=\"col-4 mb-4\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carIspis1[i][0], "\" class=\"img-fluid\" alt=\"").concat(carIspis1[i][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carIspis1[i][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(carIspis1[i][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carIspis1[i][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div></div>");
     }
-
-    click1++;
   }
 
+  click1++;
   ispis3Brojac++;
 }
 
 document.getElementById("loadMore").addEventListener("click", function () {
   if (click1 > 1) {
     for (var i = 0; i < carIspis2.length; i++) {
-      document.getElementById("showCars").innerHTML += "<div class=\"col-4 mb-4\">\n                <div class=\"imgHolder\">\n                    <img src=\"".concat(carIspis2[i][0], "\" class=\"img-fluid\" alt=\"").concat(carIspis2[i][1], "\">\n                </div>\n                <div class=\"holder\">\n                <h5 class=\"mb-3\">").concat(carIspis2[i][1], "</h5>\n                <p><i class=\"fas fa-cog\"></i> ").concat(carIspis2[i][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carIspis2[i][3], "</p>\n                <a href=\"#\">ORDER NOW</a>\n                </div></div>");
+      document.getElementById("showCars").innerHTML += "<div class=\"col-4 mb-4\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carIspis2[i][0], "\" class=\"img-fluid\" alt=\"").concat(carIspis2[i][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carIspis2[i][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(carIspis2[i][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carIspis2[i][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div></div>");
     }
   }
 });

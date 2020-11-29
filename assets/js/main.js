@@ -249,25 +249,25 @@ function ispis3(){
             <a href="#">ORDER NOW</a>
             </div></div>`;
         }
-        click1++;
     }
+    click1++;
     ispis3Brojac++;
 }
-    document.getElementById("loadMore").addEventListener("click", function(){
-        if(click1 > 1){
-            for(var i = 0; i < carIspis2.length; i++){
-                document.getElementById("showCars").innerHTML += `<div class="col-4 mb-4">
-                <div class="imgHolder">
-                    <img src="${carIspis2[i][0]}" class="img-fluid" alt="${carIspis2[i][1]}">
-                </div>
-                <div class="holder">
-                <h5 class="mb-3">${carIspis2[i][1]}</h5>
-                <p><i class="fas fa-cog"></i> ${carIspis2[i][2]} <i class="fas fa-tachometer-alt"></i> ${carIspis2[i][3]}</p>
-                <a href="#">ORDER NOW</a>
-                </div></div>`;
-            }
+document.getElementById("loadMore").addEventListener("click", function(){
+    if(click1 > 1){
+        for(var i = 0; i < carIspis2.length; i++){
+            document.getElementById("showCars").innerHTML += `<div class="col-4 mb-4">
+            <div class="imgHolder">
+                <img src="${carIspis2[i][0]}" class="img-fluid" alt="${carIspis2[i][1]}">
+            </div>
+            <div class="holder">
+            <h5 class="mb-3">${carIspis2[i][1]}</h5>
+            <p><i class="fas fa-cog"></i> ${carIspis2[i][2]} <i class="fas fa-tachometer-alt"></i> ${carIspis2[i][3]}</p>
+            <a href="#">ORDER NOW</a>
+            </div></div>`;
         }
-    })
+    }
+})
 
 
 
