@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container-fluid" id="canvas">
-            <button id="btnTop" onclick="scrollTopPage()"><i class="fas fa-angle-up"></i></button>
+            <button id="btnTop" onclick="scrollUp1()"><i class="fas fa-angle-up"></i></button>
             <div class="row pt-1 pb-1 border-bottom">
                 <div class="col-6 d-flex justify-content-center">
                     <span>
@@ -48,23 +48,10 @@
                 <div class="col-12 search">
                     <h4 class="p-2">SEARCH THE RIGHT CAR</h4>
                     <form action="">
-                        <!-- <span class="d-flex justify-content-center align-items-center labelInput">
-                            <input type="radio" name="by" id="budget" value="budget">
-                            <label for="budget" class="mr-3">BY BUDGET</label>
-                            <input type="radio" name="by" id="brand" value="brand">
-                            <label for="brand">BY BRAND</label> <br>
-                        </span> -->
                         <span class="d-flex justify-content-center mt-1 mb-2 ddlCar">
                             <select name="type" id="carType" class="custom-select">
                                 <option value="0">Choose a brand</option>
-                                <option value="chevy">Chevrolette</option>
-                                <option value="dodge">Dodge</option>
-                                <option value="bmw">BMW</option>
-                                <option value="subaru">Subaru</option>
-                                <option value="mitsubishi">Mitsubishi</option>
-                                <option value="honda">Honda</option>
-                                <option value="toyota">Toyota</option>
-                                <option value="audi">Audi</option>
+                                
                             </select> 
                         </span>
                         <span class="d-flex justify-content-center" id="greska1">
@@ -77,9 +64,6 @@
                         <span class="d-flex justify-content-center align-items-center submitButton">
                             <button type="button" id="searchBtn">SEARCH</button>
                         </span> <br>
-                        <span class="d-flex justify-content-center">
-                            <a href="#" target="_blank" rel="noopener noreferrer">ADVANCED SEARCH <i class="fas fa-chevron-right"></i></a>
-                        </span>
                     </form>
                 </div>
             </div>
@@ -87,8 +71,8 @@
         <div class="container-fluid">
             <div class="row secondRow-cars">
                 <div class="col-md-3 upcoming">
-                    <span id="tekstRelative1">23+</span>
-                    <span id="tekstRelative2">UPCOMING CARS</span>
+                    <span id="tekstRelative1">14+</span>
+                    <span id="tekstRelative2">CARS IN STOCK</span>
                     <div id="grupaDugmad">
                         <button name="levoAutomobili" id="btnLevo"><i class="fas fa-caret-left"></i></button>
                         <button name="desnoAutomobili" id="btnDesno"><i class="fas fa-caret-right"></i></button>
@@ -100,7 +84,37 @@
                 </div>
             </div>
         </div>
+        <div class="container-fluid" id="request">
+            <div class="container">
+                <div class="row pt-3 pb-3">
+                    <div class="col-8">
+                        <p class="text-left">Request a car right now?</p>
+                        <p class="text-left">Request a car right now and have it in your collection in no time!</p>
+                    </div>
+                    <div class="col-4 d-flex align-items-center justify-content-end">
+                        <a href="#">Request now!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" id="featuredSection">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h4 class="text-center p-5">All Featured <span>Cars</span></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row justify-content-around" id="showCars">
+                    
+                </div>
+            </div>
+            <span class="d-flex justify-content-center">
+                <a href="#!" id="loadMore">More cars <i class="fa fa-chevron-down"></i></a>
+            </span>
         </div>
     <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 </body>
 </html>

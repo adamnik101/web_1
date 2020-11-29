@@ -20,7 +20,7 @@ a:hover {
 }
 #canvas #btnTop {
   z-index: 99;
-  display: none;
+  visibility: hidden;
   position: fixed;
   bottom: 50px;
   right: 50px;
@@ -78,7 +78,6 @@ a:hover {
   right: 20%;
   top: 25%;
   width: 350px;
-  height: 420px;
   background-color: #dddddd;
 }
 #canvas .searchForm .search {
@@ -145,6 +144,7 @@ a:hover {
   position: relative;
   height: 450px;
   border-top: 5px solid #d3002a;
+  border-bottom: 5px solid #d3002a;
 }
 .secondRow-cars .upcoming {
   position: relative;
@@ -180,11 +180,6 @@ a:hover {
 }
 .secondRow-cars .upcoming #grupaDugmad button:focus {
   outline: none;
-}
-.secondRow-cars .upcoming #grupaDugmad button:hover {
-  background-color: #131313;
-  color: #b3b3b3;
-  transition: ease-in-out 0.2s;
 }
 .secondRow-cars #automobili, .secondRow-cars #automobili1 {
   height: 100%;
@@ -260,4 +255,70 @@ a:hover {
 }
 .secondRow-cars #automobili1 .carHolder1 button a {
   color: #111111;
+}
+
+#request {
+  background-color: #242424;
+  color: #7a7a7a;
+  border-bottom: 5px solid #7a7a7a;
+}
+#request p {
+  font-weight: bold;
+  font-size: 18px;
+}
+#request a {
+  padding: 10px 20px;
+  background-color: #7a7a7a;
+  color: #242424;
+  font-weight: bold;
+  font-size: 19px;
+}
+#request a:hover {
+  background-color: #d3002a;
+  color: #414141;
+}
+
+#featuredSection {
+  background-color: #f4f4f4;
+}
+#featuredSection h4 {
+  font-size: 50px;
+}
+#featuredSection h4 span {
+  color: #d3002a;
+}
+#featuredSection #showCars .holder {
+  background-color: #dadada;
+  border-bottom: 5px solid #d3002a;
+  padding: 10px;
+}
+#featuredSection #showCars .holder h5 {
+  color: #181818;
+  font-weight: bold;
+  font-size: 25px;
+  display: block;
+}
+#featuredSection #showCars .holder p {
+  font-weight: bold;
+}
+#featuredSection #showCars .holder a {
+  display: block;
+  padding: 10px 15px;
+  background-color: #181818;
+  color: #979797;
+  font-weight: bold;
+}
+#featuredSection #showCars .holder a:hover {
+  background-color: #d3002a;
+  color: #181818;
+}
+#featuredSection #loadMore {
+  background-color: #a7a7a7;
+  color: #181818;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px 20px;
+}
+#featuredSection #loadMore:hover {
+  background-color: #414141;
 }
