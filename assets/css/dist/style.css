@@ -215,12 +215,14 @@ a:hover {
   border-top: 5px solid #d3002a;
   border-bottom: 5px solid #d3002a;
 }
-.secondRow-cars .upcoming {
-  background-color: #dadada;
-}
 .secondRow-cars .upcoming .featured {
   font-size: 35px;
-  font-weight: bold;
+}
+.secondRow-cars .upcoming .featured .w {
+  font-size: 50px;
+}
+.secondRow-cars .upcoming .featured .t {
+  font-size: 28px;
 }
 .secondRow-cars #automobili .slideContent h5 {
   font-weight: bold;
