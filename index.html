@@ -7,10 +7,12 @@
     <script src="https://kit.fontawesome.com/ef2b9c3629.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/dist/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owlcarousel/owl.theme.default.min.css">
     <script src="assets/js/jquery-3.5.1.min.js"></script>
 </head>
-<body>
-    <div class="container-fluid" id="canvas">
+    <body>
+        <div class="container-fluid" id="canvas">
             <button id="btnTop" onclick="scrollUp1()"><i class="fas fa-angle-up"></i></button>
             <div class="row pt-1 pb-1 border-bottom">
                 <div class="col-6 d-flex justify-content-center">
@@ -33,15 +35,14 @@
                 </div>
             </div>
             <div class="row pt-2">
-                <div class="col-6 d-flex justify-content-center logo pl-5">
-                    <a href="#" class="d-flex align-content-end flex-wrap">
+                <div class="col-12 col-md-5 d-flex justify-content-center logo pl-5">
+                    <a href="#">
                         <span class="logo-text leviTekst">CAR</span>
                         <img src="assets/img/logo-black.png" alt="logo">
                         <span class="logo-text">ZONE</span>
                     </a>
                 </div>
-                <div class="col-6 d-flex justify-content-center" id="navigacija">
-                    
+                <div class="col-12 col-md-7 d-flex justify-content-center" id="navigacija">
                 </div>
             </div>
             <div class="row searchForm">
@@ -70,17 +71,53 @@
         </div>
         <div class="container-fluid">
             <div class="row secondRow-cars">
-                <div class="col-md-3 upcoming">
-                    <span id="tekstRelative1">14+</span>
-                    <span id="tekstRelative2">CARS IN STOCK</span>
-                    <div id="grupaDugmad">
+                <div class="col-12 col-sm-5 col-md-4 col-lg-3 d-flex align-items-sm-start flex-column upcoming">
+                    <span class="text-center d-block mb-auto featured">7 FEATURED CARS</span>
+                    <div id="grupaDugmad" class="p-5 mx-auto">
                         <button name="levoAutomobili" id="btnLevo"><i class="fas fa-caret-left"></i></button>
                         <button name="desnoAutomobili" id="btnDesno"><i class="fas fa-caret-right"></i></button>
                     </div>
                 </div>
-                <div class="col-md-9 d-flex justify-content-center p-0" id="automobili">
-                </div>
-                <div class="col-md-9 d-flex justify-content-center p-0" id="automobili1">
+                <div class="col-12  col-sm-7 col-md-8 col-lg-9 d-flex justify-content-center p-0" id="automobili">
+                    <div class="owl-carousel">
+                        <div class="slideContent">
+                            <img src="assets/img/sports_civic1.jpeg" alt="honda">
+                            <h5>Honda Civic</h5>
+                            <p>
+                                <i class="fas fa-cube"></i> 350hp
+                            </p>
+                        </div>
+                        <div class="slideContent">
+                            <img src="assets/img/sports_bmw1.jpeg" alt="bmw">
+                            <h5>BMW 420d</h5>
+                            <p><i class="fas fa-cube"></i> 350hp</p>
+                        </div>
+                        <div class="slideContent">
+                            <img src="assets/img/muscle_demon1.jpeg" alt="dodge">
+                            <h5>Dodge Challenger</h5>
+                            <p><i class="fas fa-cube"></i> 700hp</p>
+                        </div>
+                        <div class="slideContent">
+                            <img src="assets/img/sports_mitsubishi1.jpg" alt="mitsubishi">
+                            <h5>Mitsubishi EVO X</h5>
+                            <p> <i class="fas fa-cube"></i> 290hp</p>
+                        </div>
+                        <div class="slideContent">
+                            <img src="assets/img/muscle_chevy1.jpg" alt="chevy">
+                            <h5>Chevrolet Camarro ZL1</h5>
+                            <p> <i class="fas fa-cube"></i> 650hp</p>
+                        </div>
+                        <div class="slideContent">
+                            <img src="assets/img/sports_benz1.jpeg" alt="benz">
+                            <h5>Mercedes 450 CLS</h5>
+                            <p> <i class="fas fa-cube"></i> 375hp</p>
+                        </div>
+                        <div class="slideContent">
+                            <img src="assets/img/sports_supra1.jpeg" alt="supra">
+                            <h5>Toyota Supra</h5>
+                            <p> <i class="fas fa-cube"></i> 382hp</p>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>
@@ -114,6 +151,9 @@
                 <a href="#!" id="loadMore">More cars <i class="fa fa-chevron-down"></i></a>
             </span>
         </div>
-    <script src="assets/js/main.js"></script>
+    
+<!-- slick Carousel CDN -->
+<script src="assets/js/main.js"></script>
+<script src="assets/owlcarousel/owl.carousel.min.js"></script>
 </body>
 </html>

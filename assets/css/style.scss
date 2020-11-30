@@ -62,16 +62,24 @@ a:hover{
         color: black;
     }
     .logo{
-        .leviTekst{
-            color: red !important;
-        }
-        img{
-            height:80px;
-        }
-        .logo-text{
-            font-size: 60px;
-            font-weight: bold;
-            color: black;
+        height:80px;
+        a{
+            height: 80px;
+            .leviTekst{
+                color: red !important;
+                vertical-align: middle;
+            }
+            img{
+                display: inline;
+                height: 100%;
+                vertical-align: middle;
+            }
+            .logo-text{
+                font-size: 60px;
+                font-weight: bold;
+                color: black;
+                vertical-align: middle;
+            }
         }
     }
     .searchForm{
@@ -79,7 +87,7 @@ a:hover{
         position: absolute;
         right: 20%;
         top: 25%;
-        width: 350px;
+        width: 20%;
         background-color: rgb(221, 221, 221);
         .search{
             padding: 0px;
@@ -149,117 +157,42 @@ a:hover{
     }
 }
 .secondRow-cars{
-    position: relative;
-    height: 450px;
     border-top: 5px solid rgb(211, 0, 42);
     border-bottom: 5px solid rgb(211, 0, 42);
     .upcoming{
-        position: relative;
-        z-index: 9999;
-        height: 100%;
-        background: rgb(226,226,226);
-        background: linear-gradient(90deg, rgba(226,226,226,1) 0%, rgba(244,244,244,1) 100%);
-        #tekstRelative1{
-            position: absolute;
-            right: 30px;
-            top: 80px;
-            font-size: 100px;
+        background-color: rgb(218, 218, 218);
+        .featured{
+            font-size: 35px;
             font-weight: bold;
         }
-        #tekstRelative2{
-            position: absolute;
-            bottom:150px;
-            right: 15px;
-            font-size: 40px;
-        }
-        #grupaDugmad{
-            position: absolute;
-            bottom: 30px;
-            right: 30px;
-            button{
-                width: 50px;
-                height: 50px;
-                background-color: rgb(65, 65, 65);
-                border: none;
-                font-size: 30px;
-                &:focus{
-                    outline: none;
+    }
+    #automobili{
+        .slideContent{
+            h5{
+                font-weight: bold;
+                padding: 10px;
+                font-size: 22px;
+            }
+            p{
+                padding-top: 20px;
+                padding-left: 10px;
+                font-weight: bold;
+                font-size: 20px;
+                i{
+                    font-size: 25px;
                 }
             }
         }
     }
-    #automobili, #automobili1{
-        height: 100%;
-        overflow: hidden;
-        .carHolder{
-            position: relative;
-            width: 33.3%;
-            height: 100%;
-            background-color: rgb(218, 218, 218);
-            img{
-                width: 100%;
-            }
-            &:hover{
-                    background-color: rgb(211, 0, 42);
-                    color: #fff;
-            }
-            h4{
-                font-size: 30px;
-                font-weight: bold;
-                padding: 10px;
-            }
-            button{
-                position: absolute;
-                bottom: 20px;
-                right: 10px;
+    #grupaDugmad{
+        button{
+            width: 50px;
+            height: 50px;
+            background-color: rgb(65, 65, 65);
+            border: none;
+            font-size: 30px;
+            &:focus{
                 outline: none;
-                border: none;
-                width: 50px;
-                height: 50px;
-                background-color: rgb(65, 65, 65);
-                color: rgb(19, 19, 19);
-                a{
-                    color: rgb(17, 17, 17);
-                }
-            }
-        }
-    }
-    #automobili1{
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        left: -50%;
-        height: 100%;
-        .carHolder1{
-            position: relative;
-            height: 100%;
-            width: 33.3%;
-            background-color: rgb(218, 218, 218);
-            img{
-                width: 100%;
-            }
-            &:hover{
-                    background-color: rgb(211, 0, 42);
-                    color: #fff;
-            }
-            h4{
-                font-size: 30px;
-                font-weight: bold;
-                padding: 10px;
-            }
-            button{
-                position: absolute;
-                bottom: 20px;
-                right: 10px;
-                outline: none;
-                border: none;
-                width: 50px;
-                height: 50px;
-                background-color: rgb(65, 65, 65);
-                color: rgb(19, 19, 19);
-                a{
-                    color: rgb(17, 17, 17);
-                }
             }
         }
     }
@@ -300,7 +233,6 @@ a:hover{
             h5{
                 color: rgb(24, 24, 24);
                 font-weight: bold;
-                font-size: 25px;
                 display: block;
             }
             p{
@@ -329,4 +261,80 @@ a:hover{
             background-color: rgb(65, 65, 65);
         }
     }
+    .vis{
+        height: 1000px;
+    }
+}
+
+//responsive
+@media screen and (max-width: 1500px){
+    #canvas{
+        .logo{
+            height: 60px;
+            a{
+                height: 60px;
+                .logo-text{
+                    font-size: 30px;
+                } 
+            }
+        }
+        .searchForm{
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (max-width: 1016px) {
+    #showCars{
+        .holder{
+            h5{
+                font-size: 18px;
+            }
+            p{
+                font-size: 13px;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 992px){
+    #canvas{
+        .logo{
+            height: 50px;
+            a{
+                height: 50px;
+                .logo-text{
+                    font-size: 25px;
+                } 
+            }
+        }
+        #navigacija{
+            nav{
+                ul{
+                    li{
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px){
+    
+    #canvas{
+        height: 700px;
+        .searchForm{
+            width: 60%;
+        }
+    }
+}
+@media screen and (max-width: 576px){
+        #canvas{
+            .searchForm{
+                width: 90%;
+                left: 5%;
+                margin-left: 0px !important;
+            }
+        }
 }

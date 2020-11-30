@@ -7,7 +7,7 @@ var myBtn = document.getElementById("btnTop");
 
 window.onload = function(){
     navigacija();
-    cars();
+/*     cars(); */
 }
  window.onscroll = function(){
     scrollUp1()
@@ -48,7 +48,7 @@ $(document).ready(function(){
 
 
 function navigacija(){
-    let navigacija = new Array("Home", "Search cars", "About us", "Contact", "Documentation");
+    let navigacija = new Array("Home", "Cars", "About", "Contact", "Documentation");
     let navigacijaLinkovi = new Array("index.html", "search.html", "about.html", "contact.html", "#");
   
     let navSet = document.createElement("NAV");
@@ -74,7 +74,7 @@ function navigacija(){
 
 //dinamicko ispisivanje sekcije sa automobilima
 
-    var carName = new Array("Chevrolet", "Dodge", "BMW", "Honda", "Subaru", "Mercedes-Benz");
+  /*   var carName = new Array("Chevrolet", "Dodge", "BMW", "Honda", "Subaru", "Mercedes-Benz");
     var carModel = new Array("Camarro ZL1", "Demon", "420d Coupe", "Civic Type R", "Impreza WRX STi", "CLS 450");
     var carImage = new Array("assets/img/muscle_chevy1.jpg", "assets/img/muscle_demon1.jpeg", "assets/img/sports_bmw1.jpeg", "assets/img/sports_civic1.jpeg", "assets/img/sports_evo.jpeg", "assets/img/sports_benz1.jpeg");
     var carValue = new Array("chevrolet", "dodge", "bmw", "honda", "mercedes")
@@ -138,7 +138,7 @@ function navigacija(){
         carBtnFA.className = "fa fa-chevron-right";
         btnLink.appendChild(carBtnFA);
     }
-}
+} */
 
 
 // dinamicko ispisivanje ddl na osnovu prethodno izabranog polja u select-u
@@ -202,13 +202,13 @@ function ispisprvih6(){
     var prvih6 = [
         ["assets/img/sports_civic1.jpeg", "Honda Civic Type R", "Manual", "350hp"],
         ["assets/img/sports_supra1.jpeg", "Toyota Supra", "Automatic", "382hp"],
-        ["assets/img/sports_subaru1.jpeg","Subaru Impreza WRX STi", "Manual", "340hp"],
+        ["assets/img/sports_subaru1.jpeg","Subaru Impreza WRX", "Manual", "340hp"],
         ["assets/img/muscle_chevy1.jpg","Chevrolet ZL1", "Automatic", "650hp"],
         ["assets/img/muscle_demon1.jpeg","Dodge Challenger", "Automatic", "700hp"],
-        ["assets/img/sports_benz1.jpeg","Mercedes Benz 450 CLS", "Manual","375hp"]];
+        ["assets/img/sports_benz1.jpeg","Mercedes 450 CLS", "Manual","375hp"]];
 
         for(let i = 0; i < prvih6.length; i++){
-            div.innerHTML += `<div class="col-4 mb-4">
+            div.innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4">
             <div class="imgHolder">
                 <img src="${prvih6[i][0]}" class="img-fluid" alt="${prvih6[i][1]}">
             </div>
@@ -239,7 +239,7 @@ function ispis3(){
     }
     if(click1 == 1){
         for(var i = 0; i < carIspis1.length; i++){
-            document.getElementById("showCars").innerHTML += `<div class="col-4 mb-4">
+            document.getElementById("showCars").innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4">
             <div class="imgHolder">
                 <img src="${carIspis1[i][0]}" class="img-fluid" alt="${carIspis1[i][1]}">
             </div>
@@ -253,10 +253,11 @@ function ispis3(){
     click1++;
     ispis3Brojac++;
 }
+
 document.getElementById("loadMore").addEventListener("click", function(){
     if(click1 > 1){
         for(var i = 0; i < carIspis2.length; i++){
-            document.getElementById("showCars").innerHTML += `<div class="col-4 mb-4">
+            document.getElementById("showCars").innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4">
             <div class="imgHolder">
                 <img src="${carIspis2[i][0]}" class="img-fluid" alt="${carIspis2[i][1]}">
             </div>
@@ -298,37 +299,55 @@ function provera(){
     }
     console.log(errors)
 }
-var searchBtn = document.getElementById("searchBtn");
-searchBtn.addEventListener("click", provera);
-
-
-var leftBtn = document.getElementById("btnLevo");
-var rightBtn = document.getElementById("btnDesno");
-rightBtn.disabled = true;
-
-leftBtn.addEventListener("click", function(){
-    this.disabled = true;
-    rightBtn.disabled = false;
-});
-rightBtn.addEventListener("click", function(){
-    this.disabled = true;
-    leftBtn.disabled = false;
-})
-    
-
 
 //pozivanje funkcija
-
+/* ["assets/img/sports_civic1.jpeg", "Honda Civic Type R", "Manual", "350hp"],
+["assets/img/sports_supra1.jpeg", "Toyota Supra", "Automatic", "382hp"],
+["assets/img/sports_subaru1.jpeg","Subaru Impreza WRX", "Manual", "340hp"],
+["assets/img/muscle_chevy1.jpg","Chevrolet ZL1", "Automatic", "650hp"],
+["assets/img/muscle_demon1.jpeg","Dodge Challenger", "Automatic", "700hp"],
+["assets/img/sports_benz1.jpeg","Mercedes 450 CLS", "Manual","375hp"]]; */
 $(document).ready(function(){
     ispisprvih6();
     $("#loadMore").click(ispis3);
-})
+    $(".owl-carousel").owlCarousel({
+        responsiveClass:true,
+        autoplay: true,
+        animateIn:true,
+        loop: true,
+        responsive:{
+        0:{
+            items:1,
+            nav:false
+        },
+        600:{
+            items:2,
+            nav:false
+        },
+        850:{
+            items:3,
+            nav:false
+        },
+        1100:{
+            items:4,
+            nav:false
+        }
+    }
+    });
+    var owl = $(".owl-carousel");
+    $("#btnDesno").click(function(){
+        owl.trigger("next.owl.carousel");
+    })
+    $("#btnLevo").click(function(){
+        owl.trigger("prev.owl.carousel");
+    })
+    })
+    
 // animation jquery search form
-
 $(window).ready(function(){
     $(".searchForm").slideDown("slow");
 })
-$("#btnDesno").click(function(){
+/* $("#btnDesno").click(function(){
     $(".carHolder").animate({
         left:"0%"
     }, (700));
@@ -339,7 +358,6 @@ $("#btnDesno").click(function(){
 
 
 $("#btnLevo").click(function(){
-   
     $(".carHolder").animate({
         left:"100%"
     }, (1000));
@@ -347,6 +365,6 @@ $("#btnLevo").click(function(){
         left:"25%"
     }, (1000))
 })
-
+ */
 
 

@@ -61,23 +61,33 @@ a:hover {
 #canvas .tekstBoja {
   color: black;
 }
-#canvas .logo .leviTekst {
-  color: red !important;
-}
-#canvas .logo img {
+#canvas .logo {
   height: 80px;
 }
-#canvas .logo .logo-text {
+#canvas .logo a {
+  height: 80px;
+}
+#canvas .logo a .leviTekst {
+  color: red !important;
+  vertical-align: middle;
+}
+#canvas .logo a img {
+  display: inline;
+  height: 100%;
+  vertical-align: middle;
+}
+#canvas .logo a .logo-text {
   font-size: 60px;
   font-weight: bold;
   color: black;
+  vertical-align: middle;
 }
 #canvas .searchForm {
   display: none;
   position: absolute;
   right: 20%;
   top: 25%;
-  width: 350px;
+  width: 20%;
   background-color: #dddddd;
 }
 #canvas .searchForm .search {
@@ -141,120 +151,39 @@ a:hover {
 }
 
 .secondRow-cars {
-  position: relative;
-  height: 450px;
   border-top: 5px solid #d3002a;
   border-bottom: 5px solid #d3002a;
 }
 .secondRow-cars .upcoming {
-  position: relative;
-  z-index: 9999;
-  height: 100%;
-  background: #e2e2e2;
-  background: linear-gradient(90deg, #e2e2e2 0%, #f4f4f4 100%);
-}
-.secondRow-cars .upcoming #tekstRelative1 {
-  position: absolute;
-  right: 30px;
-  top: 80px;
-  font-size: 100px;
-  font-weight: bold;
-}
-.secondRow-cars .upcoming #tekstRelative2 {
-  position: absolute;
-  bottom: 150px;
-  right: 15px;
-  font-size: 40px;
-}
-.secondRow-cars .upcoming #grupaDugmad {
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
-}
-.secondRow-cars .upcoming #grupaDugmad button {
-  width: 50px;
-  height: 50px;
-  background-color: #414141;
-  border: none;
-  font-size: 30px;
-}
-.secondRow-cars .upcoming #grupaDugmad button:focus {
-  outline: none;
-}
-.secondRow-cars #automobili, .secondRow-cars #automobili1 {
-  height: 100%;
-  overflow: hidden;
-}
-.secondRow-cars #automobili .carHolder, .secondRow-cars #automobili1 .carHolder {
-  position: relative;
-  width: 33.3%;
-  height: 100%;
   background-color: #dadada;
 }
-.secondRow-cars #automobili .carHolder img, .secondRow-cars #automobili1 .carHolder img {
-  width: 100%;
+.secondRow-cars .upcoming .featured {
+  font-size: 35px;
+  font-weight: bold;
 }
-.secondRow-cars #automobili .carHolder:hover, .secondRow-cars #automobili1 .carHolder:hover {
-  background-color: #d3002a;
-  color: #fff;
-}
-.secondRow-cars #automobili .carHolder h4, .secondRow-cars #automobili1 .carHolder h4 {
-  font-size: 30px;
+.secondRow-cars #automobili .slideContent h5 {
   font-weight: bold;
   padding: 10px;
+  font-size: 22px;
 }
-.secondRow-cars #automobili .carHolder button, .secondRow-cars #automobili1 .carHolder button {
-  position: absolute;
-  bottom: 20px;
-  right: 10px;
-  outline: none;
-  border: none;
+.secondRow-cars #automobili .slideContent p {
+  padding-top: 20px;
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.secondRow-cars #automobili .slideContent p i {
+  font-size: 25px;
+}
+.secondRow-cars #grupaDugmad button {
   width: 50px;
   height: 50px;
   background-color: #414141;
-  color: #131313;
-}
-.secondRow-cars #automobili .carHolder button a, .secondRow-cars #automobili1 .carHolder button a {
-  color: #111111;
-}
-.secondRow-cars #automobili1 {
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: -50%;
-  height: 100%;
-}
-.secondRow-cars #automobili1 .carHolder1 {
-  position: relative;
-  height: 100%;
-  width: 33.3%;
-  background-color: #dadada;
-}
-.secondRow-cars #automobili1 .carHolder1 img {
-  width: 100%;
-}
-.secondRow-cars #automobili1 .carHolder1:hover {
-  background-color: #d3002a;
-  color: #fff;
-}
-.secondRow-cars #automobili1 .carHolder1 h4 {
-  font-size: 30px;
-  font-weight: bold;
-  padding: 10px;
-}
-.secondRow-cars #automobili1 .carHolder1 button {
-  position: absolute;
-  bottom: 20px;
-  right: 10px;
-  outline: none;
   border: none;
-  width: 50px;
-  height: 50px;
-  background-color: #414141;
-  color: #131313;
+  font-size: 30px;
 }
-.secondRow-cars #automobili1 .carHolder1 button a {
-  color: #111111;
+.secondRow-cars #grupaDugmad button:focus {
+  outline: none;
 }
 
 #request {
@@ -295,7 +224,6 @@ a:hover {
 #featuredSection #showCars .holder h5 {
   color: #181818;
   font-weight: bold;
-  font-size: 25px;
   display: block;
 }
 #featuredSection #showCars .holder p {
@@ -321,4 +249,59 @@ a:hover {
 }
 #featuredSection #loadMore:hover {
   background-color: #414141;
+}
+#featuredSection .vis {
+  height: 1000px;
+}
+
+@media screen and (max-width: 1500px) {
+  #canvas .logo {
+    height: 60px;
+  }
+  #canvas .logo a {
+    height: 60px;
+  }
+  #canvas .logo a .logo-text {
+    font-size: 30px;
+  }
+  #canvas .searchForm {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 1016px) {
+  #showCars .holder h5 {
+    font-size: 18px;
+  }
+  #showCars .holder p {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 992px) {
+  #canvas .logo {
+    height: 50px;
+  }
+  #canvas .logo a {
+    height: 50px;
+  }
+  #canvas .logo a .logo-text {
+    font-size: 25px;
+  }
+  #canvas #navigacija nav ul li {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #canvas {
+    height: 700px;
+  }
+  #canvas .searchForm {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 576px) {
+  #canvas .searchForm {
+    width: 90%;
+    left: 5%;
+    margin-left: 0px !important;
+  }
 }
