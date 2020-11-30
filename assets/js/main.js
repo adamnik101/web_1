@@ -315,22 +315,22 @@ $(document).ready(function(){
         autoplay: true,
         animateIn:true,
         loop: true,
+        nav:false,
+        dots:true,
+        dotsEach:true,
         responsive:{
         0:{
             items:1,
-            nav:false
+            autoplay:false,
         },
-        600:{
+        800:{
             items:2,
-            nav:false
         },
         850:{
-            items:3,
-            nav:false
+            items:2,
         },
-        1100:{
-            items:4,
-            nav:false
+        1000:{
+            items:3,
         }
     }
     });

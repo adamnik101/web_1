@@ -171,7 +171,7 @@ a:hover{
             h5{
                 font-weight: bold;
                 padding: 10px;
-                font-size: 22px;
+                font-size: 20px;
             }
             p{
                 padding-top: 20px;
@@ -181,6 +181,31 @@ a:hover{
                 i{
                     font-size: 25px;
                 }
+                .reqBtn{
+                    margin-right: 5px;
+                    padding: 10px 15px;
+                    font-size: 17px;
+                    background-color: rgb(211, 0, 42);
+                    color: rgb(24, 24, 24);
+                }
+            }
+        }
+        .owl-dots{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            .owl-dot{
+                width: 20px;
+                margin: 10px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: rgb(122, 122, 122);
+                &:focus{
+                    outline: none;
+                }
+            }
+            .active{
+                background-color: rgb(24, 24, 24);
             }
         }
     }
@@ -288,10 +313,10 @@ a:hover{
     #showCars{
         .holder{
             h5{
-                font-size: 18px;
+                font-size: 17px;
             }
             p{
-                font-size: 13px;
+                font-size: 12px;
             }
         }
     }
