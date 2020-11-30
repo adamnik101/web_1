@@ -51,8 +51,8 @@ a:hover {
   color: #242424;
 }
 #canvas #navigacija ul li a:hover {
-  color: #e60000;
-  border-bottom: 3px solid #e60000;
+  color: #d3002a;
+  border-bottom: 3px solid #d3002a;
 }
 #canvas .fab {
   color: black;
@@ -68,7 +68,7 @@ a:hover {
   height: 80px;
 }
 #canvas .logo a .leviTekst {
-  color: red !important;
+  color: #d3002a !important;
   vertical-align: middle;
 }
 #canvas .logo a img {
@@ -96,7 +96,7 @@ a:hover {
 #canvas .searchForm .search h4 {
   width: 100%;
   height: 70px;
-  background-color: #e60000;
+  background-color: #d3002a;
   color: #fff;
   border-radius: 0px 0px 25% 25%;
   text-align: center;
@@ -104,7 +104,7 @@ a:hover {
   font-weight: bold;
 }
 #canvas .searchForm .search .buttonGroup .activeButton {
-  background-color: #e60000;
+  background-color: #d3002a;
   color: #fff;
 }
 #canvas .searchForm .search .buttonGroup .dugme {
@@ -117,7 +117,7 @@ a:hover {
 }
 #canvas .searchForm .search .labelInput {
   padding: 10px;
-  color: #e60000;
+  color: #d3002a;
   font-weight: bold;
 }
 #canvas .searchForm .search .labelInput input {
@@ -141,12 +141,12 @@ a:hover {
   padding: 10px 30px;
   font-weight: bold;
   font-size: 20px;
-  background-color: #e60000;
+  background-color: #d3002a;
   color: #fff;
   width: 80%;
 }
 #canvas .searchForm .search a {
-  color: #e60000;
+  color: #d3002a;
   font-size: 18px;
 }
 

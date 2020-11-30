@@ -41,8 +41,8 @@ a:hover{
                 a{
                     color: rgb(36, 36, 36);
                     &:hover{
-                        color: rgb(230, 0, 0);
-                        border-bottom: 3px solid rgb(230, 0, 0);
+                        color: rgb(211, 0, 42);
+                        border-bottom: 3px solid rgb(211, 0, 42);
                     }
                 }
             }
@@ -66,7 +66,7 @@ a:hover{
         a{
             height: 80px;
             .leviTekst{
-                color: red !important;
+                color: rgb(211, 0, 42) !important;
                 vertical-align: middle;
             }
             img{
@@ -94,7 +94,7 @@ a:hover{
             h4{
                 width: 100%;
                 height: 70px;
-                background-color: rgb(230, 0, 0);
+                background-color:rgb(211, 0, 42);
                 color: #fff;
                 border-radius: 0px 0px 25% 25%;
                 text-align: center;
@@ -103,7 +103,7 @@ a:hover{
             }
             .buttonGroup{
                 .activeButton{
-                    background-color: rgb(230, 0, 0);
+                    background-color:rgb(211, 0, 42);
                     color: #fff;
                 }
                 .dugme{
@@ -117,7 +117,7 @@ a:hover{
             }
             .labelInput{
                 padding: 10px;
-                color: rgb(230, 0, 0);
+                color:rgb(211, 0, 42);
                 font-weight: bold;
                 input{
                     margin-right: 3px;
@@ -144,13 +144,13 @@ a:hover{
                     padding: 10px 30px;
                     font-weight: bold;
                     font-size: 20px;
-                    background-color: rgb(230, 0, 0);
+                    background-color:rgb(211, 0, 42);
                     color: #fff;
                     width: 80%;
                 }
             }
             a{
-                color: rgb(230, 0, 0);
+                color:rgb(211, 0, 42);
                 font-size: 18px;
             }
         }
