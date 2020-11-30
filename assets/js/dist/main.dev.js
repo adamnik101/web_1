@@ -3,7 +3,8 @@
 var myBtn = document.getElementById("btnTop"); //pozivanje pri ucitavanju stranice za odredjene delove sajta
 
 window.onload = function () {
-  navigacija();
+  navigacija1();
+  sideNav();
   /*     cars(); */
 };
 
@@ -38,12 +39,13 @@ $(document).ready(function () {
   });
 }); // Dinamicko ispisivanje navigacije
 
-function navigacija() {
-  var navigacija = new Array("Home", "Cars", "About", "Contact", "Documentation");
-  var navigacijaLinkovi = new Array("index.html", "search.html", "about.html", "contact.html", "#");
-  var navSet = document.createElement("NAV");
-  navSet.className = "d-flex align-items-center";
+var navigacija = new Array("Home", "Cars", "About", "Contact", "Documentation");
+var navigacijaLinkovi = new Array("index.html", "search.html", "about.html", "contact.html", "#");
+
+function navigacija1() {
   var navGet = document.getElementById("navigacija");
+  var navSet = document.createElement("nav");
+  navSet.className = "d-flex align-items-center justify-content-center";
   navGet.appendChild(navSet);
   var uList = document.createElement("ul");
   uList.className = "d-flex justify-content-around";
@@ -57,7 +59,39 @@ function navigacija() {
     aList.setAttribute("href", "".concat(navigacijaLinkovi[indeks]));
     aList.textContent = "".concat(navigacija[indeks]);
   }
-} //dinamicko ispisivanje sekcije sa automobilima
+}
+
+function sideNav() {
+  var sideNav = document.getElementById("openSide");
+  var nav = document.createElement("nav");
+  sideNav.appendChild(nav);
+  var button = document.createElement("button");
+  button.textContent = "Close";
+  var sideUl = document.createElement("ul");
+  nav.appendChild(sideUl);
+
+  for (indeks in navigacija) {
+    var sideLi = document.createElement("li");
+    sideUl.appendChild(sideLi);
+    var sideA = document.createElement("a");
+    sideLi.appendChild(sideA);
+    sideA.setAttribute("href", "".concat(navigacijaLinkovi[indeks]));
+    sideA.textContent = "".concat(navigacija[indeks]);
+  }
+}
+
+function openNav() {
+  document.getElementById("openSide").style.width = "250px";
+}
+/* Set the width of the side navigation to 0 */
+
+
+function closeNav() {
+  document.getElementById("openSide").style.width = "0";
+}
+
+document.getElementById("clickSide").addEventListener("click", openNav);
+document.getElementById("closeSide").addEventListener("click", closeNav); //dinamicko ispisivanje sekcije sa automobilima
 
 /*   var carName = new Array("Chevrolet", "Dodge", "BMW", "Honda", "Subaru", "Mercedes-Benz");
   var carModel = new Array("Camarro ZL1", "Demon", "420d Coupe", "Civic Type R", "Impreza WRX STi", "CLS 450");
@@ -114,12 +148,12 @@ function navigacija() {
 } */
 // dinamicko ispisivanje ddl na osnovu prethodno izabranog polja u select-u
 
-
 var model = document.getElementById("carModel");
 model.disabled = true;
 var firstOpt = document.createElement("option");
-firstOpt.value = "0";
-firstOpt.textContent = "Choose a model";
+firstOpt.setAttribute("value", "0");
+var sadrzaj = document.createTextNode("Choose a model");
+firstOpt.appendChild(sadrzaj);
 model.appendChild(firstOpt);
 var carsAndModels = {};
 carsAndModels["Chevrolet"] = ["ZL1", "Stingray"];
@@ -150,8 +184,9 @@ document.getElementById("carType").onchange = function () {
   if (cars) {
     for (var i = 0; i < cars.length; i++) {
       var car = document.createElement("option");
-      car.value = i;
-      car.textContent = cars[i];
+      car.setAttribute("value", i);
+      var text = document.createTextNode(cars[i]);
+      car.appendChild(text);
       model.options.add(car);
     }
   }
@@ -164,8 +199,9 @@ function ispisivanjeOpt() {
 
   for (var i = 0; i < Object.keys(carsAndModels).length; i++) {
     var opt = document.createElement("option");
-    opt.value = Object.keys(carsAndModels)[i];
-    opt.textContent = Object.keys(carsAndModels)[i];
+    opt.setAttribute("value", Object.keys(carsAndModels)[i]);
+    var text = document.createTextNode(Object.keys(carsAndModels)[i]);
+    opt.appendChild(text);
     type.appendChild(opt);
   }
 }

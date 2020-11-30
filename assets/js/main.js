@@ -6,7 +6,8 @@ var myBtn = document.getElementById("btnTop");
 
 
 window.onload = function(){
-    navigacija();
+    navigacija1();
+    sideNav();
 /*     cars(); */
 }
  window.onscroll = function(){
@@ -46,15 +47,14 @@ $(document).ready(function(){
 
 // Dinamicko ispisivanje navigacije
 
+var navigacija = new Array("Home", "Cars", "About", "Contact", "Documentation");
+var navigacijaLinkovi = new Array("index.html", "search.html", "about.html", "contact.html", "#");
 
-function navigacija(){
-    let navigacija = new Array("Home", "Cars", "About", "Contact", "Documentation");
-    let navigacijaLinkovi = new Array("index.html", "search.html", "about.html", "contact.html", "#");
-  
-    let navSet = document.createElement("NAV");
-    navSet.className = "d-flex align-items-center";
-
+function navigacija1(){
     let navGet = document.getElementById("navigacija");
+
+    let navSet = document.createElement("nav");
+    navSet.className = "d-flex align-items-center justify-content-center";
     navGet.appendChild(navSet);
 
     let uList = document.createElement("ul");
@@ -71,6 +71,37 @@ function navigacija(){
         aList.textContent = `${navigacija[indeks]}`;
     }
 }
+function sideNav(){
+    let sideNav = document.getElementById("openSide");
+    
+    let nav = document.createElement("nav");
+    sideNav.appendChild(nav);
+    let button = document.createElement("button");
+    button.textContent = "Close"
+
+    let sideUl = document.createElement("ul");
+    nav.appendChild(sideUl);
+
+    for(indeks in navigacija){
+        let sideLi = document.createElement("li");
+        sideUl.appendChild(sideLi);
+
+        let sideA = document.createElement("a");
+        sideLi.appendChild(sideA);
+        sideA.setAttribute("href", `${navigacijaLinkovi[indeks]}`);
+        sideA.textContent = `${navigacija[indeks]}`;
+    }
+}
+function openNav() {
+    document.getElementById("openSide").style.width = "250px";
+  }
+  
+  /* Set the width of the side navigation to 0 */
+  function closeNav() {
+    document.getElementById("openSide").style.width = "0";
+  }
+document.getElementById("clickSide").addEventListener("click", openNav);
+document.getElementById("closeSide").addEventListener("click", closeNav);
 
 //dinamicko ispisivanje sekcije sa automobilima
 
@@ -146,8 +177,9 @@ var model = document.getElementById("carModel");
 model.disabled=true;
 
 var firstOpt = document.createElement("option");
-    firstOpt.value = "0";
-    firstOpt.textContent = "Choose a model";
+    firstOpt.setAttribute("value","0");
+    var sadrzaj = document.createTextNode("Choose a model");
+    firstOpt.appendChild(sadrzaj);
     model.appendChild(firstOpt);
 
 var carsAndModels = {};
@@ -175,8 +207,9 @@ document.getElementById("carType").onchange = function(){
     if (cars) {
         for (var i = 0; i < cars.length; i++) {
         var car = document.createElement("option");
-        car.value = i;
-        car.textContent = cars[i];
+        car.setAttribute("value", i);
+        var text = document.createTextNode(cars[i]);
+        car.appendChild(text);
 
         model.options.add(car);
         }
@@ -190,8 +223,9 @@ function ispisivanjeOpt(){
     for(let i = 0; i < Object.keys(carsAndModels).length; i++){
         
         var opt = document.createElement("option");
-        opt.value = Object.keys(carsAndModels)[i];
-        opt.textContent = Object.keys(carsAndModels)[i];
+        opt.setAttribute("value", Object.keys(carsAndModels)[i]);
+        var text = document.createTextNode(Object.keys(carsAndModels)[i]);
+        opt.appendChild(text);
         type.appendChild(opt);
     }
 }
