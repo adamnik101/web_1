@@ -46,7 +46,7 @@ function info1(){
     let content = [
         ["BRANDS","We got latest and most popular brands from automotive industry", "fas fa-car"],
         ["FREE SUPPORT", "24/7 covered available support to get answers all your questions", "far fa-comment-dots"],
-        ["AFFORDABLE", "Popular and exotic cars that have best deals by their performance", "fas fa-coins"]
+        ["AFFORDABLE", "Popular and exotic cars that have best deals according to their performance", "fas fa-coins"]
     ];
 
     document.getElementsByClassName("naslovContent")[0].innerHTML =`<div class="col-12 text-center naslov p-4">
@@ -74,9 +74,6 @@ function info1(){
                         </div>
                     </div>`
 }
-
-
-
 // Dinamicko ispisivanje navigacije i sidenav
 
 var navigacija = new Array("Home", "Cars", "About", "Contact", "Documentation");
