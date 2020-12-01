@@ -5,6 +5,8 @@ var myBtn = document.getElementById("btnTop"); //pozivanje pri ucitavanju strani
 window.onload = function () {
   navigacija1();
   sideNav();
+  ddl();
+  info1();
   /*     cars(); */
 };
 
@@ -22,22 +24,34 @@ function scrollUp1() {
 
 
 $(document).ready(function () {
-  //Check to see if the window is top if not then display button
   $(window).scroll(function () {
     if ($(this).scrollTop() > 300) {
       $('#btnTop').fadeIn();
     } else {
       $('#btnTop').fadeOut();
     }
-  }); //Click event to scroll to top
-
+  });
   $('#btnTop').click(function () {
     $('html, body').animate({
       scrollTop: 0
     }, 800);
     return false;
   });
-}); // Dinamicko ispisivanje navigacije
+});
+
+function info1() {
+  var naslov = ["WELCOME TO OUR SITE", "CAR", "ZONE"];
+  var content = [["BRANDS", "We got latest and most popular brands from automotive industry", "fas fa-car"], ["FREE SUPPORT", "24/7 covered available support to get answers all your questions", "far fa-comment-dots"], ["AFFORDABLE", "Popular and exotic cars that have best deals by their performance", "fas fa-coins"]];
+  document.getElementsByClassName("naslovContent")[0].innerHTML = "<div class=\"col-12 text-center naslov p-4\">\n    <h4>".concat(naslov[0], "</h4>\n    <span><i class=\"fas fa-angle-double-down\"></i></span>\n    <h1><span>").concat(naslov[1], "</span> ").concat(naslov[2], "</h1>\n</div>");
+
+  for (var i = 0; i < content.length - 1; i++) {
+    document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-6 col-lg-4 text-center\">\n                        <div class=\"col-12 sectionContent p-2 mb-3\">\n                            <i class=\"".concat(content[i][2], "\"></i>\n                        <h5>").concat(content[i][0], "</h5>\n                        <p>").concat(content[i][1], "</p>\n                        </div>\n                    </div>");
+  } //zbog poslednjeg elementa kome je potreban col-sm-12
+
+
+  document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-12 col-lg-4 text-center\">\n                        <div class=\"col-12 sectionContent p-2 mb-3\">\n                            <i class=\"".concat(content[2][2], "\"></i>\n                        <h5>").concat(content[2][0], "</h5>\n                        <p>").concat(content[2][1], "</p>\n                        </div>\n                    </div>");
+} // Dinamicko ispisivanje navigacije i sidenav
+
 
 var navigacija = new Array("Home", "Cars", "About", "Contact", "Documentation");
 var navigacijaLinkovi = new Array("index.html", "search.html", "about.html", "contact.html", "#");
@@ -83,167 +97,138 @@ function sideNav() {
 function openNav() {
   document.getElementById("openSide").style.width = "250px";
 }
-/* Set the width of the side navigation to 0 */
-
 
 function closeNav() {
   document.getElementById("openSide").style.width = "0";
 }
 
 document.getElementById("clickSide").addEventListener("click", openNav);
-document.getElementById("closeSide").addEventListener("click", closeNav); //dinamicko ispisivanje sekcije sa automobilima
+document.getElementById("closeSide").addEventListener("click", closeNav); // dinamicko ispisivanje ddl na osnovu prethodno izabranog polja u select-u
 
-/*   var carName = new Array("Chevrolet", "Dodge", "BMW", "Honda", "Subaru", "Mercedes-Benz");
-  var carModel = new Array("Camarro ZL1", "Demon", "420d Coupe", "Civic Type R", "Impreza WRX STi", "CLS 450");
-  var carImage = new Array("assets/img/muscle_chevy1.jpg", "assets/img/muscle_demon1.jpeg", "assets/img/sports_bmw1.jpeg", "assets/img/sports_civic1.jpeg", "assets/img/sports_evo.jpeg", "assets/img/sports_benz1.jpeg");
-  var carValue = new Array("chevrolet", "dodge", "bmw", "honda", "mercedes")
-    function cars(){
-    var carSection = document.getElementById("automobili");
-  for(let i = 0; i < 3; i++){
-      let carArticle = document.createElement("div");
-      carArticle.className = "carHolder slide1";
-      carSection.appendChild(carArticle);
-        let carImg = document.createElement("img");
-      carImg.setAttribute("src", `${carImage[i]}`);
-      carImg.className = "first";
-      carArticle.appendChild(carImg); 
-        let carH4 = document.createElement("h4");
-      carArticle.appendChild(carH4);
-      carH4.className = "name";
-      let h4Content = document.createTextNode(carName[i] + " " + carModel[i]);
-      carH4.appendChild(h4Content);
-        let carBtn = document.createElement("button");
-      carArticle.appendChild(carBtn);
-        let btnLink = document.createElement("a");
-      btnLink.setAttribute("href", "#");
-      carBtn.appendChild(btnLink);
-        let carBtnFA = document.createElement("i");
-      carBtnFA.className = "fa fa-chevron-right";
-      btnLink.appendChild(carBtnFA);
-   }
-   var nextSection = document.getElementById("automobili1");
-  for(let i = 3; i < carName.length; i++){
-      let carArticle = document.createElement("div");
-      carArticle.className = "carHolder1 slide1";
-      nextSection.appendChild(carArticle);
-        let carImg = document.createElement("img");
-      carImg.setAttribute("src", `${carImage[i]}`);
-      carImg.className = "first";
-      carArticle.appendChild(carImg); 
-        let carH4 = document.createElement("h4");
-      carArticle.appendChild(carH4);
-      carH4.className = "name";
-      let h4Content = document.createTextNode(carName[i] + " " + carModel[i]);
-      carH4.appendChild(h4Content);
-        let carBtn = document.createElement("button");
-      carArticle.appendChild(carBtn);
-        let btnLink = document.createElement("a");
-      btnLink.setAttribute("href", "#");
-      btnLink.textContent= ""
-      carBtn.appendChild(btnLink);
-        let carBtnFA = document.createElement("i");
-      carBtnFA.className = "fa fa-chevron-right";
-      btnLink.appendChild(carBtnFA);
-  }
-} */
-// dinamicko ispisivanje ddl na osnovu prethodno izabranog polja u select-u
-
-var model = document.getElementById("carModel");
-model.disabled = true;
-var firstOpt = document.createElement("option");
-firstOpt.setAttribute("value", "0");
-var sadrzaj = document.createTextNode("Choose a model");
-firstOpt.appendChild(sadrzaj);
-model.appendChild(firstOpt);
-var carsAndModels = {};
-carsAndModels["Chevrolet"] = ["ZL1", "Stingray"];
-carsAndModels["Dodge"] = ["Challenger", "Charger"];
-carsAndModels["BMW"] = ["420d Coupe"];
-carsAndModels["Subaru"] = ["Impreza WRX STi"];
-carsAndModels["Mitsubishi"] = ["EVO X"];
-carsAndModels["Honda"] = ["Civic Type R"];
-carsAndModels["Toyota"] = ["Supra"];
-carsAndModels["Mercedes"] = ["CLS 450"];
-console.log(carsAndModels);
-
-document.getElementById("carType").onchange = function () {
-  model.disabled = this.value == '0';
-  var selCar = this.options[this.selectedIndex].value;
+function ddl() {
+  var model = document.getElementById("carModel");
+  model.disabled = true;
+  var firstOpt = document.createElement("option");
+  firstOpt.setAttribute("value", "0");
+  var sadrzaj = document.createTextNode("Choose a model");
+  firstOpt.appendChild(sadrzaj);
   model.appendChild(firstOpt);
+  var carsAndModels = {};
+  carsAndModels["Chevrolet"] = ["ZL1", "Stingray"];
+  carsAndModels["Dodge"] = ["Challenger", "Charger"];
+  carsAndModels["BMW"] = ["420d Coupe"];
+  carsAndModels["Subaru"] = ["Impreza WRX STi"];
+  carsAndModels["Mitsubishi"] = ["EVO X"];
+  carsAndModels["Honda"] = ["Civic Type R"];
+  carsAndModels["Toyota"] = ["Supra"];
+  carsAndModels["Mercedes"] = ["450 CLS"];
+  console.log(carsAndModels);
 
-  while (model.options.length) {
-    model.remove(0);
-  }
-
-  if (selCar == "0") {
+  document.getElementById("carType").onchange = function () {
+    model.disabled = this.value == '0';
+    var selCar = this.options[this.selectedIndex].value;
     model.appendChild(firstOpt);
-  }
 
-  var cars = carsAndModels[selCar];
+    while (model.options.length) {
+      model.remove(0);
+    }
 
-  if (cars) {
-    for (var i = 0; i < cars.length; i++) {
-      var car = document.createElement("option");
-      car.setAttribute("value", i);
-      var text = document.createTextNode(cars[i]);
-      car.appendChild(text);
-      model.options.add(car);
+    if (selCar == "0") {
+      model.appendChild(firstOpt);
+    }
+
+    var cars = carsAndModels[selCar];
+
+    if (cars) {
+      for (var i = 0; i < cars.length; i++) {
+        var car = document.createElement("option");
+        car.setAttribute("value", i);
+        var text = document.createTextNode(cars[i]);
+        car.appendChild(text);
+        model.options.add(car);
+      }
+    }
+  };
+
+  console.log(Object.values(carsAndModels)[1][1]);
+
+  function ispisivanjeOpt() {
+    var type = document.getElementById("carType");
+
+    for (var i = 0; i < Object.keys(carsAndModels).length; i++) {
+      var opt = document.createElement("option");
+      opt.setAttribute("value", Object.keys(carsAndModels)[i]);
+      var text = document.createTextNode(Object.keys(carsAndModels)[i]);
+      opt.appendChild(text);
+      type.appendChild(opt);
     }
   }
-};
 
-console.log(Object.values(carsAndModels)[1][1]);
+  ispisivanjeOpt();
+} // ispisivanje prvih 6 artikala
 
-function ispisivanjeOpt() {
-  var type = document.getElementById("carType");
-
-  for (var i = 0; i < Object.keys(carsAndModels).length; i++) {
-    var opt = document.createElement("option");
-    opt.setAttribute("value", Object.keys(carsAndModels)[i]);
-    var text = document.createTextNode(Object.keys(carsAndModels)[i]);
-    opt.appendChild(text);
-    type.appendChild(opt);
-  }
-}
-
-ispisivanjeOpt();
 
 function ispisprvih6() {
   var div = document.getElementById("showCars");
   var prvih6 = [["assets/img/sports_civic1.jpeg", "Honda Civic Type R", "Manual", "350hp"], ["assets/img/sports_supra1.jpeg", "Toyota Supra", "Automatic", "382hp"], ["assets/img/sports_subaru1.jpeg", "Subaru Impreza WRX", "Manual", "340hp"], ["assets/img/muscle_chevy1.jpg", "Chevrolet ZL1", "Automatic", "650hp"], ["assets/img/muscle_demon1.jpeg", "Dodge Challenger", "Automatic", "700hp"], ["assets/img/sports_benz1.jpeg", "Mercedes 450 CLS", "Manual", "375hp"]];
+  var random = []; // funkcija za random ispisivanje iz niza
+
+  function generate() {
+    var max = 6;
+
+    for (var i = 0; i < max; i++) {
+      var trenutni = Math.floor(Math.random() * 6);
+
+      if (random.indexOf(trenutni) == -1) {
+        random.push(trenutni);
+      } else i--;
+    }
+  }
+
+  generate();
 
   for (var i = 0; i < prvih6.length; i++) {
-    div.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(prvih6[i][0], "\" class=\"img-fluid\" alt=\"").concat(prvih6[i][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(prvih6[i][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(prvih6[i][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(prvih6[i][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div>\n        </div>");
+    div.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(prvih6[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(prvih6[random[i]][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(prvih6[random[i]][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(prvih6[random[i]][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(prvih6[random[i]][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div>\n        </div>");
   }
 }
 
 var carIspis1 = [["assets/img/sports_evo.jpeg", "Subaru WRX", "Manual", "360hp"], ["assets/img/sports_bmw1.jpeg", "BMW 420d Coupe", "Manual", "310hp"], ["assets/img/sports_mitsubishi1.jpg", "Mitsubishi EVO X", "Automatic", "290hp"]];
 var carIspis2 = [["assets/img/muscle_mustang1.jpeg", "Ford Mustang", "Automatic", "750hp"], ["assets/img/sports_bmw2.jpeg", "BMW X5", "Automatic", "310hp"], ["assets/img/suv_ford1.jpeg", "Ford F-150", "Automatic", "280hp"]];
-var ispis3Brojac = 0;
-var click1 = 1;
-
-function ispis3() {
-  if (ispis3Brojac == 1) {
+var click1 = 0;
+document.getElementById("loadMore").addEventListener("click", function () {
+  if (click1 == 1) {
     document.getElementById("loadMore").style.display = "none";
   }
 
-  if (click1 == 1) {
+  if (click1 == 0) {
     for (var i = 0; i < carIspis1.length; i++) {
-      document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carIspis1[i][0], "\" class=\"img-fluid\" alt=\"").concat(carIspis1[i][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carIspis1[i][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(carIspis1[i][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carIspis1[i][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div></div>");
+      document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 mr-auto col-12 col-sm-6 mb-4\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carIspis1[i][0], "\" class=\"img-fluid\" alt=\"").concat(carIspis1[i][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carIspis1[i][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(carIspis1[i][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carIspis1[i][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div></div>");
     }
   }
 
-  click1++;
-  ispis3Brojac++;
-}
-
-document.getElementById("loadMore").addEventListener("click", function () {
-  if (click1 > 1) {
+  if (click1 > 0) {
     for (var i = 0; i < carIspis2.length; i++) {
       document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carIspis2[i][0], "\" class=\"img-fluid\" alt=\"").concat(carIspis2[i][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carIspis2[i][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(carIspis2[i][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carIspis2[i][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div></div>");
     }
   }
+
+  click1++;
 });
+/* document.getElementById("loadMore").addEventListener("click", function(){
+    if(click1 > 0){
+        for(var i = 0; i < carIspis2.length; i++){
+            document.getElementById("showCars").innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4">
+            <div class="imgHolder">
+                <img src="${carIspis2[i][0]}" class="img-fluid" alt="${carIspis2[i][1]}">
+            </div>
+            <div class="holder">
+            <h5 class="mb-3">${carIspis2[i][1]}</h5>
+            <p><i class="fas fa-cog"></i> ${carIspis2[i][2]} <i class="fas fa-tachometer-alt"></i> ${carIspis2[i][3]}</p>
+            <a href="#">ORDER NOW</a>
+            </div></div>`;
+        }
+    }
+}) */
 
 function provera() {
   var objNewUsed, objBy, objType, objModel, arrayData, errors;
@@ -254,29 +239,53 @@ function provera() {
   arrayData = [];
   errors = []; //////////////////////////////////////////////////
 
-  if (objModel.disabled == true) {
-    var p = document.createElement("p");
-    p.className = "alert alert-danger";
-    p.textContent = "You must choose brand!";
-    var parent = document.getElementById("greska1");
-    parent.appendChild(p);
+  if (objType.options[objType.options.selectedIndex].value == 0) {
     errors.push("You must first choose brand");
+  } else {
+    arrayData.push(objType.options[objType.options.selectedIndex].value);
+    console.log(arrayData);
   }
 
-  console.log(errors);
-} //pozivanje funkcija
+  var ispis = "<ul class='list-group'>";
 
-/* ["assets/img/sports_civic1.jpeg", "Honda Civic Type R", "Manual", "350hp"],
-["assets/img/sports_supra1.jpeg", "Toyota Supra", "Automatic", "382hp"],
-["assets/img/sports_subaru1.jpeg","Subaru Impreza WRX", "Manual", "340hp"],
-["assets/img/muscle_chevy1.jpg","Chevrolet ZL1", "Automatic", "650hp"],
-["assets/img/muscle_demon1.jpeg","Dodge Challenger", "Automatic", "700hp"],
-["assets/img/sports_benz1.jpeg","Mercedes 450 CLS", "Manual","375hp"]]; */
+  if (errors.length != 0) {
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
 
+    try {
+      for (var _iterator = errors[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var greska = _step.value;
+        ispis += "<li class=\"list-group-item\">".concat(greska, "</li>");
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+          _iterator["return"]();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+  }
 
+  ispis += "</ul>";
+
+  if (objType.options[objType.options.selectedIndex].value != 0) {
+    document.getElementById("greska1").innerHTML -= ispis;
+  }
+
+  document.getElementById("greska1").innerHTML = ispis;
+}
+
+document.getElementById("searchBtn").addEventListener("click", provera);
 $(document).ready(function () {
   ispisprvih6();
-  $("#loadMore").click(ispis3);
   $(".owl-carousel").owlCarousel({
     responsiveClass: true,
     autoplay: true,
@@ -289,9 +298,6 @@ $(document).ready(function () {
       0: {
         items: 1,
         autoplay: false
-      },
-      800: {
-        items: 2
       },
       850: {
         items: 2
@@ -308,27 +314,7 @@ $(document).ready(function () {
   $("#btnLevo").click(function () {
     owl.trigger("prev.owl.carousel");
   });
-}); // animation jquery search form
-
+});
 $(window).ready(function () {
   $(".searchForm").slideDown("slow");
 });
-/* $("#btnDesno").click(function(){
-    $(".carHolder").animate({
-        left:"0%"
-    }, (700));
-    $("#automobili1").animate({
-        left:"-50%"
-    }, (700))
-})
-
-
-$("#btnLevo").click(function(){
-    $(".carHolder").animate({
-        left:"100%"
-    }, (1000));
-    $("#automobili1").animate({
-        left:"25%"
-    }, (1000))
-})
- */

@@ -11,6 +11,7 @@ a:hover {
 
 #canvas {
   position: relative;
+  border-bottom: 5px solid #d3002a;
   height: 850px;
   position: relative;
   background-image: url("../../img/muscle_chevy1.jpg");
@@ -209,6 +210,36 @@ a:hover {
 #canvas .searchForm .search a {
   color: #d3002a;
   font-size: 18px;
+}
+
+.naslov h1 span {
+  color: #d3002a;
+  font-weight: bold;
+}
+.naslov span .fas {
+  font-size: 35px;
+  color: #d3002a;
+}
+
+.sectionContent {
+  background-color: #242424;
+  color: #7a7a7a;
+}
+.sectionContent i {
+  font-size: 60px;
+  padding: 15px;
+}
+.sectionContent h5 {
+  font-size: 25px;
+  font-weight: bold;
+}
+.sectionContent p {
+  font-size: 17px;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+.sectionContent:hover i {
+  color: #d3002a;
 }
 
 .secondRow-cars {

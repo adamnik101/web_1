@@ -10,6 +10,7 @@ a:hover{
 }
 #canvas{
     position: relative;
+    border-bottom: 5px solid rgb(211, 0, 42);
     #btnTop{
         z-index: 99;
         visibility: hidden;
@@ -209,6 +210,42 @@ a:hover{
                 color:rgb(211, 0, 42);
                 font-size: 18px;
             }
+        }
+    }
+}
+.naslov{
+    h1{
+        span{
+        color: rgb(211, 0, 42);
+        font-weight: bold;
+    }
+}
+    span{
+        .fas{
+            font-size: 35px;
+            color: rgb(211, 0, 42);
+        }
+    }
+}
+.sectionContent{
+    background-color: rgb(36, 36, 36);
+    color:rgb(122, 122, 122);
+    i{
+        font-size: 60px;
+        padding: 15px;
+    }
+    h5{
+        font-size: 25px;
+        font-weight: bold;
+    }
+    p{
+        font-size: 17px;
+        font-weight: bold;
+        padding-bottom: 15px;
+    }
+    &:hover{
+        i{
+            color: rgb(211, 0, 42);
         }
     }
 }
