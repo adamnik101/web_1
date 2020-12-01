@@ -41,11 +41,11 @@ $(document).ready(function () {
 
 function info1() {
   var naslov = ["WELCOME TO OUR SITE", "CAR", "ZONE"];
-  var content = [["BRANDS", "We got latest and most popular brands from automotive industry", "fas fa-car"], ["FREE SUPPORT", "24/7 covered available support to get answers all your questions", "far fa-comment-dots"], ["AFFORDABLE", "Popular and exotic cars that have best deals according to their performance", "fas fa-coins"]];
+  var content = [["BRANDS", "We got latest and most popular brands from automotive industry", "fas fa-car"], ["FREE SUPPORT", "24/7 covered available support to get answers to all your questions", "far fa-comment-dots"], ["AFFORDABLE", "Exotic cars that have best deals according to their performance", "fas fa-coins"]];
   document.getElementsByClassName("naslovContent")[0].innerHTML = "<div class=\"col-12 text-center naslov p-4\">\n    <h4>".concat(naslov[0], "</h4>\n    <span><i class=\"fas fa-angle-double-down\"></i></span>\n    <h1><span>").concat(naslov[1], "</span> ").concat(naslov[2], "</h1>\n</div>");
 
   for (var i = 0; i < content.length - 1; i++) {
-    document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-6 col-lg-4 text-center\">\n                        <div class=\"col-12 sectionContent p-2 mb-3\">\n                            <i class=\"".concat(content[i][2], "\"></i>\n                        <h5>").concat(content[i][0], "</h5>\n                        <p>").concat(content[i][1], "</p>\n                        </div>\n                    </div>");
+    document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-6 col-lg-4 text-center\"><div class=\"col-12 sectionContent p-2 mb-3\"><i class=\"".concat(content[i][2], "\"></i><h5>").concat(content[i][0], "</h5><p>").concat(content[i][1], "</p></div></div>");
   } //zbog poslednjeg elementa kome je potreban col-sm-12
 
 
@@ -165,55 +165,102 @@ function ddl() {
   }
 
   ispisivanjeOpt();
-} // ispisivanje prvih 6 artikala
+} // dinamicko i nasumicno ispisivanje automobila u index.html
 
 
-function ispisprvih6() {
-  var div = document.getElementById("showCars");
-  var prvih6 = [["assets/img/sports_civic1.jpeg", "Honda Civic Type R", "Manual", "350hp"], ["assets/img/sports_supra1.jpeg", "Toyota Supra", "Automatic", "382hp"], ["assets/img/sports_subaru1.jpeg", "Subaru Impreza WRX", "Manual", "340hp"], ["assets/img/muscle_chevy1.jpg", "Chevrolet ZL1", "Automatic", "650hp"], ["assets/img/muscle_demon1.jpeg", "Dodge Challenger", "Automatic", "700hp"], ["assets/img/sports_benz1.jpeg", "Mercedes 450 CLS", "Manual", "375hp"]];
-  var random = []; // funkcija za random ispisivanje iz niza
+var carContent = [["assets/img/sports_civic1.jpeg", "Honda Civic Type R", "Manual", "350hp"], ["assets/img/sports_supra1.jpeg", "Toyota Supra", "Automatic", "382hp"], ["assets/img/sports_subaru1.jpeg", "Subaru Impreza WRX", "Manual", "340hp"], ["assets/img/muscle_chevy1.jpg", "Chevrolet ZL1", "Automatic", "650hp"], ["assets/img/muscle_demon1.jpeg", "Dodge Challenger", "Automatic", "700hp"], ["assets/img/sports_benz1.jpeg", "Mercedes 450 CLS", "Manual", "375hp"], ["assets/img/sports_evo.jpeg", "Subaru WRX", "Manual", "360hp"], ["assets/img/sports_bmw1.jpeg", "BMW 420d Coupe", "Manual", "310hp"], ["assets/img/sports_mitsubishi1.jpg", "Mitsubishi EVO X", "Automatic", "290hp"], ["assets/img/muscle_mustang1.jpeg", "Ford Mustang", "Automatic", "750hp"], ["assets/img/sports_bmw2.jpeg", "BMW X5", "Automatic", "310hp"], ["assets/img/suv_ford1.jpeg", "Ford F-150", "Automatic", "280hp"]]; //niz u koji ubacujemo DISTINCT vrednosti do 12
 
-  function generate() {
-    var max = 6;
+var random = []; // funkcija za random ispisivanje iz niza
 
-    for (var i = 0; i < max; i++) {
-      var trenutni = Math.floor(Math.random() * 6);
+function generate() {
+  //broj elemenata niza
+  var max = 12;
 
-      if (random.indexOf(trenutni) == -1) {
-        random.push(trenutni);
-      } else i--;
-    }
-  }
+  for (var i = 0; i < max; i++) {
+    var trenutni = Math.floor(Math.random() * 12);
 
-  generate();
-
-  for (var i = 0; i < prvih6.length; i++) {
-    div.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(prvih6[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(prvih6[random[i]][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(prvih6[random[i]][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(prvih6[random[i]][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(prvih6[random[i]][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div>\n        </div>");
+    if (random.indexOf(trenutni) == -1) {
+      random.push(trenutni);
+    } else i--;
   }
 }
 
-var carIspis1 = [["assets/img/sports_evo.jpeg", "Subaru WRX", "Manual", "360hp"], ["assets/img/sports_bmw1.jpeg", "BMW 420d Coupe", "Manual", "310hp"], ["assets/img/sports_mitsubishi1.jpg", "Mitsubishi EVO X", "Automatic", "290hp"]];
-var carIspis2 = [["assets/img/muscle_mustang1.jpeg", "Ford Mustang", "Automatic", "750hp"], ["assets/img/sports_bmw2.jpeg", "BMW X5", "Automatic", "310hp"], ["assets/img/suv_ford1.jpeg", "Ford F-150", "Automatic", "280hp"]];
+generate();
+
+function ispisCarContent() {
+  var div = document.getElementById("showCars"); // ispisivanje prvih 6 artikala
+
+  for (var i = 0; i < carContent.length - 6; i++) {
+    div.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(carContent[random[i]][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div>\n        </div>");
+  }
+
+  var click1 = 0;
+  document.getElementById("loadMore").addEventListener("click", function () {
+    if (click1 == 1) {
+      document.getElementById("loadMore").style.display = "none";
+    }
+
+    if (click1 == 0) {
+      //ispisivanje narednih 3 elemenata iz niza pocev od 6
+      for (var i = 6; i < carContent.length - 3; i++) {
+        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 mr-auto col-12 col-sm-6 mb-4 slide\">\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n                    <p><i class=\"fas fa-cog\"></i> ").concat(carContent[random[i]][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n                    <a href=\"#\">ORDER NOW</a>\n                    </div></div>");
+      }
+    }
+
+    if (click1 > 0) {
+      //ispisivanje ostatka 
+      for (var i = 9; i < carContent.length; i++) {
+        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide\">\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n                    <p><i class=\"fas fa-cog\"></i> ").concat(carContent[random[i]][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n                    <a href=\"#\">ORDER NOW</a>\n                    </div></div>");
+      }
+    }
+
+    click1++;
+  });
+}
+/* var carIspis1 = [
+    ["assets/img/sports_evo.jpeg","Subaru WRX","Manual", "360hp"],
+    ["assets/img/sports_bmw1.jpeg","BMW 420d Coupe","Manual", "310hp"],
+    ["assets/img/sports_mitsubishi1.jpg","Mitsubishi EVO X","Automatic", "290hp"]];
+var carIspis2 = [
+    ["assets/img/muscle_mustang1.jpeg","Ford Mustang","Automatic", "750hp"],
+    ["assets/img/sports_bmw2.jpeg","BMW X5","Automatic", "310hp"],
+    ["assets/img/suv_ford1.jpeg","Ford F-150","Automatic", "280hp"]];
+
+
 var click1 = 0;
-document.getElementById("loadMore").addEventListener("click", function () {
-  if (click1 == 1) {
-    document.getElementById("loadMore").style.display = "none";
-  }
-
-  if (click1 == 0) {
-    for (var i = 0; i < carIspis1.length; i++) {
-      document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 mr-auto col-12 col-sm-6 mb-4\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carIspis1[i][0], "\" class=\"img-fluid\" alt=\"").concat(carIspis1[i][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carIspis1[i][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(carIspis1[i][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carIspis1[i][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div></div>");
+document.getElementById("loadMore").addEventListener("click", function(){
+    if(click1 == 1){
+        document.getElementById("loadMore").style.display = "none";
     }
-  }
-
-  if (click1 > 0) {
-    for (var i = 0; i < carIspis2.length; i++) {
-      document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carIspis2[i][0], "\" class=\"img-fluid\" alt=\"").concat(carIspis2[i][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carIspis2[i][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(carIspis2[i][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carIspis2[i][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div></div>");
+    if(click1 == 0){
+        for(var i = 0; i < carIspis1.length; i++){
+            document.getElementById("showCars").innerHTML += `<div class="col-lg-4 mr-auto col-12 col-sm-6 mb-4 slide">
+            <div class="imgHolder">
+                <img src="${carIspis1[i][0]}" class="img-fluid" alt="${carIspis1[i][1]}">
+            </div>
+            <div class="holder">
+            <h5 class="mb-3">${carIspis1[i][1]}</h5>
+            <p><i class="fas fa-cog"></i> ${carIspis1[i][2]} <i class="fas fa-tachometer-alt"></i> ${carIspis1[i][3]}</p>
+            <a href="#">ORDER NOW</a>
+            </div></div>`;
+        }
     }
-  }
+    if(click1 > 0){
+        for(var i = 0; i < carIspis2.length; i++){
+            document.getElementById("showCars").innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4 slide">
+            <div class="imgHolder">
+                <img src="${carIspis2[i][0]}" class="img-fluid" alt="${carIspis2[i][1]}">
+            </div>
+            <div class="holder">
+            <h5 class="mb-3">${carIspis2[i][1]}</h5>
+            <p><i class="fas fa-cog"></i> ${carIspis2[i][2]} <i class="fas fa-tachometer-alt"></i> ${carIspis2[i][3]}</p>
+            <a href="#">ORDER NOW</a>
+            </div></div>`;
+        }
+    }
+    click1++;
+}) */
 
-  click1++;
-});
 /* document.getElementById("loadMore").addEventListener("click", function(){
     if(click1 > 0){
         for(var i = 0; i < carIspis2.length; i++){
@@ -229,6 +276,7 @@ document.getElementById("loadMore").addEventListener("click", function () {
         }
     }
 }) */
+
 
 function provera() {
   var objNewUsed, objBy, objType, objModel, arrayData, errors;
@@ -285,7 +333,7 @@ function provera() {
 
 document.getElementById("searchBtn").addEventListener("click", provera);
 $(document).ready(function () {
-  ispisprvih6();
+  ispisCarContent();
   $(".owl-carousel").owlCarousel({
     responsiveClass: true,
     autoplay: true,

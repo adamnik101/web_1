@@ -224,6 +224,7 @@ a:hover {
 .sectionContent {
   background-color: #242424;
   color: #7a7a7a;
+  border-bottom: 5px solid #d3002a;
 }
 .sectionContent i {
   font-size: 60px;
@@ -334,6 +335,9 @@ a:hover {
 }
 #featuredSection h4 span {
   color: #d3002a;
+}
+#featuredSection #showCars .slide {
+  transition: 1s ease-in;
 }
 #featuredSection #showCars .holder {
   background-color: #dadada;
