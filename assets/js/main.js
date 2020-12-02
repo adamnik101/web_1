@@ -10,6 +10,8 @@ window.onload = function(){
     sideNav();
     ddl();
     info1();
+    ispisCarContent();
+    showImg();
 /*     cars(); */
 }
  window.onscroll = function(){
@@ -166,8 +168,8 @@ document.getElementById("carType").onchange = function(){
         car.setAttribute("value", i);
         var text = document.createTextNode(cars[i]);
         car.appendChild(text);
-
         model.options.add(car);
+        document.getElementById("greska1").innerHTML ="";
         }
     }  
 }
@@ -187,6 +189,8 @@ function ispisivanjeOpt(){
 }
 ispisivanjeOpt();
 }
+
+
 // dinamicko i nasumicno ispisivanje automobila u index.html
 var carContent = [
     ["assets/img/sports_civic1.jpeg", "Honda Civic Type R", "Manual", "350hp"],
@@ -268,6 +272,32 @@ function ispisCarContent(){
             click1++;
         })
 }
+
+// crossfade efekat za smooth prelazak sa slike na sliku
+var indeks = 0;
+var indeksOpacity = 0;
+function showImg(){
+    var slideShow = document.getElementsByClassName("slideShow");
+        for(let i = 0; i < slideShow.length;i++){
+            slideShow[i].style.visibility = "hidden";
+            slideShow[i].classList.remove("fadeIn");
+            slideShow[i].classList.remove("fadeOut");
+        }
+        indeks++;
+        indeksOpacity++;
+        if (indeks > slideShow.length) {indeks = 1};
+        if(indeksOpacity > slideShow.length - 1){indeksOpacity = 0};
+        slideShow[indeks - 1].style.visibility="visible";
+        slideShow[indeks - 1].classList.add("fadeOut");
+        slideShow[indeksOpacity].style.visibility="visible";
+        slideShow[indeksOpacity].classList.add("fadeIn");
+
+        
+    
+    setTimeout(showImg, 15000);
+    
+}
+
 
 
 /* var carIspis1 = [
@@ -355,14 +385,13 @@ function provera(){
         arrayData.push(objType.options[objType.options.selectedIndex].value);
         console.log(arrayData);
     }
-    var ispis = "<ul class='list-group'>";
+    var ispis = "";
 
     if(errors.length != 0){
         for(let greska of errors){
-            ispis += `<li class="list-group-item">${greska}</li>`
+            ispis += `<span class="errOpt">${greska}</span>`
         }
     }
-    ispis +="</ul>"
     if(objType.options[objType.options.selectedIndex].value != 0){
         document.getElementById("greska1").innerHTML -= ispis;
     }
@@ -371,7 +400,6 @@ function provera(){
 document.getElementById("searchBtn").addEventListener("click", provera);
 
 $(document).ready(function(){
-    ispisCarContent();
     $(".owl-carousel").owlCarousel({
         responsiveClass:true,
         autoplay: true,

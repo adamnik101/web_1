@@ -2,6 +2,7 @@
 * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
   font-family: "Work Sans", sans-serif;
 }
 
@@ -143,73 +144,6 @@ a:hover {
   font-weight: bold;
   color: black;
   vertical-align: middle;
-}
-#canvas .searchForm {
-  display: none;
-  position: absolute;
-  right: 20%;
-  top: 25%;
-  width: 20%;
-  background-color: #dddddd;
-}
-#canvas .searchForm .search {
-  padding: 0px;
-}
-#canvas .searchForm .search h4 {
-  width: 100%;
-  height: 70px;
-  background-color: #d3002a;
-  color: #fff;
-  border-radius: 0px 0px 25% 25%;
-  text-align: center;
-  line-height: 50px;
-  font-weight: bold;
-}
-#canvas .searchForm .search .buttonGroup .activeButton {
-  background-color: #d3002a;
-  color: #fff;
-}
-#canvas .searchForm .search .buttonGroup .dugme {
-  font-weight: bold;
-  outline: none;
-  border: none;
-  padding: 10px;
-  transition: ease-in-out 0.2s;
-  width: 100px;
-}
-#canvas .searchForm .search .labelInput {
-  padding: 10px;
-  color: #d3002a;
-  font-weight: bold;
-}
-#canvas .searchForm .search .labelInput input {
-  margin-right: 3px;
-}
-#canvas .searchForm .search .labelInput label {
-  margin: 0px;
-}
-#canvas .searchForm .search .ddlCar select {
-  font-size: 20px;
-  padding: 5px 20px;
-  font-weight: bold;
-  width: 80%;
-}
-#canvas .searchForm .search .ddlCar select:focus {
-  outline: none;
-}
-#canvas .searchForm .search .submitButton button {
-  border: none;
-  outline: none;
-  padding: 10px 30px;
-  font-weight: bold;
-  font-size: 20px;
-  background-color: #d3002a;
-  color: #fff;
-  width: 80%;
-}
-#canvas .searchForm .search a {
-  color: #d3002a;
-  font-size: 18px;
 }
 
 .naslov h1 span {
@@ -369,12 +303,109 @@ a:hover {
   font-weight: bold;
   font-size: 20px;
   padding: 15px 20px;
+  margin-bottom: 50px;
 }
 #featuredSection #loadMore:hover {
   background-color: #414141;
 }
 #featuredSection .vis {
   height: 1000px;
+}
+
+.back {
+  border-top: 5px solid #d3002a;
+  background-color: #242424;
+}
+.back .formSlide {
+  width: 450px;
+  height: 650px;
+}
+.back .formSlide #absolute {
+  position: relative;
+  height: 100%;
+}
+.back .formSlide #absolute .slideShow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 650px;
+}
+.back .formSlide #absolute .fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 15s;
+}
+.back .formSlide #absolute .fadeOut {
+  animation-name: fadeOut;
+  animation-duration: 15s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.back .requestForm {
+  height: 650px;
+  width: 450px;
+  background-color: #181818;
+  color: #dadada;
+  font-weight: bold;
+}
+.back .requestForm input {
+  padding: 15px;
+  background-color: #414141;
+  color: #dadada;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-size: 17px;
+}
+.back .requestForm .ddlCar #carType, .back .requestForm .ddlCar #carModel {
+  font-size: 20px;
+  padding: 5px 20px;
+  font-weight: bold;
+  width: 100%;
+  border: none;
+}
+.back .requestForm .ddlCar #carType:focus, .back .requestForm .ddlCar #carModel:focus {
+  box-shadow: none;
+}
+.back .requestForm #greska1 .errOpt {
+  color: #d3002a !important;
+  font-weight: bold;
+}
+.back .requestForm .submitButton button {
+  border: none;
+  outline: none;
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #d3002a;
+  color: #fff;
+  width: 100%;
 }
 
 @media screen and (max-width: 1500px) {
@@ -392,11 +423,32 @@ a:hover {
   }
 }
 @media screen and (max-width: 1016px) {
-  #showCars .holder h5 {
+  .back .formSlide {
+    width: 350px;
+    height: 500px;
+  }
+  .back .formSlide #absolute .slideShow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .back .requestForm {
+    width: 350px;
+    height: 500px;
+  }
+  .back .requestForm input {
+    padding: 10px;
     font-size: 17px;
   }
-  #showCars .holder p {
-    font-size: 12px;
+  .back .requestForm .ddlCar #carType, .back .requestForm .ddlCar #carModel {
+    font-size: 17px;
+    padding: 5px 17px;
+  }
+  .back .requestForm .submitButton button {
+    padding: 5px 20px;
+    font-size: 17px;
   }
 }
 @media screen and (max-width: 992px) {
@@ -420,16 +472,38 @@ a:hover {
   #canvas .searchForm {
     width: 60%;
   }
+
+  .back .formSlide {
+    width: 50%;
+  }
+  .back .formSlide #absolute .slideShow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .back .requestForm {
+    width: 50%;
+  }
 }
 @media screen and (max-width: 576px) {
   #canvas .border-bottom {
     font-size: 13px;
   }
-  #canvas .searchForm {
-    top: 20%;
-    width: 90%;
-    left: 5%;
-    margin-left: 0px !important;
+
+  .back {
+    width: 100%;
+  }
+  .back .formSlide {
+    width: 100%;
+    max-height: 577px;
+  }
+  .back .formSlide #absolute {
+    min-height: auto;
+  }
+  .back .requestForm {
+    width: 100%;
   }
 }
 @media screen and (max-width: 350px) {

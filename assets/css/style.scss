@@ -2,6 +2,7 @@
 *{
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
     font-family: 'Work Sans', sans-serif;
 }
 
@@ -136,79 +137,6 @@ a:hover{
                 font-weight: bold;
                 color: black;
                 vertical-align: middle;
-            }
-        }
-    }
-    .searchForm{
-        display: none;
-        position: absolute;
-        right: 20%;
-        top: 25%;
-        width: 20%;
-        background-color: rgb(221, 221, 221);
-        .search{
-            padding: 0px;
-            h4{
-                width: 100%;
-                height: 70px;
-                background-color:rgb(211, 0, 42);
-                color: #fff;
-                border-radius: 0px 0px 25% 25%;
-                text-align: center;
-                line-height: 50px;
-                font-weight: bold;
-            }
-            .buttonGroup{
-                .activeButton{
-                    background-color:rgb(211, 0, 42);
-                    color: #fff;
-                }
-                .dugme{
-                    font-weight: bold;
-                    outline: none;
-                    border: none;
-                    padding: 10px;
-                    transition: ease-in-out 0.2s;
-                    width: 100px;
-                }
-            }
-            .labelInput{
-                padding: 10px;
-                color:rgb(211, 0, 42);
-                font-weight: bold;
-                input{
-                    margin-right: 3px;
-                }
-                label{
-                    margin: 0px;
-                }
-            }
-            .ddlCar{
-                select{
-                    font-size: 20px;
-                    padding: 5px 20px;
-                    font-weight: bold;
-                    width: 80%;
-                    &:focus{
-                        outline: none;
-                    };
-                }
-            }
-            .submitButton{
-                button{
-                    border: none;
-                    outline: none;
-                    padding: 10px 30px;
-                    font-weight: bold;
-                    font-size: 20px;
-                    background-color:rgb(211, 0, 42);
-                    color: #fff;
-                    width: 80%;
-                }
-            }
-            a{
-                color:rgb(211, 0, 42);
-                font-size: 18px;
             }
         }
     }
@@ -383,6 +311,7 @@ a:hover{
         font-weight: bold;
         font-size: 20px;
         padding: 15px 20px;
+        margin-bottom: 50px;
         &:hover{
             background-color: rgb(65, 65, 65);
         }
@@ -391,6 +320,92 @@ a:hover{
         height: 1000px;
     }
 }
+.back{
+    border-top: 5px solid rgb(211, 0, 42);
+    background-color:rgb(36, 36, 36);
+    .formSlide{
+        width: 450px;
+        height: 650px;
+        #absolute{
+            position: relative;
+            height: 100%;
+            .slideShow{
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 650px;
+            }//animacija za js crossfade sliding
+            .fadeIn{
+                animation-name: fadeIn;
+                animation-duration: 15s;
+            }
+            .fadeOut{
+                animation-name: fadeOut;
+                animation-duration: 15s;
+            }
+            @keyframes fadeIn {
+                0%{opacity: 0;}
+                25%{opacity: 0;}
+                75%{opacity: 1;}
+                100%{opacity: 1;}
+            }
+            @keyframes fadeOut {
+                0%{opacity: 1;}
+                25%{opacity: 1;}
+                75%{opacity: 0;}
+                100%{opacity: 0;}
+            }
+        }
+    }
+    .requestForm{
+        height: 650px;
+        width: 450px;
+        input{
+            padding: 15px;
+            background-color: rgb(65, 65, 65);
+            color: rgb(218, 218, 218);
+            border: none;
+            outline: none;
+            font-weight: bold;
+            font-size: 17px;
+        }
+        background-color: rgb(24, 24, 24);
+        color: rgb(218, 218, 218);
+        font-weight: bold;
+        .ddlCar{
+            #carType, #carModel{
+                font-size: 20px;
+                padding: 5px 20px;
+                font-weight: bold;
+                width: 100%;
+                border: none ;
+                &:focus{
+                    box-shadow: none;
+                }
+            }
+        }
+        #greska1{
+            .errOpt{
+                    color: rgb(211, 0, 42) !important;
+                    font-weight: bold;
+            }
+        }
+        .submitButton{
+            button{
+                border: none;
+                outline: none;
+                padding: 10px 30px;
+                font-weight: bold;
+                font-size: 20px;
+                background-color:rgb(211, 0, 42);
+                color: #fff;
+                width: 100%;
+            }
+        }
+    }
+}
+
 
 //responsive
 @media screen and (max-width: 1500px){
@@ -411,13 +426,38 @@ a:hover{
 }
 
 @media screen and (max-width: 1016px) {
-    #showCars{
-        .holder{
-            h5{
+    .back{
+        .formSlide{
+            width: 350px;
+            height: 500px;
+            #absolute{
+                .slideShow{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .requestForm{
+            width: 350px;
+            height: 500px;
+            input{
+                padding: 10px;
                 font-size: 17px;
             }
-            p{
-                font-size: 12px;
+            .ddlCar{
+                #carType, #carModel{
+                    font-size: 17px;
+                    padding: 5px 17px;
+                }
+            }
+            .submitButton{
+                button{
+                    padding: 5px 20px;
+                    font-size: 17px;
+                }
             }
         }
     }
@@ -454,17 +494,42 @@ a:hover{
             width: 60%;
         }
     }
+    .back{
+        .formSlide{
+            width: 50%;
+            #absolute{
+                .slideShow{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .requestForm{
+            width: 50%;
+        }
+    }
+
 }
 @media screen and (max-width: 576px){
         #canvas{
             .border-bottom{
                 font-size: 13px;
             }
-            .searchForm{
-                top: 20%;
-                width: 90%;
-                left: 5%;
-                margin-left: 0px !important;
+        }
+        .back{
+            width: 100%;
+            .formSlide{
+                width: 100%;
+                max-height: 577px;
+                #absolute{
+                    min-height: auto;
+                }
+            }
+            .requestForm{
+                width: 100%;
             }
         }
 }

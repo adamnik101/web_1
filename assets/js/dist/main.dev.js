@@ -7,6 +7,8 @@ window.onload = function () {
   sideNav();
   ddl();
   info1();
+  ispisCarContent();
+  showImg();
   /*     cars(); */
 };
 
@@ -146,6 +148,7 @@ function ddl() {
         var text = document.createTextNode(cars[i]);
         car.appendChild(text);
         model.options.add(car);
+        document.getElementById("greska1").innerHTML = "";
       }
     }
   };
@@ -216,6 +219,40 @@ function ispisCarContent() {
 
     click1++;
   });
+} // crossfade efekat za smooth prelazak sa slike na sliku
+
+
+var indeks = 0;
+var indeksOpacity = 0;
+
+function showImg() {
+  var slideShow = document.getElementsByClassName("slideShow");
+
+  for (var i = 0; i < slideShow.length; i++) {
+    slideShow[i].style.visibility = "hidden";
+    slideShow[i].classList.remove("fadeIn");
+    slideShow[i].classList.remove("fadeOut");
+  }
+
+  indeks++;
+  indeksOpacity++;
+
+  if (indeks > slideShow.length) {
+    indeks = 1;
+  }
+
+  ;
+
+  if (indeksOpacity > slideShow.length - 1) {
+    indeksOpacity = 0;
+  }
+
+  ;
+  slideShow[indeks - 1].style.visibility = "visible";
+  slideShow[indeks - 1].classList.add("fadeOut");
+  slideShow[indeksOpacity].style.visibility = "visible";
+  slideShow[indeksOpacity].classList.add("fadeIn");
+  setTimeout(showImg, 15000);
 }
 /* var carIspis1 = [
     ["assets/img/sports_evo.jpeg","Subaru WRX","Manual", "360hp"],
@@ -294,7 +331,7 @@ function provera() {
     console.log(arrayData);
   }
 
-  var ispis = "<ul class='list-group'>";
+  var ispis = "";
 
   if (errors.length != 0) {
     var _iteratorNormalCompletion = true;
@@ -304,7 +341,7 @@ function provera() {
     try {
       for (var _iterator = errors[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         var greska = _step.value;
-        ispis += "<li class=\"list-group-item\">".concat(greska, "</li>");
+        ispis += "<span class=\"errOpt\">".concat(greska, "</span>");
       }
     } catch (err) {
       _didIteratorError = true;
@@ -322,8 +359,6 @@ function provera() {
     }
   }
 
-  ispis += "</ul>";
-
   if (objType.options[objType.options.selectedIndex].value != 0) {
     document.getElementById("greska1").innerHTML -= ispis;
   }
@@ -333,7 +368,6 @@ function provera() {
 
 document.getElementById("searchBtn").addEventListener("click", provera);
 $(document).ready(function () {
-  ispisCarContent();
   $(".owl-carousel").owlCarousel({
     responsiveClass: true,
     autoplay: true,
