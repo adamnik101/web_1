@@ -16,7 +16,6 @@ window.onload = function(){
  window.onscroll = function(){
     scrollUp1()
 };
-
 function scrollUp1(){
     if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200){
         myBtn.style.visibility = "visible";
@@ -434,6 +433,7 @@ document.getElementById("searchBtn").addEventListener("click", function(){
 
 
 function celokupnaProvera(imeProvera, mailProvera, typeProvera, genderProvera){
+    let predajaPodataka = 0;
     if(imeProvera && mailProvera && typeProvera && genderProvera){
         if(dataArray.length == 0){
             dataArray.push(fullName.value);
@@ -441,33 +441,86 @@ function celokupnaProvera(imeProvera, mailProvera, typeProvera, genderProvera){
             dataArray.push(type.options[type.options.selectedIndex].value);
             dataArray.push(model.options[model.options.selectedIndex].text);
             dataArray.push(checkedGender);
+            predajaPodataka++;
+           console.log(predajaPodataka);
         }
-        let tekst = `Vase ime je ${dataArray[0]}, vas mejl je ${dataArray[1]}, brend koji ste izabrali je ${dataArray[2]}, a model je ${dataArray[3]}, pol ${dataArray[4]}`;
-        alert(tekst);
-        dataArray = [];
-    }
-}
+            let modal = document.getElementById("modal");
+            let row = document.createElement("div");
+            row.classList.add("row", "regenerate");
+            let header = document.createElement("div");
+            header.setAttribute("id","header");
+            header.classList.add("col-12","text-left", "p-3");
+            let headerNaslov = document.createElement("h2");
+            headerNaslov.innerHTML += "CAR <span>ZONE</span>";
+            let body = document.createElement("div");
+            body.setAttribute("id", "body");
+            body.classList.add("col-12", "p-2");
+            let p = document.createElement("p");
+            p.innerHTML = `${dataArray[0]}, you've successfully sent the request for a ${dataArray[2]} ${dataArray[3]}, all other information has been sent to your mail.</br>
+            ${dataArray[1]}`;
+            let footer = document.createElement("div");
+            footer.setAttribute("id", "footer");
+            footer.classList.add("col-12", "text-right");
+            let button = document.createElement("button");
+            button.setAttribute("type", "button");
+            button.setAttribute("id", "closeModal");
+            button.textContent = "Close";
+
+            modal.appendChild(row);
+            row.appendChild(header);
+            header.appendChild(headerNaslov);
+            row.appendChild(body);
+            row.appendChild(footer);
+
+
+            body.appendChild(p);
+            footer.appendChild(button);
+            modal.style.visibility = "visible";
+
+            button.addEventListener("click", function(){
+                modal.style.visibility = "hidden";
+                dataArray = []
+                row.remove();
+        })}
+}   
 
 
 
+/* <div class="row">
+<div id="header" class="col-12 text-left p-3">
+    <h2>CAR <span>ZONE</span></h2>
+</div>
+<div id="body" class="col-12 p-2">
+    <p>${dataArray[0]}, you've successfully sent the request for a ${dataArray[2]} ${dataArray[3]}, all other information has been sent to your mail.</br>
+    ${dataArray[1]}</p>
+</div>
+<div id="footer" class="col-12 text-right">
+    <button type="button" id="closeModal">Zatvori</button>
+</div>
+</div>` */
 
  
 $(document).ready(function(){
     $(window).scroll(function(){
-        if($(window).scrollTop() > 200){
+        if($(window).scrollTop() > 500){
             $(".sectionContent").each(function(i){
                 $(this).delay(200 * i).animate({
                     opacity : "1",
                     top: "0"
-            }, "slow")
-
-            })}})
+            }, "slow")})}
+        if($(window).scrollTop() > 800){
+            $(".featured").animate({
+                left : "0",
+                opacity : "1"
+            })
+        }
+        })
 
 ispisCarContent();
 
     $("#loadMore").click(function(){
         $(".slide").each(function(i){
-                $(this).delay(300 * i).animate({
+                $(this).delay(450 * i).animate({
                     top : "0",
                     opacity : "1"
                 })
