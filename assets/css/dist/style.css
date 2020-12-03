@@ -383,19 +383,44 @@ a:hover {
   font-weight: bold;
   font-size: 17px;
 }
+.back .requestForm .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #d3002a;
+  border-color: #414141;
+  box-shadow: none;
+  border: none;
+}
+.back .requestForm .custom-control-input:checked ~ .custom-control-label::before:focus {
+  background-color: transparent;
+}
+.back .requestForm .custom-control-input:checked ~ .custom-control-label::after {
+  background-image: none;
+  border-radius: none;
+}
+.back .requestForm .custom-control-label::before {
+  background-color: #414141;
+  border: none;
+  border-radius: none;
+}
 .back .requestForm .ddlCar #carType, .back .requestForm .ddlCar #carModel {
   font-size: 20px;
   padding: 5px 20px;
   font-weight: bold;
   width: 100%;
   border: none;
+  border-radius: 0px;
 }
 .back .requestForm .ddlCar #carType:focus, .back .requestForm .ddlCar #carModel:focus {
   box-shadow: none;
 }
-.back .requestForm #greska1 .errOpt {
-  color: #d3002a !important;
+.back .requestForm .greska {
+  border: 2px solid #d3002a;
+}
+.back .requestForm .greskaTekst {
+  color: #d3002a;
   font-weight: bold;
+}
+.back .requestForm .correct {
+  border: 2px solid #0aa01e;
 }
 .back .requestForm .submitButton button {
   border: none;

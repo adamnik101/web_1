@@ -370,6 +370,32 @@ a:hover{
             font-weight: bold;
             font-size: 17px;
         }
+        .custom-control-input{
+            &:checked~{
+                .custom-control-label{
+                    &::before{
+                        background-color: rgb(211, 0, 42);
+                        border-color: rgb(65, 65, 65);
+                        box-shadow: none;
+                        border:none;
+                        &:focus{
+                            background-color:transparent;
+                        }
+                    }
+                    &::after{
+                        background-image: none;
+                        border-radius: none;
+                    }
+                }
+            }
+        }
+        .custom-control-label{
+            &::before{
+                background-color: rgb(65, 65, 65);
+                border:none;
+                border-radius: none;
+            }
+        }
         background-color: rgb(24, 24, 24);
         color: rgb(218, 218, 218);
         font-weight: bold;
@@ -380,16 +406,21 @@ a:hover{
                 font-weight: bold;
                 width: 100%;
                 border: none ;
+                border-radius: 0px;
                 &:focus{
                     box-shadow: none;
                 }
             }
         }
-        #greska1{
-            .errOpt{
-                    color: rgb(211, 0, 42) !important;
-                    font-weight: bold;
-            }
+        .greska{
+                border: 2px solid rgb(211, 0, 42);
+        }
+        .greskaTekst{
+            color: rgb(211, 0, 42);
+            font-weight: bold;
+        }
+        .correct{
+            border: 2px solid rgb(10, 160, 30);
         }
         .submitButton{
             button{

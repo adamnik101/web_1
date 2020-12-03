@@ -148,7 +148,7 @@ function ddl() {
         var text = document.createTextNode(cars[i]);
         car.appendChild(text);
         model.options.add(car);
-        document.getElementById("greska1").innerHTML = "";
+        document.getElementById("brandError").textContent = "";
       }
     }
   };
@@ -177,10 +177,8 @@ var random = []; // funkcija za random ispisivanje iz niza
 
 function generate() {
   //broj elemenata niza
-  var max = 12;
-
-  for (var i = 0; i < max; i++) {
-    var trenutni = Math.floor(Math.random() * 12);
+  for (var i = 0; i < carContent.length; i++) {
+    var trenutni = Math.floor(Math.random() * carContent.length);
 
     if (random.indexOf(trenutni) == -1) {
       random.push(trenutni);
@@ -188,9 +186,24 @@ function generate() {
   }
 }
 
-generate();
+function owlCarouselContent() {
+  generate();
+  var parent = document.getElementById("automobili");
+  var child = document.createElement("div");
+  child.classList.add("owl-carousel");
+  parent.appendChild(child);
+
+  for (var i = 0; i < 6; i++) {
+    child.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[i]][0], "\" alt=\"").concat(carContent[random[i]][1], "\"><h5>").concat(carContent[random[i]][1], "</h5>\n            <p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-cube\"></i> ").concat(carContent[random[i]][3], "</span><a href=\"#!\"class=\"d-inline reqBtn\">Request now</a></p>\n        </div>");
+  }
+
+  random = [];
+}
+
+owlCarouselContent();
 
 function ispisCarContent() {
+  generate();
   var div = document.getElementById("showCars"); // ispisivanje prvih 6 artikala
 
   for (var i = 0; i < carContent.length - 6; i++) {
@@ -219,8 +232,23 @@ function ispisCarContent() {
 
     click1++;
   });
-} // crossfade efekat za smooth prelazak sa slike na sliku
+} //ispisivanje slika za crossfade efekat
 
+
+function crossfade() {
+  var formCrossfade = ["assets/img/form1.jpg", "assets/img/form3.jpg", "assets/img/form4.jpg"];
+  var parent = document.getElementById("absolute");
+
+  for (indeks in formCrossfade) {
+    var img = document.createElement("img");
+    img.setAttribute("src", formCrossfade[indeks]);
+    img.className = "slideShow fadeIn fadeOut";
+    img.alt = "car";
+    parent.appendChild(img);
+  }
+}
+
+crossfade(); // kreiranje crossfade efekta za smooth prelazak sa slike na sliku
 
 var indeks = 0;
 var indeksOpacity = 0;
@@ -253,120 +281,90 @@ function showImg() {
   slideShow[indeksOpacity].style.visibility = "visible";
   slideShow[indeksOpacity].classList.add("fadeIn");
   setTimeout(showImg, 15000);
-}
-/* var carIspis1 = [
-    ["assets/img/sports_evo.jpeg","Subaru WRX","Manual", "360hp"],
-    ["assets/img/sports_bmw1.jpeg","BMW 420d Coupe","Manual", "310hp"],
-    ["assets/img/sports_mitsubishi1.jpg","Mitsubishi EVO X","Automatic", "290hp"]];
-var carIspis2 = [
-    ["assets/img/muscle_mustang1.jpeg","Ford Mustang","Automatic", "750hp"],
-    ["assets/img/sports_bmw2.jpeg","BMW X5","Automatic", "310hp"],
-    ["assets/img/suv_ford1.jpeg","Ford F-150","Automatic", "280hp"]];
+} //dohvatanje elemenata
 
 
-var click1 = 0;
-document.getElementById("loadMore").addEventListener("click", function(){
-    if(click1 == 1){
-        document.getElementById("loadMore").style.display = "none";
-    }
-    if(click1 == 0){
-        for(var i = 0; i < carIspis1.length; i++){
-            document.getElementById("showCars").innerHTML += `<div class="col-lg-4 mr-auto col-12 col-sm-6 mb-4 slide">
-            <div class="imgHolder">
-                <img src="${carIspis1[i][0]}" class="img-fluid" alt="${carIspis1[i][1]}">
-            </div>
-            <div class="holder">
-            <h5 class="mb-3">${carIspis1[i][1]}</h5>
-            <p><i class="fas fa-cog"></i> ${carIspis1[i][2]} <i class="fas fa-tachometer-alt"></i> ${carIspis1[i][3]}</p>
-            <a href="#">ORDER NOW</a>
-            </div></div>`;
-        }
-    }
-    if(click1 > 0){
-        for(var i = 0; i < carIspis2.length; i++){
-            document.getElementById("showCars").innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4 slide">
-            <div class="imgHolder">
-                <img src="${carIspis2[i][0]}" class="img-fluid" alt="${carIspis2[i][1]}">
-            </div>
-            <div class="holder">
-            <h5 class="mb-3">${carIspis2[i][1]}</h5>
-            <p><i class="fas fa-cog"></i> ${carIspis2[i][2]} <i class="fas fa-tachometer-alt"></i> ${carIspis2[i][3]}</p>
-            <a href="#">ORDER NOW</a>
-            </div></div>`;
-        }
-    }
-    click1++;
-}) */
+var fullName = document.getElementById("fullName");
+var mail = document.getElementById("mail");
+var gender = document.getElementsByName("gender");
+var type = document.getElementById("carType");
+var model = document.getElementById("carModel"); //dohvatanje greski
 
-/* document.getElementById("loadMore").addEventListener("click", function(){
-    if(click1 > 0){
-        for(var i = 0; i < carIspis2.length; i++){
-            document.getElementById("showCars").innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4">
-            <div class="imgHolder">
-                <img src="${carIspis2[i][0]}" class="img-fluid" alt="${carIspis2[i][1]}">
-            </div>
-            <div class="holder">
-            <h5 class="mb-3">${carIspis2[i][1]}</h5>
-            <p><i class="fas fa-cog"></i> ${carIspis2[i][2]} <i class="fas fa-tachometer-alt"></i> ${carIspis2[i][3]}</p>
-            <a href="#">ORDER NOW</a>
-            </div></div>`;
-        }
-    }
-}) */
+var fullNameError = document.getElementById("fullNameError");
+var mailError = document.getElementById("mailError");
+var brandError = document.getElementById("brandError"); //regularni izrazi
 
+var regExFullName = /^[A-ŠĐČĆŽ][a-zšđčćž]{2,14}(\s[A-ZČĆŽŠĐ][a-zšđčćž]{2,19})+$/;
+var regExMail = /^[a-z][a-z\.\d-\_]+\@[a-z]+(\.[a-z]+)+$/;
+var dataArray = [];
 
-function provera() {
-  var objNewUsed, objBy, objType, objModel, arrayData, errors;
-  objNewUsed = document.getElementsByName("newUsed");
-  objBy = document.getElementsByName("by");
-  objType = document.querySelector("#carType");
-  objModel = document.querySelector("#carModel");
-  arrayData = [];
-  errors = []; //////////////////////////////////////////////////
-
-  if (objType.options[objType.options.selectedIndex].value == 0) {
-    errors.push("You must first choose brand");
+function proveraFullName() {
+  //full name error
+  if (!regExFullName.test(fullName.value)) {
+    fullNameError.textContent = "example: John Doe";
+    fullName.classList.add("greska");
+    fullName.classList.remove("correct");
+    return false;
   } else {
-    arrayData.push(objType.options[objType.options.selectedIndex].value);
-    console.log(arrayData);
+    fullNameError.textContent = "";
+    fullName.classList.remove("greska");
+    fullName.classList.add("correct");
+    return true;
   }
-
-  var ispis = "";
-
-  if (errors.length != 0) {
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
-
-    try {
-      for (var _iterator = errors[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var greska = _step.value;
-        ispis += "<span class=\"errOpt\">".concat(greska, "</span>");
-      }
-    } catch (err) {
-      _didIteratorError = true;
-      _iteratorError = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-          _iterator["return"]();
-        }
-      } finally {
-        if (_didIteratorError) {
-          throw _iteratorError;
-        }
-      }
-    }
-  }
-
-  if (objType.options[objType.options.selectedIndex].value != 0) {
-    document.getElementById("greska1").innerHTML -= ispis;
-  }
-
-  document.getElementById("greska1").innerHTML = ispis;
 }
 
-document.getElementById("searchBtn").addEventListener("click", provera);
+function proveraMail() {
+  //mail error
+  if (!regExMail.test(mail.value)) {
+    mailError.textContent = "example: johndoe@example.com";
+    mail.classList.add("greska");
+    mail.classList.remove("correct");
+    return false;
+  } else {
+    mailError.textContent = "";
+    mail.classList.remove("greska");
+    mail.classList.add("correct");
+    return true;
+  }
+}
+
+function proveraType() {
+  // car choose error
+  if (type.options[type.options.selectedIndex].value != 0) {
+    brandError.textContent = "";
+    return true;
+  } else {
+    brandError.textContent = "You must choose brand!";
+    return false;
+  }
+}
+
+document.getElementById("fullName").onchange = function () {
+  proveraFullName();
+};
+
+document.getElementById("mail").onchange = function () {
+  proveraMail();
+};
+
+document.getElementById("searchBtn").addEventListener("click", function () {
+  celokupnaProvera(proveraFullName(), proveraMail(), proveraType());
+});
+
+function celokupnaProvera(imeProvera, mailProvera, typeProvera) {
+  if (imeProvera && mailProvera && typeProvera) {
+    if (dataArray.length == 0) {
+      dataArray.push(fullName.value);
+      dataArray.push(mail.value);
+      dataArray.push(type.options[type.options.selectedIndex].value);
+      dataArray.push(model.options[model.options.selectedIndex].text);
+    }
+
+    var tekst = "Vase ime je ".concat(dataArray[0], ", vas mejl je ").concat(dataArray[1], ", brend koji ste izabrali je ").concat(dataArray[2], ", a model je ").concat(dataArray[3]);
+    alert(tekst);
+  }
+}
+
 $(document).ready(function () {
   $(".owl-carousel").owlCarousel({
     responsiveClass: true,
@@ -396,7 +394,4 @@ $(document).ready(function () {
   $("#btnLevo").click(function () {
     owl.trigger("prev.owl.carousel");
   });
-});
-$(window).ready(function () {
-  $(".searchForm").slideDown("slow");
 });

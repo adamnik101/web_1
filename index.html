@@ -53,29 +53,6 @@
                     <button id="clickSide"><i class="fas fa-bars"></i></button>
                 </div>
             </div>
-            <!-- <div class="row searchForm">
-                <div class="col-12 search">
-                    <h4 class="p-2">SEARCH THE RIGHT CAR</h4>
-                    <form action="">
-                         <span class="d-flex justify-content-center mt-1 mb-2 ddlCar">
-                            <select name="type" id="carType" class="custom-select">
-                                <option value="0">Choose a brand</option>
-                                
-                            </select> 
-                        </span>
-                        <span class="d-flex justify-content-center" id="greska1">
-                        </span>
-                        <span class="d-flex justify-content-center mt-1 mb-2 ddlCar">
-                            <select name="model" id="carModel" class="custom-select">
-                                
-                            </select>
-                        </span>
-                        <span class="d-flex justify-content-center align-items-center submitButton">
-                            <button type="button" id="searchBtn">SEARCH</button>
-                        </span> <br>
-                    </form>
-                </div>
-            </div> -->
         </div>
         <div class="container-fluid">
             <div class="container">
@@ -98,43 +75,7 @@
                     </div>
                 </div>
                 <div class="col-12  col-sm-7 col-md-8 col-lg-9 d-flex justify-content-center p-0" id="automobili">
-                    <div class="owl-carousel">
-                        <div class="slideContent">
-                            <img src="assets/img/sports_civic1.jpeg" alt="honda">
-                            <h5>Honda Civic</h5>
-                            <p class="d-flex justify-content-between"><span><i class="fas fa-cube"></i> 350hp</span><a href="#!"class="d-inline reqBtn">Request now</a></p>
-                        </div>
-                        <div class="slideContent">
-                            <img src="assets/img/sports_bmw1.jpeg" alt="bmw">
-                            <h5>BMW 420d</h5>
-                            <p class="d-flex justify-content-between"><span><i class="fas fa-cube"></i> 310hp</span><a href="#!"class="d-inline reqBtn">Request now</a></p>
-                        </div>
-                        <div class="slideContent">
-                            <img src="assets/img/muscle_demon1.jpeg" alt="dodge">
-                            <h5>Dodge Challenger</h5>
-                            <p class="d-flex justify-content-between"><span><i class="fas fa-cube"></i> 700hp</span><a href="#!"class="d-inline reqBtn">Request now</a></p>
-                        </div>
-                        <div class="slideContent">
-                            <img src="assets/img/sports_mitsubishi1.jpg" alt="mitsubishi">
-                            <h5>Mitsubishi EVO X</h5>
-                            <p class="d-flex justify-content-between"><span><i class="fas fa-cube"></i> 290hp</span><a href="#!"class="d-inline reqBtn">Request now</a></p>
-                        </div>
-                        <div class="slideContent">
-                            <img src="assets/img/suv_ford1.jpeg" alt="ford">
-                            <h5>Ford F-150</h5>
-                            <p class="d-flex justify-content-between"><span><i class="fas fa-cube"></i> 280hp</span><a href="#!"class="d-inline reqBtn">Request now</a></p>
-                        </div>
-                        <div class="slideContent">
-                            <img src="assets/img/sports_benz1.jpeg" alt="benz">
-                            <h5>Mercedes 450 CLS</h5>
-                            <p class="d-flex justify-content-between"><span><i class="fas fa-cube"></i> 375hp</span><a href="#!"class="d-inline reqBtn">Request now</a></p>
-                        </div>
-                        <div class="slideContent">
-                            <img src="assets/img/sports_supra1.jpeg" alt="supra">
-                            <h5>Toyota Supra</h5>
-                            <p class="d-flex justify-content-between"><span><i class="fas fa-cube"></i> 382hp</span><a href="#!"class="d-inline reqBtn">Request now</a></p>
-                        </div>
-                      </div>
+                    
                 </div>
             </div>
         </div>
@@ -171,41 +112,40 @@
                 <div class="row d-flex justify-content-center">
                         <div class="formSlide">
                             <div id="absolute">
-                                <img src="assets/img/form1.jpg" class="slideShow fadeIn fadeOut" alt="car">
-                                <img src="assets/img/form3.jpg" class="slideShow fadeIn fadeOut" alt="car">
-                                <img src="assets/img/form4.jpg" class="slideShow fadeIn fadeOut" alt="car">
                             </div>                         
                         </div>
                         <div class="requestForm p-3 pt-xl-5">
                             <h3 class="text-left font-weight-bold pb-1">REQUEST A CAR</h3>
                             <form>
                                 <div class="form-group row col-12">
-                                    <input type="text" class="w-100" placeholder="Full name">
+                                    <input type="text" class="w-100" placeholder="Full name" id="fullName">
+                                    <span id="fullNameError" class="greskaTekst"></span> 
                                 </div>
                                 <div class="form-group row col-12">
-                                    <input type="mail" class="w-100" placeholder="E-mail">
+                                    <input type="mail" class="w-100" placeholder="E-mail" id="mail">
+                                    <span id="mailError" class="greskaTekst"></span> 
                                 </div>
                                 <div class="form-group col-12 p-0">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="male">
-                                        <label class="form-check-label" for="gender1">
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" name="gender" id="gender1" value="male">
+                                        <label class="custom-control-label" for="gender1">
                                           Male
                                         </label>
                                       </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender" id="gender2"value="female">
-                                        <label class="form-check-label" for="gender2">
+                                      <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" name="gender" id="gender2"value="female">
+                                        <label class="custom-control-label" for="gender2">
                                           Female
                                         </label>
                                       </div>
+                                      <span id="genderError" class="greskaTekst"></span> 
                                 </div>
                                 <span class="form-group row col-12 ddlCar">
                                     <select name="type" id="carType" class="custom-select">
                                         <option value="0">Choose a brand</option>
                                         
                                     </select>
-                                    <span class="mt-1" id="greska1">
-                                    </span> 
+                                    <span id="brandError" class="greskaTekst"></span> 
                                 </span>
                                 <span class="form-group row col-12 ddlCar">
                                     <select name="model" id="carModel"class="custom-select">
