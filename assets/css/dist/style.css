@@ -21,7 +21,7 @@ a:hover {
   background-color: rgba(36, 36, 36, 0.7);
 }
 #modal .row {
-  width: 50%;
+  width: 80%;
   background-color: #7a7a7a;
 }
 #modal .row #header {
@@ -40,6 +40,10 @@ a:hover {
   font-weight: bold;
   font-size: 18px;
   background-color: #b9b9b9;
+  color: #2a2a2a;
+}
+#modal .row #body span {
+  color: #070707;
 }
 #modal .row #footer {
   padding: 10px;
@@ -499,7 +503,7 @@ a:hover {
 @media screen and (max-width: 1016px) {
   .back .formSlide {
     width: 350px;
-    height: 500px;
+    height: 550px;
   }
   .back .formSlide #absolute .slideShow {
     position: absolute;
@@ -510,7 +514,7 @@ a:hover {
   }
   .back .requestForm {
     width: 350px;
-    height: 500px;
+    height: 550px;
   }
   .back .requestForm input {
     padding: 10px;
@@ -540,6 +544,11 @@ a:hover {
   }
 }
 @media screen and (max-width: 768px) {
+  #modal .row {
+    width: 90%;
+    font-size: 15px;
+  }
+
   #canvas {
     height: 700px;
   }
@@ -562,6 +571,10 @@ a:hover {
   }
 }
 @media screen and (max-width: 576px) {
+  #modal #body p {
+    font-size: 15px;
+  }
+
   #canvas .border-bottom {
     font-size: 13px;
   }
@@ -583,5 +596,9 @@ a:hover {
 @media screen and (max-width: 350px) {
   #canvas .searchForm .search h4 {
     font-size: 20px;
+  }
+
+  .back .requestForm .greskaTekst {
+    font-size: 14px;
   }
 }

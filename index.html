@@ -119,15 +119,15 @@
                         <div class="requestForm p-3 pt-xl-5">
                             <h3 class="text-left font-weight-bold pb-1">REQUEST A CAR</h3>
                             <form>
-                                <div class="form-group row col-12">
+                                <div class="form-group row col-12 p-0 ml-0">
                                     <input type="text" class="w-100" placeholder="Full name" id="fullName">
                                     <span id="fullNameError" class="greskaTekst"></span> 
                                 </div>
-                                <div class="form-group row col-12">
+                                <div class="form-group row col-12 p-0 ml-0">
                                     <input type="email" class="w-100" placeholder="E-mail" id="mail">
                                     <span id="mailError" class="greskaTekst"></span> 
                                 </div>
-                                <div class="form-group col-12 p-0">
+                                <div class="form-group col-12 p-0 p-0 ml-0">
                                     <div class="custom-control custom-radio">
                                         <input class="custom-control-input" type="radio" name="gender" id="gender1" value="male">
                                         <label class="custom-control-label" for="gender1">
@@ -142,19 +142,19 @@
                                       </div>
                                       <span id="genderError" class="greskaTekst"></span> 
                                 </div>
-                                <span class="form-group row col-12 ddlCar">
+                                <span class="form-group row col-12 ddlCar p-0 ml-0">
                                     <select name="type" id="carType" class="custom-select">
                                         <option value="0">Choose a brand</option>
                                         
                                     </select>
                                     <span id="brandError" class="greskaTekst"></span> 
                                 </span>
-                                <span class="form-group row col-12 ddlCar">
+                                <span class="form-group row col-12 ddlCar p-0 ml-0">
                                     <select name="model" id="carModel"class="custom-select">
                                         
                                     </select>
                                 </span>
-                                <span class="form-group row col-12 submitButton">
+                                <span class="form-group row col-12 submitButton p-0 ml-0">
                                     <button type="button" id="searchBtn">SEARCH</button>
                                 </span>
                               </form>
@@ -168,5 +168,7 @@
 <!-- slick Carousel CDN -->
 <script src="assets/js/main.js"></script>
 <script src="assets/owlcarousel/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>

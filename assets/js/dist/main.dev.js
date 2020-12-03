@@ -304,7 +304,7 @@ var dataArray = [];
 function proveraFullName() {
   //full name error
   if (!regExFullName.test(fullName.value)) {
-    fullNameError.textContent = "example: John Doe";
+    fullNameError.innerHTML = 'Incorrect format <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="ex: John Doe"></i>';
     fullName.classList.add("greska");
     fullName.classList.remove("correct");
     return false;
@@ -319,7 +319,7 @@ function proveraFullName() {
 function proveraMail() {
   //mail error
   if (!regExMail.test(mail.value)) {
-    mailError.textContent = "example: johndoe@example.com";
+    mailError.innerHTML = 'Please enter a valid email address. <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="ex: johndoe@example.com"></i>';
     mail.classList.add("greska");
     mail.classList.remove("correct");
     return false;
@@ -374,18 +374,21 @@ document.getElementById("searchBtn").addEventListener("click", function () {
 });
 
 function celokupnaProvera(imeProvera, mailProvera, typeProvera, genderProvera) {
-  var predajaPodataka = 0;
+  var predajaPodataka = 0; //provera svih unetih podataka
 
   if (imeProvera && mailProvera && typeProvera && genderProvera) {
     if (dataArray.length == 0) {
+      //upisivanje podataka u niz
       dataArray.push(fullName.value);
+      var firstName = dataArray[0].split(" ");
       dataArray.push(mail.value);
       dataArray.push(type.options[type.options.selectedIndex].value);
       dataArray.push(model.options[model.options.selectedIndex].text);
       dataArray.push(checkedGender);
       predajaPodataka++;
       console.log(predajaPodataka);
-    }
+    } //dinamicko kreiranje modala 
+
 
     var modal = document.getElementById("modal");
     var row = document.createElement("div");
@@ -399,7 +402,7 @@ function celokupnaProvera(imeProvera, mailProvera, typeProvera, genderProvera) {
     body.setAttribute("id", "body");
     body.classList.add("col-12", "p-2");
     var p = document.createElement("p");
-    p.innerHTML = "".concat(dataArray[0], ", you've successfully sent the request for a ").concat(dataArray[2], " ").concat(dataArray[3], ", all other information has been sent to your mail.</br>\n            ").concat(dataArray[1]);
+    p.innerHTML = "<span>".concat(firstName[0], "</span>, you've successfully sent the request for a <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n            <span>").concat(dataArray[1], "</span>");
     var footer = document.createElement("div");
     footer.setAttribute("id", "footer");
     footer.classList.add("col-12", "text-right");
@@ -416,27 +419,18 @@ function celokupnaProvera(imeProvera, mailProvera, typeProvera, genderProvera) {
     footer.appendChild(button);
     modal.style.visibility = "visible";
     button.addEventListener("click", function () {
-      modal.style.visibility = "hidden";
+      modal.style.visibility = "hidden"; //brisanje prethodnog niza i modala
+
       dataArray = [];
       row.remove();
     });
   }
 }
-/* <div class="row">
-<div id="header" class="col-12 text-left p-3">
-    <h2>CAR <span>ZONE</span></h2>
-</div>
-<div id="body" class="col-12 p-2">
-    <p>${dataArray[0]}, you've successfully sent the request for a ${dataArray[2]} ${dataArray[3]}, all other information has been sent to your mail.</br>
-    ${dataArray[1]}</p>
-</div>
-<div id="footer" class="col-12 text-right">
-    <button type="button" id="closeModal">Zatvori</button>
-</div>
-</div>` */
-
 
 $(document).ready(function () {
+  $('body').tooltip({
+    selector: '.fa-info-circle'
+  });
   $(window).scroll(function () {
     if ($(window).scrollTop() > 500) {
       $(".sectionContent").each(function (i) {
@@ -447,7 +441,7 @@ $(document).ready(function () {
       });
     }
 
-    if ($(window).scrollTop() > 800) {
+    if ($(window).scrollTop() > 900) {
       $(".featured").animate({
         left: "0",
         opacity: "1"
