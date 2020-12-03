@@ -141,43 +141,50 @@ a:hover{
         }
     }
 }
-.naslov{
-    h1{
+.naslovContent{
+    .naslov{
+        h1{
+            span{
+            color: rgb(211, 0, 42);
+            font-weight: bold;
+        }
+    }
         span{
-        color: rgb(211, 0, 42);
-        font-weight: bold;
-    }
-}
-    span{
-        .fas{
-            font-size: 35px;
-            color: rgb(211, 0, 42);
+            .fas{
+                font-size: 35px;
+                color: rgb(211, 0, 42);
+            }
         }
     }
-}
-.sectionContent{
-    background-color: rgb(36, 36, 36);
-    color:rgb(122, 122, 122);
-    border-bottom: 5px solid rgb(211, 0, 42);
-    i{
-        font-size: 60px;
-        padding: 15px;
-    }
-    h5{
-        font-size: 25px;
-        font-weight: bold;
-    }
-    p{
-        font-size: 17px;
-        font-weight: bold;
-        padding-bottom: 15px;
-    }
-    &:hover{
+    .sectionContent{
+        position: relative;
+        z-index: 999999;
+        top: -250px;
+        opacity: 0;
+        background-color: rgb(36, 36, 36);
+        color:rgb(122, 122, 122);
+        border-bottom: 5px solid rgb(211, 0, 42);
         i{
-            color: rgb(211, 0, 42);
+            font-size: 60px;
+            padding: 15px;
+        }
+        h5{
+            font-size: 25px;
+            font-weight: bold;
+        }
+        p{
+            font-size: 17px;
+            font-weight: bold;
+            padding-bottom: 15px;
+        }
+        &:hover{
+            i{
+                color: rgb(211, 0, 42);
+            }
         }
     }
 }
+
 .secondRow-cars{
     border-top: 5px solid rgb(211, 0, 42);
     border-bottom: 5px solid rgb(211, 0, 42);
@@ -278,7 +285,9 @@ a:hover{
     }
     #showCars{
         .slide{
-            transition: 1s ease-in;
+            position: relative;
+            top: -250px;
+            opacity: 0;
         }
         .holder{
             background-color:rgb(218, 218, 218);

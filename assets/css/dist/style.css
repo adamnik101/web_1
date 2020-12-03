@@ -146,34 +146,37 @@ a:hover {
   vertical-align: middle;
 }
 
-.naslov h1 span {
+.naslovContent .naslov h1 span {
   color: #d3002a;
   font-weight: bold;
 }
-.naslov span .fas {
+.naslovContent .naslov span .fas {
   font-size: 35px;
   color: #d3002a;
 }
-
-.sectionContent {
+.naslovContent .sectionContent {
+  position: relative;
+  z-index: 999999;
+  top: -250px;
+  opacity: 0;
   background-color: #242424;
   color: #7a7a7a;
   border-bottom: 5px solid #d3002a;
 }
-.sectionContent i {
+.naslovContent .sectionContent i {
   font-size: 60px;
   padding: 15px;
 }
-.sectionContent h5 {
+.naslovContent .sectionContent h5 {
   font-size: 25px;
   font-weight: bold;
 }
-.sectionContent p {
+.naslovContent .sectionContent p {
   font-size: 17px;
   font-weight: bold;
   padding-bottom: 15px;
 }
-.sectionContent:hover i {
+.naslovContent .sectionContent:hover i {
   color: #d3002a;
 }
 
@@ -271,7 +274,9 @@ a:hover {
   color: #d3002a;
 }
 #featuredSection #showCars .slide {
-  transition: 1s ease-in;
+  position: relative;
+  top: -250px;
+  opacity: 0;
 }
 #featuredSection #showCars .holder {
   background-color: #dadada;

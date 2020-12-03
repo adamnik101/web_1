@@ -7,7 +7,6 @@ window.onload = function () {
   sideNav();
   ddl();
   info1();
-  ispisCarContent();
   showImg();
   /*     cars(); */
 };
@@ -219,7 +218,10 @@ function ispisCarContent() {
     if (click1 == 0) {
       //ispisivanje narednih 3 elemenata iz niza pocev od 6
       for (var i = 6; i < carContent.length - 3; i++) {
-        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 mr-auto col-12 col-sm-6 mb-4 slide\">\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n                    <p><i class=\"fas fa-cog\"></i> ").concat(carContent[random[i]][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n                    <a href=\"#\">ORDER NOW</a>\n                    </div></div>");
+        var slide = document.createElement("div");
+        slide.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4");
+        document.getElementById("showCars").appendChild(slide);
+        slide.innerHTML += "\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n                    <p><i class=\"fas fa-cog\"></i> ").concat(carContent[random[i]][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n                    <a href=\"#\">ORDER NOW</a>\n                    </div>");
       }
     }
 
@@ -292,6 +294,7 @@ var model = document.getElementById("carModel"); //dohvatanje greski
 
 var fullNameError = document.getElementById("fullNameError");
 var mailError = document.getElementById("mailError");
+var genderError = document.getElementById("genderError");
 var brandError = document.getElementById("brandError"); //regularni izrazi
 
 var regExFullName = /^[A-ŠĐČĆŽ][a-zšđčćž]{2,14}(\s[A-ZČĆŽŠĐ][a-zšđčćž]{2,19})+$/;
@@ -328,6 +331,21 @@ function proveraMail() {
   }
 }
 
+var checkedGender = "";
+
+function proveraGender() {
+  for (var i = 0; i < gender.length; i++) {
+    if (gender[i].checked) {
+      genderError.textContent = "";
+      checkedGender = gender[i].value;
+      return true;
+    } else {
+      genderError.textContent = "U must pick gender!";
+      return false;
+    }
+  }
+}
+
 function proveraType() {
   // car choose error
   if (type.options[type.options.selectedIndex].value != 0) {
@@ -339,33 +357,63 @@ function proveraType() {
   }
 }
 
-document.getElementById("fullName").onchange = function () {
+fullName.onchange = function () {
   proveraFullName();
 };
 
-document.getElementById("mail").onchange = function () {
+mail.onchange = function () {
   proveraMail();
 };
 
 document.getElementById("searchBtn").addEventListener("click", function () {
-  celokupnaProvera(proveraFullName(), proveraMail(), proveraType());
+  var fullName = proveraFullName();
+  var mail = proveraMail();
+  var type = proveraType();
+  var gender = proveraGender();
+  celokupnaProvera(fullName, mail, type, gender);
 });
 
-function celokupnaProvera(imeProvera, mailProvera, typeProvera) {
-  if (imeProvera && mailProvera && typeProvera) {
+function celokupnaProvera(imeProvera, mailProvera, typeProvera, genderProvera) {
+  if (imeProvera && mailProvera && typeProvera && genderProvera) {
     if (dataArray.length == 0) {
       dataArray.push(fullName.value);
       dataArray.push(mail.value);
       dataArray.push(type.options[type.options.selectedIndex].value);
       dataArray.push(model.options[model.options.selectedIndex].text);
+      dataArray.push(checkedGender);
     }
 
-    var tekst = "Vase ime je ".concat(dataArray[0], ", vas mejl je ").concat(dataArray[1], ", brend koji ste izabrali je ").concat(dataArray[2], ", a model je ").concat(dataArray[3]);
+    var tekst = "Vase ime je ".concat(dataArray[0], ", vas mejl je ").concat(dataArray[1], ", brend koji ste izabrali je ").concat(dataArray[2], ", a model je ").concat(dataArray[3], ", pol ").concat(dataArray[4]);
     alert(tekst);
+    dataArray = [];
   }
 }
 
 $(document).ready(function () {
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > 200) {
+      $(".sectionContent").each(function (i) {
+        $(this).delay(200 * i).animate({
+          opacity: "1",
+          top: "0"
+        }, "slow");
+      });
+    }
+  });
+  ispisCarContent();
+  $("#loadMore").click(function () {
+    $(".slide").each(function (i) {
+      $(this).delay(300 * i).animate({
+        top: "0",
+        opacity: "1"
+      });
+    });
+  });
+  $("#requestBtn").click(function () {
+    $("html,body").animate({
+      scrollTop: $(".back").offset().top
+    }, 1500);
+  });
   $(".owl-carousel").owlCarousel({
     responsiveClass: true,
     autoplay: true,
