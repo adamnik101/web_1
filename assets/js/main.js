@@ -461,7 +461,7 @@ function celokupnaProvera(imeProvera, mailProvera, typeProvera, genderProvera){
             body.setAttribute("id", "body");
             body.classList.add("col-12", "p-2");
             let p = document.createElement("p");
-            p.innerHTML = `<span>${firstName[0]}</span>, you've successfully sent the request for a <span>${dataArray[2]} ${dataArray[3]}</span>, all other information has been sent to your mail.</br>
+            p.innerHTML = `<span>${firstName[0]}</span>, you've successfully sent the request for the <span>${dataArray[2]} ${dataArray[3]}</span>, all other information has been sent to your mail.</br>
             <span>${dataArray[1]}</span>`;
             let footer = document.createElement("div");
             footer.setAttribute("id", "footer");

@@ -601,4 +601,8 @@ a:hover {
   .back .requestForm .greskaTekst {
     font-size: 14px;
   }
+  .back .requestForm .greskaTekst i {
+    font-size: 18px;
+    padding-top: 5px;
+  }
 }

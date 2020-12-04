@@ -402,7 +402,7 @@ function celokupnaProvera(imeProvera, mailProvera, typeProvera, genderProvera) {
     body.setAttribute("id", "body");
     body.classList.add("col-12", "p-2");
     var p = document.createElement("p");
-    p.innerHTML = "<span>".concat(firstName[0], "</span>, you've successfully sent the request for a <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n            <span>").concat(dataArray[1], "</span>");
+    p.innerHTML = "<span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n            <span>").concat(dataArray[1], "</span>");
     var footer = document.createElement("div");
     footer.setAttribute("id", "footer");
     footer.classList.add("col-12", "text-right");
