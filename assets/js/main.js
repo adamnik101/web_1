@@ -248,7 +248,7 @@ function ispisCarContent(){
     var div = document.getElementById("showCars");
         // ispisivanje prvih 6 artikala
         for(let i = 0; i < carContent.length - 6; i++){
-            div.innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4">
+            div.innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4 scale">
             <div class="imgHolder">
                 <img src="${carContent[random[i]][0]}" class="img-fluid" alt="${carContent[random[i]][1]}">
             </div>
@@ -268,7 +268,7 @@ function ispisCarContent(){
                 //ispisivanje narednih 3 elemenata iz niza pocev od 6
                 for(var i = 6; i < carContent.length - 3; i++){
                     let slide = document.createElement("div");
-                    slide.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4");
+                    slide.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale");
                     document.getElementById("showCars").appendChild(slide);
                     slide.innerHTML += `
                     <div class="imgHolder">
@@ -284,7 +284,7 @@ function ispisCarContent(){
             if(click1 > 0){
                 //ispisivanje ostatka 
                 for(var i = 9; i < carContent.length; i++){
-                    document.getElementById("showCars").innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4 slide">
+                    document.getElementById("showCars").innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4 slide scale">
                     <div class="imgHolder">
                         <img src="${carContent[random[i]][0]}" class="img-fluid" alt="${carContent[random[i]][1]}">
                     </div>

@@ -206,7 +206,7 @@ function ispisCarContent() {
   var div = document.getElementById("showCars"); // ispisivanje prvih 6 artikala
 
   for (var i = 0; i < carContent.length - 6; i++) {
-    div.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(carContent[random[i]][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div>\n        </div>");
+    div.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n            <p><i class=\"fas fa-cog\"></i> ").concat(carContent[random[i]][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n            <a href=\"#\">ORDER NOW</a>\n            </div>\n        </div>");
   }
 
   var click1 = 0;
@@ -219,7 +219,7 @@ function ispisCarContent() {
       //ispisivanje narednih 3 elemenata iz niza pocev od 6
       for (var i = 6; i < carContent.length - 3; i++) {
         var slide = document.createElement("div");
-        slide.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4");
+        slide.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale");
         document.getElementById("showCars").appendChild(slide);
         slide.innerHTML += "\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n                    <p><i class=\"fas fa-cog\"></i> ").concat(carContent[random[i]][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n                    <a href=\"#\">ORDER NOW</a>\n                    </div>");
       }
@@ -228,7 +228,7 @@ function ispisCarContent() {
     if (click1 > 0) {
       //ispisivanje ostatka 
       for (var i = 9; i < carContent.length; i++) {
-        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide\">\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n                    <p><i class=\"fas fa-cog\"></i> ").concat(carContent[random[i]][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n                    <a href=\"#\">ORDER NOW</a>\n                    </div></div>");
+        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\">\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n                    <p><i class=\"fas fa-cog\"></i> ").concat(carContent[random[i]][2], " <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n                    <a href=\"#\">ORDER NOW</a>\n                    </div></div>");
       }
     }
 

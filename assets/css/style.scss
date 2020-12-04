@@ -332,6 +332,23 @@ a{
         }
     }
     #showCars{
+        .scale{
+            &:hover{
+                .imgHolder{
+                    overflow: hidden;
+                    img{
+                        transform: scale(1.1);
+                        transition: 0.5s ease;
+                    }
+                }
+            }
+            .imgHolder{
+                overflow: hidden;
+                img{
+                    transition: 0.5s ease;
+                }
+            }
+        }
         .slide{
             position: relative;
             top: -250px;
@@ -355,9 +372,15 @@ a{
                 background-color: rgb(24, 24, 24);
                 color: rgb(151, 151, 151);
                 font-weight: bold;
+                transition: 1s;
+                background-size: 0% 200%;
+                transition: background-color 1.5s;
                 &:hover{
-                    background-color: rgb(211, 0, 42);
-                    color: rgb(24, 24, 24);
+                    background-color:rgb(211, 0, 42);
+                    background-image:linear-gradient(to right, rgb(211,0,42) 100%, rgb(255, 255, 255) 100%);
+                    background-repeat:no-repeat;
+                    background-size: 200% 100%; 
+                    transition:background-size 1.5s, background-color 1.5s;
                 }
             }
         }

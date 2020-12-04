@@ -321,6 +321,19 @@ a:hover {
 #featuredSection h4 span {
   color: #d3002a;
 }
+#featuredSection #showCars .scale:hover .imgHolder {
+  overflow: hidden;
+}
+#featuredSection #showCars .scale:hover .imgHolder img {
+  transform: scale(1.1);
+  transition: 0.5s ease;
+}
+#featuredSection #showCars .scale .imgHolder {
+  overflow: hidden;
+}
+#featuredSection #showCars .scale .imgHolder img {
+  transition: 0.5s ease;
+}
 #featuredSection #showCars .slide {
   position: relative;
   top: -250px;
@@ -345,10 +358,16 @@ a:hover {
   background-color: #181818;
   color: #979797;
   font-weight: bold;
+  transition: 1s;
+  background-size: 0% 200%;
+  transition: background-color 1.5s;
 }
 #featuredSection #showCars .holder a:hover {
   background-color: #d3002a;
-  color: #181818;
+  background-image: linear-gradient(to right, #d3002a 100%, white 100%);
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  transition: background-size 1.5s, background-color 1.5s;
 }
 #featuredSection #loadMore {
   background-color: #a7a7a7;
