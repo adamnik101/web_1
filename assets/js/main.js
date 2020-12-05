@@ -423,7 +423,7 @@ payment[1].onclick =  function (){
         var input1 = document.createElement("input");
         input1.classList.add("w-100");
         input1.setAttribute("type", "text");
-        input1.setAttribute("placeholder", "Credit card number: 5XXX-XXXX-XXXX-XXXX");
+        input1.setAttribute("placeholder", "Card number: 5XXX-XXXX-XXXX-XXXX");
         input1.setAttribute("id", "cardContent");
 
         var inputGreska = document.createElement("span");
