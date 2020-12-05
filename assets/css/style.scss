@@ -327,7 +327,7 @@ a{
         font-size: 19px;
         &:hover{
             background-color: rgb(211, 0, 42);
-            color:rgb(65, 65, 65);
+            color:rgb(36, 36, 36);
         }
     }
 }
@@ -687,6 +687,12 @@ a{
                 font-size: 17px;
                 input{
                     padding: 15px 10px;
+                }
+                .greskaTekst{
+                    i{
+                        font-size: 20px;
+                        margin-top: 8px;
+                    }
                 }
             }
         }

@@ -317,7 +317,7 @@ a:hover {
 }
 #request a:hover {
   background-color: #d3002a;
-  color: #414141;
+  color: #242424;
 }
 
 #featuredSection {
@@ -643,6 +643,10 @@ a:hover {
   }
   .back .requestForm input {
     padding: 15px 10px;
+  }
+  .back .requestForm .greskaTekst i {
+    font-size: 20px;
+    margin-top: 8px;
   }
 }
 @media screen and (max-width: 350px) {
