@@ -71,8 +71,8 @@ function info1(){
 }
 // Dinamicko ispisivanje navigacije i sidenav
 
-var navigacija = new Array("Home", "Cars", "About", "Contact", "Documentation");
-var navigacijaLinkovi = new Array("index.html", "search.html", "about.html", "contact.html", "#");
+var navigacija = ["Home", "Cars", "About", "Contact", "Documentation"];
+var navigacijaLinkovi = ["index.html", "search.html", "about.html", "contact.html", "#"];
 
 function navigacija1(){
     let navGet = document.getElementById("navigacija");
@@ -189,29 +189,20 @@ function ispisivanjeOpt(){
 ispisivanjeOpt();
 }
 
-
 // dinamicko i nasumicno ispisivanje automobila u index.html
 var carContent = [
-    ["assets/img/sports_civic1.jpeg", "Honda Civic Type R", "Manual", "350hp"],
-    ["assets/img/sports_supra1.jpeg", "Toyota Supra", "Automatic", "382hp"],
-    ["assets/img/sports_subaru1.jpeg","Subaru Impreza WRX", "Manual", "340hp"],
-    ["assets/img/muscle_chevy1.jpg","Chevrolet ZL1", "Automatic", "650hp"],
-    ["assets/img/muscle_demon1.jpeg","Dodge Challenger", "Automatic", "700hp"],
-    ["assets/img/sports_benz1.jpeg","Mercedes 450 CLS", "Manual","375hp"],
-    ["assets/img/sports_evo.jpeg","Subaru WRX","Manual", "360hp"],
-    ["assets/img/sports_bmw1.jpeg","BMW 420d Coupe","Manual", "310hp"],
-    ["assets/img/sports_mitsubishi1.jpg","Mitsubishi EVO X","Automatic", "290hp"],
-    ["assets/img/muscle_mustang1.jpeg","Ford Mustang","Automatic", "750hp"],
-    ["assets/img/sports_bmw2.jpeg","BMW X5","Automatic", "310hp"],
-    ["assets/img/suv_ford1.jpeg","Ford F-150","Automatic", "280hp"]];
-
-
-
-
-
-
-
-
+    ["assets/img/sports_civic1.jpeg", "Honda Civic Type R", "150/day", "350hp"],
+    ["assets/img/sports_supra1.jpeg", "Toyota Supra", "300/day", "382hp"],
+    ["assets/img/sports_subaru1.jpeg","Subaru Impreza WRX", "120/day", "340hp"],
+    ["assets/img/muscle_chevy1.jpg","Chevrolet ZL1", "200/day", "650hp"],
+    ["assets/img/muscle_demon1.jpeg","Dodge Challenger", "200/day", "700hp"],
+    ["assets/img/sports_benz1.jpeg","Mercedes 450 CLS", "160/day","375hp"],
+    ["assets/img/sports_evo.jpeg","Subaru WRX","130/day", "360hp"],
+    ["assets/img/sports_bmw1.jpeg","BMW 420d Coupe","120/day", "310hp"],
+    ["assets/img/sports_mitsubishi1.jpg","Mitsubishi EVO X","110/day", "290hp"],
+    ["assets/img/muscle_mustang1.jpeg","Ford Mustang","180/day", "750hp"],
+    ["assets/img/sports_bmw2.jpeg","BMW X5","110/day", "310hp"],
+    ["assets/img/suv_ford1.jpeg","Ford F-150","100/day", "280hp"]];
 
     //niz u koji ubacujemo DISTINCT vrednosti do 12
     var random = [];
@@ -235,7 +226,7 @@ var carContent = [
         parent.appendChild(child);
         for(let i = 0; i < 6; i++){
             child.innerHTML +=`<div class="slideContent"><img src="${carContent[random[i]][0]}" alt="${carContent[random[i]][1]}"><h5>${carContent[random[i]][1]}</h5>
-            <p class="d-flex justify-content-between"><span><i class="fas fa-cube"></i> ${carContent[random[i]][3]}</span><a href="#!"class="d-inline reqBtn">Request now</a></p>
+            <p class="d-flex justify-content-between"><span><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]}</span><a href="#!"class="d-inline reqBtn">Request now</a></p>
         </div>`
         }
         random=[];
@@ -254,7 +245,7 @@ function ispisCarContent(){
             </div>
             <div class="holder">
             <h5 class="mb-3">${carContent[random[i]][1]}</h5>
-            <p><i class="fas fa-cog"></i> ${carContent[random[i]][2]} <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
+            <p><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]} &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
             <a href="#">ORDER NOW</a>
             </div>
         </div>`
@@ -276,7 +267,7 @@ function ispisCarContent(){
                     </div>
                     <div class="holder">
                     <h5 class="mb-3">${carContent[random[i]][1]}</h5>
-                    <p><i class="fas fa-cog"></i> ${carContent[random[i]][2]} <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
+                    <p><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]} &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
                     <a href="#">ORDER NOW</a>
                     </div>`;
                 }
@@ -290,7 +281,7 @@ function ispisCarContent(){
                     </div>
                     <div class="holder">
                     <h5 class="mb-3">${carContent[random[i]][1]}</h5>
-                    <p><i class="fas fa-cog"></i> ${carContent[random[i]][2]} <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
+                    <p><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]} &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
                     <a href="#">ORDER NOW</a>
                     </div></div>`;
                 }
@@ -337,17 +328,23 @@ function showImg(){
         setTimeout(showImg, 15000);
 }
 
+
+
+
     //dohvatanje elemenata
     var fullName = document.getElementById("fullName");
     var mail = document.getElementById("mail");
-    var gender = document.getElementsByName("gender");
+    var payment = document.getElementsByName("payment");
+  //var expDate = document.getElementById("validThru"); 
     var type = document.getElementById("carType");
+    var cvv = document.getElementById("cvv"); 
     var model = document.getElementById("carModel");
 
     //dohvatanje greski
     var fullNameError = document.getElementById("fullNameError");
     var mailError = document.getElementById("mailError");
-    var genderError = document.getElementById("genderError");
+    var paymentError = document.getElementById("paymentError");
+    var cvvError = document.getElementById("cvvError"); 
     var brandError = document.getElementById("brandError");
 
     //regularni izrazi
@@ -388,21 +385,156 @@ function proveraMail(){
     }
 }
 
-var checkedGender = "";
-function proveraGender(){
-    for(let i = 0; i < gender.length; i++){
-        if(gender[i].checked){
-            genderError.textContent = "";
-            checkedGender = gender[i].value;
-            return true;
+function proveraCashCard(){
+    var value;
+    var boolean;
+    for(let i = 0; i < payment.length; i++){
+        if(!payment[i].checked)
+        {
+            paymentError.innerHTML = "Please choose payment method.";
+            boolean = false;
+            continue;
         }
         else{
-            genderError.textContent = "U must pick gender!";
-            return false;
+            paymentError.innerHTML = "";
+            boolean = true;
+            value = payment[i].value;
+            break;
         }
+    }
+    return {value, boolean};
+}
+
+var formMore = document.createElement("div");
+var parentDiv = document.getElementById("card");
+
+var cardMade = 0;
+
+payment[1].onclick =  function (){
+    if(cardMade == 0){
+        console.log("1")
+        var placeholder = ["MM/YY", "***"];
+        var id = ["validThru", "cvv"];
+        var labelMain = ["Expiration date:", "CVV:"];
+
+        var formMore = document.createElement("div");
+        formMore.classList.add("d-flex", "justify-content-between", "flex-wrap", "mt-2", "cardHolder");
+
+        var input1 = document.createElement("input");
+        input1.classList.add("w-100");
+        input1.setAttribute("type", "text");
+        input1.setAttribute("placeholder", "Credit card number");
+        input1.setAttribute("id", "cardContent");
+
+        var inputGreska = document.createElement("span");
+        inputGreska.classList.add("greskaTekst", "w-100");
+        inputGreska.setAttribute("id", "cardNumberError");
+        formMore.appendChild(input1);
+        formMore.appendChild(inputGreska);
+    for(let i = 0; i < 2; i++){
+        var wrap = document.createElement("div");
+        wrap.classList.add("w-50");
+        formMore.appendChild(wrap);
+        var label = document.createElement("label");
+        label.classList.add("w-100");
+        label.setAttribute("for", id[i]);
+        var labelText = document.createTextNode(labelMain[i]);
+        label.appendChild(labelText);
+        wrap.appendChild(label);
+        var input2 = document.createElement("input");
+        input2.classList.add("w-50");
+        input2.setAttribute("type", "text");
+        input2.setAttribute("placeholder", placeholder[i]);
+        input2.setAttribute("id", id[i]);
+        wrap.appendChild(input2);
+    }
+    var idGreska = ["expDateError", "cvvError"];
+    for(let i = 0; i < 2; i++){
+        var greske = document.createElement("div");
+        greske.classList.add("w-50");
+        formMore.appendChild(greske);
+        var span = document.createElement("span");
+        span.setAttribute("id", idGreska[i]);
+        span.classList.add("greskaTekst");
+        greske.appendChild(span);
+    }
+    cardMade++;
+    parentDiv.appendChild(formMore);
+    }
+    document.getElementById("validThru").onchange = function(){
+        proveraExpDate();
+    }
+    document.getElementById("cvv").onchange = function(){
+        proveraCvv();
+    }
+    document.getElementById("cardContent").onchange = function(){
+        proveraCardNumber();
+    }
+}
+payment[0].onclick = function(){
+    console.log("0")
+    if(cardMade > 0){
+        document.querySelector(".cardHolder").remove();
+        cardMade--;
     }
 }
 
+function proveraCardNumber(){
+    var regExCardNumber = /^[0-9]{16}$/;
+    var cardNumber = document.getElementById("cardContent");
+    var cardNumberError = document.getElementById("cardNumberError");
+
+    if(!regExCardNumber.test(cardNumber.value)){
+        cardNumberError.innerHTML = "Format: XXXX XXXX XXXX XXXX";
+        cardNumber.classList.add("greska");
+        cardNumber.classList.remove("correct");
+        return false;
+    }
+    else{
+        cardNumberError.innerHTML = "";
+        cardNumber.classList.remove("greska");
+        cardNumber.classList.add("correct");
+        return true;
+    }
+}
+
+function proveraExpDate(){
+    // za ponaosob funkcija ako korisnik izabere karticom da placa
+    var regExExpDate = /^[0-9]{2}\/[2-9][0-9]$/
+    var expDate = document.getElementById("validThru");
+    var expDateError = document.getElementById("expDateError");
+
+    if(!regExExpDate.test(expDate.value)){
+        expDateError.innerHTML = 'Incorrect format <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Example: 05/21"></i>';
+        expDate.classList.add("greska");
+        expDate.classList.remove("correct");
+        return false
+    }
+    else{
+        expDateError.textContent = "";
+        expDate.classList.remove("greska");
+        expDate.classList.add("correct");
+        return true;
+    }
+}
+
+function proveraCvv(){
+    var regExCvv = /^[0-9]{3}$/;
+    var cvv = document.getElementById("cvv");
+    var cvvError = document.getElementById("cvvError"); 
+    if(!regExCvv.test(cvv.value)){
+        cvvError.innerHTML = 'Incorrect format <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Example: 123"></i>';
+        cvv.classList.add("greska");
+        cvv.classList.remove("correct");
+        return false;
+    }
+    else{
+        cvvError.textContent = "";
+        cvv.classList.remove("greska");
+        cvv.classList.add("correct");
+        return true;
+    }
+}
 
 function proveraType(){
     // car choose error
@@ -416,7 +548,6 @@ function proveraType(){
     }
 }
 
-
 fullName.onchange = function(){
     proveraFullName();
 }
@@ -424,71 +555,87 @@ mail.onchange = function(){
     proveraMail();
 }
 
+
 document.getElementById("searchBtn").addEventListener("click", function(){
     let fullName = proveraFullName();
     let mail = proveraMail();
     let type = proveraType();
-    let gender = proveraGender();
-    celokupnaProvera(fullName, mail, type, gender);
+    let cashOrCard = proveraCashCard();
+    let bool = cashOrCard.boolean;
+    let cardValue = cashOrCard.value;
+    if(cardValue == payment[1].value){
+        let exp = proveraExpDate();
+        let cvv = proveraCvv();
+        let card = proveraCardNumber();
+        console.log(exp, cvv, card);
+        if(exp && cvv && card){
+            celokupnaProvera(fullName, mail, type, bool);
+        }
+    }
+    if(cardValue == payment[0].value){
+        celokupnaProvera(fullName, mail, type, bool);
+    }
 });
 
 
-function celokupnaProvera(imeProvera, mailProvera, typeProvera, genderProvera){
+function celokupnaProvera(imeProvera, mailProvera,typeProvera, cashCardProvera){
     let predajaPodataka = 0;
     //provera svih unetih podataka
-    if(imeProvera && mailProvera && typeProvera && genderProvera){
+    if(imeProvera && mailProvera && typeProvera && cashCardProvera){
         if(dataArray.length == 0){
             //upisivanje podataka u niz
             dataArray.push(fullName.value);
-            var firstName = dataArray[0].split(" ");
             dataArray.push(mail.value);
             dataArray.push(type.options[type.options.selectedIndex].value);
             dataArray.push(model.options[model.options.selectedIndex].text);
-            dataArray.push(checkedGender);
+            console.log(dataArray);
             predajaPodataka++;
-           console.log(predajaPodataka);
+            console.log(predajaPodataka);
+            modal();
         }
-        //dinamicko kreiranje modala 
-            let modal = document.getElementById("modal");
-            let row = document.createElement("div");
-            row.classList.add("row", "regenerate");
-            let header = document.createElement("div");
-            header.setAttribute("id","header");
-            header.classList.add("col-12","text-left", "p-3");
-            let headerNaslov = document.createElement("h2");
-            headerNaslov.innerHTML += "CAR <span>ZONE</span>";
-            let body = document.createElement("div");
-            body.setAttribute("id", "body");
-            body.classList.add("col-12", "p-2");
-            let p = document.createElement("p");
-            p.innerHTML = `<span>${firstName[0]}</span>, you've successfully sent the request for the <span>${dataArray[2]} ${dataArray[3]}</span>, all other information has been sent to your mail.</br>
-            <span>${dataArray[1]}</span>`;
-            let footer = document.createElement("div");
-            footer.setAttribute("id", "footer");
-            footer.classList.add("col-12", "text-right");
-            let button = document.createElement("button");
-            button.setAttribute("type", "button");
-            button.setAttribute("id", "closeModal");
-            button.textContent = "Close";
+}}
+//dinamicko kreiranje modala 
+function modal(){
+    let firstName = dataArray[0].split(" ");
+    let modal = document.getElementById("modal");
+    let row = document.createElement("div");
+    row.classList.add("row", "regenerate");
+    let header = document.createElement("div");
+    header.setAttribute("id","header");
+    header.classList.add("col-12","text-left", "p-3");
+    let headerNaslov = document.createElement("h2");
+    headerNaslov.innerHTML += "CAR <span>ZONE</span>";
+    let body = document.createElement("div");
+    body.setAttribute("id", "body");
+    body.classList.add("col-12", "p-2");
+    let p = document.createElement("p");
+    p.innerHTML = `<span>${firstName[0]}</span>, you've successfully sent the request for the <span>${dataArray[2]} ${dataArray[3]}</span>, all other information has been sent to your mail.</br>
+    <span>${dataArray[1]}</span>`;
+    let footer = document.createElement("div");
+    footer.setAttribute("id", "footer");
+    footer.classList.add("col-12", "text-right");
+    let button = document.createElement("button");
+    button.setAttribute("type", "button");
+    button.setAttribute("id", "closeModal");
+    button.textContent = "Close";
 
-            modal.appendChild(row);
-            row.appendChild(header);
-            header.appendChild(headerNaslov);
-            row.appendChild(body);
-            row.appendChild(footer);
+    modal.appendChild(row);
+    row.appendChild(header);
+    header.appendChild(headerNaslov);
+    row.appendChild(body);
+    row.appendChild(footer);
 
 
-            body.appendChild(p);
-            footer.appendChild(button);
-            modal.style.visibility = "visible";
+    body.appendChild(p);
+    footer.appendChild(button);
+    modal.style.visibility = "visible";
 
-            button.addEventListener("click", function(){
-                modal.style.visibility = "hidden";
-                //brisanje prethodnog niza i modala
-                dataArray = []
-                row.remove();
-        })}
-}   
+    button.addEventListener("click", function(){
+    modal.style.visibility = "hidden";
+    //brisanje prethodnog niza i modala
+    dataArray = []
+    row.remove();
+})}  
  
 $(document).ready(function(){
     $('body').tooltip({
@@ -552,6 +699,13 @@ $(document).ready(function(){
     })
     $("#btnLevo").click(function(){
         owl.trigger("prev.owl.carousel");
+    })
+
+    $("#searchBtn").on("click", function(){
+        $("#modal .row").animate({
+            opacity : "1",
+            top : "0"
+        }, 1000)
     })
     })
 

@@ -21,7 +21,10 @@ a:hover {
   background-color: rgba(36, 36, 36, 0.7);
 }
 #modal .row {
+  position: relative;
   width: 80%;
+  top: -100%;
+  opacity: 0;
   background-color: #7a7a7a;
 }
 #modal .row #header {
@@ -340,6 +343,7 @@ a:hover {
   opacity: 0;
 }
 #featuredSection #showCars .holder {
+  box-shadow: inset 0px 0px 38px -9px rgba(0, 0, 0, 0.53);
   background-color: #dadada;
   border-bottom: 5px solid #d3002a;
   padding: 10px;
@@ -390,7 +394,7 @@ a:hover {
 }
 .back .formSlide {
   width: 450px;
-  height: 650px;
+  height: 700px;
 }
 .back .formSlide #absolute {
   position: relative;
@@ -401,7 +405,7 @@ a:hover {
   top: 0;
   right: 0;
   width: 100%;
-  height: 650px;
+  height: 700px;
 }
 .back .formSlide #absolute .fadeIn {
   animation-name: fadeIn;
@@ -440,7 +444,7 @@ a:hover {
   }
 }
 .back .requestForm {
-  height: 650px;
+  height: 700px;
   width: 450px;
   background-color: #181818;
   color: #dadada;
@@ -503,6 +507,19 @@ a:hover {
   background-color: #d3002a;
   color: #fff;
   width: 100%;
+}
+
+#pageFooter {
+  position: relative;
+  height: 500px;
+  background-color: #181818;
+}
+#pageFooter #carBgd {
+  position: absolute;
+  top: 0;
+  left: -250px;
+  height: 100%;
+  width: 0px;
 }
 
 @media screen and (max-width: 1500px) {

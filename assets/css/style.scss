@@ -20,7 +20,10 @@ a{
     z-index: 999999999;
     background-color: rgba(36,36,36, 0.7);
     .row{
+        position: relative;
         width: 80%;
+        top: -100%;
+        opacity: 0;
         background-color: rgb(122,122,122);
         #header{
             background-color: rgb(22, 22, 22);
@@ -333,6 +336,7 @@ a{
     }
     #showCars{
         .scale{
+            
             &:hover{
                 .imgHolder{
                     overflow: hidden;
@@ -355,6 +359,7 @@ a{
             opacity: 0;
         }
         .holder{
+            box-shadow: inset 0px 0px 38px -9px rgba(0,0,0,0.53);
             background-color:rgb(218, 218, 218);
             border-bottom: 5px solid rgb(211, 0, 42);
             padding: 10px;
@@ -405,7 +410,7 @@ a{
     background-color:rgb(36, 36, 36);
     .formSlide{
         width: 450px;
-        height: 650px;
+        height: 700px;
         #absolute{
             position: relative;
             height: 100%;
@@ -414,7 +419,7 @@ a{
                 top: 0;
                 right: 0;
                 width: 100%;
-                height: 650px;
+                height: 700px;
             }//animacija za js crossfade sliding
             .fadeIn{
                 animation-name: fadeIn;
@@ -439,7 +444,7 @@ a{
         }
     }
     .requestForm{
-        height: 650px;
+        height: 700px;
         width: 450px;
         input{
             padding: 15px;
@@ -514,6 +519,18 @@ a{
                 width: 100%;
             }
         }
+    }
+}
+#pageFooter{
+    position: relative;
+    height: 500px;
+    background-color: rgb(24, 24, 24);
+    #carBgd{
+        position: absolute;
+        top: 0;
+        left: -250px;
+        height: 100%;
+        width: 0px;
     }
 }
 

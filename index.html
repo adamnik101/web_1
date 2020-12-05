@@ -119,28 +119,46 @@
                         <div class="requestForm p-3 pt-xl-5">
                             <h3 class="text-left font-weight-bold pb-1">REQUEST A CAR</h3>
                             <form>
-                                <div class="form-group row col-12 p-0 ml-0">
+                                <div class="form-group row col-12 p-0 ml-0 mb-2">
                                     <input type="text" class="w-100" placeholder="Full name" id="fullName">
                                     <span id="fullNameError" class="greskaTekst"></span> 
                                 </div>
-                                <div class="form-group row col-12 p-0 ml-0">
+                                <div class="form-group row col-12 p-0 ml-0 mb-1">
                                     <input type="email" class="w-100" placeholder="E-mail" id="mail">
                                     <span id="mailError" class="greskaTekst"></span> 
                                 </div>
-                                <div class="form-group col-12 p-0 p-0 ml-0">
+                                <div class="form-group col-12 p-0 p-0 ml-0" id="card">
+                                    <span class="m-0">Payment method: <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Credit card payment only accepts Mastercard!"></i></i></span>
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="gender" id="gender1" value="male">
-                                        <label class="custom-control-label" for="gender1">
-                                          Male
+                                        <input class="custom-control-input" type="radio" name="payment" id="cash" value="cash">
+                                        <label class="custom-control-label" for="cash">
+                                          Cash
                                         </label>
                                       </div>
                                       <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="gender" id="gender2"value="female">
-                                        <label class="custom-control-label" for="gender2">
-                                          Female
+                                        <input class="custom-control-input" type="radio" name="payment" id="creditCard"value="creditCard">
+                                        <label class="custom-control-label" for="creditCard">
+                                          Credit card
                                         </label>
                                       </div>
-                                      <span id="genderError" class="greskaTekst"></span> 
+                                      <span id="paymentError" class="greskaTekst"></span>
+                                       <!-- <div class="d-flex justify-content-between flex-wrap mt-2">
+                                                <input type="text" class="w-100" placeholder="Credit card number" id="credit">
+                                                <div class="w-50">
+                                                    <label for="validThru" class="w-100">Expiration date:</label>
+                                                    <input type="text" class="w-50"placeholder="MM/YY" id="validThru">
+                                                </div>
+                                                <div class="w-50">
+                                                    <label for="cvv" class="w-100">CVV:</label>
+                                                    <input type="text" class="w-75" placeholder="***" id="cvv">
+                                                </div>
+                                                <div class="w-50">
+                                                    <span id="expDateError" class="greskaTekst"></span>
+                                                </div>
+                                                <div class="w-50">
+                                                    <span id="cvvError" class="greskaTekst"></span>
+                                                </div>
+                                      </div> -->
                                 </div>
                                 <span class="form-group row col-12 ddlCar p-0 ml-0">
                                     <select name="type" id="carType" class="custom-select">
@@ -177,6 +195,9 @@
 
                     </div>
                 </div>
+            </div>
+            <div id="carBgd">
+                <img src="assets/img/footerAnimate.png" class="img-fluid" alt="car">
             </div>
         </div>
     
