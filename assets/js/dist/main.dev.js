@@ -369,7 +369,7 @@ payment[1].onclick = function () {
     var id = ["validThru", "cvv"];
     var labelMain = ["Expiration date:", "CVV:"];
     var formMore = document.createElement("div");
-    formMore.classList.add("d-flex", "justify-content-between", "flex-wrap", "mt-2", "cardHolder");
+    formMore.classList.add("d-flex", "justify-content-between", "flex-wrap", "mt-2", "mb-2", "cardHolder");
     var input1 = document.createElement("input");
     input1.classList.add("w-100");
     input1.setAttribute("type", "text");
@@ -586,12 +586,14 @@ function modal() {
   body.appendChild(p);
   footer.appendChild(button);
   modal.style.visibility = "visible";
-  button.addEventListener("click", function () {
-    modal.style.visibility = "hidden"; //brisanje prethodnog niza i modala
+
+  button.onclick = function () {
+    modal.style.visibility = "hidden";
+    modal.style.opacity = "0"; //brisanje prethodnog niza i modala
 
     dataArray = [];
     row.remove();
-  });
+  };
 }
 
 $(document).ready(function () {
@@ -658,6 +660,9 @@ $(document).ready(function () {
     owl.trigger("prev.owl.carousel");
   });
   $("#searchBtn").on("click", function () {
+    $("#modal").animate({
+      opacity: "1"
+    }, 1000);
     $("#modal .row").animate({
       opacity: "1",
       top: "0"

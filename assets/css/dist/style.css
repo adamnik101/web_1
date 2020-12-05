@@ -18,6 +18,7 @@ a:hover {
   width: 100%;
   height: 100%;
   z-index: 999999999;
+  opacity: 0;
   background-color: rgba(36, 36, 36, 0.7);
 }
 #modal .row {
@@ -70,7 +71,7 @@ a:hover {
   background-repeat: no-repeat;
 }
 #canvas #btnTop {
-  z-index: 99;
+  z-index: 9999999;
   visibility: hidden;
   position: fixed;
   bottom: 20px;
@@ -78,15 +79,19 @@ a:hover {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  border: 3px solid #d3002a;
   font-size: 30px;
-  border: none;
   outline: none;
   cursor: pointer;
   background-color: #242424;
   color: #7a7a7a;
+  transition: 0.5s;
 }
 #canvas #btnTop:hover {
   background-color: black;
+  transform: scale(1.1);
+  transition: 0.5s;
+  bottom: 40px;
 }
 #canvas #navigacija ul {
   list-style-type: none;
@@ -205,7 +210,7 @@ a:hover {
 }
 .naslovContent .sectionContent {
   position: relative;
-  z-index: 999999;
+  z-index: 99;
   top: -250px;
   opacity: 0;
   background-color: #242424;
@@ -390,6 +395,7 @@ a:hover {
 
 .back {
   border-top: 5px solid #d3002a;
+  border-bottom: 5px solid #d3002a;
   background-color: #242424;
 }
 .back .formSlide {
@@ -451,13 +457,13 @@ a:hover {
   font-weight: bold;
 }
 .back .requestForm input {
-  padding: 15px;
+  padding: 13px 10px;
   background-color: #414141;
   color: #dadada;
   border: none;
   outline: none;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 15px;
 }
 .back .requestForm .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #d3002a;
@@ -538,8 +544,7 @@ a:hover {
 }
 @media screen and (max-width: 1016px) {
   .back .formSlide {
-    width: 350px;
-    height: 550px;
+    width: 50%;
   }
   .back .formSlide #absolute .slideShow {
     position: absolute;
@@ -549,8 +554,7 @@ a:hover {
     height: 100%;
   }
   .back .requestForm {
-    width: 350px;
-    height: 550px;
+    width: 50%;
   }
   .back .requestForm input {
     padding: 10px;
@@ -604,6 +608,13 @@ a:hover {
   }
   .back .requestForm {
     width: 50%;
+    font-size: 15px;
+  }
+  .back .requestForm input {
+    padding: 5px 12px;
+  }
+  .back .requestForm .w-50 input {
+    width: 70% !important;
   }
 }
 @media screen and (max-width: 576px) {
@@ -627,6 +638,11 @@ a:hover {
   }
   .back .requestForm {
     width: 100%;
+    height: auto;
+    font-size: 17px;
+  }
+  .back .requestForm input {
+    padding: 15px 10px;
   }
 }
 @media screen and (max-width: 350px) {

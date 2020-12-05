@@ -18,6 +18,7 @@ a{
     width: 100%;
     height: 100%;
     z-index: 999999999;
+    opacity: 0;
     background-color: rgba(36,36,36, 0.7);
     .row{
         position: relative;
@@ -62,7 +63,7 @@ a{
     position: relative;
     border-bottom: 5px solid rgb(211, 0, 42);
     #btnTop{
-        z-index: 99;
+        z-index: 9999999;
         visibility: hidden;
         position: fixed;
         bottom: 20px;
@@ -70,14 +71,18 @@ a{
         width: 60px;
         height: 60px;
         border-radius: 50%;
+        border: 3px solid rgb(211, 0, 42);
         font-size: 30px;
-        border: none;
         outline: none;
         cursor: pointer;
         background-color: rgb(36, 36, 36);
         color: rgb(122, 122, 122);
+        transition: 0.5s;
         &:hover{
             background-color: rgb(0, 0, 0);
+            transform: scale(1.1);
+            transition: 0.5s;
+            bottom: 40px;
         }
     }
     #navigacija{
@@ -207,7 +212,7 @@ a{
     }
     .sectionContent{
         position: relative;
-        z-index: 999999;
+        z-index: 99;
         top: -250px;
         opacity: 0;
         background-color: rgb(36, 36, 36);
@@ -407,6 +412,7 @@ a{
 }
 .back{
     border-top: 5px solid rgb(211, 0, 42);
+    border-bottom: 5px solid rgb(211, 0, 42);
     background-color:rgb(36, 36, 36);
     .formSlide{
         width: 450px;
@@ -447,13 +453,13 @@ a{
         height: 700px;
         width: 450px;
         input{
-            padding: 15px;
+            padding: 13px 10px;
             background-color: rgb(65, 65, 65);
             color: rgb(218, 218, 218);
             border: none;
             outline: none;
             font-weight: bold;
-            font-size: 17px;
+            font-size: 15px;
         }
         .custom-control-input{
             &:checked~{
@@ -556,8 +562,7 @@ a{
 @media screen and (max-width: 1016px) {
     .back{
         .formSlide{
-            width: 350px;
-            height: 550px;
+            width: 50%;
             #absolute{
                 .slideShow{
                     position: absolute;
@@ -569,8 +574,7 @@ a{
             }
         }
         .requestForm{
-            width: 350px;
-            height: 550px;
+            width: 50%;
             input{
                 padding: 10px;
                 font-size: 17px;
@@ -642,6 +646,15 @@ a{
         }
         .requestForm{
             width: 50%;
+            font-size: 15px;
+            input{
+                padding: 5px 12px;
+            }
+            .w-50{
+                input{
+                    width: 70% !important;
+                }
+            }
         }
     }
 
@@ -670,6 +683,11 @@ a{
             }
             .requestForm{
                 width: 100%;
+                height: auto;
+                font-size: 17px;
+                input{
+                    padding: 15px 10px;
+                }
             }
         }
 }
