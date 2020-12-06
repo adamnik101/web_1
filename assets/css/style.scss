@@ -104,6 +104,14 @@ h2{
             }
         }
     }
+    .canvasTekst{
+        color: rgb(211, 0, 42);
+        font-size: 70px;
+        font-style: italic;
+        span{
+            color: rgb(36, 36, 36);
+        }
+    }
     #clickSide{
         padding: 10px;
         background-color:transparent;
@@ -690,6 +698,10 @@ h2{
         #canvas{
             .border-bottom{
                 font-size: 13px;
+            }
+            .canvasTekst{
+                    text-align: center !important;
+                    font-size: 50px;
             }
         }
         .back{
