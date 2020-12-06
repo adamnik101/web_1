@@ -164,7 +164,7 @@ var firstOpt = document.createElement("option");
     model.appendChild(firstOpt);
 
 
-console.log(carsAndModels)
+
 document.getElementById("carType").onchange = function(){
     model.disabled = this.value == '0'
     var selCar = this.options[this.selectedIndex].value;
@@ -208,17 +208,17 @@ ispisivanjeOpt();
 
 // dinamicko i nasumicno ispisivanje automobila u index.html
 var carContent = [
-    ["assets/img/sports_civic1.jpeg", "Honda Civic Type R", "150/day", "350hp"],
-    ["assets/img/sports_supra1.jpeg", "Toyota Supra", "300/day", "382hp"],
-    ["assets/img/sports_subaru1.jpeg","Subaru Impreza WRX", "120/day", "340hp"],
+    ["assets/img/sports_civic1.jpg", "Honda Civic Type R", "150/day", "350hp"],
+    ["assets/img/sports_supra1.jpg", "Toyota Supra", "300/day", "382hp"],
+    ["assets/img/sports_subaru1.jpg","Subaru Impreza WRX", "120/day", "340hp"],
     ["assets/img/muscle_chevy1.jpg","Chevrolet ZL1", "200/day", "650hp"],
-    ["assets/img/muscle_demon1.jpeg","Dodge Challenger", "200/day", "700hp"],
-    ["assets/img/sports_benz1.jpeg","Mercedes 450 CLS", "160/day","375hp"],
-    ["assets/img/sports_evo.jpeg","Subaru WRX","130/day", "360hp"],
-    ["assets/img/sports_bmw1.jpeg","BMW 420d Coupe","120/day", "310hp"],
+    ["assets/img/muscle_demon1.jpg","Dodge Challenger", "200/day", "700hp"],
+    ["assets/img/sports_benz1.jpg","Mercedes 450 CLS", "160/day","375hp"],
+    ["assets/img/sports_evo.jpg","Subaru WRX","130/day", "360hp"],
+    ["assets/img/sports_bmw1.jpg","BMW 420d Coupe","120/day", "310hp"],
     ["assets/img/sports_mitsubishi1.jpg","Mitsubishi EVO X","110/day", "290hp"],
-    ["assets/img/muscle_mustang1.jpeg","Ford Mustang","180/day", "750hp"],
-    ["assets/img/sports_bmw2.jpeg","BMW X5","110/day", "310hp"],
+    ["assets/img/muscle_mustang1.jpg","Ford Mustang","180/day", "750hp"],
+    ["assets/img/sports_bmw2.jpg","BMW X5","110/day", "310hp"],
     ["assets/img/suv_ford1.jpeg","Ford F-150","100/day", "280hp"]];
 
     //niz u koji ubacujemo DISTINCT vrednosti do 12
@@ -454,7 +454,6 @@ var cardMade = 0;
 
 payment[1].onclick =  function (){
     if(cardMade == 0){
-        console.log("1")
         var placeholder = ["MM/YY", "***"];
         var id = ["validThru", "cvv"];
         var labelMain = ["Expiration date:", "CVV:"];
@@ -514,7 +513,6 @@ payment[1].onclick =  function (){
     }
 }
 payment[0].onclick = function(){
-    console.log("0")
     if(cardMade > 0){
         document.querySelector(".cardHolder").remove();
         cardMade--;
@@ -619,7 +617,6 @@ function ProveriNazad(cena){
     let izabraniDani = proveraDays();
     let brojDana = izabraniDani.value;
     izabranAuto = brojDana * cena;
-    console.log(izabranAuto)
 }
 document.getElementById("searchBtn").addEventListener("click", function(){
     let fullName = proveraFullName();
@@ -634,7 +631,6 @@ document.getElementById("searchBtn").addEventListener("click", function(){
         let exp = proveraExpDate();
         let cvv = proveraCvv();
         let card = proveraCardNumber();
-        console.log(exp, cvv, card);
         if(exp && cvv && card){
             celokupnaProvera(fullName, mail, type, bool, pickedDay);
         }
@@ -658,7 +654,6 @@ function celokupnaProvera(imeProvera, mailProvera,typeProvera, cashCardProvera, 
             dataArray.push(izabranAuto);
             console.log(dataArray);
             predajaPodataka++;
-            console.log(predajaPodataka);
             modal();
         }
 }}
