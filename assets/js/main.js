@@ -219,7 +219,7 @@ var carContent = [
     ["assets/img/sports_mitsubishi1.jpg","Mitsubishi EVO X","110/day", "290hp"],
     ["assets/img/muscle_mustang1.jpg","Ford Mustang","180/day", "750hp"],
     ["assets/img/sports_bmw2.jpg","BMW X5","110/day", "310hp"],
-    ["assets/img/suv_ford1.jpeg","Ford F-150","100/day", "280hp"]];
+    ["assets/img/suv_ford1.jpg","Ford F-150","100/day", "280hp"]];
 
     //niz u koji ubacujemo DISTINCT vrednosti do 12
     var random = [];
