@@ -116,7 +116,7 @@
                             <div id="absolute">
                             </div>                         
                         </div>
-                        <div class="requestForm p-3">
+                        <div class="requestForm p-1">
                             <h3 class="text-left font-weight-bold pb-1">REQUEST A CAR</h3>
                             <form>
                                 <div class="form-group row col-12 p-0 ml-0 mb-2">
@@ -130,18 +130,19 @@
                                 <div class="form-row col-12 p-0 p-0 ml-0 mb-1" id="card">
                                     <div class="col-12 col-md-6 p-0">
                                         <span class="m-0">Payment method: <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Credit card payment only accepts Mastercard!"></i></i></span>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="payment" id="cash" value="cash">
-                                        <label class="custom-control-label" for="cash">
-                                          Cash
-                                        </label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="payment" id="creditCard"value="creditCard">
-                                        <label class="custom-control-label" for="creditCard">
-                                          Credit card
-                                        </label>
-                                      </div> 
+                                        <span id="paymentError" class="greskaTekst"></span>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="payment" id="cash" value="cash">
+                                            <label class="custom-control-label" for="cash">
+                                                Cash
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" name="payment" id="creditCard"value="creditCard">
+                                            <label class="custom-control-label" for="creditCard">
+                                                Credit card
+                                            </label>
+                                        </div> 
                                     </div>
                                     <div class="col-12 col-md-6 p-0">
                                         <div class="form-group col-12 p-0 ml-0 mb-1">
@@ -149,11 +150,10 @@
                                             <input type="number" id="day" placeholder="x" class="w-100">
                                         </div>
                                     </div>
-                                    <span id="paymentError" class="greskaTekst"></span>
                                     <span id="daysError" class="greskaTekst"></span>
                                 </div>
                                 
-                                <span class="form-group row col-12 ddlCar p-0 ml-0 mb-2">
+                                <span class="form-group row col-12 ddlCar p-0 ml-0 mb-1">
                                     <select name="type" id="carType" class="custom-select">
                                         <option value="0">Choose a brand</option>
                                         
