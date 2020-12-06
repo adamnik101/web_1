@@ -104,16 +104,11 @@ function closeNav() {
 }
 
 document.getElementById("clickSide").addEventListener("click", openNav);
-document.getElementById("closeSide").addEventListener("click", closeNav); // dinamicko ispisivanje ddl na osnovu prethodno izabranog polja u select-u
+document.getElementById("closeSide").addEventListener("click", closeNav);
+var izabranAuto;
+var cena = [["Chevrolet", 180], ["Dodge", 200], ["BMW", 120], ["Subaru", 130], ["Mitsubishi", 130], ["Honda", 120], ["Toyota", 200], ["Mercedes", 150]]; // dinamicko ispisivanje ddl na osnovu prethodno izabranog polja u select-u
 
 function ddl() {
-  var model = document.getElementById("carModel");
-  model.disabled = true;
-  var firstOpt = document.createElement("option");
-  firstOpt.setAttribute("value", "0");
-  var sadrzaj = document.createTextNode("Choose a model");
-  firstOpt.appendChild(sadrzaj);
-  model.appendChild(firstOpt);
   var carsAndModels = {};
   carsAndModels["Chevrolet"] = ["ZL1", "Stingray"];
   carsAndModels["Dodge"] = ["Challenger", "Charger"];
@@ -123,6 +118,13 @@ function ddl() {
   carsAndModels["Honda"] = ["Civic Type R"];
   carsAndModels["Toyota"] = ["Supra"];
   carsAndModels["Mercedes"] = ["450 CLS"];
+  var model = document.getElementById("carModel");
+  model.disabled = true;
+  var firstOpt = document.createElement("option");
+  firstOpt.setAttribute("value", "0");
+  var sadrzaj = document.createTextNode("Choose a model");
+  firstOpt.appendChild(sadrzaj);
+  model.appendChild(firstOpt);
   console.log(carsAndModels);
 
   document.getElementById("carType").onchange = function () {
@@ -132,6 +134,12 @@ function ddl() {
 
     while (model.options.length) {
       model.remove(0);
+    }
+
+    for (var _i = 0; _i < cena.length; _i++) {
+      if (selCar == cena[_i][0]) {
+        ProveriNazad(cena[_i][1]);
+      }
     }
 
     if (selCar == "0") {
@@ -151,8 +159,6 @@ function ddl() {
       }
     }
   };
-
-  console.log(Object.values(carsAndModels)[1][1]);
 
   function ispisivanjeOpt() {
     var type = document.getElementById("carType");
@@ -358,6 +364,34 @@ function proveraCashCard() {
   };
 }
 
+function proveraDays() {
+  var day = document.getElementById("day");
+  var dayError = document.getElementById("daysError");
+  var regExDays = /^([1-9]|[1][0-4])$/;
+
+  var _boolean2;
+
+  var value;
+
+  if (!regExDays.test(day.value)) {
+    dayError.innerHTML = "Car can be only rented for 14 days max";
+    day.classList.add("greska");
+    day.classList.remove("correct");
+    _boolean2 = false;
+  } else {
+    dayError.innerHTML = "";
+    day.classList.add("correct");
+    day.classList.remove("greska");
+    value = day.value;
+    _boolean2 = true;
+  }
+
+  return {
+    value: value,
+    "boolean": _boolean2
+  };
+}
+
 var formMore = document.createElement("div");
 var parentDiv = document.getElementById("card");
 var cardMade = 0;
@@ -401,12 +435,12 @@ payment[1].onclick = function () {
 
     var idGreska = ["expDateError", "cvvError"];
 
-    for (var _i = 0; _i < 2; _i++) {
+    for (var _i2 = 0; _i2 < 2; _i2++) {
       var greske = document.createElement("div");
       greske.classList.add("w-50");
       formMore.appendChild(greske);
       var span = document.createElement("span");
-      span.setAttribute("id", idGreska[_i]);
+      span.setAttribute("id", idGreska[_i2]);
       span.classList.add("greskaTekst");
       greske.appendChild(span);
     }
@@ -517,11 +551,36 @@ mail.onchange = function () {
   proveraMail();
 };
 
+day.onchange = function () {
+  proveraDays();
+  proveri();
+};
+
+var proveri = function proveri() {
+  var type = document.getElementById("carType");
+  var selCar = type.options[type.selectedIndex].value;
+
+  for (var i = 0; i < cena.length; i++) {
+    if (selCar == cena[i][0]) {
+      ProveriNazad(cena[i][1]);
+    }
+  }
+};
+
+function ProveriNazad(cena) {
+  var izabraniDani = proveraDays();
+  var brojDana = izabraniDani.value;
+  izabranAuto = brojDana * cena;
+  console.log(izabranAuto);
+}
+
 document.getElementById("searchBtn").addEventListener("click", function () {
   var fullName = proveraFullName();
   var mail = proveraMail();
+  var day = proveraDays();
   var type = proveraType();
   var cashOrCard = proveraCashCard();
+  var pickedDay = day["boolean"];
   var bool = cashOrCard["boolean"];
   var cardValue = cashOrCard.value;
 
@@ -534,25 +593,27 @@ document.getElementById("searchBtn").addEventListener("click", function () {
     console.log(exp, _cvv, card);
 
     if (exp && _cvv && card) {
-      celokupnaProvera(fullName, mail, type, bool);
+      celokupnaProvera(fullName, mail, type, bool, pickedDay);
     }
   }
 
   if (cardValue == payment[0].value) {
-    celokupnaProvera(fullName, mail, type, bool);
+    celokupnaProvera(fullName, mail, type, bool, pickedDay);
   }
 });
 
-function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera) {
+function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera, dayProvera) {
   var predajaPodataka = 0; //provera svih unetih podataka
 
-  if (imeProvera && mailProvera && typeProvera && cashCardProvera) {
+  if (imeProvera && mailProvera && typeProvera && cashCardProvera && dayProvera) {
     if (dataArray.length == 0) {
       //upisivanje podataka u niz
       dataArray.push(fullName.value);
       dataArray.push(mail.value);
+      carContent[type.options[type.options]];
       dataArray.push(type.options[type.options.selectedIndex].value);
       dataArray.push(model.options[model.options.selectedIndex].text);
+      dataArray.push(izabranAuto);
       console.log(dataArray);
       predajaPodataka++;
       console.log(predajaPodataka);
@@ -576,7 +637,7 @@ function modal() {
   body.setAttribute("id", "body");
   body.classList.add("col-12", "p-2");
   var p = document.createElement("p");
-  p.innerHTML = "<span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</span>");
+  p.innerHTML = "<span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br> YOUR TOTAL IS: ").concat(izabranAuto, "</span>");
   var footer = document.createElement("div");
   footer.setAttribute("id", "footer");
   footer.classList.add("col-12", "text-right");

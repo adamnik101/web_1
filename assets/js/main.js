@@ -128,8 +128,32 @@ function closeNav() {
 document.getElementById("clickSide").addEventListener("click", openNav);
 document.getElementById("closeSide").addEventListener("click", closeNav);
 
+
+
+var izabranAuto;
+
+var cena = [["Chevrolet", 180], 
+            ["Dodge", 200], 
+            ["BMW", 120], 
+            ["Subaru", 130], 
+            ["Mitsubishi", 130], 
+            ["Honda", 120], 
+            ["Toyota", 200], 
+            ["Mercedes", 150]];
+
+
 // dinamicko ispisivanje ddl na osnovu prethodno izabranog polja u select-u
 function ddl(){
+    var carsAndModels = {};
+carsAndModels["Chevrolet"] = ["ZL1", "Stingray"];
+carsAndModels["Dodge"] = ["Challenger", "Charger"];
+carsAndModels["BMW"] = ["420d Coupe"];
+carsAndModels["Subaru"] = ["Impreza WRX STi"];
+carsAndModels["Mitsubishi"] = ["EVO X"];
+carsAndModels["Honda"] = ["Civic Type R"];
+carsAndModels["Toyota"] = ["Supra"];
+carsAndModels["Mercedes"] = ["450 CLS"];
+
 var model = document.getElementById("carModel");
 model.disabled=true;
 
@@ -139,23 +163,19 @@ var firstOpt = document.createElement("option");
     firstOpt.appendChild(sadrzaj);
     model.appendChild(firstOpt);
 
-var carsAndModels = {};
-carsAndModels["Chevrolet"] = ["ZL1", "Stingray"];
-carsAndModels["Dodge"] = ["Challenger", "Charger"];
-carsAndModels["BMW"] = ["420d Coupe"];
-carsAndModels["Subaru"] = ["Impreza WRX STi"];
-carsAndModels["Mitsubishi"] = ["EVO X"];
-carsAndModels["Honda"] = ["Civic Type R"];
-carsAndModels["Toyota"] = ["Supra"];
-carsAndModels["Mercedes"] = ["450 CLS"];
+
 console.log(carsAndModels)
 document.getElementById("carType").onchange = function(){
     model.disabled = this.value == '0'
     var selCar = this.options[this.selectedIndex].value;
-
     model.appendChild(firstOpt);
     while (model.options.length) {
         model.remove(0);
+    }
+    for(let i = 0; i < cena.length;i++){
+        if(selCar == cena[i][0]){
+            ProveriNazad(cena[i][1]);
+        }
     }
     if(selCar == "0"){
         model.appendChild(firstOpt);
@@ -172,9 +192,6 @@ document.getElementById("carType").onchange = function(){
         }
     }  
 }
-
-console.log(Object.values(carsAndModels)[1][1])
-
 function ispisivanjeOpt(){
     var type = document.getElementById("carType");
     for(let i = 0; i < Object.keys(carsAndModels).length; i++){
@@ -405,6 +422,31 @@ function proveraCashCard(){
     return {value, boolean};
 }
 
+function proveraDays(){
+    var day = document.getElementById("day");
+    var dayError = document.getElementById("daysError");
+    var regExDays = /^([1-9]|[1][0-4])$/;
+    
+    let boolean;
+    let value;
+    if(!regExDays.test(day.value)){
+        dayError.innerHTML = "Car can be only rented for 14 days max";
+        day.classList.add("greska");
+        day.classList.remove("correct");
+        boolean = false;
+    }
+    else{
+        dayError.innerHTML = "";
+        day.classList.add("correct");
+        day.classList.remove("greska");
+        value = day.value;
+        boolean = true;
+    }
+    return {value, boolean};
+    
+}
+
+
 var formMore = document.createElement("div");
 var parentDiv = document.getElementById("card");
 
@@ -559,13 +601,33 @@ fullName.onchange = function(){
 mail.onchange = function(){
     proveraMail();
 }
+day.onchange = function (){
+    proveraDays();
+    proveri();
+}
 
-
+var proveri = function(){
+    var type = document.getElementById("carType");
+    var selCar = type.options[type.selectedIndex].value;
+    for(let i = 0; i < cena.length; i++){
+        if(selCar == cena[i][0]){
+            ProveriNazad(cena[i][1]);
+        }
+    }
+}
+function ProveriNazad(cena){
+    let izabraniDani = proveraDays();
+    let brojDana = izabraniDani.value;
+    izabranAuto = brojDana * cena;
+    console.log(izabranAuto)
+}
 document.getElementById("searchBtn").addEventListener("click", function(){
     let fullName = proveraFullName();
     let mail = proveraMail();
+    let day = proveraDays();
     let type = proveraType();
     let cashOrCard = proveraCashCard();
+    let pickedDay = day.boolean;
     let bool = cashOrCard.boolean;
     let cardValue = cashOrCard.value;
     if(cardValue == payment[1].value){
@@ -574,25 +636,26 @@ document.getElementById("searchBtn").addEventListener("click", function(){
         let card = proveraCardNumber();
         console.log(exp, cvv, card);
         if(exp && cvv && card){
-            celokupnaProvera(fullName, mail, type, bool);
+            celokupnaProvera(fullName, mail, type, bool, pickedDay);
         }
     }
     if(cardValue == payment[0].value){
-        celokupnaProvera(fullName, mail, type, bool);
+        celokupnaProvera(fullName, mail, type, bool, pickedDay);
     }
 });
 
-
-function celokupnaProvera(imeProvera, mailProvera,typeProvera, cashCardProvera){
+function celokupnaProvera(imeProvera, mailProvera,typeProvera, cashCardProvera, dayProvera){
     let predajaPodataka = 0;
     //provera svih unetih podataka
-    if(imeProvera && mailProvera && typeProvera && cashCardProvera){
+    if(imeProvera && mailProvera && typeProvera && cashCardProvera && dayProvera){
         if(dataArray.length == 0){
             //upisivanje podataka u niz
             dataArray.push(fullName.value);
             dataArray.push(mail.value);
+            carContent[type.options[type.options]]
             dataArray.push(type.options[type.options.selectedIndex].value);
             dataArray.push(model.options[model.options.selectedIndex].text);
+            dataArray.push(izabranAuto);
             console.log(dataArray);
             predajaPodataka++;
             console.log(predajaPodataka);
@@ -615,7 +678,7 @@ function modal(){
     body.classList.add("col-12", "p-2");
     let p = document.createElement("p");
     p.innerHTML = `<span>${firstName[0]}</span>, you've successfully sent the request for the <span>${dataArray[2]} ${dataArray[3]}</span>, all other information has been sent to your mail.</br>
-    <span>${dataArray[1]}</span>`;
+    <span>${dataArray[1]}</br> YOUR TOTAL IS: ${izabranAuto}</span>`;
     let footer = document.createElement("div");
     footer.setAttribute("id", "footer");
     footer.classList.add("col-12", "text-right");
