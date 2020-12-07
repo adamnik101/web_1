@@ -652,6 +652,7 @@ $(document).ready(function () {
       }, 700);
       i++;
     });
+    $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
   });
   $("#closeSide").click(function () {
     var i = 1;
@@ -660,6 +661,7 @@ $(document).ready(function () {
         left: "-250px"
       });
     });
+    $("#openSide").css("box-shadow", "none");
   }); //tooltip initialization bootstrap
 
   $('body').tooltip({

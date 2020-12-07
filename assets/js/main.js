@@ -691,7 +691,9 @@ $(document).ready(function(){
                 left : "0",
                 opacity : "1"
             },700); i++
-    })})
+    })
+    $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
+})
     $("#closeSide").click(function(){
         let i = 1;
         $(".slideIn").each(function(){
@@ -699,6 +701,7 @@ $(document).ready(function(){
                 left : "-250px"
             })
     })
+    $("#openSide").css("box-shadow", "none");
     })
     //tooltip initialization bootstrap
     $('body').tooltip({
