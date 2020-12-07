@@ -172,7 +172,12 @@ h2 span {
 #canvas #openSide nav ul {
   margin-top: 100px;
 }
-#canvas #openSide nav ul li a {
+#canvas #openSide nav ul .slideIn {
+  position: relative;
+  left: -250px;
+  opacity: 0;
+}
+#canvas #openSide nav ul .slideIn a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -180,7 +185,7 @@ h2 span {
   display: block;
   transition: 0.3s;
 }
-#canvas #openSide nav ul li a:hover {
+#canvas #openSide nav ul .slideIn a:hover {
   color: #d3002a;
 }
 #canvas .fab {

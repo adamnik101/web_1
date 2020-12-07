@@ -155,7 +155,10 @@ h2{
         nav{
             ul{
                 margin-top: 100px;
-                li{
+                .slideIn{
+                    position: relative;
+                        left: -250px;
+                        opacity: 0;
                     a{
                         padding: 8px 8px 8px 32px;
                         text-decoration: none;

@@ -7,8 +7,8 @@ window.onload = function () {
   sideNav();
   ddl();
   info1();
+  crossfade();
   showImg();
-  /*     cars(); */
 };
 
 window.onscroll = function () {
@@ -21,29 +21,12 @@ function scrollUp1() {
   } else {
     myBtn.style.visibility = "hidden";
   }
-} //JQUERY SCROLL TOP
-
-
-$(document).ready(function () {
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 300) {
-      $('#btnTop').fadeIn();
-    } else {
-      $('#btnTop').fadeOut();
-    }
-  });
-  $('#btnTop').click(function () {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 800);
-    return false;
-  });
-});
+}
 
 function info1() {
   var naslov = ["WELCOME TO OUR SITE", "CAR", "ZONE"];
   var content = [["BRANDS", "We got latest and most popular brands from automotive industry", "fas fa-car"], ["FREE SUPPORT", "24/7 covered available support to get answers to all your questions", "far fa-comment-dots"], ["AFFORDABLE", "Exotic cars that have best deals according to their performance", "fas fa-coins"]];
-  document.getElementsByClassName("naslovContent")[0].innerHTML = "<div class=\"col-12 text-center naslov p-4\">\n    <h4>".concat(naslov[0], "</h4>\n    <span><i class=\"fas fa-angle-double-down\"></i></span>\n    <h1><span>").concat(naslov[1], "</span> ").concat(naslov[2], "</h1>\n</div>");
+  document.getElementsByClassName("naslovContent")[0].innerHTML = "<div class=\"col-12 text-center naslov p-4\">\n                                                                        <h4>".concat(naslov[0], "</h4>\n                                                                        <span><i class=\"fas fa-angle-double-down\"></i></span>\n                                                                        <h1><span>").concat(naslov[1], "</span> ").concat(naslov[2], "</h1>\n                                                                    </div>");
 
   for (var i = 0; i < content.length - 1; i++) {
     document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-6 col-lg-4 text-center\"><div class=\"col-12 sectionContent p-2 mb-3\"><i class=\"".concat(content[i][2], "\"></i><h5>").concat(content[i][0], "</h5><p>").concat(content[i][1], "</p></div></div>");
@@ -87,6 +70,7 @@ function sideNav() {
 
   for (indeks in navigacija) {
     var sideLi = document.createElement("li");
+    sideLi.classList.add("slideIn");
     sideUl.appendChild(sideLi);
     var sideA = document.createElement("a");
     sideLi.appendChild(sideA);
@@ -253,9 +237,8 @@ function crossfade() {
     img.alt = "car";
     parent.appendChild(img);
   }
-}
+} // kreiranje crossfade efekta za smooth prelazak sa slike na sliku
 
-crossfade(); // kreiranje crossfade efekta za smooth prelazak sa slike na sliku
 
 var indeks = 0;
 var indeksOpacity = 0;
@@ -293,8 +276,7 @@ function showImg() {
 
 var fullName = document.getElementById("fullName");
 var mail = document.getElementById("mail");
-var payment = document.getElementsByName("payment"); //var expDate = document.getElementById("validThru"); 
-
+var payment = document.getElementsByName("payment");
 var type = document.getElementById("carType");
 var cvv = document.getElementById("cvv");
 var model = document.getElementById("carModel"); //dohvatanje greski
@@ -340,13 +322,14 @@ function proveraMail() {
 }
 
 function proveraCashCard() {
+  //provera da li je izabran metod placanja
   var value;
 
   var _boolean;
 
   for (var i = 0; i < payment.length; i++) {
     if (!payment[i].checked) {
-      paymentError.innerHTML = "Please choose payment method.";
+      paymentError.innerHTML = "Required";
       _boolean = false;
       continue;
     } else {
@@ -364,6 +347,7 @@ function proveraCashCard() {
 }
 
 function proveraDays() {
+  //provera da li je korisnik uneo broj dana 
   var day = document.getElementById("day");
   var dayError = document.getElementById("daysError");
   var regExDays = /^([1-9]|[1][0-4])$/;
@@ -391,8 +375,6 @@ function proveraDays() {
   };
 }
 
-var formMore = document.createElement("div");
-var parentDiv = document.getElementById("card");
 var cardMade = 0;
 
 payment[1].onclick = function () {
@@ -400,6 +382,7 @@ payment[1].onclick = function () {
     var placeholder = ["MM/YY", "***"];
     var id = ["validThru", "cvv"];
     var labelMain = ["Expiration date:", "CVV:"];
+    var parentDiv = document.getElementById("card");
     var formMore = document.createElement("div");
     formMore.classList.add("d-flex", "justify-content-between", "flex-wrap", "mt-2", "mb-2", "cardHolder");
     var input1 = document.createElement("input");
@@ -657,16 +640,38 @@ function modal() {
   };
 }
 
-ispisCarContent();
 $(document).ready(function () {
+  ispisCarContent(); //animacija sidenav elements 
+
+  $("#clickSide").click(function () {
+    var i = 1;
+    $(".slideIn").each(function () {
+      $(this).delay(200 * i).animate({
+        left: "0",
+        opacity: "1"
+      }, 700);
+      i++;
+    });
+  });
+  $("#closeSide").click(function () {
+    var i = 1;
+    $(".slideIn").each(function () {
+      $(this).animate({
+        left: "-250px"
+      });
+    });
+  }); //tooltip initialization bootstrap
+
   $('body').tooltip({
     selector: '.fa-info-circle'
-  });
+  }); //canvasTekst animation from right
+
   $(".canvasTekst").animate({
     right: "0"
-  }, 1000);
+  }, 1000); //animations card block & btn top
+
   $(window).scroll(function () {
-    if ($(window).scrollTop() > 500) {
+    if ($(this).scrollTop() > 500) {
       $(".sectionContent").each(function (i) {
         $(this).delay(200 * i).animate({
           opacity: "1",
@@ -675,13 +680,27 @@ $(document).ready(function () {
       });
     }
 
-    if ($(window).scrollTop() > 900) {
+    if ($(this).scrollTop() > 900) {
       $(".featured").animate({
         left: "0",
         opacity: "1"
       });
     }
-  });
+
+    if ($(this).scrollTop() > 300) {
+      $('#btnTop').fadeIn();
+    } else {
+      $('#btnTop').fadeOut();
+    }
+  }); //animate smooth scroll to top
+
+  $('#btnTop').click(function () {
+    $('html, body').animate({
+      scrollTop: 0
+    }, 800);
+    return false;
+  }); //animate cars one after one before has finished animation
+
   $("#loadMore").click(function () {
     $(".slide").each(function (i) {
       $(this).delay(450 * i).animate({
@@ -689,12 +708,14 @@ $(document).ready(function () {
         opacity: "1"
       });
     });
-  });
+  }); //scroll to request form section
+
   $("#requestBtn").click(function () {
     $("html,body").animate({
       scrollTop: $(".back").offset().top
     }, 1500);
-  });
+  }); //plugin for carousel aka owl-carousel
+
   $(".owl-carousel").owlCarousel({
     responsiveClass: true,
     autoplay: true,
@@ -715,14 +736,16 @@ $(document).ready(function () {
         items: 3
       }
     }
-  });
+  }); //buttons to navigate owl-carousel
+
   var owl = $(".owl-carousel");
   $("#btnDesno").click(function () {
     owl.trigger("next.owl.carousel");
   });
   $("#btnLevo").click(function () {
     owl.trigger("prev.owl.carousel");
-  });
+  }); //animacija pri prikazivanju modala nakon uspesnog popunjavanja forme
+
   $("#searchBtn").on("click", function () {
     $("#modal").animate({
       opacity: "1"
