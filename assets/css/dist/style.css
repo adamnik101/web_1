@@ -116,8 +116,9 @@ h2 span {
   color: #d3002a;
   font-size: 70px;
   font-style: italic;
-  position: absolute;
+  position: relative;
   right: -100%;
+  text-align: right;
 }
 #canvas .canvasTekst span {
   color: #242424;
@@ -664,6 +665,7 @@ h2 span {
   }
   #canvas .canvasTekst {
     font-size: 50px;
+    text-align: center;
   }
 
   .back {

@@ -109,8 +109,9 @@ h2{
         color: rgb(211, 0, 42);
         font-size: 70px;
         font-style: italic;
-        position: absolute;
+        position: relative;
         right: -100%;
+        text-align: right;
         span{
             color: rgb(36, 36, 36);
         }
@@ -707,6 +708,7 @@ h2{
             }
             .canvasTekst{
                     font-size: 50px;
+                    text-align: center;
             }
         }
         .back{
