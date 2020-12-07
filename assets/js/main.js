@@ -654,6 +654,7 @@ function celokupnaProvera(imeProvera, mailProvera,typeProvera, cashCardProvera, 
             dataArray.push(izabranAuto);
             console.log(dataArray);
             predajaPodataka++;
+            console.log(predajaPodataka)
             modal();
         }
 }}
@@ -700,11 +701,14 @@ function modal(){
     dataArray = []
     row.remove();
 }}  
- 
+ispisCarContent();
 $(document).ready(function(){
     $('body').tooltip({
         selector: '.fa-info-circle'
     });
+    $(".canvasTekst").animate({
+        right : "0"
+    }, 1000)
     $(window).scroll(function(){
         if($(window).scrollTop() > 500){
             $(".sectionContent").each(function(i){
@@ -720,7 +724,7 @@ $(document).ready(function(){
         }
         })
 
-    ispisCarContent();
+    
 
     $("#loadMore").click(function(){
         $(".slide").each(function(i){

@@ -61,6 +61,7 @@ h2{
 }
 #canvas{
     position: relative;
+    overflow: hidden;
     border-bottom: 5px solid rgb(211, 0, 42);
     #btnTop{
         z-index: 9999999;
@@ -108,6 +109,8 @@ h2{
         color: rgb(211, 0, 42);
         font-size: 70px;
         font-style: italic;
+        position: absolute;
+        right: -100%;
         span{
             color: rgb(36, 36, 36);
         }
@@ -700,7 +703,6 @@ h2{
                 font-size: 13px;
             }
             .canvasTekst{
-                    text-align: center !important;
                     font-size: 50px;
             }
         }
