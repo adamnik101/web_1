@@ -15,6 +15,70 @@
 </head>
     <body>
         <div id="modal" class="d-flex justify-content-center align-items-center">
+        
+        </div>
+        <div id="seeMoreModal" class="d-flex justify-content-center align-items-center">
+            <!-- <div class="row relative">
+                <div class="col-12 p-0">
+                    <div id="header1">
+                        <div class="col-12 p-3 d-flex justify-content-between">
+                            <h2>CAR <span>ZONE</span></h2>
+                            <button type="button"><i class="fas fa-times-circle"></i></button>
+                        </div>
+                    </div>
+                    <div id="body1">
+                        <div class="col-12 p-0">
+                            <img src="assets/img/muscle_chevy1.jpg" class="img-fluid" alt="car">
+                        </div>
+                        <div class="col-12 p-2">
+                            <h3 class="text-center">Chevrolet ZL1</h3>
+                            <hr class="m-0">
+                            <div class="row m-0 p-0">
+                                <div class="col-6 p-0">
+                                    <ul class="d-flex flex-column text-left p-2">
+                                        <li>
+                                            <i class="fas fa-check"></i> Chilled AC
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-check"></i> Heated seats
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-check"></i> Audio input
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-check"></i> Bluetooth
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 p-0">
+                                    <ul class="d-flex flex-column text-left p-2">
+                                        <li>
+                                            <i class="fas fa-check"></i> Automatic
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-check"></i> Unlimited mileage
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-check"></i> Audio input
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-tachometer-alt"></i> 700hp
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-0">
+                            <div class="col-12 font-weight-bold euro">
+                                <i class="fas fa-euro-sign"></i> 150<span>/ per day</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="footer1" class="text-right">
+                        <button type="button">Request now!</button>
+                    </div>
+                </div>
+            </div> -->
         </div>
         <div class="container-fluid" id="canvas">
             <button id="btnTop" onclick="scrollUp1()"><i class="fas fa-angle-up"></i></button>
@@ -38,7 +102,7 @@
                     </a>
                 </div>
             </div>
-            <div class="row pt-2">
+            <div class="row pt-2" id="fixed">
                 <div class="col-10 col-md-5 d-flex justify-content-center logo pl-md-5">
                     <a href="#">
                         <span class="logo-text leviTekst">CAR</span>
@@ -114,66 +178,11 @@
                 <a href="#!" id="loadMore">More cars <i class="fa fa-chevron-down"></i></a>
             </span>
         </div>
-        <div class="container-fluid" id="whySection">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h6>Testimonials</h6>
-                        <p>We strive to give our customers best experience</p>
-                        <div class="row" id="testimonials">
-                            <div class="col-12 col-md-4 mb-5 mb-md-0">
-                                <div class="col-12 testContent p-3">
-                                    <i class="fas fa-quote-right"></i>
-                                    <div class="d-flex justify-content-center p-2">
-                                        <div class="testImage">
-                                            <img src="assets/img/test1.png" alt="guy_smiling">
-                                        </div>
-                                    </div>
-                                    <blockquote class="blockquote text-center">
-                                        <p class="mb-0">During all the years we have rented a car from you, there has never been any problems. We are satisfied with both price and quality of your cars!</p>
-                                        <footer class="blockquote-footer"><cite title="Source Title">Michael De Santa</cite></footer>
-                                      </blockquote>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4 mb-5 mb-md-0">
-                                <div class="col-12 testContent p-3">
-                                    <i class="fas fa-quote-right"></i>
-                                    <div class="d-flex justify-content-center p-2">
-                                        <div class="testImage">
-                                            <img src="assets/img/test3.png" alt="guy_smiling">
-                                        </div>
-                                    </div>
-                                    <blockquote class="blockquote text-center">
-                                        <p class="mb-0">Thank you all once again for your exceptional service level. The customer experience served by everyone at CarZone is 1st class!</p>
-                                        <footer class="blockquote-footer"><cite title="Shawn">Trevor Phillips</cite></footer>
-                                      </blockquote>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4">
-                                <div class="col-12 testContent p-3">
-                                    <i class="fas fa-quote-right"></i>
-                                    <div class="d-flex justify-content-center p-2">
-                                        <div class="testImage">
-                                            <img src="assets/img/test2.png" alt="guy_smiling">
-                                        </div>
-                                    </div>
-                                    <blockquote class="blockquote text-center">
-                                        <p class="mb-0">Friendly and reliable service on site. The booking went smoothly and was handled quickly. The car was perfect and very new!</p>
-                                        <footer class="blockquote-footer"><cite title="Source Title">Franklin Clinton</cite></footer>
-                                      </blockquote>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="back container-fluid p-0 pb-0 pb-md-5">
+        <div class="back container-fluid p-0 pb-5">
             <div class="container-lg">
                 <div class="row p-3" id="formNaslov">
                     <div class="col text-center">
-                        <p class="m-0">Want a car right now?</p>
+                        <p class="m-0"><span class="naslovBorder"></span> Request form <span class="naslovBorder"></span></p>
                         <p id="fillForm">Fill out the form below to request a car</p>
                     </div>
                 </div>
@@ -236,8 +245,65 @@
                               </form>
                             </div>
                 </div>
-               </div>     
-                    
+               </div>           
+        </div>
+        <div class="container-fluid pb-5" id="TestimonialsSection">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h6><span class="naslovBorder"></span> Testimonials <span class="naslovBorder"></span></h6>
+                        <p>We strive to give our customers best experience</p>
+                        <div class="row" id="testimonials">
+                            <div class="col-12 col-md-4 mb-3 mb-md-0">
+                                <div class="col-12 testContent p-3">
+                                    <i class="fas fa-quote-right"></i>
+                                    <div class="d-flex justify-content-center p-2">
+                                        <div class="testImage">
+                                            <img src="assets/img/test1.png" alt="guy_smiling">
+                                        </div>
+                                    </div>
+                                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                    <blockquote class="blockquote text-center">
+                                        <p class="mb-0">During all the years we have rented a car from you, there has never been any problems. We are satisfied with both price and quality of your cars!</p>
+                                        <footer class="blockquote-footer"><cite>Michael De Santa</cite></footer>
+                                      </blockquote>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mb-3 mb-md-0">
+                                <div class="col-12 testContent p-3">
+                                    <i class="fas fa-quote-right"></i>
+                                    <div class="d-flex justify-content-center p-2">
+                                        <div class="testImage">
+                                            <img src="assets/img/test3.png" alt="guy_smiling">
+                                        </div>
+                                    </div>
+                                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                    <blockquote class="blockquote text-center">
+                                        <p class="mb-0">Thank you all once again for your exceptional service level. The customer experience served by everyone at CarZone is 1st class!</p>
+                                        <footer class="blockquote-footer"><cite>Trevor Phillips</cite></footer>
+                                      </blockquote>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mb-3 mb-md-0">
+                                <div class="col-12 testContent p-3">
+                                    <i class="fas fa-quote-right"></i>
+                                    <div class="d-flex justify-content-center p-2">
+                                        <div class="testImage">
+                                            <img src="assets/img/test2.png" alt="guy_smiling">
+                                        </div>
+                                    </div>
+                                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                    <blockquote class="blockquote text-center">
+                                        <p class="mb-0">Friendly and reliable service on site. The booking went smoothly and was handled quickly. The car was perfect and very new!</p>
+                                        <footer class="blockquote-footer"><cite>Franklin Clinton</cite></footer>
+                                      </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="container-fluid" id="pageFooter">
                 <div class="row p-5">

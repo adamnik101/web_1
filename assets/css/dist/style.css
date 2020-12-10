@@ -55,6 +55,68 @@ a:hover {
   outline: none;
 }
 
+#seeMoreModal {
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999999;
+  opacity: 0;
+  background-color: rgba(187, 187, 187, 0.5);
+}
+#seeMoreModal .relative {
+  position: relative;
+  width: 500px;
+  top: 0%;
+  background-color: #7a7a7a;
+  box-shadow: 0px 10px 50px #242424;
+}
+#seeMoreModal .relative #header1 {
+  background-color: #161616;
+}
+#seeMoreModal .relative #header1 button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+#seeMoreModal .relative #header1 button i {
+  font-size: 35px;
+  color: #d3002a;
+}
+#seeMoreModal .relative #body1 {
+  background-color: #dadada;
+}
+#seeMoreModal .relative #body1 h3 {
+  font-weight: bold;
+}
+#seeMoreModal .relative #body1 ul {
+  list-style: none;
+}
+#seeMoreModal .relative #body1 ul li {
+  font-size: 15px;
+}
+#seeMoreModal .relative #body1 .euro {
+  font-size: 50px;
+}
+#seeMoreModal .relative #body1 .euro i {
+  font-size: 25px;
+}
+#seeMoreModal .relative #body1 .euro span {
+  font-size: 20px;
+}
+#seeMoreModal .relative #footer1 {
+  padding: 10px;
+}
+#seeMoreModal .relative #footer1 button {
+  padding: 5px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+}
+
 h2 {
   font-weight: bold;
   color: #dedede;
@@ -367,7 +429,7 @@ h2 span {
 #featuredSection #showCars .holder {
   border-bottom: 5px solid #d3002a;
   padding: 10px;
-  box-shadow: 0px 0px 10px #686868;
+  background-color: rgba(218, 218, 218, 0.5);
 }
 #featuredSection #showCars .holder h5 {
   color: #181818;
@@ -377,8 +439,11 @@ h2 span {
 #featuredSection #showCars .holder p {
   font-weight: bold;
 }
-#featuredSection #showCars .holder a {
+#featuredSection #showCars .holder button {
   display: block;
+  width: 100%;
+  border: none;
+  outline: none;
   padding: 10px 15px;
   background-color: #181818;
   color: #979797;
@@ -387,7 +452,7 @@ h2 span {
   background-size: 0% 200%;
   transition: background-color 1.5s;
 }
-#featuredSection #showCars .holder a:hover {
+#featuredSection #showCars .holder button:hover {
   background-color: #d3002a;
   background-image: linear-gradient(to right, #d3002a 100%, white 100%);
   background-repeat: no-repeat;
@@ -409,38 +474,51 @@ h2 span {
   height: 1000px;
 }
 
-#whySection {
+#TestimonialsSection {
   background-color: #f4f4f4;
 }
-#whySection h6 {
+#TestimonialsSection h6 {
   font-size: 25px;
-}
-#whySection p {
   font-weight: bold;
 }
-#whySection #testimonials .testContent {
+#TestimonialsSection p {
+  font-weight: bold;
+}
+#TestimonialsSection #testimonials .testContent {
   border-radius: 5px;
   background-color: rgba(200, 200, 200, 0.3);
   transition: 0.5s;
-  min-height: 300px;
+  min-height: 350px;
 }
-#whySection #testimonials .testContent i {
+#TestimonialsSection #testimonials .testContent i {
   font-size: 50px;
 }
-#whySection #testimonials .testContent .testImage {
+#TestimonialsSection #testimonials .testContent .testImage {
   width: 70px;
   height: 70px;
 }
-#whySection #testimonials .testContent .testImage img {
+#TestimonialsSection #testimonials .testContent .testImage img {
   width: 100%;
   height: 100%;
   clip-path: circle(50%);
 }
-#whySection #testimonials .testContent .blockquote p {
+#TestimonialsSection #testimonials .testContent .fa-star {
+  font-size: 16px;
+  color: #242424;
+}
+#TestimonialsSection #testimonials .testContent .blockquote p {
   font-size: 16px;
 }
-#whySection #testimonials .testContent:hover {
+#TestimonialsSection #testimonials .testContent:hover {
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 30.8px 33.4px rgba(0, 0, 0, 0.086), 0 50px 80px rgba(0, 0, 0, 0.12);
+}
+
+.naslovBorder {
+  width: 9%;
+  height: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #d3002a;
 }
 
 .back {
@@ -448,11 +526,10 @@ h2 span {
 }
 .back #formNaslov {
   font-size: 25px;
-  font-weight: lighter;
+  font-weight: bold;
 }
 .back #formNaslov #fillForm {
-  font-weight: bold;
-  font-size: 17px;
+  font-size: 16px;
 }
 .back .formSlide {
   background-color: #242424;
@@ -710,6 +787,10 @@ h2 span {
 @media screen and (max-width: 576px) {
   #modal #body p {
     font-size: 15px;
+  }
+
+  #seeMoreModal .relative {
+    width: 350px;
   }
 
   #canvas .border-bottom {
