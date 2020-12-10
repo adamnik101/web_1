@@ -837,7 +837,20 @@ h2{
     }
     #seeMoreModal{
         .relative{
-            width: 350px;
+            width: 75%;
+            #body1{
+                h3{
+                    font-size: 21px;
+                }
+                .euro{
+                    font-size: 30px;
+                }
+                ul{
+                    li{
+                        font-size: 13px;
+                    }
+                }
+            }
         }
     }
         #canvas{
@@ -882,6 +895,11 @@ h2{
                     font-size: 20px;
                 }
             }
+        }
+    }
+    #seeMoreModal{
+        .relative{
+            width: 90%;
         }
     }
     .back{

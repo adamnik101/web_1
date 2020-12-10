@@ -790,7 +790,16 @@ h2 span {
   }
 
   #seeMoreModal .relative {
-    width: 350px;
+    width: 75%;
+  }
+  #seeMoreModal .relative #body1 h3 {
+    font-size: 21px;
+  }
+  #seeMoreModal .relative #body1 .euro {
+    font-size: 30px;
+  }
+  #seeMoreModal .relative #body1 ul li {
+    font-size: 13px;
   }
 
   #canvas .border-bottom {
@@ -827,6 +836,10 @@ h2 span {
 @media screen and (max-width: 350px) {
   #canvas .searchForm .search h4 {
     font-size: 20px;
+  }
+
+  #seeMoreModal .relative {
+    width: 90%;
   }
 
   .back .requestForm .greskaTekst {
