@@ -41,6 +41,9 @@ a:hover {
 #modal .row #body span {
   color: #070707;
 }
+#modal .row #body .modalTotal {
+  font-size: 30px;
+}
 #modal .row #footer {
   padding: 10px;
 }
@@ -231,9 +234,7 @@ h2 span {
   z-index: 99;
   top: -250px;
   opacity: 0;
-  background-color: #242424;
-  color: #7a7a7a;
-  border-bottom: 5px solid #d3002a;
+  color: #242424;
 }
 .naslovContent .sectionContent i {
   font-size: 60px;
@@ -242,14 +243,12 @@ h2 span {
 .naslovContent .sectionContent h5 {
   font-size: 25px;
   font-weight: bold;
+  color: #7e7e7e;
 }
 .naslovContent .sectionContent p {
   font-size: 17px;
   font-weight: bold;
   padding-bottom: 15px;
-}
-.naslovContent .sectionContent:hover i {
-  color: #d3002a;
 }
 
 .secondRow-cars {
@@ -366,10 +365,9 @@ h2 span {
   opacity: 0;
 }
 #featuredSection #showCars .holder {
-  box-shadow: inset 0px 0px 38px -9px rgba(0, 0, 0, 0.53);
-  background-color: #dadada;
   border-bottom: 5px solid #d3002a;
   padding: 10px;
+  box-shadow: 0px 0px 10px #686868;
 }
 #featuredSection #showCars .holder h5 {
   color: #181818;
@@ -411,14 +409,56 @@ h2 span {
   height: 1000px;
 }
 
+#whySection {
+  background-color: #f4f4f4;
+}
+#whySection h6 {
+  font-size: 25px;
+}
+#whySection p {
+  font-weight: bold;
+}
+#whySection #testimonials .testContent {
+  border-radius: 5px;
+  background-color: rgba(200, 200, 200, 0.3);
+  transition: 0.5s;
+  min-height: 300px;
+}
+#whySection #testimonials .testContent i {
+  font-size: 50px;
+}
+#whySection #testimonials .testContent .testImage {
+  width: 70px;
+  height: 70px;
+}
+#whySection #testimonials .testContent .testImage img {
+  width: 100%;
+  height: 100%;
+  clip-path: circle(50%);
+}
+#whySection #testimonials .testContent .blockquote p {
+  font-size: 16px;
+}
+#whySection #testimonials .testContent:hover {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 30.8px 33.4px rgba(0, 0, 0, 0.086), 0 50px 80px rgba(0, 0, 0, 0.12);
+}
+
 .back {
-  border-top: 5px solid #d3002a;
-  border-bottom: 5px solid #d3002a;
-  background-color: #242424;
+  background-color: #f4f4f4;
+}
+.back #formNaslov {
+  font-size: 25px;
+  font-weight: lighter;
+}
+.back #formNaslov #fillForm {
+  font-weight: bold;
+  font-size: 17px;
 }
 .back .formSlide {
+  background-color: #242424;
   width: 450px;
   height: 720px;
+  box-shadow: 0px 0px 15px #242424;
 }
 .back .formSlide #absolute {
   position: relative;
@@ -470,6 +510,7 @@ h2 span {
 .back .requestForm {
   height: 720px;
   width: 450px;
+  box-shadow: 0px 0px 15px #242424;
   background-color: #181818;
   color: #dadada;
   font-weight: bold;
@@ -539,6 +580,12 @@ h2 span {
 #pageFooter h2 {
   font-size: 35px;
 }
+#pageFooter .borderFooterLink {
+  display: inline-block;
+  background-color: #d3002a;
+  width: 100px;
+  height: 2px;
+}
 #pageFooter ul {
   list-style: none;
 }
@@ -565,6 +612,11 @@ h2 span {
   color: #dadada;
   font-weight: bold;
   font-size: 30px;
+}
+#pageFooter p {
+  font-size: 20px;
+  color: #dadada;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1500px) {

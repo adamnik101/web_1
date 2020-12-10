@@ -7,7 +7,6 @@ window.onload = function () {
   sideNav();
   ddl();
   info1();
-  crossfade();
   showImg();
 };
 
@@ -25,7 +24,7 @@ function scrollUp1() {
 
 function info1() {
   var naslov = ["WELCOME TO OUR SITE", "CAR", "ZONE"];
-  var content = [["BRANDS", "We got latest and most popular brands from automotive industry", "fas fa-car"], ["FREE SUPPORT", "24/7 covered available support to get answers to all your questions", "far fa-comment-dots"], ["AFFORDABLE", "Exotic cars that have best deals according to their performance", "fas fa-coins"]];
+  var content = [["BRANDS", "We got latest and most popular brands from automotive industry", "fas fa-car"], ["ROAD SUPPORT", "24/7 available support to help you on road if you have any mechanical problem with our car", "fas fa-road"], ["AFFORDABLE", "Exotic cars that have best deals according to their performance", "fas fa-coins"]];
   document.getElementsByClassName("naslovContent")[0].innerHTML = "<div class=\"col-12 text-center naslov p-4\">\n                                                                        <h4>".concat(naslov[0], "</h4>\n                                                                        <span><i class=\"fas fa-angle-double-down\"></i></span>\n                                                                        <h1><span>").concat(naslov[1], "</span> ").concat(naslov[2], "</h1>\n                                                                    </div>");
 
   for (var i = 0; i < content.length - 1; i++) {
@@ -159,7 +158,7 @@ function ddl() {
 } // dinamicko i nasumicno ispisivanje automobila u index.html
 
 
-var carContent = [["assets/img/sports_civic1.jpg", "Honda Civic Type R", "150/day", "350hp"], ["assets/img/sports_supra1.jpg", "Toyota Supra", "300/day", "382hp"], ["assets/img/sports_subaru1.jpg", "Subaru Impreza WRX", "120/day", "340hp"], ["assets/img/muscle_chevy1.jpg", "Chevrolet ZL1", "200/day", "650hp"], ["assets/img/muscle_demon1.jpg", "Dodge Challenger", "200/day", "700hp"], ["assets/img/sports_benz1.jpg", "Mercedes 450 CLS", "160/day", "375hp"], ["assets/img/sports_evo.jpg", "Subaru WRX", "130/day", "360hp"], ["assets/img/sports_bmw1.jpg", "BMW 420d Coupe", "120/day", "310hp"], ["assets/img/sports_mitsubishi1.jpg", "Mitsubishi EVO X", "110/day", "290hp"], ["assets/img/muscle_mustang1.jpg", "Ford Mustang", "180/day", "750hp"], ["assets/img/sports_bmw2.jpg", "BMW X5", "110/day", "310hp"], ["assets/img/suv_ford1.jpg", "Ford F-150", "100/day", "280hp"]]; //niz u koji ubacujemo DISTINCT vrednosti do 12
+var carContent = [["assets/img/sports_civic1.jpg", "Honda Civic Type R", "150/day", "350hp"], ["assets/img/sports_supra1.jpg", "Toyota Supra", "300/day", "382hp"], ["assets/img/sports_subaru1.jpg", "Subaru Impreza WRX", "120/day", "340hp"], ["assets/img/muscle_chevy1.jpg", "Chevrolet ZL1", "200/day", "650hp"], ["assets/img/muscle_demon1.jpg", "Dodge Challenger", "200/day", "700hp"], ["assets/img/sports_benz1.jpg", "Mercedes 450 CLS", "160/day", "375hp"], ["assets/img/sports_evo.jpg", "Subaru WRX", "130/day", "360hp"], ["assets/img/sports_bmw1.jpg", "BMW 420d Coupe", "120/day", "310hp"], ["assets/img/sports_mitsubishi1.jpg", "Mitsubishi EVO X", "110/day", "290hp"], ["assets/img/muscle_mustang1.jpeg", "Ford Mustang", "180/day", "750hp"], ["assets/img/sports_bmw2.jpg", "BMW X6m", "110/day", "310hp"], ["assets/img/suv_ford1.jpg", "Ford F-150", "100/day", "280hp"]]; //niz u koji ubacujemo DISTINCT vrednosti do 12
 
 var random = []; // funkcija za random ispisivanje iz niza
 
@@ -271,8 +270,9 @@ function showImg() {
   slideShow[indeksOpacity].style.visibility = "visible";
   slideShow[indeksOpacity].classList.add("fadeIn");
   setTimeout(showImg, 15000);
-} //dohvatanje elemenata
+}
 
+crossfade(); //dohvatanje elemenata
 
 var fullName = document.getElementById("fullName");
 var mail = document.getElementById("mail");
@@ -614,7 +614,7 @@ function modal() {
   body.setAttribute("id", "body");
   body.classList.add("col-12", "p-2");
   var p = document.createElement("p");
-  p.innerHTML = "<span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br> YOUR TOTAL IS: ").concat(izabranAuto, "</span>");
+  p.innerHTML = "<span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-euro-sign\"></i> ").concat(izabranAuto, "</span>");
   var footer = document.createElement("div");
   footer.setAttribute("id", "footer");
   footer.classList.add("col-12", "text-right");

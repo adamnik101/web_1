@@ -10,7 +10,6 @@ window.onload = function(){
     sideNav();
     ddl();
     info1();
-    crossfade();
     showImg();
 }
  window.onscroll = function(){
@@ -30,7 +29,7 @@ function info1(){
     let naslov = ["WELCOME TO OUR SITE","CAR", "ZONE"];
     let content = [
         ["BRANDS","We got latest and most popular brands from automotive industry", "fas fa-car"],
-        ["FREE SUPPORT", "24/7 covered available support to get answers to all your questions", "far fa-comment-dots"],
+        ["ROAD SUPPORT", "24/7 available support to help you on road if you have any mechanical problem with our car", "fas fa-road"],
         ["AFFORDABLE", "Exotic cars that have best deals according to their performance", "fas fa-coins"]
     ];
 
@@ -201,8 +200,8 @@ var carContent = [
     ["assets/img/sports_evo.jpg","Subaru WRX","130/day", "360hp"],
     ["assets/img/sports_bmw1.jpg","BMW 420d Coupe","120/day", "310hp"],
     ["assets/img/sports_mitsubishi1.jpg","Mitsubishi EVO X","110/day", "290hp"],
-    ["assets/img/muscle_mustang1.jpg","Ford Mustang","180/day", "750hp"],
-    ["assets/img/sports_bmw2.jpg","BMW X5","110/day", "310hp"],
+    ["assets/img/muscle_mustang1.jpeg","Ford Mustang","180/day", "750hp"],
+    ["assets/img/sports_bmw2.jpg","BMW X6m","110/day", "310hp"],
     ["assets/img/suv_ford1.jpg","Ford F-150","100/day", "280hp"]];
 
     //niz u koji ubacujemo DISTINCT vrednosti do 12
@@ -326,6 +325,7 @@ function showImg(){
         slideShow[indeksOpacity].classList.add("fadeIn");
         setTimeout(showImg, 15000);
 }
+crossfade();
 
 
 
@@ -653,7 +653,7 @@ function modal(){
     body.classList.add("col-12", "p-2");
     let p = document.createElement("p");
     p.innerHTML = `<span>${firstName[0]}</span>, you've successfully sent the request for the <span>${dataArray[2]} ${dataArray[3]}</span>, all other information has been sent to your mail.</br>
-    <span>${dataArray[1]}</br> YOUR TOTAL IS: ${izabranAuto}</span>`;
+    <span>${dataArray[1]}</br></span> <span class="modalTotal"> TOTAL: <i class="fas fa-euro-sign"></i> ${izabranAuto}</span>`;
     let footer = document.createElement("div");
     footer.setAttribute("id", "footer");
     footer.classList.add("col-12", "text-right");
@@ -745,6 +745,7 @@ $(document).ready(function(){
                 })
         })
         })
+
     //scroll to request form section
     $("#requestBtn").click(function(){
         $("html,body").animate({
