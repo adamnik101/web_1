@@ -243,69 +243,65 @@ function upisVrednosti(){
                 switch(seeMore[i].value){
                     case carContent[0][1]:
                         modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"> <img src="${carContent[0][0]}" class="img-fluid" alt="car"> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[0][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Automatic </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[0][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[0][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button">Request now!</button> </div></div></div>`
-                        modal.style.visibility = "visible";
-                        modal.style.opacity = "1";
+      
+                       
                         break;
                     case carContent[1][1]:
                         modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"> <img src="${carContent[1][0]}" class="img-fluid" alt="car"> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[1][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Automatic </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[1][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[1][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button">Request now!</button> </div></div></div>`
-                        modal.style.visibility = "visible";
-                        modal.style.opacity = "1";
+
+                     
                         break;
                     case carContent[2][1]:
                         modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"> <img src="${carContent[2][0]}" class="img-fluid" alt="car"> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[2][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Automatic </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[2][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[2][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button">Request now!</button> </div></div></div>`
-                        modal.style.visibility = "visible";
-                        modal.style.opacity = "1";
+
+                      
                         break;
                     case carContent[3][1]:
                         modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"> <img src="${carContent[3][0]}" class="img-fluid" alt="car"> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[3][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Automatic </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[3][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[3][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button">Request now!</button> </div></div></div>`
-                        modal.style.visibility = "visible";
-                        modal.style.opacity = "1";
+
+                     
                         break;  
                     case carContent[4][1]:
                         modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"> <img src="${carContent[4][0]}" class="img-fluid" alt="car"> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[4][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Automatic </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[4][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[4][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button">Request now!</button> </div></div></div>`
-                        modal.style.visibility = "visible";
-                        modal.style.opacity = "1";
+
+                      
                         break;
                     case carContent[5][1]:
                         modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"> <img src="${carContent[5][0]}" class="img-fluid" alt="car"> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[5][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Automatic </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[5][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[5][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button">Request now!</button> </div></div></div>`
-                        modal.style.visibility = "visible";
-                        modal.style.opacity = "1";
+
+                     
                         break;
                     case carContent[6][1]:
                         modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"> <img src="${carContent[6][0]}" class="img-fluid" alt="car"> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[6][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Automatic </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[6][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[6][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button">Request now!</button> </div></div></div>`
-                        modal.style.visibility = "visible";
-                        modal.style.opacity = "1";
+
+                    
                         break;
                     case carContent[7][1]:
                         modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"> <img src="${carContent[7][0]}" class="img-fluid" alt="car"> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[7][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Automatic </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[7][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[7][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button">Request now!</button> </div></div></div>`
-                        modal.style.visibility = "visible";
-                        modal.style.opacity = "1";
+
+                   
                         break;
                     case carContent[8][1]:
                         modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"> <img src="${carContent[8][0]}" class="img-fluid" alt="car"> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[8][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Automatic </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[8][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[8][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button">Request now!</button> </div></div></div>`
-                        modal.style.visibility = "visible";
-                        modal.style.opacity = "1";
+
+                   
                         break;
                     case carContent[9][1]:
                         modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"> <img src="${carContent[9][0]}" class="img-fluid" alt="car"> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[9][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Automatic </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[9][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[9][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button">Request now!</button> </div></div></div>`
-                        modal.style.visibility = "visible";
-                        modal.style.opacity = "1";
+
+                  
                         break;  
                     case carContent[10][1]:
                         modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"> <img src="${carContent[10][0]}" class="img-fluid" alt="car"> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[10][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Automatic </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[10][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[10][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button">Request now!</button> </div></div></div>`
-                        modal.style.visibility = "visible";
-                        modal.style.opacity = "1";
+
+                      
                         break;
                     case carContent[11][1]:
                         modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"> <img src="${carContent[11][0]}" class="img-fluid" alt="car"> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[11][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Automatic </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[11][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[11][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button">Request now!</button> </div></div></div>`
-                        modal.style.visibility = "visible";
-                        modal.style.opacity = "1";
+
+                    
                         break;    
                 }
-                var closeSeeMore = document.getElementById("closeSeeMore");
-                        closeSeeMore.addEventListener("click", function(){
-                        modal.style.visibility = "hidden";
-                        modal.style.opacity = "0";})
             })
         }
 }
@@ -321,7 +317,7 @@ function ispisCarContent(){
             </div>
             <div class="holder">
             <h5 class="mb-3">${carContent[random[i]][1]}</h5>
-            <p><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]} &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
+            <p><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]}/day &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
             <button type="button" class="seeMore" value="${carContent[random[i]][1]}">See more</button>
             </div>
         </div>`    
@@ -347,7 +343,7 @@ function ispisCarContent(){
                     </div>
                     <div class="holder">
                     <h5 class="mb-3">${carContent[random[i]][1]}</h5>
-                    <p><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]} &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
+                    <p><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]}/day &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
                     <button type="button" class="seeMore" value="${carContent[random[i]][1]}">See more</button>
                     </div>`;       
                 }
@@ -363,7 +359,7 @@ function ispisCarContent(){
                     </div>
                     <div class="holder">
                     <h5 class="mb-3">${carContent[random[i]][1]}</h5>
-                    <p><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]} &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
+                    <p><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]}/day &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
                     <button type="button" class="seeMore" value="${carContent[random[i]][1]}">See more</button>
                     </div></div>`;
                 }
@@ -863,6 +859,18 @@ $(document).ready(function(){
     })
     $("#btnLevo").click(function(){
         owl.trigger("prev.owl.carousel");
+    })
+    $(".seeMore").on("click", function(){
+        $("#seeMoreModal").css("visibility", "visible").animate({
+            opacity : "1",
+        }, 1000)
+        $("#closeSeeMore").on("click", function(){
+            $("#seeMoreModal").animate({
+                opacity : "0",
+            }, 1000, function(){
+                $(this).css("visibility", "hidden")
+            })
+        })
     })
     //animacija pri prikazivanju modala nakon uspesnog popunjavanja forme
     $("#searchBtn").on("click", function(){
