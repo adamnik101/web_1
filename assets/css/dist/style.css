@@ -1,9 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+@font-face {
+  font-family: Work Sans;
+  src: url("../../css/font/WorkSans-light.ttf");
+}
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Work Sans";
 }
 
 a:hover {
@@ -95,22 +98,28 @@ a:hover {
   position: absolute;
   top: 170px;
   left: 10px;
-  font-size: 30px;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
   border: none;
+  border-radius: 50%;
   outline: none;
-  background-color: transparent;
-  color: #d3002a;
+  background-color: #dadada;
+  color: #333333;
   z-index: 999;
 }
 #seeMoreModal .relative #body1 #desno {
   position: absolute;
   top: 170px;
   right: 10px;
-  font-size: 30px;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
   border: none;
+  border-radius: 50%;
   outline: none;
-  background-color: transparent;
-  color: #d3002a;
+  background-color: #dadada;
+  color: #333333;
   z-index: 999;
 }
 #seeMoreModal .relative #body1 ul {
@@ -396,9 +405,11 @@ h2 span {
   background-color: #414141;
   border: none;
   font-size: 30px;
+  transition: 0.5s;
 }
 .secondRow-cars #grupaDugmad button:focus {
   outline: none;
+  background-color: #d3002a;
 }
 
 #request {
@@ -416,6 +427,7 @@ h2 span {
   color: #242424;
   font-weight: bold;
   font-size: 19px;
+  transition: 0.5s;
 }
 #request a:hover {
   background-color: #d3002a;
@@ -489,6 +501,7 @@ h2 span {
   font-size: 20px;
   padding: 15px 20px;
   margin-bottom: 50px;
+  transition: 0.5s;
 }
 #featuredSection #loadMore:hover {
   background-color: #414141;
@@ -813,7 +826,7 @@ h2 span {
   }
 
   #seeMoreModal .relative {
-    width: 75%;
+    width: 90%;
   }
   #seeMoreModal .relative #body1 h3 {
     font-size: 21px;
