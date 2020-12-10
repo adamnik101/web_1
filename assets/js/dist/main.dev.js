@@ -524,7 +524,7 @@ payment[1].onclick = function () {
     var input1 = document.createElement("input");
     input1.classList.add("w-100");
     input1.setAttribute("type", "text");
-    input1.setAttribute("placeholder", "Card number: 5XXX-XXXX-XXXX-XXXX");
+    input1.setAttribute("placeholder", "Card number: 5XXXXXXXXXXXXXXX");
     input1.setAttribute("id", "cardContent");
     var inputGreska = document.createElement("span");
     inputGreska.classList.add("greskaTekst", "w-100");
@@ -593,12 +593,12 @@ payment.forEach(function (selected) {
 });
 
 function proveraCardNumber() {
-  var regExCardNumber = /^5[0-9]{3}(\-[0-9]{4}){3}$/;
+  var regExCardNumber = /^5[0-9]{15}$/;
   var cardNumber = document.getElementById("cardContent");
   var cardNumberError = document.getElementById("cardNumberError");
 
   if (!regExCardNumber.test(cardNumber.value)) {
-    cardNumberError.innerHTML = "Format: 5XXX-XXXX-XXXX-XXXX";
+    cardNumberError.innerHTML = "Format: 5XXXXXXXXXXXXXXX(16 digits)";
     cardNumber.classList.add("greska");
     cardNumber.classList.remove("correct");
     return false;
@@ -612,7 +612,7 @@ function proveraCardNumber() {
 
 function proveraExpDate() {
   // provera da li je kartica validna najmanje 5 godina
-  var regExExpDate = /^([0][1-9]|[1-2][0-2])\/([2][0-6])$/;
+  var regExExpDate = /^([0][1-9]|[1-2][0-2])\/(([2][0-6])|([2][0][2-3][0-6]))$/;
   var expDate = document.getElementById("validThru");
   var expDateError = document.getElementById("expDateError");
 
