@@ -54,8 +54,8 @@ function info1(){
 }
 // Dinamicko ispisivanje navigacije i sidenav
 
-var navigacija = ["Home", "Cars", "About", "Contact", "Documentation"];
-var navigacijaLinkovi = ["index.html", "search.html", "about.html", "contact.html", "#"];
+var navigacija = ["Home", "Introduction", "Featured", "Rent a car"];
+var navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov"];
 
 function navigacija1(){
     let navGet = document.getElementById("navigacija");
@@ -230,7 +230,7 @@ function owlCarouselContent(){
             parent.appendChild(child);
         for(let i = 0; i < 6; i++){
             child.innerHTML +=`<div class="slideContent"><img src="${carContent[random[i]][0]}" alt="${carContent[random[i]][1]}"><h5>${carContent[random[i]][1]}</h5>
-            <p class="d-flex justify-content-between"><span><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]}/day</span><a href="#!"class="d-inline reqBtn">Request now</a></p>
+            <p class="d-flex justify-content-between"><span><i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}/day</span><a href="#!"class="d-inline reqBtn">Request now</a></p>
         </div>`
         }
         random=[];
@@ -246,7 +246,7 @@ function upisVrednosti(){
         for(let i = 0; i < seeMore.length; i++){
             seeMore[i].addEventListener("click", function(){
                   if(seeMore[i].value == carContent[random[i]][1]){
-                    modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"><button type="button" id="levo"><i class="fas fa-angle-left"></i></i></button><button type="button" id="desno"><i class="fas fa-angle-right"></i></button> <div class="owl-carousel another-owl"> <img src="${carContent[random[i]][0]}" class="img-fluid" alt="car"> <img src="${noveSlike[random[i]]}" class="img-fluid" alt="car"></div> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[random[i]][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Manual </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button" class="request">Request now!</button> </div></div></div>`
+                    modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"><button type="button" id="levo"><i class="fas fa-angle-left"></i></i></button><button type="button" id="desno"><i class="fas fa-angle-right"></i></button> <div class="owl-carousel another-owl"> <img src="${carContent[random[i]][0]}" class="img-fluid" alt="car"> <img src="${noveSlike[random[i]]}" class="img-fluid" alt="car"></div> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[random[i]][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Manual </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button" class="request">Request now!</button> </div></div></div>`
                     modal.style.visibility = "visible";
                     modal.style.opacity = "1"; 
                   }
@@ -302,7 +302,7 @@ function ispisCarContent(){
             </div>
             <div class="holder">
             <h5 class="mb-3">${carContent[random[i]][1]}</h5>
-            <p><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]}/day &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
+            <p><i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}/day &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
             <button type="button" class="seeMore" value="${carContent[random[i]][1]}">See more</button>
             </div>
         </div>`    
@@ -328,7 +328,7 @@ function ispisCarContent(){
                     </div>
                     <div class="holder">
                     <h5 class="mb-3">${carContent[random[i]][1]}</h5>
-                    <p><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]}/day &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
+                    <p><i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}/day &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
                     <button type="button" class="seeMore" value="${carContent[random[i]][1]}">See more</button>
                     </div>`;       
                 }
@@ -344,7 +344,7 @@ function ispisCarContent(){
                     </div>
                     <div class="holder">
                     <h5 class="mb-3">${carContent[random[i]][1]}</h5>
-                    <p><i class="fas fa-euro-sign"></i> ${carContent[random[i]][2]}/day &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
+                    <p><i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}/day &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
                     <button type="button" class="seeMore" value="${carContent[random[i]][1]}">See more</button>
                     </div></div>`;
                 }
@@ -717,7 +717,7 @@ function modal(){
     body.classList.add("col-12", "p-2");
     let p = document.createElement("p");
     p.innerHTML = `<span>${firstName[0]}</span>, you've successfully sent the request for the <span>${dataArray[2]} ${dataArray[3]}</span>, all other information has been sent to your mail.</br>
-    <span>${dataArray[1]}</br></span> <span class="modalTotal"> TOTAL: <i class="fas fa-euro-sign"></i> ${izabranAuto}</span>`;
+    <span>${dataArray[1]}</br></span> <span class="modalTotal"> TOTAL: <i class="fas fa-dollar-sign"></i> ${izabranAuto}</span>`;
     let footer = document.createElement("div");
     footer.setAttribute("id", "footer");
     footer.classList.add("col-12", "text-right");

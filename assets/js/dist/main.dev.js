@@ -37,8 +37,8 @@ function info1() {
 } // Dinamicko ispisivanje navigacije i sidenav
 
 
-var navigacija = ["Home", "Cars", "About", "Contact", "Documentation"];
-var navigacijaLinkovi = ["index.html", "search.html", "about.html", "contact.html", "#"];
+var navigacija = ["Home", "Introduction", "Featured", "Rent a car"];
+var navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov"];
 
 function navigacija1() {
   var navGet = document.getElementById("navigacija");
@@ -184,7 +184,7 @@ function owlCarouselContent() {
   parent.appendChild(child);
 
   for (var i = 0; i < 6; i++) {
-    child.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[i]][0], "\" alt=\"").concat(carContent[random[i]][1], "\"><h5>").concat(carContent[random[i]][1], "</h5>\n            <p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-euro-sign\"></i> ").concat(carContent[random[i]][2], "/day</span><a href=\"#!\"class=\"d-inline reqBtn\">Request now</a></p>\n        </div>");
+    child.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[i]][0], "\" alt=\"").concat(carContent[random[i]][1], "\"><h5>").concat(carContent[random[i]][1], "</h5>\n            <p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[i]][2], "/day</span><a href=\"#!\"class=\"d-inline reqBtn\">Request now</a></p>\n        </div>");
   }
 
   random = [];
@@ -200,7 +200,7 @@ function upisVrednosti() {
   var _loop = function _loop(i) {
     seeMore[i].addEventListener("click", function () {
       if (seeMore[i].value == carContent[random[i]][1]) {
-        modal.innerHTML = "<div class=\"row relative\"> <div class=\"col-12 p-0\"> <div id=\"header1\"> <div class=\"col-12 p-3 d-flex justify-content-between\"> <h2>CAR <span>ZONE</span></h2> <button type=\"button\" id=\"closeSeeMore\"><i class=\"fas fa-times-circle\"></i></button> </div></div><div id=\"body1\"> <div class=\"col-12 p-0\"><button type=\"button\" id=\"levo\"><i class=\"fas fa-angle-left\"></i></i></button><button type=\"button\" id=\"desno\"><i class=\"fas fa-angle-right\"></i></button> <div class=\"owl-carousel another-owl\"> <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"car\"> <img src=\"").concat(noveSlike[random[i]], "\" class=\"img-fluid\" alt=\"car\"></div> </div><div class=\"col-12 p-2\"> <h3 class=\"text-center\">").concat(carContent[random[i]][1], "</h3> <hr class=\"m-0\"> <div class=\"row m-0 p-0\"> <div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Chilled AC </li><li> <i class=\"fas fa-check\"></i> Heated seats </li><li> <i class=\"fas fa-check\"></i> Audio input </li><li> <i class=\"fas fa-check\"></i> Bluetooth </li></ul> </div><div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Manual </li><li> <i class=\"fas fa-check\"></i> Unlimited mileage </li><li> <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], " </li></ul> </div></div></div><div class=\"row m-0\"> <div class=\"col-12 font-weight-bold euro\"> <i class=\"fas fa-euro-sign\"></i> ").concat(carContent[random[i]][2], "<span>/ per day</span> </div></div></div><div id=\"footer1\" class=\"text-right\"> <button type=\"button\" class=\"request\">Request now!</button> </div></div></div>");
+        modal.innerHTML = "<div class=\"row relative\"> <div class=\"col-12 p-0\"> <div id=\"header1\"> <div class=\"col-12 p-3 d-flex justify-content-between\"> <h2>CAR <span>ZONE</span></h2> <button type=\"button\" id=\"closeSeeMore\"><i class=\"fas fa-times-circle\"></i></button> </div></div><div id=\"body1\"> <div class=\"col-12 p-0\"><button type=\"button\" id=\"levo\"><i class=\"fas fa-angle-left\"></i></i></button><button type=\"button\" id=\"desno\"><i class=\"fas fa-angle-right\"></i></button> <div class=\"owl-carousel another-owl\"> <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"car\"> <img src=\"").concat(noveSlike[random[i]], "\" class=\"img-fluid\" alt=\"car\"></div> </div><div class=\"col-12 p-2\"> <h3 class=\"text-center\">").concat(carContent[random[i]][1], "</h3> <hr class=\"m-0\"> <div class=\"row m-0 p-0\"> <div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Chilled AC </li><li> <i class=\"fas fa-check\"></i> Heated seats </li><li> <i class=\"fas fa-check\"></i> Audio input </li><li> <i class=\"fas fa-check\"></i> Bluetooth </li></ul> </div><div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Manual </li><li> <i class=\"fas fa-check\"></i> Unlimited mileage </li><li> <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], " </li></ul> </div></div></div><div class=\"row m-0\"> <div class=\"col-12 font-weight-bold euro\"> <i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[i]][2], "<span>/ per day</span> </div></div></div><div id=\"footer1\" class=\"text-right\"> <button type=\"button\" class=\"request\">Request now!</button> </div></div></div>");
         modal.style.visibility = "visible";
         modal.style.opacity = "1";
       }
@@ -256,7 +256,7 @@ function ispisCarContent() {
   var div = document.getElementById("showCars"); // ispisivanje prvih 6 artikala
 
   for (var i = 0; i < carContent.length - 6; i++) {
-    div.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n            <p><i class=\"fas fa-euro-sign\"></i> ").concat(carContent[random[i]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n            <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[i]][1], "\">See more</button>\n            </div>\n        </div>");
+    div.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n            <p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[i]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n            <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[i]][1], "\">See more</button>\n            </div>\n        </div>");
   }
 
   upisVrednosti();
@@ -272,7 +272,7 @@ function ispisCarContent() {
         var slide = document.createElement("div");
         slide.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale");
         document.getElementById("showCars").appendChild(slide);
-        slide.innerHTML += "\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n                    <p><i class=\"fas fa-euro-sign\"></i> ").concat(carContent[random[i]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n                    <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[i]][1], "\">See more</button>\n                    </div>");
+        slide.innerHTML += "\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n                    <p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[i]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n                    <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[i]][1], "\">See more</button>\n                    </div>");
       }
 
       upisVrednosti();
@@ -281,7 +281,7 @@ function ispisCarContent() {
     if (click1 > 0) {
       //ispisivanje ostatka 
       for (var i = 9; i < carContent.length; i++) {
-        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\">\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n                    <p><i class=\"fas fa-euro-sign\"></i> ").concat(carContent[random[i]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n                    <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[i]][1], "\">See more</button>\n                    </div></div>");
+        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\">\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n                    <p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[i]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n                    <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[i]][1], "\">See more</button>\n                    </div></div>");
       }
 
       upisVrednosti();
@@ -681,7 +681,7 @@ function modal() {
   body.setAttribute("id", "body");
   body.classList.add("col-12", "p-2");
   var p = document.createElement("p");
-  p.innerHTML = "<span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-euro-sign\"></i> ").concat(izabranAuto, "</span>");
+  p.innerHTML = "<span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(izabranAuto, "</span>");
   var footer = document.createElement("div");
   footer.setAttribute("id", "footer");
   footer.classList.add("col-12", "text-right");

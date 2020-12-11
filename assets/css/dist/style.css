@@ -7,6 +7,7 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: "Work Sans";
+  scroll-behavior: smooth;
 }
 
 a:hover {
@@ -709,7 +710,8 @@ h2 span {
 }
 #pageFooter ul li a {
   color: #dadada;
-  font-weight: 500;
+  font-weight: bold;
+  transition: 0.5s;
 }
 #pageFooter ul li a i {
   font-size: 20px;
@@ -723,13 +725,24 @@ h2 span {
 #pageFooter ul li a .fa-linkedin {
   color: #2867b2;
 }
+#pageFooter ul li a:hover {
+  color: #d3002a;
+  transition: 0.5s;
+}
+#pageFooter .hours {
+  color: #6e6e6e;
+  font-weight: bold;
+}
+#pageFooter .hours span {
+  color: #dadada;
+}
 #pageFooter h5 {
   color: #dadada;
   font-weight: bold;
   font-size: 30px;
 }
 #pageFooter p {
-  font-size: 20px;
+  font-size: 17px;
   color: #dadada;
   font-weight: bold;
 }

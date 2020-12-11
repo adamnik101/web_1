@@ -7,6 +7,7 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Work Sans';
+    scroll-behavior: smooth;
 }
 a{
     &:hover{
@@ -728,7 +729,8 @@ h2{
             padding: 5px;
             a{
                 color: rgb(218, 218, 218);
-                font-weight: 500;
+                font-weight: bold;
+                transition: 0.5s;
                 i{
                     font-size: 20px;
                 }
@@ -741,7 +743,19 @@ h2{
                 .fa-linkedin{
                     color: rgb(40,103,178);
                 }
+                &:hover{
+                    color: rgb(211, 0, 42);
+                    transition: 0.5s;
+                }
             }
+        }
+    }
+    .hours{
+        color: rgb(110, 110, 110);
+        font-weight: bold;
+        span{
+            
+            color: rgb(218, 218, 218);
         }
     }
     h5{
@@ -750,7 +764,7 @@ h2{
         font-size: 30px;
     }
     p{
-        font-size: 20px;
+        font-size: 17px;
         color: rgb(218, 218, 218);
         font-weight: bold;
     }
