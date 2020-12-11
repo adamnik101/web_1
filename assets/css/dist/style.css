@@ -685,6 +685,10 @@ h2 span {
   color: #d3002a;
 }
 
+#map {
+  height: 500px;
+}
+
 #pageFooter {
   background-color: #181818;
 }

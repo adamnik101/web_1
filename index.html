@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="assets/owlcarousel/owl.theme.default.min.css">
     <!-- jQuery file -->
     <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo-1yDsv4DlqW7H6BdAkL1VvUXJ-4MPmM&callback=initMap">
+    </script>       
 </head>
     <body>
         <div id="modal" class="d-flex justify-content-center align-items-center">
@@ -23,10 +26,9 @@
             <button id="btnTop" onclick="scrollUp1()"><i class="fas fa-angle-up"></i></button>
             <div class="row pt-1 pb-1 border-bottom">
                 <div class="col-6 d-flex justify-content-center p-0">
-                    <span>
-                        <a href="#" class="tekstBoja align-middle">
-                            <i class="far fa-envelope align-middle"></i> carzone@gmail.com
-                        </a>
+                    <span class="font-weight-bold">
+                            <i class="fas fa-map-marked-alt"></i> 71 Branch Dr.
+                            Chino, CA 91710
                     </span>
                 </div>
                 <div class="col-6 d-flex justify-content-center p-0">
@@ -195,56 +197,15 @@
                         <h6><span class="naslovBorder"></span> Testimonials <span class="naslovBorder"></span></h6>
                         <p>We strive to give our customers best experience</p>
                         <div class="row" id="testimonials">
-                            <!-- <div class="col-12 col-md-4 mb-3 mb-md-0">
-                                <div class="col-12 testContent p-3">
-                                    <i class="fas fa-quote-right"></i>
-                                    <div class="d-flex justify-content-center p-2">
-                                        <div class="testImage">
-                                            <img src="assets/img/test1.png" alt="guy_smiling">
-                                        </div>
-                                    </div>
-                                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                                    <blockquote class="blockquote text-center">
-                                        <p class="mb-0">During all the years we have rented a car from you, there has never been any problems. We are satisfied with both price and quality of your cars!</p>
-                                        <footer class="blockquote-footer"><cite>Michael De Santa</cite></footer>
-                                      </blockquote>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4 mb-3 mb-md-0">
-                                <div class="col-12 testContent p-3">
-                                    <i class="fas fa-quote-right"></i>
-                                    <div class="d-flex justify-content-center p-2">
-                                        <div class="testImage">
-                                            <img src="assets/img/test3.png" alt="guy_smiling">
-                                        </div>
-                                    </div>
-                                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                                    <blockquote class="blockquote text-center">
-                                        <p class="mb-0">Thank you all once again for your exceptional service level. The customer experience served by everyone at CarZone is 1st class!</p>
-                                        <footer class="blockquote-footer"><cite>Trevor Phillips</cite></footer>
-                                      </blockquote>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4 mb-3 mb-md-0">
-                                <div class="col-12 testContent p-3">
-                                    <i class="fas fa-quote-right"></i>
-                                    <div class="d-flex justify-content-center p-2">
-                                        <div class="testImage">
-                                            <img src="assets/img/test2.png" alt="guy_smiling">
-                                        </div>
-                                    </div>
-                                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                                    <blockquote class="blockquote text-center">
-                                        <p class="mb-0">Friendly and reliable service on site. The booking went smoothly and was handled quickly. The car was perfect and very new!</p>
-                                        <footer class="blockquote-footer"><cite>Franklin Clinton</cite></footer>
-                                      </blockquote>
-                                </div>
-                            </div> -->
+                           
                         </div>
                         
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid" id="map">
+
         </div>
         <div class="container-fluid" id="pageFooter">
                 <div class="row p-5">
@@ -296,7 +257,7 @@
                 </div>
                 <div class="row">
                     <div class="col text-center">
-                       <p>Copyright &copy; 2020 CarZone all rights reserved.</p> 
+                       <p>Copyright &copy; 2020 CarZone</p> 
                     </div>
                 </div>
         </div>
