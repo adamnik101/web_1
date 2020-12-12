@@ -37,13 +37,13 @@ function scrollUp1() {
 var info1 = function info1() {
   var a = ["WELCOME TO OUR SITE", "CAR", "ZONE"],
       b = [["BRANDS", "We got latest and most popular brands from automotive industry", "fas fa-car"], ["ROAD SUPPORT", "24/7 available support to help you on road if you have any mechanical problem with our car", "fas fa-road"], ["AFFORDABLE", "Exotic cars that have best deals according to their performance", "fas fa-coins"]];
-  document.getElementsByClassName("naslovContent")[0].innerHTML = "<div class=\"col-12 text-center naslov p-4\">\n<h4>".concat(a[0], "</h4>\n<span><i class=\"fas fa-angle-double-down\"></i></span>\n<h1><span>").concat(a[1], "</span> ").concat(a[2], "</h1>\n</div>");
+  document.getElementsByClassName("naslovContent")[0].innerHTML = "<div class=\"col-12 text-center naslov p-4\"><h4>".concat(a[0], "</h4><span><i class=\"fas fa-angle-double-down\"></i></span><h1><span>").concat(a[1], "</span> ").concat(a[2], "</h1></div>");
 
   for (var _a2 = 0; _a2 < b.length - 1; _a2++) {
-    document.getElementsByClassName("naslovContent")[0].innerHTML += "\n<div class=\"col-12 col-sm-6 col-lg-4 text-center\">\n<div class=\"col-12 sectionContent p-2 mb-3\">\n<i class=\"".concat(b[_a2][2], "\"></i>\n<h5>").concat(b[_a2][0], "</h5>\n<p>").concat(b[_a2][1], "</p>\n</div>\n</div>");
+    document.getElementsByClassName("naslovContent")[0].innerHTML += "<div class=\"col-12 col-sm-6 col-lg-4 text-center\"><div class=\"col-12 sectionContent p-2 mb-3\"><i class=\"".concat(b[_a2][2], "\"></i><h5>").concat(b[_a2][0], "</h5><p>").concat(b[_a2][1], "</p></div></div>");
   }
 
-  document.getElementsByClassName("naslovContent")[0].innerHTML += "\n<div class=\"col-12 col-sm-12 col-lg-4 text-center\">\n<div class=\"col-12 sectionContent p-2 mb-3\">\n<i class=\"".concat(b[2][2], "\"></i>\n<h5>").concat(b[2][0], "</h5>\n<p>").concat(b[2][1], "</p>\n</div>\n</div>");
+  document.getElementsByClassName("naslovContent")[0].innerHTML += "<div class=\"col-12 col-sm-12 col-lg-4 text-center\"><div class=\"col-12 sectionContent p-2 mb-3\"><i class=\"".concat(b[2][2], "\"></i><h5>").concat(b[2][0], "</h5><p>").concat(b[2][1], "</p></div></div>");
 };
 
 function sideNav() {
@@ -141,7 +141,7 @@ function owlCarouselContent() {
   b.classList.add("owl-carousel", "first-owl"), a.appendChild(b);
 
   for (var _a5 = 0; 6 > _a5; _a5++) {
-    b.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[_a5]][0], "\" alt=\"").concat(carContent[random[_a5]][1], "\"><h5>").concat(carContent[random[_a5]][1], "</h5>\n<p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_a5]][2], "/day</span><a href=\"#formNaslov\"class=\"d-inline reqBtn\">Request now</a></p>\n</div>");
+    b.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[_a5]][0], "\" alt=\"").concat(carContent[random[_a5]][1], "\"><h5>").concat(carContent[random[_a5]][1], "</h5><p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_a5]][2], "/day</span><a href=\"#formNaslov\"class=\"d-inline reqBtn\">Request now</a></p></div>");
   }
 
   random = [];
@@ -202,7 +202,7 @@ function ispisCarContent() {
   var a = document.getElementById("showCars");
 
   for (var _b3 = 0; _b3 < carContent.length - 6; _b3++) {
-    a.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\">\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[_b3]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_b3]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[_b3]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_b3]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_b3]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_b3]][1], "\">See more</button>\n</div>\n</div>");
+    a.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\"><div class=\"imgHolder\"><img src=\"".concat(carContent[random[_b3]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_b3]][1], "\"></div><div class=\"holder\"><h5 class=\"mb-3\">").concat(carContent[random[_b3]][1], "</h5><p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_b3]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_b3]][3], "</p><button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_b3]][1], "\">See more</button></div></div>");
   }
 
   upisVrednosti();
@@ -212,7 +212,7 @@ function ispisCarContent() {
       for (var a = 6; a < carContent.length - 3; a++) {
         var _b4 = document.createElement("div");
 
-        _b4.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale"), document.getElementById("showCars").appendChild(_b4), _b4.innerHTML += "\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[a]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[a]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[a]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[a]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[a]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[a]][1], "\">See more</button>\n</div>");
+        _b4.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale"), document.getElementById("showCars").appendChild(_b4), _b4.innerHTML += "\n<div class=\"imgHolder\"><img src=\"".concat(carContent[random[a]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[a]][1], "\"></div><div class=\"holder\"><h5 class=\"mb-3\">").concat(carContent[random[a]][1], "</h5><p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[a]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[a]][3], "</p><button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[a]][1], "\">See more</button></div>");
       }
 
       upisVrednosti();
@@ -220,7 +220,7 @@ function ispisCarContent() {
 
     if (0 < b) {
       for (var a = 9; a < carContent.length; a++) {
-        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\">\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[a]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[a]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[a]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[a]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[a]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[a]][1], "\">See more</button>\n</div></div>");
+        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\"><div class=\"imgHolder\"><img src=\"".concat(carContent[random[a]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[a]][1], "\"></div><div class=\"holder\"><h5 class=\"mb-3\">").concat(carContent[random[a]][1], "</h5><p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[a]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[a]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[a]][1], "\">See more</button></div></div>");
       }
 
       upisVrednosti();
