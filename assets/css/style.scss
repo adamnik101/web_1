@@ -17,6 +17,12 @@ a{
         text-decoration: none;
     }
 }
+ body{
+    &::after{
+        position:absolute; width:0; height:0; overflow:hidden; z-index:-1; // hide images
+        content:url('../../img/muscle_chevy1.jpg');   // load images
+    }
+}
 #modal{
     position: fixed;
     visibility: hidden;
