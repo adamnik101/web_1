@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /.vscode/
+Disallow: /assets/img
+Disallow: /*.pdf$
+
+Sitemap: https://adamnik101.github.io/web_1/sitemap.xml
