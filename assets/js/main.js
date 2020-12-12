@@ -6,13 +6,13 @@ window.addEventListener("DOMContentLoaded", () =>{
     info1();
     ddl();
     owlCarouselContent();
-    ispisCarContent();
     crossfade();
     testimonials();
+    sideNav();
 })
 //nakon ucitavanja stranice
 window.onload = function(){
-    sideNav();
+    ispisCarContent();
     showImg();
     initMap();
 }
@@ -20,7 +20,7 @@ window.onscroll = function(){
     scrollUp1()
 };
 
-    
+
 var navigacija = ["Home", "Introduction", "Featured", "Rent a car", "Testimonials"];
 var navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov", "#TestimonialsSection"];
 

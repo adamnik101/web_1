@@ -6,13 +6,13 @@ window.addEventListener("DOMContentLoaded", function () {
   info1();
   ddl();
   owlCarouselContent();
-  ispisCarContent();
   crossfade();
   testimonials();
+  sideNav();
 }); //nakon ucitavanja stranice
 
 window.onload = function () {
-  sideNav();
+  ispisCarContent();
   showImg();
   initMap();
 };
