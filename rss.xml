@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>Car Zone - Rent a car</title>
+  <link>https://adamnik101.github.io/web_1/</link>
+  <description>Best cars for rental!</description>
+  <item>
+    <title>New car for rental!</title>
+    <link>https://adamnik101.github.io/web_1/index.html#featuredSection</link>
+    <description>New Honda for rental! From 100$ per day!</description>
+  </item>
+  <item>
+    <title>New car for rental!</title>
+    <link>https://adamnik101.github.io/web_1/index.html#featuredSection</link>
+    <description>New BMW for rental! From 100$ per day!</description>
+  </item>
+</channel>
+
+</rss>
