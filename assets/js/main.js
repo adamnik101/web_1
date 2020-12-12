@@ -1,18 +1,18 @@
 
 
 //cekanje za izvrsavanje DOM-a
-window.addEventListener("DOMContentLoaded", () =>{
+window.addEventListener("DOMContentLoaded", function(){
     navigacija1();
     info1();
-    ddl();
     owlCarouselContent();
+    ispisCarContent();
     crossfade();
+    ddl();
     testimonials();
     sideNav();
 })
 //nakon ucitavanja stranice
 window.onload = function(){
-    ispisCarContent();
     showImg();
     initMap();
 }
