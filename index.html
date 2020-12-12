@@ -22,258 +22,276 @@
     <!-- Google Maps API -->
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo-1yDsv4DlqW7H6BdAkL1VvUXJ-4MPmM&callback=initMap"></script>       
 </head>
-    <body>
-        <div class="container-fluid" id="canvas">
-            <button id="btnTop" onclick="scrollUp1()"><i class="fas fa-angle-up"></i></button>
-            <div class="row pt-1 pb-1 border-bottom">
-                <div class="col-6 d-flex justify-content-center p-0">
-                    <span class="font-weight-bold">
-                            <i class="fas fa-map-marked-alt"></i> 71 Dr.
-                            Chino, CA 91710
-                    </span>
-                </div>
-                <div class="col-6 d-flex justify-content-center p-0">
-                    <a href="https://www.facebook.com" class="mr-3 p-1">
-                        <i class="fab fa-facebook align-middle"></i>
-                    </a>
-                    <a href="https://www.twitter.com" class="mr-3 p-1">
-                        <i class="fab fa-twitter align-middle"></i>
-                    </a>
-                    <a href="https://www.linkedin.com" class="p-1">
-                        <i class="fab fa-linkedin align-middle"></i>
-                    </a>
+<body>
+    <div class="container-fluid" id="canvas">
+        <button id="btnTop" onclick="scrollUp1()"><i class="fas fa-angle-up"></i></button>
+        <div class="row pt-1 pb-1 border-bottom">
+            <div class="col-6 d-flex justify-content-center p-0">
+                <span class="font-weight-bold">
+                    <i class="fas fa-map-marked-alt"></i> 71 Dr.Chino, CA 91710
+                </span>
+            </div>
+            <div class="col-6 d-flex justify-content-center p-0">
+                <a href="https://www.facebook.com" class="mr-3 p-1">
+                    <i class="fab fa-facebook align-middle"></i>
+                </a>
+                <a href="https://www.twitter.com" class="mr-3 p-1">
+                    <i class="fab fa-twitter align-middle"></i>
+                </a>
+                <a href="https://www.linkedin.com" class="p-1">
+                    <i class="fab fa-linkedin align-middle"></i>
+                </a>
+            </div>
+        </div>
+        <div class="row pt-2" id="fixed">
+            <div class="col-10 col-md-5 d-flex justify-content-center logo pl-md-5">
+                <a href="#">
+                    <span class="logo-text leviTekst">CAR</span>
+                    <img src="assets/img/logo-black.png" alt="logo">
+                    <span class="logo-text">ZONE</span>
+                </a>
+            </div>
+            <div class="col-12 col-md-7 d-none d-lg-block" id="navigacija">
+            </div>
+            <div id="openSide" class="d-block d-lg-none">
+                <button id="closeSide" class="float-right">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="col-2 d-block d-lg-none p-0">
+                <button id="clickSide">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 p-1 p-sm-3 mt-5 mt-md-1 pr-0 pr-md-5">
+                <h2 class="canvasTekst pt-2 pt-md-0 m-md-5">
+                    SEARCH,</br> <span>RENT</span> & <span>DRIVE</span>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row mb-5 naslovContent" id="naslov">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row secondRow-cars">
+            <div class="col-12 col-sm-5 col-md-4 col-lg-3 d-flex align-items-sm-center flex-column upcoming pb-5 pb-sm-0">
+                <h3 class="text-center d-block mb-auto featured mt-5">
+                    <span class="d-block text-muted w">VIEW</span>
+                    <span class="d-block font-weight-bold t">THE BEST</span>
+                    <span class="d-block text-muted">OF THE</span>
+                    <span class="d-block font-weight-bold w">BEST</span>
+                </h3>
+                <div id="grupaDugmad" class="p-5 mx-auto d-none d-sm-block">
+                    <button name="levoAutomobili" id="btnLevo">
+                        <i class="fas fa-caret-left"></i>
+                    </button>
+                    <button name="desnoAutomobili" id="btnDesno">
+                        <i class="fas fa-caret-right"></i>
+                    </button>
                 </div>
             </div>
-            <div class="row pt-2" id="fixed">
-                <div class="col-10 col-md-5 d-flex justify-content-center logo pl-md-5">
-                    <a href="#">
-                        <span class="logo-text leviTekst">CAR</span>
-                        <img src="assets/img/logo-black.png" alt="logo">
-                        <span class="logo-text">ZONE</span>
-                    </a>
+            <div class="col-12  col-sm-7 col-md-8 col-lg-9 d-flex justify-content-center p-0" id="automobili">  
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" id="request">
+        <div class="container">
+            <div class="row pt-3 pb-3">
+                <div class="col-12 col-md-8 d-inline">
+                    <p class="text-left align-middle">
+                        Request a car right now and have it in your collection in no time!
+                    </p>
                 </div>
-                <div class="col-12 col-md-7 d-none d-md-block" id="navigacija">
-                </div>
-                <div id="openSide" class="d-block d-md-none">
-                    <button id="closeSide" class="float-right"><i class="fas fa-times"></i></button>
-                </div>
-                <div class="col-2 d-block d-md-none p-0">
-                    <button id="clickSide"><i class="fas fa-bars"></i></button>
+                <div class="col-12 col-md-4 d-flex align-items-center justify-content-end">
+                    <a href="#!" id="requestBtn">Request now!</a>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container-fluid" id="featuredSection">
+        <div class="container">
             <div class="row">
-                <div class="col-12 p-1 p-sm-3 mt-5 mt-md-1 pr-0 pr-md-5">
-                    <h2 class="canvasTekst pt-2 pt-md-0 m-md-5">SEARCH,</br> <span>RENT</span> & <span>DRIVE</span></h2>
+                <div class="col">
+                    <h4 class="text-center pt-5">
+                        All Featured <span>Cars</span>
+                    </h4>
+                    <p class="text-center font-weight-bold">
+                        Choose one of our best deals!
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row mb-5 naslovContent" id="naslov">
-                </div>
+        <div class="container">
+            <div class="row justify-content-around" id="showCars">
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="row secondRow-cars">
-                <div class="col-12 col-sm-5 col-md-4 col-lg-3 d-flex align-items-sm-center flex-column upcoming pb-5 pb-sm-0">
-                    <h3 class="text-center d-block mb-auto featured mt-5">
-                        <span class="d-block text-muted w">VIEW</span>
-                        <span class="d-block font-weight-bold t">THE BEST</span>
-                        <span class="d-block text-muted">OF THE</span>
-                        <span class="d-block font-weight-bold w">BEST</span>
-                    </h3>
-                    <div id="grupaDugmad" class="p-5 mx-auto d-none d-sm-block">
-                        <button name="levoAutomobili" id="btnLevo"><i class="fas fa-caret-left"></i></button>
-                        <button name="desnoAutomobili" id="btnDesno"><i class="fas fa-caret-right"></i></button>
-                    </div>
-                </div>
-                <div class="col-12  col-sm-7 col-md-8 col-lg-9 d-flex justify-content-center p-0" id="automobili">
-                    
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid" id="request">
-            <div class="container">
-                <div class="row pt-3 pb-3">
-                    <div class="col-12 col-md-8 d-inline">
-                        <p class="text-left align-middle">Request a car right now and have it in your collection in no time!</p>
-                    </div>
-                    <div class="col-12 col-md-4 d-flex align-items-center justify-content-end">
-                        <a href="#!" id="requestBtn">Request now!</a>
-                    </div>
+        <span class="d-flex justify-content-center">
+            <button type="button" id="loadMore">
+                More cars <i class="fa fa-chevron-down"></i>
+            </button>
+        </span>
+    </div>
+    <div class="back container-fluid p-0 pb-5">
+        <div class="container-lg">
+            <div class="row p-3" id="formNaslov">
+                <div class="col text-center">
+                    <p class="m-0">
+                        <span class="naslovBorder"></span>
+                         Request form 
+                         <span class="naslovBorder"></span>
+                    </p>
+                    <p id="fillForm">
+                        Fill out the form below to request a car
+                    </p>
                 </div>
             </div>
-        </div>
-        <div class="container-fluid" id="featuredSection">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h4 class="text-center pt-5">All Featured <span>Cars</span></h4>
-                        <p class="text-center font-weight-bold">Choose one of our best deals!</p>
-                    </div>
+            <div class="row d-flex justify-content-center">
+                <div class="formSlide">
+                    <div id="absolute">
+                    </div>                         
                 </div>
-            </div>
-            <div class="container">
-                <div class="row justify-content-around" id="showCars">
-                </div>
-            </div>
-            <span class="d-flex justify-content-center">
-                <button type="button" id="loadMore">More cars <i class="fa fa-chevron-down"></i></button>
-            </span>
-        </div>
-        <div class="back container-fluid p-0 pb-5">
-            <div class="container-lg">
-                <div class="row p-3" id="formNaslov">
-                    <div class="col text-center">
-                        <p class="m-0"><span class="naslovBorder"></span> Request form <span class="naslovBorder"></span></p>
-                        <p id="fillForm">Fill out the form below to request a car</p>
-                    </div>
-                </div>
-                <div class="row d-flex justify-content-center">
-                        <div class="formSlide">
-                            <div id="absolute">
-                            </div>                         
+                <div class="requestForm p-2">
+                    <form action="nesto.php" method="POST">
+                        <div class="form-group row col-12 p-0 ml-0 mb-2">
+                            <input type="text" class="w-100" placeholder="Full name" id="fullName">
+                            <span id="fullNameError" class="greskaTekst"></span> 
                         </div>
-                        <div class="requestForm p-1 pt-3">
-                            <form class="pl-2 pr-2">
-                                <div class="form-group row col-12 p-0 ml-0 mb-2">
-                                    <input type="text" class="w-100" placeholder="Full name" id="fullName">
-                                    <span id="fullNameError" class="greskaTekst"></span> 
-                                </div>
-                                <div class="form-group row col-12 p-0 ml-0 mb-1">
-                                    <input type="email" class="w-100" placeholder="E-mail" id="mail">
-                                    <span id="mailError" class="greskaTekst"></span> 
-                                </div>
-                                <div class="form-row col-12 p-0 p-0 ml-0 mb-1" id="card">
-                                    <div class="col-12 col-md-6 p-0">
-                                        <span class="m-0">Payment method: <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Credit card payment only accepts Mastercard!"></i></i></span>
-                                        <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="payment" id="cash" value="cash">
-                                            <label class="custom-control-label" for="cash">
-                                                Cash
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio">
-                                            <input class="custom-control-input" type="radio" name="payment" id="creditCard"value="creditCard">
-                                            <label class="custom-control-label" for="creditCard">
-                                                Credit card
-                                            </label>
-                                        </div> 
-                                        <span id="paymentError" class="greskaTekst"></span>
-                                    </div>
-                                    <div class="col-12 col-md-6 p-0">
-                                        <div class="form-group col-12 p-0 ml-0 mb-1">
-                                            <label for="day">Rent a car for x days:</label>
-                                            <input type="number" id="day" placeholder="x" class="w-100">
-                                        </div>
-                                    </div>
-                                    <span id="daysError" class="greskaTekst"></span>
-                                </div>
-                                
-                                <span class="form-group row col-12 ddlCar p-0 ml-0 mb-1">
-                                    <select name="type" id="carType" class="custom-select">
-                                        <option value="0">Choose a brand</option>
-                                        
-                                    </select>
-                                    <span id="brandError" class="greskaTekst"></span> 
+                        <div class="form-group row col-12 p-0 ml-0 mb-1">
+                            <input type="email" class="w-100" placeholder="E-mail" id="mail">
+                            <span id="mailError" class="greskaTekst"></span> 
+                        </div>
+                        <div class="form-row col-12 p-0 p-0 ml-0 mb-1" id="card">
+                            <div class="col-12 col-md-6 p-0">
+                                <span class="m-0">
+                                    Payment method: 
+                                    <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Credit card payment only accepts Mastercard!"></i></i>
                                 </span>
-                                <span class="form-group row col-12 ddlCar p-0 ml-0 mb-1">
-                                    <select name="model" id="carModel"class="custom-select">
-                                        
-                                    </select>
-                                </span>
-                                <span class="form-group row col-12 submitButton p-0 ml-0 mb-1">
-                                    <button type="button" id="searchBtn">Order now!</button>
-                                </span>
-                                <span id="secured"><i class="fas fa-shield-alt"></i> Secured and powered by <span>Norton</span></span>
-                              </form>
+                                <div class="custom-control custom-radio">
+                                    <input class="custom-control-input" type="radio" name="payment" id="cash" value="cash">
+                                    <label class="custom-control-label" for="cash">
+                                        Cash
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input class="custom-control-input" type="radio" name="payment" id="creditCard"value="creditCard">
+                                    <label class="custom-control-label" for="creditCard">
+                                        Credit card
+                                    </label>
+                                </div> 
+                                <span id="paymentError" class="greskaTekst"></span>
                             </div>
+                            <div class="col-12 col-md-6 p-0">
+                                <div class="form-group col-12 p-0 ml-0 mb-1">
+                                    <label for="day">Rent a car for x days:</label>
+                                    <input type="number" id="day" placeholder="x" class="w-100">
+                                </div>
+                            </div>
+                            <span id="daysError" class="greskaTekst"></span>
+                        </div>
+                        <span class="form-group row col-12 ddlCar p-0 ml-0 mb-1">
+                            <select name="type" id="carType" class="custom-select">
+                                <option value="0">Choose a brand</option>
+                            </select>
+                            <span id="brandError" class="greskaTekst"></span> 
+                        </span>
+                        <span class="form-group row col-12 ddlCar p-0 ml-0 mb-1">
+                            <select name="model" id="carModel"class="custom-select">  
+                            </select>
+                        </span>
+                        <span class="form-group row col-12 submitButton p-0 ml-0 mb-1">
+                            <button type="button" id="searchBtn">Order now!</button>
+                        </span>
+                        <span id="secured"><i class="fas fa-shield-alt"></i> Secured and powered by <span>Norton</span></span>
+                    </form>
                 </div>
-               </div>           
-        </div>
-        <div class="container-fluid pb-5" id="TestimonialsSection">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h6><span class="naslovBorder"></span> Testimonials <span class="naslovBorder"></span></h6>
-                        <p>We strive to give our customers best experience</p>
-                        <div class="row" id="testimonials">
-                           
-                        </div> 
-                    </div>
+            </div>
+        </div>           
+    </div>
+    <div class="container-fluid pb-5" id="TestimonialsSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h6><span class="naslovBorder"></span> Testimonials <span class="naslovBorder"></span></h6>
+                    <p>We strive to give our customers best experience</p>
+                    <div class="row" id="testimonials">
+                    </div> 
                 </div>
             </div>
         </div>
-        <div class="container-fluid" id="map">
-
+    </div>
+    <div class="container-fluid" id="map">
+    </div>
+    <div class="container-fluid" id="pageFooter">
+        <div class="row p-5">
+            <div class="col-12 col-sm-6 col-md-3 text-center">
+                <h2>CAR <span>ZONE</span></h2>
+                <span class="borderFooterLink"></span>
+                <ul class="d-flex flex-column hours"> 
+                    <li><i class="fas fa-check"></i> <span>Mon-Fri:</span>  06-22</li>
+                    <li><i class="fas fa-check"></i> <span>Sat-Sun:</span> 09-15</li>
+                    <li><i class="fas fa-check"></i> <span>Holidays:</span> 12-17</li>
+                </ul>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 text-center">
+                <h5>Information</h5>
+                <span class="borderFooterLink"></span>
+                <ul class="d-flex flex-column">
+                    <li><a href="#!">Privacy</a></li>
+                    <li><a href="#!">Disclaimer</a></li>
+                    <li><a href="#!">Sources</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 text-center">
+                <h5>Docs</h5>
+                <span class="borderFooterLink"></span>
+                <ul class="d-flex flex-column">
+                    <li>
+                        <a href="Car Zone.pdf">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="sitemap.xml">Sitemap</a>
+                    </li>
+                    <li>
+                        <a href="#">About author</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 text-center">
+                <h5>Socials</h5>
+                <span class="borderFooterLink"></span>
+                <ul class="d-flex flex-column">
+                    <li>
+                        <a href="https://www.facebook.com">Facebook 
+                            <i class="fab fa-facebook align-middle"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twitter.com">Twitter 
+                            <i class="fab fa-twitter align-middle"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com">LinkedIn 
+                            <i class="fab fa-linkedin align-middle"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="container-fluid" id="pageFooter">
-                <div class="row p-5">
-                    <div class="col-12 col-sm-6 col-md-3 text-center">
-                        <h2>CAR <span>ZONE</span></h2>
-                        <span class="borderFooterLink"></span>
-                        <ul class="d-flex flex-column hours"> 
-                            <li><i class="fas fa-check"></i> <span>Mon-Fri:</span>  06-22</li>
-                            <li><i class="fas fa-check"></i> <span>Sat-Sun:</span> 09-15</li>
-                            <li><i class="fas fa-check"></i> <span>Holidays:</span> 12-17</li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-3 text-center">
-                        <h5>Information</h5>
-                        <span class="borderFooterLink"></span>
-                        <ul class="d-flex flex-column">
-                            <li><a href="#!">Privacy</a></li>
-                            <li><a href="#!">Disclaimer</a></li>
-                            <li><a href="#!">Sources</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-3 text-center">
-                        <h5>Docs</h5>
-                        <span class="borderFooterLink"></span>
-                        <ul class="d-flex flex-column">
-                            <li>
-                                <a href="Car Zone.pdf">Documentation</a>
-                            </li>
-                            <li>
-                                <a href="sitemap.xml">Sitemap</a>
-                            </li>
-                            <li>
-                                <a href="#">About author</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-3 text-center">
-                        <h5>Socials</h5>
-                        <span class="borderFooterLink"></span>
-                        <ul class="d-flex flex-column">
-                            <li>
-                                <a href="https://www.facebook.com">Facebook 
-                                    <i class="fab fa-facebook align-middle"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.twitter.com">Twitter 
-                                    <i class="fab fa-twitter align-middle"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.linkedin.com">LinkedIn 
-                                    <i class="fab fa-linkedin align-middle"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col text-center">
-                       <p>Copyright &copy; 2020 CarZone</p> 
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col text-center">
+                <p>Copyright &copy; 2020 CarZone</p> 
+            </div>
         </div>
-        <div id="modal" class="d-flex justify-content-center align-items-center">
-        </div>
-        <div id="seeMoreModal" class="d-flex justify-content-center align-items-center">
-        </div>
+    </div>
+    <div id="modal" class="d-flex justify-content-center align-items-center"></div>
+    <div id="seeMoreModal" class="d-flex justify-content-center align-items-center"></div>
 <!-- jQuery -->
 <script src="assets/js/jquery-3.5.1.min.js"></script>
 <!-- Bootstrap 4.5 -->

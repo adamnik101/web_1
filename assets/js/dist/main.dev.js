@@ -1,13 +1,21 @@
 "use strict";
 
-//pozivanje pri ucitavanju stranice za odredjene delove sajta
 window.onload = function () {
+  //ucitavanje navigacije
   navigacija1();
-  sideNav();
-  ddl();
-  info1();
+  sideNav(); //ucitavanje drop-down liste
+
+  ddl(); //Introduction section
+
+  info1(); //Crossfade images
+
   showImg();
 };
+
+var navigacija = ["Home", "Introduction", "Featured", "Rent a car", "Testimonials"];
+var navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov", "#TestimonialsSection"];
+var izabranAuto;
+var cena = [["Chevrolet", 180], ["Dodge", 200], ["BMW", 120], ["Subaru", 130], ["Mitsubishi", 110], ["Ford", 160], ["Honda", 120], ["Toyota", 300], ["Mercedes", 160]];
 
 window.onscroll = function () {
   scrollUp1();
@@ -16,12 +24,13 @@ window.onscroll = function () {
 function scrollUp1() {
   var myBtn = document.getElementById("btnTop");
 
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+  if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
     myBtn.style.visibility = "visible";
   } else {
     myBtn.style.visibility = "hidden";
   }
-}
+} //Introduction section
+
 
 function info1() {
   var naslov = ["WELCOME TO OUR SITE", "CAR", "ZONE"];
@@ -29,16 +38,13 @@ function info1() {
   document.getElementsByClassName("naslovContent")[0].innerHTML = "<div class=\"col-12 text-center naslov p-4\">\n                                                                        <h4>".concat(naslov[0], "</h4>\n                                                                        <span><i class=\"fas fa-angle-double-down\"></i></span>\n                                                                        <h1><span>").concat(naslov[1], "</span> ").concat(naslov[2], "</h1>\n                                                                    </div>");
 
   for (var i = 0; i < content.length - 1; i++) {
-    document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-6 col-lg-4 text-center\"><div class=\"col-12 sectionContent p-2 mb-3\"><i class=\"".concat(content[i][2], "\"></i><h5>").concat(content[i][0], "</h5><p>").concat(content[i][1], "</p></div></div>");
+    document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-6 col-lg-4 text-center\">\n            <div class=\"col-12 sectionContent p-2 mb-3\">\n                <i class=\"".concat(content[i][2], "\"></i>\n                <h5>").concat(content[i][0], "</h5>\n                <p>").concat(content[i][1], "</p>\n            </div>\n        </div>");
   } //zbog poslednjeg elementa kome je potreban col-sm-12
 
 
   document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-12 col-lg-4 text-center\">\n                        <div class=\"col-12 sectionContent p-2 mb-3\">\n                            <i class=\"".concat(content[2][2], "\"></i>\n                        <h5>").concat(content[2][0], "</h5>\n                        <p>").concat(content[2][1], "</p>\n                        </div>\n                    </div>");
 } // Dinamicko ispisivanje navigacije i sidenav
 
-
-var navigacija = ["Home", "Introduction", "Featured", "Rent a car"];
-var navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov"];
 
 function navigacija1() {
   var navGet = document.getElementById("navigacija");
@@ -88,9 +94,7 @@ function closeNav() {
 }
 
 document.getElementById("clickSide").addEventListener("click", openNav);
-document.getElementById("closeSide").addEventListener("click", closeNav);
-var izabranAuto;
-var cena = [["Chevrolet", 180], ["Dodge", 200], ["BMW", 120], ["Subaru", 130], ["Mitsubishi", 110], ["Ford", 160], ["Honda", 120], ["Toyota", 300], ["Mercedes", 160]]; // dinamicko ispisivanje ddl na osnovu prethodno izabranog polja u select-u
+document.getElementById("closeSide").addEventListener("click", closeNav); // dinamicko ispisivanje ddl
 
 function ddl() {
   var carsAndModels = {};
@@ -109,7 +113,7 @@ function ddl() {
   firstOpt.setAttribute("value", "0");
   var sadrzaj = document.createTextNode("Choose a model");
   firstOpt.appendChild(sadrzaj);
-  model.appendChild(firstOpt);
+  model.appendChild(firstOpt); //za upisivanje vrednosti na osnovu prvog selecta u drugi
 
   document.getElementById("carType").onchange = function () {
     model.disabled = this.value == '0';
@@ -190,7 +194,7 @@ function owlCarouselContent() {
   random = [];
 }
 
-owlCarouselContent();
+owlCarouselContent(); //modal sa vise informacija
 
 function upisVrednosti() {
   var noveSlike = ["assets/img/seeMoreHonda.png", "assets/img/seeMoreSupra.jpeg", "assets/img/seeMoreRedSubaru.jpeg", "assets/img/seeMoreChevy.jpeg", "assets/img/seeMoreDemon.jpeg", "assets/img/seeMoreMerc.jpeg", "assets/img/seeMoreSubaru.jpeg", "assets/img/seeMoreBmw.jpeg", "assets/img/seeMore1.jpeg", "assets/img/seeMoreMustang.jpeg", "assets/img/seeMoreBmw2.jpeg", "assets/img/seeMoreFord.jpeg"];
@@ -217,7 +221,8 @@ function upisVrednosti() {
           modal.style.visibility = "hidden";
           modal.style.opacity = "0";
         });
-      }
+      } //ponovni carousel zbog dugmadi da ne bi kontrolisali onaj prvi
+
 
       $(".another-owl").owlCarousel({
         responsiveClass: true,
@@ -442,7 +447,7 @@ function proveraDays() {
   };
 }
 
-var cardMade = 0;
+var cardMade = 0; //za pravljenje nova 3 polja ako je korisnik izabrao karticu
 
 payment[1].onclick = function () {
   if (cardMade == 0) {
@@ -495,7 +500,8 @@ payment[1].onclick = function () {
 
     cardMade++;
     parentDiv.appendChild(formMore);
-  }
+  } // za proveru nakon izlaska iz polja za karticu
+
 
   document.getElementById("validThru").onchange = function () {
     proveraExpDate();
@@ -508,20 +514,22 @@ payment[1].onclick = function () {
   document.getElementById("cardContent").onchange = function () {
     proveraCardNumber();
   };
-};
+}; //ako je korisnik izabrao cash
+
 
 payment[0].onclick = function () {
   if (cardMade > 0) {
     document.querySelector(".cardHolder").remove();
     cardMade--;
   }
-};
+}; //za menjanje metoda placanja, izlaskom misa
+
 
 payment.forEach(function (selected) {
   return selected.onchange = function () {
     proveraCashCard();
   };
-});
+}); //provera da li je korisnik uneo broj kartice
 
 function proveraCardNumber() {
   var regExCardNumber = /^5[0-9]{15}$/;
@@ -558,7 +566,8 @@ function proveraExpDate() {
     expDate.classList.add("correct");
     return true;
   }
-}
+} //provera da li je unet cvv/cvc
+
 
 function proveraCvv() {
   var regExCvv = /^[0-9]{3}$/;
@@ -579,7 +588,7 @@ function proveraCvv() {
 }
 
 function proveraType() {
-  // car choose error
+  //provera da li je izabran brend automobila
   if (type.options[type.options.selectedIndex].value != 0) {
     brandError.textContent = "";
     return true;
@@ -587,7 +596,8 @@ function proveraType() {
     brandError.textContent = "You must choose brand!";
     return false;
   }
-}
+} //za promene izlaskom iz polja
+
 
 fullName.onchange = function () {
   proveraFullName();
@@ -600,7 +610,8 @@ mail.onchange = function () {
 day.onchange = function () {
   proveraDays();
   proveri();
-};
+}; //za ponovnu proveru ako je korisnik promenio cenu nakon selektovanja brenda
+
 
 var proveri = function proveri() {
   var type = document.getElementById("carType");
@@ -617,7 +628,8 @@ function ProveriNazad(cena) {
   var izabraniDani = proveraDays();
   var brojDana = izabraniDani.value;
   izabranAuto = brojDana * cena;
-}
+} //provera nakon klika da li su pravilno uneti podaci
+
 
 document.getElementById("searchBtn").addEventListener("click", function () {
   var fullName = proveraFullName();
@@ -705,7 +717,8 @@ function modal() {
     dataArray = [];
     row.remove();
   };
-}
+} //ispisivanje testimonials-a
+
 
 function testimonials() {
   var testimonials = [["assets/img/test1.png", "During all the years we have rented a car from you, there has never been any problems. We are satisfied with both price and quality of your cars!", "Michael De Santa"], ["assets/img/test2.png", "Thank you all once again for your exceptional service level. The customer experience served by everyone at CarZone is 1st class!", "Trevor Philips"], ["assets/img/test3.png", "Friendly and reliable service on site. The booking went smoothly and was handled quickly. The car was perfect and very new!", "Franklin Clinton"]];
@@ -719,17 +732,14 @@ function testimonials() {
 testimonials(); // Google maps API
 
 function initMap() {
-  // The location of Uluru
   var uluru = {
     lat: 33.992464973409135,
     lng: -117.72586818553368
-  }; // The map, centered at Uluru
-
+  };
   var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 14,
     center: uluru
-  }); // The marker, positioned at Uluru
-
+  });
   var marker = new google.maps.Marker({
     position: uluru,
     map: map
@@ -737,7 +747,7 @@ function initMap() {
 }
 
 $(document).ready(function () {
-  ispisCarContent(); //animacija sidenav elements 
+  ispisCarContent(); //animacija sidenav elemenata liste linkova
 
   $("#clickSide").click(function () {
     var i = 1;
@@ -757,11 +767,11 @@ $(document).ready(function () {
       });
     });
     $("#openSide").css("box-shadow", "none");
-  }); //tooltip initialization bootstrap
+  }); //tooltip inicijalizacija bootstrap
 
   $('body').tooltip({
     selector: '.fa-info-circle'
-  }); //canvasTekst animation from right
+  }); //canvasTekst animacija sa desno na levo
 
   $(".canvasTekst").animate({
     right: "0"
@@ -789,14 +799,14 @@ $(document).ready(function () {
     } else {
       $('#btnTop').fadeOut();
     }
-  }); //animate smooth scroll to top
+  }); //glatka animacija nakon klika na dugme za gore i mali delay
 
   $('#btnTop').click(function () {
     $('html, body').animate({
       scrollTop: 0
-    }, 800);
+    }, 300);
     return false;
-  }); //animate cars one after one before has finished animation
+  }); //animacija artikala sa automobilima koji se prikazuju sa animacijom jedan nakon drugog
 
   $("#loadMore").click(function () {
     $(".slide").each(function (i) {
@@ -805,13 +815,13 @@ $(document).ready(function () {
         opacity: "1"
       });
     });
-  }); //scroll to request form section
+  }); //Skrol do sekcije 
 
   $("#requestBtn").click(function () {
     $("html,body").animate({
       scrollTop: $(".back").offset().top
     }, 1500);
-  }); //plugin for carousel aka owl-carousel
+  }); //plugin za carousel aka owl-carousel
 
   $(".first-owl").owlCarousel({
     responsiveClass: true,
@@ -833,7 +843,7 @@ $(document).ready(function () {
         items: 3
       }
     }
-  }); //buttons to navigate owl-carousel
+  }); //dugmad za kontrolu owl-carousel
 
   var $owl = $(".first-owl");
   $("#btnDesno").click(function () {
