@@ -956,13 +956,21 @@ h2 span {
     margin-top: 8px;
   }
 
+  #autor .postavi #box {
+    max-width: 90%;
+    margin: 0px auto;
+  }
   #autor .postavi #box #infoAutor {
     font-size: 14px;
+    text-align: center;
   }
   #autor .postavi #box #infoAutor .linkovi .linkBtn {
     width: 45px;
     height: 45px;
     margin-left: 3px;
+  }
+  #autor .postavi #box #infoAutor h3 {
+    font-size: 16px;
   }
 }
 @media screen and (max-width: 350px) {

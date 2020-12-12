@@ -1029,6 +1029,8 @@ h2{
         #autor{
             .postavi{
                 #box{
+                    max-width: 90%;
+                    margin: 0px auto;
                     #infoAutor{
                         .linkovi{
                             .linkBtn{
@@ -1038,6 +1040,10 @@ h2{
                             }
                         }
                         font-size: 14px;
+                        text-align: center;
+                        h3{
+                            font-size: 16px;
+                        }
                     }
                 }
             }
