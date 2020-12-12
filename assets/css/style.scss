@@ -2,6 +2,9 @@
     font-family:Work Sans;
     src: url('../font/WorkSans-Light.ttf');
 }
+$red: rgb(211,0,42);
+$black: rgb(36,36,36);
+$white: rgb(218,218,218);
 *{
     margin: 0px;
     padding: 0px;
@@ -73,7 +76,7 @@ a{
         width: 500px;
         top: 0%;
         background-color: rgb(122,122,122);
-        box-shadow: 0px 10px 50px rgb(36, 36, 36);
+        box-shadow: 0px 10px 50px $black;
         #header1{
             background-color: rgb(22, 22, 22);
             button{
@@ -82,7 +85,7 @@ a{
                 background-color: transparent;
                 i{
                     font-size: 35px;
-                    color: rgb(211, 0, 42);
+                    color:$red;
                 }
             }
         }
@@ -90,7 +93,7 @@ a{
             h3{
                 font-weight: bold;    
             }
-            background-color: rgb(218, 218, 218);
+            background-color: $white;
             #levo{
                 position: absolute;
                 top: 170px;
@@ -101,7 +104,7 @@ a{
                 border: none;
                 border-radius: 50%;
                 outline: none;
-                background-color: rgb(218, 218, 218);
+                background-color: $white;
                 color: rgb(51, 51, 51);
                 z-index: 999;
             }
@@ -115,7 +118,7 @@ a{
                 border: none;
                 border-radius: 50%;
                 outline: none;
-                background-color: rgb(218, 218, 218);
+                background-color: $white;
                 color: rgb(51, 51, 51);
                 z-index: 999;
             }
@@ -137,7 +140,7 @@ a{
         }
         #footer1{
             padding: 10px;
-            background-color: rgb(36, 36, 36);
+            background-color:$black;
             button{
                 padding: 5px 10px;
                 font-size: 20px;
@@ -153,13 +156,13 @@ h2{
     color: rgb(222, 222, 222);
     margin-bottom: 0px;
     span{
-        color: rgb(211, 0, 42);
+        color:$red;
     }
 }
 #canvas{
     position: relative;
     overflow: hidden;
-    border-bottom: 5px solid rgb(211, 0, 42);
+    border-bottom: 5px solid$red;
     #btnTop{
         z-index: 9999999;
         visibility: hidden;
@@ -169,11 +172,11 @@ h2{
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        border: 3px solid rgb(211, 0, 42);
+        border: 3px solid$red;
         font-size: 30px;
         outline: none;
         cursor: pointer;
-        background-color: rgb(36, 36, 36);
+        background-color:$black;
         color: rgb(122, 122, 122);
         transition: 0.5s;
         &:hover{
@@ -193,24 +196,24 @@ h2{
                 font-weight: bold;
                 text-align: center;
                 a{
-                    color: rgb(36, 36, 36);
+                    color:$black;
                     &:hover{
-                        color: rgb(211, 0, 42);
-                        border-bottom: 3px solid rgb(211, 0, 42);
+                        color:$red;
+                        border-bottom: 3px solid$red;
                     }
                 }
             }
         }
     }
     .canvasTekst{
-        color: rgb(211, 0, 42);
+        color:$red;
         font-size: 70px;
         font-style: italic;
         position: relative;
         right: -100%;
         text-align: right;
         span{
-            color: rgb(36, 36, 36);
+            color:$black;
         }
     }
     #clickSide{
@@ -246,7 +249,7 @@ h2{
                 font-size: 40px;
                 color: rgb(65, 65, 65);
                 &:hover{
-                    color: rgb(211, 0, 42);
+                    color:$red;
                 }
             }
         }
@@ -265,7 +268,7 @@ h2{
                         display: block;
                         transition: 0.3s;
                         &:hover{
-                            color: rgb(211, 0, 42);
+                            color:$red;
                         }
                     }
                 }
@@ -290,7 +293,7 @@ h2{
         a{
             height: 80px;
             .leviTekst{
-                color: rgb(211, 0, 42) !important;
+                color:$red !important;
                 vertical-align: middle;
             }
             img{
@@ -311,14 +314,14 @@ h2{
     .naslov{
         h1{
             span{
-            color: rgb(211, 0, 42);
+            color:$red;
             font-weight: bold;
         }
     }
         span{
             .fas{
                 font-size: 35px;
-                color: rgb(211, 0, 42);
+                color:$red;
             }
         }
     }
@@ -327,7 +330,7 @@ h2{
         z-index: 99;
         top: -250px;
         opacity: 0;
-        color:rgb(36, 36, 36);
+        color:$black;
         i{
             font-size: 60px;
             padding: 15px;
@@ -346,8 +349,8 @@ h2{
 }
 
 .secondRow-cars{
-    border-top: 5px solid rgb(211, 0, 42);
-    border-bottom: 5px solid rgb(211, 0, 42);
+    border-top: 5px solid$red;
+    border-bottom: 5px solid$red;
     .upcoming{
         .featured{
             position: relative;
@@ -380,7 +383,7 @@ h2{
                     margin-right: 5px;
                     padding: 10px 15px;
                     font-size: 17px;
-                    background-color: rgb(211, 0, 42);
+                    background-color:$red;
                     color: rgb(24, 24, 24);
                 }
             }
@@ -414,13 +417,13 @@ h2{
             transition: 0.5s;
             &:focus{
                 outline: none;
-                background-color: rgb(211, 0, 42);
+                background-color:$red;
             }
         }
     }
 }
 #request{
-    background-color: rgb(36, 36, 36);
+    background-color:$black;
     color: rgb(122, 122, 122);
     border-bottom: 5px solid rgb(122, 122, 122);
     p{
@@ -430,13 +433,13 @@ h2{
     a{
         padding: 10px 20px;
         background-color: rgb(122, 122, 122);
-        color: rgb(36, 36, 36);
+        color:$black;
         font-weight: bold;
         font-size: 19px;
         transition: 0.5s;
         &:hover{
-            background-color: rgb(211, 0, 42);
-            color:rgb(36, 36, 36);
+            background-color:$red;
+            color:$black;
         }
     }
 }
@@ -445,7 +448,7 @@ h2{
     h4{
         font-size: 40px;
         span{
-            color: rgb(211, 0, 42);
+            color:$red;
         }
     }
     #showCars{
@@ -473,7 +476,7 @@ h2{
             opacity: 0;
         }
         .holder{
-            border-bottom: 5px solid rgb(211, 0, 42);
+            border-bottom: 5px solid$red;
             padding: 10px;
             background-color: rgba(218,218,218,0.5);
             h5{
@@ -498,7 +501,7 @@ h2{
                 transition: background-color 1.5s;
                 &:hover{
                     background-color:rgb(211, 0, 42);
-                    background-image:linear-gradient(to right, rgb(211,0,42) 100%, rgb(255, 255, 255) 100%);
+                    background-image:linear-gradient(to right,$red 100%, rgb(255, 255, 255) 100%);
                     background-repeat:no-repeat;
                     background-size: 200% 100%; 
                     transition:background-size 1.5s, background-color 1.5s;
@@ -553,7 +556,7 @@ h2{
             }
             .fa-star{
                 font-size: 16px;
-                color: rgb(36, 36, 36);
+                color: $black;
             }
             .blockquote{
                 p{
@@ -576,7 +579,7 @@ h2{
     height: 5px;
     display: inline-block;
     vertical-align: middle;
-    background-color: rgb(211, 0, 42);
+    background-color:$red;
 }
 .back{
     background-color: rgb(244,244,244);
@@ -588,10 +591,10 @@ h2{
         }
     }
     .formSlide{
-        background-color: rgb(36, 36, 36);
+        background-color:$black;
         width: 450px;
         height: 720px;
-        box-shadow: 0px 0px 15px rgb(36, 36, 36);
+        box-shadow: 0px 0px 15px $black;
         #absolute{
             position: relative;
             height: 100%;
@@ -627,11 +630,11 @@ h2{
     .requestForm{
         height: 720px;
         width: 450px;
-        box-shadow: 0px 0px 15px rgb(36, 36, 36);
+        box-shadow: 0px 0px 15px $black;
         input{
             padding: 13px 10px;
             background-color: rgb(65, 65, 65);
-            color: rgb(218, 218, 218);
+            color: $white;
             border: none;
             outline: none;
             font-weight: bold;
@@ -641,7 +644,7 @@ h2{
             &:checked~{
                 .custom-control-label{
                     &::before{
-                        background-color: rgb(211, 0, 42);
+                        background-color:$red;
                         border-color: rgb(65, 65, 65);
                         box-shadow: none;
                         border:none;
@@ -664,7 +667,7 @@ h2{
             }
         }
         background-color: rgb(24, 24, 24);
-        color: rgb(218, 218, 218);
+        color: $white;
         font-weight: bold;
         .ddlCar{
             #carType, #carModel{
@@ -680,10 +683,10 @@ h2{
             }
         }
         .greska{
-                border: 2px solid rgb(211, 0, 42);
+                border: 2px solid$red;
         }
         .greskaTekst{
-            color: rgb(211, 0, 42);
+            color:$red;
             font-weight: bold;
         }
         .correct{
@@ -705,7 +708,7 @@ h2{
             font-size: 12px;
             color: rgb(129, 129, 129);
             span{
-                color: rgb(211, 0, 42);
+                color:$red;
             }
         }
     }
@@ -721,7 +724,7 @@ h2{
     }
     .borderFooterLink{
         display: inline-block;
-        background-color: rgb(211, 0, 42);
+        background-color:$red;
         width: 100px;
         height: 2px;
     }
@@ -730,7 +733,7 @@ h2{
         li{
             padding: 5px;
             a{
-                color: rgb(218, 218, 218);
+                color: $white;
                 font-weight: bold;
                 transition: 0.5s;
                 i{
@@ -746,7 +749,7 @@ h2{
                     color: rgb(40,103,178);
                 }
                 &:hover{
-                    color: rgb(211, 0, 42);
+                    color:$red;
                     transition: 0.5s;
                 }
             }
@@ -757,17 +760,17 @@ h2{
         font-weight: bold;
         span{
             
-            color: rgb(218, 218, 218);
+            color: $white;
         }
     }
     h5{
-        color: rgb(218, 218, 218);
+        color: $white;
         font-weight: bold;
         font-size: 30px;
     }
     p{
         font-size: 17px;
-        color: rgb(218, 218, 218);
+        color: $white;
         font-weight: bold;
     }
 }
