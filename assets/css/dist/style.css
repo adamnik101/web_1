@@ -20,7 +20,7 @@ body::after {
   height: 0;
   overflow: hidden;
   z-index: -1;
-  content: url("../../img/muscle_chevy1.jpg"), url("../../img/muscle_mustang1.jpg");
+  content: url("../../img/muscle_chevy1.jpg"), url("../../img/muscle_mustang1.jpg"), url("../../img/sports_bmw1.jpg"), url("../../img/sports_subaru1.jpg"), url("../../img/suv_ford1.jpg");
 }
 
 #modal {
