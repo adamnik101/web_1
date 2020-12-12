@@ -20,7 +20,7 @@ a{
  body{
     &::after{
         position:absolute; width:0; height:0; overflow:hidden; z-index:-1; // hide images
-        content:url('../../img/muscle_chevy1.jpg');   // load images
+        content:url('../../img/muscle_chevy1.jpg'), url('../../img/muscle_mustang1.jpg');   // load images
     }
 }
 #modal{
