@@ -17,12 +17,6 @@ a{
         text-decoration: none;
     }
 }
- body{
-    &::after{
-        position:absolute; width:0; height:0; overflow:hidden; z-index:-1; // hide images
-        content:url('../../img/muscle_chevy1.jpg'), url('../../img/muscle_mustang1.jpg'), url('../../img/sports_bmw1.jpg'), url('../../img/sports_subaru1.jpg'), url('../../img/suv_ford1.jpg');   // load images
-    }
-}
 #modal{
     position: fixed;
     visibility: hidden;
