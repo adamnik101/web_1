@@ -769,6 +769,40 @@ function testimonials(){
     }
 }
 testimonials();
+// Ispisivanje informacije o autoru
+function autor(){
+    let naziv = "Adam Nikolić";
+    let brIndeksa = "101/19";
+    let tekst = "Hi. I'm a web developer from Požega, Serbia. Right now I'm studying Internet Technologies at Information and Communication Technologies College in Belgrade and I'm pursuing career in Web programming."
+    let parent = document.getElementById("box");
+    parent.innerHTML= `<div class="col-12 col-md-5 p-0">
+    <img src="assets/img/autor.jpg" class="img-fluid" alt="autor">
+</div>
+<div class="col-12 col-md-7 p-0 p-lg-5 pb-2 pb-md-0" id="infoAutor">
+    <div class="row m-0">
+        <div class="col-12 d-flex justify-content-end p-1">
+            <button type="button" id="closeAutor"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+    <div class="row m-0">
+        <div class="col-12 p-1 font-weight-bold">
+            <h3 class="text-center font-weight-bold">${naziv} <span>${brIndeksa}</span></h3>
+            <p>${tekst}
+            </p>
+        </div>
+    </div>
+    <div class="row m-0">
+        <div class="col-12 d-flex flex-row flex-wrap linkovi justify-content-center">
+            <div >
+               <a href="https://github.com/adamnik101"><button type="button" class="linkBtn"><i class="fab fa-github-alt"></i></button></a> 
+               <a href="https://www.linkedin.com"><button type="button" class="linkBtn"><i class="fab fa-linkedin-in"></i></button></a>
+               <a href="https://www.twitter.com"><button type="button" class="linkBtn"><i class="fab fa-twitter"></i></button></a>
+               <a href="https://adamnik101.github.io/adamportfolio/index.html"><button type="button" class="linkBtn"><i class="fas fa-address-book"></i></button></a>
+            </div>                             
+        </div>
+    </div>
+</div>`
+}
 
 // Google maps API
 function initMap() {
@@ -893,10 +927,11 @@ $(document).ready(function(){
         }, 1000)
     })
     $("#autorBtn").click(function(){
+        autor();
         $("#autor").fadeIn();
-    })
-    $("#closeAutor").click(function(){
-        $("#autor").fadeOut();
+        $("#closeAutor").click(function(){
+            $("#autor").fadeOut();
+        })
     })
     })
 

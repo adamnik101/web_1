@@ -956,6 +956,9 @@ h2 span {
     margin-top: 8px;
   }
 
+  #autor .postavi #box #infoAutor {
+    font-size: 14px;
+  }
   #autor .postavi #box #infoAutor .linkovi .linkBtn {
     width: 45px;
     height: 45px;
