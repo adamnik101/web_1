@@ -494,6 +494,8 @@ h2 span {
   padding: 15px 20px;
   margin-bottom: 50px;
   transition: 0.5s;
+  outline: none;
+  border: none;
 }
 #featuredSection #loadMore:hover {
   background-color: #414141;

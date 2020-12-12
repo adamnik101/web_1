@@ -514,6 +514,8 @@ h2{
         padding: 15px 20px;
         margin-bottom: 50px;
         transition: 0.5s;
+        outline: none;
+        border: none;
         &:hover{
             background-color: rgb(65, 65, 65);
         }
