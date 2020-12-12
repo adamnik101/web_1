@@ -774,7 +774,76 @@ h2{
         font-weight: bold;
     }
 }
-
+#autor{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999999999;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    .postavi{
+        height: 100%;
+        #box{
+            box-shadow: 0px 0px 70px $black;
+            #infoAutor{
+                background-color:$white;
+                color: $black;
+                span{
+                    color: $red;
+                }
+                .linkovi{
+                    p{
+                        color: $black;
+                        font-weight: bold;
+                    }
+                    .linkBtn{
+                        margin-left: 15px;
+                        border: none;
+                        outline: none;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: $black;
+                        color: $white;
+                        transition: 0.5s;
+                        i{
+                            font-size: 25px;
+                        }
+                        &:hover{
+                            transition: 0.5s;
+                            box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.05),
+                                        0 6.7px 5.3px rgba(0, 0, 0, 0.1),
+                                        0 12.5px 10px rgba(0, 0, 0, 0.2),
+                                        0 22.3px 17.9px rgba(0, 0, 0, 0.3),
+                                        0 30.8px 33.4px rgba(0, 0, 0, 0.4),
+                                        0 50px 80px rgba(0, 0, 0, 0.5);
+                        }
+                    }
+                }
+            }
+            #closeAutor{
+                border:none;
+                outline: none;
+                width: 30px;
+                height: 30px;
+                background-color: transparent;
+                i{
+                    color: $black;
+                    font-size: 25px;
+                    transition: 0.5s;
+                    &:hover{
+                        color: $red;
+                        transition: 0.5s;
+                    }
+                }
+            }
+        }
+    }
+}
 
 //responsive
 @media screen and (max-width: 1500px){
@@ -891,7 +960,6 @@ h2{
             }
         }
     }
-
 }
 @media screen and (max-width: 576px){
     #modal{
@@ -954,6 +1022,21 @@ h2{
                     i{
                         font-size: 20px;
                         margin-top: 8px;
+                    }
+                }
+            }
+        }
+        #autor{
+            .postavi{
+                #box{
+                    #infoAutor{
+                        .linkovi{
+                            .linkBtn{
+                                width: 45px;
+                                height: 45px;
+                                margin-left: 3px;
+                            }
+                        }
                     }
                 }
             }

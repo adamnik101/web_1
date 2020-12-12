@@ -862,4 +862,10 @@ $(document).ready(function () {
       top: "0"
     }, 1000);
   });
+  $("#autorBtn").click(function () {
+    $("#autor").fadeIn();
+  });
+  $("#closeAutor").click(function () {
+    $("#autor").fadeOut();
+  });
 });
