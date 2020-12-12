@@ -229,7 +229,7 @@ function owlCarouselContent(){
             parent.appendChild(child);
         for(let i = 0; i < 6; i++){
             child.innerHTML +=`<div class="slideContent"><img src="${carContent[random[i]][0]}" alt="${carContent[random[i]][1]}"><h5>${carContent[random[i]][1]}</h5>
-            <p class="d-flex justify-content-between"><span><i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}/day</span><a href="#!"class="d-inline reqBtn">Request now</a></p>
+            <p class="d-flex justify-content-between"><span><i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}/day</span><a href="#formNaslov" class="d-inline reqBtn">Request now</a></p>
         </div>`
         }
         random=[];
