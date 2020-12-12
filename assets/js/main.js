@@ -1,17 +1,50 @@
-window.onload = function(){
-    //ucitavanje navigacije
+
+
+//cekanje za izvrsavanje DOM-a
+window.addEventListener("DOMContentLoaded", () =>{
     navigacija1();
-    sideNav();
-    //ucitavanje drop-down liste
-    ddl();
-    //Introduction section
     info1();
-    //Crossfade images
+    ddl();
+    owlCarouselContent();
+    ispisCarContent();
+    crossfade();
+    testimonials();
+})
+//nakon ucitavanja stranice
+window.onload = function(){
+    sideNav();
     showImg();
+    initMap();
 }
+window.onscroll = function(){
+    scrollUp1()
+};
+
+    
 var navigacija = ["Home", "Introduction", "Featured", "Rent a car", "Testimonials"];
 var navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov", "#TestimonialsSection"];
 
+var navigacija1 = function(){
+    let navGet = document.getElementById("navigacija");
+
+    let navSet = document.createElement("nav");
+    navSet.className = "d-flex align-items-center justify-content-center";
+    navGet.appendChild(navSet);
+
+    let uList = document.createElement("ul");
+    uList.className = "d-flex justify-content-around";
+    navSet.appendChild(uList);
+
+    for(indeks in navigacija){
+        let liList = document.createElement("li");
+        uList.appendChild(liList);
+
+        let aList = document.createElement("a");
+        liList.appendChild(aList);
+        aList.setAttribute("href", `${navigacijaLinkovi[indeks]}`);
+        aList.textContent = `${navigacija[indeks]}`;
+    }
+}
 var izabranAuto;
 var cena = [["Chevrolet", 180], 
             ["Dodge", 200], 
@@ -24,9 +57,7 @@ var cena = [["Chevrolet", 180],
             ["Mercedes", 160]];
             
 
- window.onscroll = function(){
-    scrollUp1()
-};
+
 function scrollUp1(){
     let myBtn = document.getElementById("btnTop");
     if(document.body.scrollTop > 500 || document.documentElement.scrollTop > 500){
@@ -37,7 +68,7 @@ function scrollUp1(){
     }
 } 
 //Introduction section
-function info1(){
+var info1 = function(){
     let naslov = ["WELCOME TO OUR SITE","CAR", "ZONE"];
     let content = [
         ["BRANDS","We got latest and most popular brands from automotive industry", "fas fa-car"],
@@ -70,29 +101,6 @@ function info1(){
                         </div>
                     </div>`
 }
-// Dinamicko ispisivanje navigacije i sidenav
-function navigacija1(){
-    let navGet = document.getElementById("navigacija");
-
-    let navSet = document.createElement("nav");
-    navSet.className = "d-flex align-items-center justify-content-center";
-    navGet.appendChild(navSet);
-
-    let uList = document.createElement("ul");
-    uList.className = "d-flex justify-content-around";
-    navSet.appendChild(uList);
-
-    for(indeks in navigacija){
-        let liList = document.createElement("li");
-        uList.appendChild(liList);
-
-        let aList = document.createElement("a");
-        liList.appendChild(aList);
-        aList.setAttribute("href", `${navigacijaLinkovi[indeks]}`);
-        aList.textContent = `${navigacija[indeks]}`;
-    }
-}
-
 
 function sideNav(){
     let sideNav = document.getElementById("openSide");
@@ -158,7 +166,6 @@ document.getElementById("carType").onchange = function(){
     }
     for(let i = 0; i < cena.length;i++){
         if(selCar == cena[i][0]){
-            console.log(selCar)
             ProveriNazad(cena[i][1]);
 
         }
@@ -178,7 +185,7 @@ document.getElementById("carType").onchange = function(){
         }
     } 
 }
-function ispisivanjeOpt(){
+var ispisivanjeOpt = function(){
     var type = document.getElementById("carType");
     for(let i = 0; i < Object.keys(carsAndModels).length; i++){
         
@@ -189,7 +196,7 @@ function ispisivanjeOpt(){
             type.appendChild(opt);
     }
 }
-ispisivanjeOpt(); 
+ispisivanjeOpt();
 }
 
 // dinamicko i nasumicno ispisivanje automobila u index.html
@@ -234,7 +241,6 @@ function owlCarouselContent(){
         }
         random=[];
     }   
-owlCarouselContent();
 
 //modal sa vise informacija
 function upisVrednosti(){
@@ -367,8 +373,6 @@ function crossfade(){
         parent.appendChild(img);
     }
 }
-
-
 // kreiranje crossfade efekta za smooth prelazak sa slike na sliku
 var indeks = 0;
 var indeksOpacity = 0;
@@ -389,7 +393,9 @@ function showImg(){
         slideShow[indeksOpacity].classList.add("fadeIn");
         setTimeout(showImg, 15000);
 }
-crossfade();
+
+
+
 
     //dohvatanje elemenata
     var fullName = document.getElementById("fullName");
@@ -693,9 +699,7 @@ function celokupnaProvera(imeProvera, mailProvera,typeProvera, cashCardProvera, 
             dataArray.push(type.options[type.options.selectedIndex].value);
             dataArray.push(model.options[model.options.selectedIndex].text);
             dataArray.push(izabranAuto);
-            console.log(dataArray);
             predajaPodataka++;
-            console.log(predajaPodataka)
             modal();
         }
 }}
@@ -768,7 +772,6 @@ function testimonials(){
     </div>`;
     }
 }
-testimonials();
 // Ispisivanje informacije o autoru
 function autor(){
     let naziv = "Adam Nikolić";
@@ -817,7 +820,6 @@ function initMap() {
     });
   }
 $(document).ready(function(){
-    ispisCarContent();
     //animacija sidenav elemenata liste linkova
     $("#clickSide").click(function (){
         let i = 1;

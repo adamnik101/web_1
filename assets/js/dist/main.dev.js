@@ -1,52 +1,30 @@
 "use strict";
 
-window.onload = function () {
-  //ucitavanje navigacije
+//cekanje za izvrsavanje DOM-a
+window.addEventListener("DOMContentLoaded", function () {
   navigacija1();
-  sideNav(); //ucitavanje drop-down liste
+  info1();
+  ddl();
+  owlCarouselContent();
+  ispisCarContent();
+  crossfade();
+  testimonials();
+}); //nakon ucitavanja stranice
 
-  ddl(); //Introduction section
-
-  info1(); //Crossfade images
-
+window.onload = function () {
+  sideNav();
   showImg();
+  initMap();
 };
-
-var navigacija = ["Home", "Introduction", "Featured", "Rent a car", "Testimonials"];
-var navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov", "#TestimonialsSection"];
-var izabranAuto;
-var cena = [["Chevrolet", 180], ["Dodge", 200], ["BMW", 120], ["Subaru", 130], ["Mitsubishi", 110], ["Ford", 160], ["Honda", 120], ["Toyota", 300], ["Mercedes", 160]];
 
 window.onscroll = function () {
   scrollUp1();
 };
 
-function scrollUp1() {
-  var myBtn = document.getElementById("btnTop");
+var navigacija = ["Home", "Introduction", "Featured", "Rent a car", "Testimonials"];
+var navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov", "#TestimonialsSection"];
 
-  if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-    myBtn.style.visibility = "visible";
-  } else {
-    myBtn.style.visibility = "hidden";
-  }
-} //Introduction section
-
-
-function info1() {
-  var naslov = ["WELCOME TO OUR SITE", "CAR", "ZONE"];
-  var content = [["BRANDS", "We got latest and most popular brands from automotive industry", "fas fa-car"], ["ROAD SUPPORT", "24/7 available support to help you on road if you have any mechanical problem with our car", "fas fa-road"], ["AFFORDABLE", "Exotic cars that have best deals according to their performance", "fas fa-coins"]];
-  document.getElementsByClassName("naslovContent")[0].innerHTML = "<div class=\"col-12 text-center naslov p-4\">\n                                                                        <h4>".concat(naslov[0], "</h4>\n                                                                        <span><i class=\"fas fa-angle-double-down\"></i></span>\n                                                                        <h1><span>").concat(naslov[1], "</span> ").concat(naslov[2], "</h1>\n                                                                    </div>");
-
-  for (var i = 0; i < content.length - 1; i++) {
-    document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-6 col-lg-4 text-center\">\n            <div class=\"col-12 sectionContent p-2 mb-3\">\n                <i class=\"".concat(content[i][2], "\"></i>\n                <h5>").concat(content[i][0], "</h5>\n                <p>").concat(content[i][1], "</p>\n            </div>\n        </div>");
-  } //zbog poslednjeg elementa kome je potreban col-sm-12
-
-
-  document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-12 col-lg-4 text-center\">\n                        <div class=\"col-12 sectionContent p-2 mb-3\">\n                            <i class=\"".concat(content[2][2], "\"></i>\n                        <h5>").concat(content[2][0], "</h5>\n                        <p>").concat(content[2][1], "</p>\n                        </div>\n                    </div>");
-} // Dinamicko ispisivanje navigacije i sidenav
-
-
-function navigacija1() {
+var navigacija1 = function navigacija1() {
   var navGet = document.getElementById("navigacija");
   var navSet = document.createElement("nav");
   navSet.className = "d-flex align-items-center justify-content-center";
@@ -63,7 +41,34 @@ function navigacija1() {
     aList.setAttribute("href", "".concat(navigacijaLinkovi[indeks]));
     aList.textContent = "".concat(navigacija[indeks]);
   }
-}
+};
+
+var izabranAuto;
+var cena = [["Chevrolet", 180], ["Dodge", 200], ["BMW", 120], ["Subaru", 130], ["Mitsubishi", 110], ["Ford", 160], ["Honda", 120], ["Toyota", 300], ["Mercedes", 160]];
+
+function scrollUp1() {
+  var myBtn = document.getElementById("btnTop");
+
+  if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+    myBtn.style.visibility = "visible";
+  } else {
+    myBtn.style.visibility = "hidden";
+  }
+} //Introduction section
+
+
+var info1 = function info1() {
+  var naslov = ["WELCOME TO OUR SITE", "CAR", "ZONE"];
+  var content = [["BRANDS", "We got latest and most popular brands from automotive industry", "fas fa-car"], ["ROAD SUPPORT", "24/7 available support to help you on road if you have any mechanical problem with our car", "fas fa-road"], ["AFFORDABLE", "Exotic cars that have best deals according to their performance", "fas fa-coins"]];
+  document.getElementsByClassName("naslovContent")[0].innerHTML = "<div class=\"col-12 text-center naslov p-4\">\n                                                                        <h4>".concat(naslov[0], "</h4>\n                                                                        <span><i class=\"fas fa-angle-double-down\"></i></span>\n                                                                        <h1><span>").concat(naslov[1], "</span> ").concat(naslov[2], "</h1>\n                                                                    </div>");
+
+  for (var i = 0; i < content.length - 1; i++) {
+    document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-6 col-lg-4 text-center\">\n            <div class=\"col-12 sectionContent p-2 mb-3\">\n                <i class=\"".concat(content[i][2], "\"></i>\n                <h5>").concat(content[i][0], "</h5>\n                <p>").concat(content[i][1], "</p>\n            </div>\n        </div>");
+  } //zbog poslednjeg elementa kome je potreban col-sm-12
+
+
+  document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-12 col-lg-4 text-center\">\n                        <div class=\"col-12 sectionContent p-2 mb-3\">\n                            <i class=\"".concat(content[2][2], "\"></i>\n                        <h5>").concat(content[2][0], "</h5>\n                        <p>").concat(content[2][1], "</p>\n                        </div>\n                    </div>");
+};
 
 function sideNav() {
   var sideNav = document.getElementById("openSide");
@@ -126,7 +131,6 @@ function ddl() {
 
     for (var _i = 0; _i < cena.length; _i++) {
       if (selCar == cena[_i][0]) {
-        console.log(selCar);
         ProveriNazad(cena[_i][1]);
       }
     }
@@ -149,7 +153,7 @@ function ddl() {
     }
   };
 
-  function ispisivanjeOpt() {
+  var ispisivanjeOpt = function ispisivanjeOpt() {
     var type = document.getElementById("carType");
 
     for (var i = 0; i < Object.keys(carsAndModels).length; i++) {
@@ -159,7 +163,7 @@ function ddl() {
       opt.appendChild(text);
       type.appendChild(opt);
     }
-  }
+  };
 
   ispisivanjeOpt();
 } // dinamicko i nasumicno ispisivanje automobila u index.html
@@ -192,9 +196,8 @@ function owlCarouselContent() {
   }
 
   random = [];
-}
+} //modal sa vise informacija
 
-owlCarouselContent(); //modal sa vise informacija
 
 function upisVrednosti() {
   var noveSlike = ["assets/img/seeMoreHonda.png", "assets/img/seeMoreSupra.jpeg", "assets/img/seeMoreRedSubaru.jpeg", "assets/img/seeMoreChevy.jpeg", "assets/img/seeMoreDemon.jpeg", "assets/img/seeMoreMerc.jpeg", "assets/img/seeMoreSubaru.jpeg", "assets/img/seeMoreBmw.jpeg", "assets/img/seeMore1.jpeg", "assets/img/seeMoreMustang.jpeg", "assets/img/seeMoreBmw2.jpeg", "assets/img/seeMoreFord.jpeg"];
@@ -342,9 +345,8 @@ function showImg() {
   slideShow[indeksOpacity].style.visibility = "visible";
   slideShow[indeksOpacity].classList.add("fadeIn");
   setTimeout(showImg, 15000);
-}
+} //dohvatanje elemenata
 
-crossfade(); //dohvatanje elemenata
 
 var fullName = document.getElementById("fullName");
 var mail = document.getElementById("mail");
@@ -670,9 +672,7 @@ function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera,
       dataArray.push(type.options[type.options.selectedIndex].value);
       dataArray.push(model.options[model.options.selectedIndex].text);
       dataArray.push(izabranAuto);
-      console.log(dataArray);
       predajaPodataka++;
-      console.log(predajaPodataka);
       modal();
     }
   }
@@ -727,9 +727,8 @@ function testimonials() {
   for (var i = 0; i < testimonials.length; i++) {
     parent.innerHTML += " <div class=\"col-12 col-md-4 mb-3 mb-md-0\">\n        <div class=\"col-12 testContent p-3\">\n            <i class=\"fas fa-quote-right\"></i>\n            <div class=\"d-flex justify-content-center p-2\">\n                <div class=\"testImage\">\n                    <img src=\"".concat(testimonials[i][0], "\" alt=\"guy\">\n                </div>\n            </div>\n            <span><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></span>\n            <blockquote class=\"blockquote text-center\">\n                <p class=\"mb-0\">").concat(testimonials[i][1], "</p>\n                <footer class=\"blockquote-footer\"><cite>").concat(testimonials[i][2], "</cite></footer>\n              </blockquote>\n        </div>\n    </div>");
   }
-}
+} // Ispisivanje informacije o autoru
 
-testimonials(); // Ispisivanje informacije o autoru
 
 function autor() {
   var naziv = "Adam Nikolić";
@@ -756,8 +755,7 @@ function initMap() {
 }
 
 $(document).ready(function () {
-  ispisCarContent(); //animacija sidenav elemenata liste linkova
-
+  //animacija sidenav elemenata liste linkova
   $("#clickSide").click(function () {
     var i = 1;
     $(".slideIn").each(function () {
