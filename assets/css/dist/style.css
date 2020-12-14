@@ -843,10 +843,6 @@ h2 span {
     width: 100%;
     height: 100%;
   }
-  .back .requestForm input {
-    padding: 10px;
-    font-size: 17px;
-  }
   .back .requestForm .ddlCar #carType, .back .requestForm .ddlCar #carModel {
     font-size: 17px;
     padding: 5px 17px;
