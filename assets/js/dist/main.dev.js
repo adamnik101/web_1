@@ -131,7 +131,7 @@ function ddl() {
 
     for (var _i = 0; _i < cena.length; _i++) {
       if (selCar == cena[_i][0]) {
-        ProveriNazad(cena[_i][1]);
+        izabranAuto = cena[_i][1];
       }
     }
 
@@ -353,11 +353,14 @@ var mail = document.getElementById("mail");
 var payment = document.getElementsByName("payment");
 var type = document.getElementById("carType");
 var cvv = document.getElementById("cvv");
-var model = document.getElementById("carModel"); //dohvatanje greski
+var model = document.getElementById("carModel");
+var pick = document.getElementById("pick");
+var drop = document.getElementById("drop"); //dohvatanje greski
 
 var fullNameError = document.getElementById("fullNameError");
 var mailError = document.getElementById("mailError");
 var paymentError = document.getElementById("paymentError");
+var dateError = document.getElementById("dateError");
 var cvvError = document.getElementById("cvvError");
 var brandError = document.getElementById("brandError"); //regularni izrazi
 
@@ -420,33 +423,121 @@ function proveraCashCard() {
   };
 }
 
-function proveraDays() {
-  //provera da li je korisnik uneo broj dana 
-  var day = document.getElementById("day");
-  var dayError = document.getElementById("daysError");
-  var regExDays = /^([1-9]|[1][0-4])$/;
+var from, to, today;
+var disabledDate = document.getElementById("drop");
+disabledDate.disabled = true;
 
-  var _boolean2;
+var proveraPick = function proveraPick() {
+  //provera da li je korisnik izabrao datum -------
+  from = new Date(pick.value);
+  to = new Date(drop.value);
+  today = new Date();
 
-  var value;
-
-  if (!regExDays.test(day.value)) {
-    dayError.innerHTML = "Car can be only rented for 14 days max";
-    day.classList.add("greska");
-    day.classList.remove("correct");
-    _boolean2 = false;
-  } else {
-    dayError.innerHTML = "";
-    day.classList.add("correct");
-    day.classList.remove("greska");
-    value = day.value;
-    _boolean2 = true;
+  if (from > today) {
+    pickError.innerHTML = "";
+    pick.classList.add("correct");
+    pick.classList.remove("greska");
+    disabledDate.disabled = false;
+    return true;
+  } else if (from < today) {
+    pickError.innerHTML = "Pick up date is before today's date!";
+    pick.classList.add("greska");
+    pick.classList.remove("correct");
+    return false;
   }
 
-  return {
-    value: value,
-    "boolean": _boolean2
-  };
+  if (from > to) {
+    pickError.innerHTML = "Pick up date is after drop off date!";
+    pick.classList.add("greska");
+    pick.classList.remove("correct");
+    return false;
+  } else if (!(from == undefined && to == undefined)) {
+    pickError.innerHTML = "Please choose a date for rental";
+    pick.classList.add("greska");
+    pick.classList.remove("correct");
+    return false;
+  }
+};
+
+var proveraDrop = function proveraDrop() {
+  //provera da li je korisnik izabrao datum ------drop off input type date
+  from = new Date(pick.value);
+  to = new Date(drop.value);
+  today = new Date();
+
+  if (from > today) {
+    dropError.innerHTML = "";
+    drop.classList.add("correct");
+    drop.classList.remove("greska");
+    return true;
+  } else if (from < today) {
+    dropError.innerHTML = "Pick up date is before today's date!";
+    drop.classList.add("greska");
+    drop.classList.remove("correct");
+    return false;
+  }
+
+  if (from > to) {
+    dropError.innerHTML = "Pick up date is after drop off date!";
+    drop.classList.add("greska");
+    drop.classList.remove("correct");
+    return false;
+  } else if (!(from == undefined && to == undefined)) {
+    dropError.innerHTML = "Please choose a date for rental";
+    drop.classList.add("greska");
+    drop.classList.remove("correct");
+    return false;
+  }
+};
+
+var konacanBroj;
+var konacanBool;
+
+pick.onchange = function () {
+  proveraPick();
+  var provera = proveraPick();
+
+  if (provera) {
+    miliseconds();
+  }
+};
+
+drop.onchange = function () {
+  proveraDrop();
+  var provera = proveraDrop();
+
+  if (provera) {
+    miliseconds();
+  }
+};
+
+var konacniDani = 0;
+
+function miliseconds() {
+  konacanBool = false; //dohvatanje milisekundi
+
+  var miliFrom = from.getTime();
+  var miliTo = to.getTime(); //konvertovanje milisekunde u dane
+
+  var days = (miliTo - miliFrom) / (24 * 60 * 60 * 10 * 10 * 10);
+
+  if (days > 30 || days <= 0) {
+    drop.classList.remove("correct");
+    drop.classList.add("greska");
+    dropError.innerHTML = "You can't rent a car for the same day or more than 30 days!";
+  } else {
+    konacniDani = days;
+  }
+
+  if (to < from) {
+    drop.classList.remove("correct");
+    drop.classList.add("greska");
+    dropError.innerHTML = "Drop off date is before pick up date!";
+  }
+
+  if (days <= 30 && days > 0) {
+    konacanBool = true;
+  }
 }
 
 var cardMade = 0; //za pravljenje nova 3 polja ako je korisnik izabrao karticu
@@ -607,41 +698,17 @@ fullName.onchange = function () {
 
 mail.onchange = function () {
   proveraMail();
-};
-
-day.onchange = function () {
-  proveraDays();
-  proveri();
-}; //za ponovnu proveru ako je korisnik promenio cenu nakon selektovanja brenda
-
-
-var proveri = function proveri() {
-  var type = document.getElementById("carType");
-  var selCar = type.options[type.selectedIndex].value;
-
-  for (var i = 0; i < cena.length; i++) {
-    if (selCar == cena[i][0]) {
-      ProveriNazad(cena[i][1]);
-    }
-  }
-};
-
-function ProveriNazad(cena) {
-  var izabraniDani = proveraDays();
-  var brojDana = izabraniDani.value;
-  izabranAuto = brojDana * cena;
-} //provera nakon klika da li su pravilno uneti podaci
+}; //provera nakon klika da li su pravilno uneti podaci
 
 
 document.getElementById("searchBtn").addEventListener("click", function () {
   var fullName = proveraFullName();
   var mail = proveraMail();
-  var day = proveraDays();
   var type = proveraType();
   var cashOrCard = proveraCashCard();
-  var pickedDay = day["boolean"];
   var bool = cashOrCard["boolean"];
   var cardValue = cashOrCard.value;
+  proveraPick();
 
   if (cardValue == payment[1].value) {
     var exp = proveraExpDate();
@@ -651,19 +718,19 @@ document.getElementById("searchBtn").addEventListener("click", function () {
     var card = proveraCardNumber();
 
     if (exp && _cvv && card) {
-      celokupnaProvera(fullName, mail, type, bool, pickedDay);
+      celokupnaProvera(fullName, mail, type, bool, konacanBool);
     }
   }
 
   if (cardValue == payment[0].value) {
-    celokupnaProvera(fullName, mail, type, bool, pickedDay);
+    celokupnaProvera(fullName, mail, type, bool, konacanBool);
   }
 });
 
-function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera, dayProvera) {
+function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera, dateBool) {
   var predajaPodataka = 0; //provera svih unetih podataka
 
-  if (imeProvera && mailProvera && typeProvera && cashCardProvera && dayProvera) {
+  if (imeProvera && mailProvera && typeProvera && cashCardProvera && dateBool) {
     if (dataArray.length == 0) {
       //upisivanje podataka u niz
       dataArray.push(fullName.value);
@@ -671,7 +738,7 @@ function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera,
       carContent[type.options[type.options]];
       dataArray.push(type.options[type.options.selectedIndex].value);
       dataArray.push(model.options[model.options.selectedIndex].text);
-      dataArray.push(izabranAuto);
+      dataArray.push(konacniDani * izabranAuto);
       predajaPodataka++;
       modal();
     }
@@ -693,7 +760,7 @@ function modal() {
   body.setAttribute("id", "body");
   body.classList.add("col-12", "p-2");
   var p = document.createElement("p");
-  p.innerHTML = "<span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(izabranAuto, "</span>");
+  p.innerHTML = "<span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
   var footer = document.createElement("div");
   footer.setAttribute("id", "footer");
   footer.classList.add("col-12", "text-right");

@@ -623,13 +623,21 @@ h2 span {
   font-weight: bold;
 }
 .back .requestForm input {
-  padding: 13px 10px;
+  padding: 7px 14px;
   background-color: #414141;
   color: #dadada;
   border: none;
   outline: none;
   font-weight: bold;
+  font-size: 14px;
+}
+.back .requestForm .date label {
   font-size: 15px;
+}
+.back .requestForm .date input[type=date] {
+  width: 150px;
+  padding: 5px;
+  margin: 0px left;
 }
 .back .requestForm .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #d3002a;
@@ -650,8 +658,8 @@ h2 span {
   border-radius: none;
 }
 .back .requestForm .ddlCar #carType, .back .requestForm .ddlCar #carModel {
-  font-size: 20px;
-  padding: 5px 20px;
+  font-size: 17px;
+  padding: 5px;
   font-weight: bold;
   width: 100%;
   border: none;
@@ -828,18 +836,12 @@ h2 span {
   }
 }
 @media screen and (max-width: 1016px) {
-  .back .formSlide {
-    width: 50%;
-  }
   .back .formSlide #absolute .slideShow {
     position: absolute;
     top: 0;
     right: 0;
     width: 100%;
     height: 100%;
-  }
-  .back .requestForm {
-    width: 50%;
   }
   .back .requestForm input {
     padding: 10px;
@@ -880,9 +882,6 @@ h2 span {
     width: 60%;
   }
 
-  .back .formSlide {
-    width: 50%;
-  }
   .back .formSlide #absolute .slideShow {
     position: absolute;
     top: 0;
@@ -891,8 +890,7 @@ h2 span {
     height: 100%;
   }
   .back .requestForm {
-    width: 50%;
-    font-size: 14px;
+    font-size: 15px;
   }
   .back .requestForm input {
     padding: 5px 12px;
@@ -937,14 +935,13 @@ h2 span {
     width: 100%;
   }
   .back .formSlide {
-    width: 100%;
     max-height: 577px;
   }
   .back .formSlide #absolute {
     min-height: auto;
   }
   .back .requestForm {
-    width: 100%;
+    max-width: 450px;
     height: auto;
     font-size: 17px;
   }
@@ -983,7 +980,7 @@ h2 span {
   }
 
   .back .requestForm .greskaTekst {
-    font-size: 14px;
+    font-size: 15px;
   }
   .back .requestForm .greskaTekst i {
     font-size: 18px;

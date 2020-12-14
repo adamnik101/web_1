@@ -632,13 +632,23 @@ h2{
         width: 450px;
         box-shadow: 0px 0px 15px $black;
         input{
-            padding: 13px 10px;
+            padding: 7px 14px;
             background-color: rgb(65, 65, 65);
             color: $white;
             border: none;
             outline: none;
             font-weight: bold;
-            font-size: 15px;
+            font-size: 14px;
+        }
+        .date{
+            label{
+                font-size: 15px;
+            }
+            input[type= date]{
+                width: 150px;
+                padding: 5px;
+                margin: 0px left;
+            }
         }
         .custom-control-input{
             &:checked~{
@@ -671,8 +681,8 @@ h2{
         font-weight: bold;
         .ddlCar{
             #carType, #carModel{
-                font-size: 20px;
-                padding: 5px 20px;
+                font-size: 17px;
+                padding: 5px;
                 font-weight: bold;
                 width: 100%;
                 border: none ;
@@ -866,7 +876,7 @@ h2{
 @media screen and (max-width: 1016px) {
     .back{
         .formSlide{
-            width: 50%;
+
             #absolute{
                 .slideShow{
                     position: absolute;
@@ -878,7 +888,7 @@ h2{
             }
         }
         .requestForm{
-            width: 50%;
+
             input{
                 padding: 10px;
                 font-size: 17px;
@@ -936,7 +946,7 @@ h2{
     }
     .back{
         .formSlide{
-            width: 50%;
+
             #absolute{
                 .slideShow{
                     position: absolute;
@@ -948,8 +958,8 @@ h2{
             }
         }
         .requestForm{
-            width: 50%;
-            font-size: 14px;
+
+            font-size: 15px;
             input{
                 padding: 5px 12px;
             }
@@ -1005,14 +1015,13 @@ h2{
         .back{
             width: 100%;
             .formSlide{
-                width: 100%;
                 max-height: 577px;
                 #absolute{
                     min-height: auto;
                 }
             }
             .requestForm{
-                width: 100%;
+                max-width: 450px;
                 height: auto;
                 font-size: 17px;
                 input{
@@ -1067,7 +1076,7 @@ h2{
     .back{
         .requestForm{
             .greskaTekst{
-                font-size: 14px;
+                font-size: 15px;
                 i{
                     font-size: 18px;
                     padding-top: 5px;
