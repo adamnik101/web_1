@@ -678,7 +678,7 @@ h2 span {
 .back .requestForm .correct {
   border: 2px solid #0aa01e;
 }
-.back .requestForm .submitButton button {
+.back .requestForm .submitButton input[type=submit] {
   border: none;
   outline: none;
   padding: 10px;

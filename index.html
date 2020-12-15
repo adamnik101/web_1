@@ -155,7 +155,7 @@
                     </div>                         
                 </div>
                 <div class="requestForm p-2">
-                    <form action="nesto.php" method="POST">
+                    <form id="form" name="formRequest" method="POST">
                         <div class="form-group row col-12 p-0 ml-0 mb-2">
                             <input type="text" class="w-100" placeholder="Full name" id="fullName">
                             <span id="fullNameError" class="greskaTekst"></span> 
@@ -212,7 +212,7 @@
                             </select>
                         </span>
                         <span class="form-group row col-12 submitButton p-0 ml-0 mb-1">
-                            <button type="button" id="searchBtn">Order now!</button>
+                            <input type="submit" id="searchBtn" value="Request a car!"/>
                         </span>
                         <span id="secured"><i class="fas fa-shield-alt"></i> Secured and powered by <span>Norton</span></span>
                     </form>

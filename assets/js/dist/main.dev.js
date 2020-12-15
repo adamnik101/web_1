@@ -701,7 +701,8 @@ mail.onchange = function () {
 }; //provera nakon klika da li su pravilno uneti podaci
 
 
-document.getElementById("searchBtn").addEventListener("click", function () {
+document.getElementById("form").onsubmit = function (e) {
+  e.preventDefault();
   var fullName = proveraFullName();
   var mail = proveraMail();
   var type = proveraType();
@@ -725,7 +726,7 @@ document.getElementById("searchBtn").addEventListener("click", function () {
   if (cardValue == payment[0].value) {
     celokupnaProvera(fullName, mail, type, bool, konacanBool);
   }
-});
+};
 
 function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera, dateBool) {
   var predajaPodataka = 0; //provera svih unetih podataka
@@ -927,7 +928,7 @@ $(document).ready(function () {
     $owl.trigger("prev.owl.carousel");
   }); //animacija pri prikazivanju modala nakon uspesnog popunjavanja forme
 
-  $("#searchBtn").on("click", function () {
+  $("#form").on("submit", function () {
     $("#modal").animate({
       opacity: "1"
     }, 1000);

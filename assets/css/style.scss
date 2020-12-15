@@ -703,7 +703,7 @@ h2{
             border: 2px solid rgb(10, 160, 30);
         }
         .submitButton{
-            button{
+            input[type=submit]{
                 border: none;
                 outline: none;
                 padding: 10px;

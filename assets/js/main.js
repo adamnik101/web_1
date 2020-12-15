@@ -734,7 +734,8 @@ mail.onchange = function(){
     proveraMail();
 }
 //provera nakon klika da li su pravilno uneti podaci
-document.getElementById("searchBtn").addEventListener("click", function(){
+document.getElementById("form").onsubmit = function(e){
+    e.preventDefault();
     let fullName = proveraFullName();
     let mail = proveraMail();
     let type = proveraType();
@@ -753,7 +754,7 @@ document.getElementById("searchBtn").addEventListener("click", function(){
     if(cardValue == payment[0].value){
         celokupnaProvera(fullName, mail, type, bool, konacanBool);
     }
-});
+};
 
 function celokupnaProvera(imeProvera, mailProvera,typeProvera, cashCardProvera, dateBool){
     let predajaPodataka = 0;
@@ -988,14 +989,14 @@ function initMap() {
     })
 
     //animacija pri prikazivanju modala nakon uspesnog popunjavanja forme
-    $("#searchBtn").on("click", function(){
-        $("#modal").animate({
-            opacity : "1"
-        }, 1000)
-        $("#modal .row").animate({
-            opacity : "1",
-            top : "0"
-        }, 1000)
+    $("#form").on("submit", function(){
+            $("#modal").animate({
+                opacity : "1"
+            }, 1000)
+            $("#modal .row").animate({
+                opacity : "1",
+                top : "0"
+            }, 1000)  
     })
     $("#autorBtn").click(function(){
         autor();

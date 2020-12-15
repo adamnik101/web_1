@@ -37,7 +37,7 @@ function scrollUp1() {
 var info1 = function info1() {
   var a = ["WELCOME TO OUR SITE", "CAR", "ZONE"],
       b = [["BRANDS", "We got latest and most popular brands from automotive industry", "fas fa-car"], ["ROAD SUPPORT", "24/7 available support to help you on road if you have any mechanical problem with our car", "fas fa-road"], ["AFFORDABLE", "Exotic cars that have best deals according to their performance", "fas fa-coins"]];
-  document.getElementsByClassName("naslovContent")[0].innerHTML = "<div class=\"col-12 text-center naslov p-4\">  <h4>".concat(a[0], "</h4>  <span><i class=\"fas fa-angle-double-down\"></i></span>  <h1><span>").concat(a[1], "</span> ").concat(a[2], "</h1></div>");
+  document.getElementsByClassName("naslovContent")[0].innerHTML = "<div class=\"col-12 text-center naslov p-4\"><h4>".concat(a[0], "</h4><span><i class=\"fas fa-angle-double-down\"></i></span><h1><span>").concat(a[1], "</span> ").concat(a[2], "</h1></div>");
 
   for (var _a2 = 0; _a2 < b.length - 1; _a2++) {
     document.getElementsByClassName("naslovContent")[0].innerHTML += "<div class=\"col-12 col-sm-6 col-lg-4 text-center\"><div class=\"col-12 sectionContent p-2 mb-3\"><i class=\"".concat(b[_a2][2], "\"></i><h5>").concat(b[_a2][0], "</h5><p>").concat(b[_a2][1], "</p></div></div>");
@@ -141,7 +141,7 @@ function owlCarouselContent() {
   b.classList.add("owl-carousel", "first-owl"), a.appendChild(b);
 
   for (var _a5 = 0; 6 > _a5; _a5++) {
-    b.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[_a5]][0], "\" alt=\"").concat(carContent[random[_a5]][1], "\"><h5>").concat(carContent[random[_a5]][1], "</h5>\n<p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_a5]][2], "/day</span><a href=\"#formNaslov\"class=\"d-inline reqBtn\">Request now</a></p>\n</div>");
+    b.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[_a5]][0], "\" alt=\"").concat(carContent[random[_a5]][1], "\"><h5>").concat(carContent[random[_a5]][1], "</h5><p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_a5]][2], "/day</span><a href=\"#formNaslov\"class=\"d-inline reqBtn\">Request now</a></p></div>");
   }
 
   random = [];
@@ -202,7 +202,7 @@ function ispisCarContent() {
   var a = document.getElementById("showCars");
 
   for (var _b3 = 0; _b3 < carContent.length - 6; _b3++) {
-    a.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\">\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[_b3]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_b3]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[_b3]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_b3]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_b3]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_b3]][1], "\">See more</button>\n</div>\n</div>");
+    a.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\"><div class=\"imgHolder\"><img src=\"".concat(carContent[random[_b3]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_b3]][1], "\"></div><div class=\"holder\"><h5 class=\"mb-3\">").concat(carContent[random[_b3]][1], "</h5><p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_b3]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_b3]][3], "</p><button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_b3]][1], "\">See more</button></div></div>");
   }
 
   upisVrednosti();
@@ -212,7 +212,7 @@ function ispisCarContent() {
       for (var a = 6; a < carContent.length - 3; a++) {
         var _b4 = document.createElement("div");
 
-        _b4.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale"), document.getElementById("showCars").appendChild(_b4), _b4.innerHTML += "\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[a]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[a]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[a]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[a]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[a]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[a]][1], "\">See more</button>\n</div>");
+        _b4.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale"), document.getElementById("showCars").appendChild(_b4), _b4.innerHTML += "<div class=\"imgHolder\"><img src=\"".concat(carContent[random[a]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[a]][1], "\"></div><div class=\"holder\"><h5 class=\"mb-3\">").concat(carContent[random[a]][1], "</h5><p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[a]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[a]][3], "</p><button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[a]][1], "\">See more</button></div>");
       }
 
       upisVrednosti();
@@ -220,7 +220,7 @@ function ispisCarContent() {
 
     if (0 < b) {
       for (var a = 9; a < carContent.length; a++) {
-        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\">\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[a]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[a]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[a]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[a]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[a]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[a]][1], "\">See more</button>\n</div></div>");
+        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\"><div class=\"imgHolder\"><img src=\"".concat(carContent[random[a]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[a]][1], "\"></div><div class=\"holder\"><h5 class=\"mb-3\">").concat(carContent[random[a]][1], "</h5><p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[a]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[a]][3], "</p><button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[a]][1], "\">See more</button></div></div>");
       }
 
       upisVrednosti();
@@ -412,24 +412,25 @@ fullName.onchange = function () {
   proveraFullName();
 }, mail.onchange = function () {
   proveraMail();
-}, document.getElementById("searchBtn").addEventListener("click", function () {
-  var a = proveraFullName(),
-      b = proveraMail(),
-      c = proveraType(),
-      d = proveraCashCard(),
-      e = d["boolean"],
-      f = d.value;
+}, document.getElementById("form").onsubmit = function (a) {
+  a.preventDefault();
+  var b = proveraFullName(),
+      c = proveraMail(),
+      d = proveraType(),
+      e = proveraCashCard(),
+      f = e["boolean"],
+      g = e.value;
 
-  if (proveraPick(), f == payment[1].value) {
-    var _d2 = proveraExpDate(),
-        _f = proveraCvv(),
-        g = proveraCardNumber();
+  if (proveraPick(), g == payment[1].value) {
+    var _a8 = proveraExpDate(),
+        _e = proveraCvv(),
+        _g = proveraCardNumber();
 
-    _d2 && _f && g && celokupnaProvera(a, b, c, e, konacanBool);
+    _a8 && _e && _g && celokupnaProvera(b, c, d, f, konacanBool);
   }
 
-  f == payment[0].value && celokupnaProvera(a, b, c, e, konacanBool);
-});
+  g == payment[0].value && celokupnaProvera(b, c, d, f, konacanBool);
+};
 
 function celokupnaProvera(a, b, c, d, e) {
   var f = 0;
@@ -462,13 +463,13 @@ function testimonials() {
       b = document.getElementById("testimonials");
 
   for (var c = 0; c < a.length; c++) {
-    b.innerHTML += " <div class=\"col-12 col-md-4 mb-3 mb-md-0\">\n<div class=\"col-12 testContent p-3\">\n<i class=\"fas fa-quote-right\"></i>\n<div class=\"d-flex justify-content-center p-2\">\n<div class=\"testImage\">\n<img src=\"".concat(a[c][0], "\" alt=\"guy\">\n</div>\n</div>\n<span><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></span>\n<blockquote class=\"blockquote text-center\">\n<p class=\"mb-0\">").concat(a[c][1], "</p>\n<footer class=\"blockquote-footer\"><cite>").concat(a[c][2], "</cite></footer>\n  </blockquote>\n</div>\n</div>");
+    b.innerHTML += " <div class=\"col-12 col-md-4 mb-3 mb-md-0\">\n<div class=\"col-12 testContent p-3\"><i class=\"fas fa-quote-right\"></i><div class=\"d-flex justify-content-center p-2\"><div class=\"testImage\"><img src=\"".concat(a[c][0], "\" alt=\"guy\"></div></div><span><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></span>\n<blockquote class=\"blockquote text-center\"><p class=\"mb-0\">").concat(a[c][1], "</p><footer class=\"blockquote-footer\"><cite>").concat(a[c][2], "</cite></footer></blockquote></div></div>");
   }
 }
 
 function autor() {
   var a = document.getElementById("box");
-  a.innerHTML = "<div class=\"col-12 col-md-5 p-0\">\n<img src=\"assets/img/autor.jpg\" class=\"img-fluid\" alt=\"autor\">\n</div>\n<div class=\"col-12 col-md-7 p-0 p-lg-5 pb-2 pb-md-0\" id=\"infoAutor\">\n<div class=\"row m-0\">\n<div class=\"col-12 d-flex justify-content-end p-1\">\n<button type=\"button\" id=\"closeAutor\"><i class=\"fas fa-times\"></i></button>\n</div>\n</div>\n<div class=\"row m-0\">\n<div class=\"col-12 p-1 font-weight-bold\">\n<h3 class=\"text-center font-weight-bold\">".concat("Adam Nikoli\u0107", " <span>", "101/19", "</span></h3>\n<p>", "Hi. I'm a web developer from Po\u017Eega, Serbia. Right now I'm studying Internet Technologies at Information and Communication Technologies College in Belgrade and I'm pursuing career in Web programming.", "\n</p>\n</div>\n</div>\n<div class=\"row m-0\">\n<div class=\"col-12 d-flex flex-row flex-wrap linkovi justify-content-center\">\n<div >\n   <a href=\"https://github.com/adamnik101\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-github-alt\"></i></button></a> \n   <a href=\"https://www.linkedin.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-linkedin-in\"></i></button></a>\n   <a href=\"https://www.twitter.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-twitter\"></i></button></a>\n   <a href=\"https://adamnik101.github.io/adamportfolio/index.html\"><button type=\"button\" class=\"linkBtn\"><i class=\"fas fa-address-book\"></i></button></a></div> </div></div>\n</div>");
+  a.innerHTML = "<div class=\"col-12 col-md-5 p-0\"><img src=\"assets/img/autor.jpg\" class=\"img-fluid\" alt=\"autor\"></div><div class=\"col-12 col-md-7 p-0 p-lg-5 pb-2 pb-md-0\" id=\"infoAutor\"><div class=\"row m-0\"><div class=\"col-12 d-flex justify-content-end p-1\"><button type=\"button\" id=\"closeAutor\"><i class=\"fas fa-times\"></i></button></div></div><div class=\"row m-0\"><div class=\"col-12 p-1 font-weight-bold\"><h3 class=\"text-center font-weight-bold\">".concat("Adam Nikoli\u0107", " <span>", "101/19", "</span></h3><p>", "Hi. I'm a web developer from Po\u017Eega, Serbia. Right now I'm studying Internet Technologies at Information and Communication Technologies College in Belgrade and I'm pursuing career in Web programming.", "</p></div></div><div class=\"row m-0\"><div class=\"col-12 d-flex flex-row flex-wrap linkovi justify-content-center\"><div ><a href=\"https://github.com/adamnik101\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-github-alt\"></i></button></a> <a href=\"https://www.linkedin.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-linkedin-in\"></i></button></a><a href=\"https://www.twitter.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-twitter\"></i></button></a><a href=\"https://adamnik101.github.io/adamportfolio/index.html\"><button type=\"button\" class=\"linkBtn\"><i class=\"fas fa-address-book\"></i></button></a></div></div></div></div>");
 }
 
 function initMap() {
@@ -556,7 +557,7 @@ $(document).ready(function () {
     a.trigger("next.owl.carousel");
   }), $("#btnLevo").click(function () {
     a.trigger("prev.owl.carousel");
-  }), $("#searchBtn").on("click", function () {
+  }), $("#form").on("submit", function () {
     $("#modal").animate({
       opacity: "1"
     }, 1e3), $("#modal .row").animate({
