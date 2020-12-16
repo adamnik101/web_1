@@ -1,23 +1,25 @@
 "use strict";
 
+$(window).on("load", function () {
+  $('.preloader').fadeOut('slow');
+});
 $(document).ready(function () {
   //animacija sidenav elemenata liste linkova
   $("#clickSide").click(function () {
-    var i = 1;
-    $(".slideIn").each(function () {
+    $(".slideIn").each(function (i) {
       $(this).delay(200 * i).animate({
         left: "0",
         opacity: "1"
       }, 700);
-      i++;
     });
+    $(".slideIn").hover(function () {});
     $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
   });
   $("#closeSide").click(function () {
     $(".slideIn").each(function () {
       $(this).animate({
         left: "-250px"
-      });
+      }).finish();
     });
     $("#openSide").css("box-shadow", "none");
   }); //tooltip inicijalizacija bootstrap
@@ -28,7 +30,7 @@ $(document).ready(function () {
 
   $(".canvasTekst").animate({
     right: "0"
-  }, 1000); //animations card block & btn top
+  }, 2000); //animations card block & btn top
 
   $(window).scroll(function () {
     if ($(this).scrollTop() > 500) {
@@ -104,9 +106,35 @@ $(document).ready(function () {
   });
   $("#btnLevo").click(function () {
     $owl.trigger("prev.owl.carousel");
+  });
+  $(".seeMore").click(function () {
+    $(".another-owl").owlCarousel({
+      responsiveClass: true,
+      loop: true,
+      nav: false,
+      dots: false,
+      responsive: {
+        0: {
+          items: 1,
+          autoplay: false
+        }
+      }
+    });
+    var $owl = $(".another-owl");
+    $("#desno").click(function () {
+      $owl.trigger("next.owl.carousel");
+    });
+    $("#levo").click(function () {
+      $owl.trigger("prev.owl.carousel");
+    });
+    $(".request").click(function () {
+      $("html,body").animate({
+        scrollTop: $(".back").offset().top
+      }, 1500);
+    });
   }); //animacija pri prikazivanju modala nakon uspesnog popunjavanja forme
 
-  $("#searchBtn").on("click", function () {
+  $("#form").on("submit", function () {
     $("#modal").animate({
       opacity: "1"
     }, 1000);

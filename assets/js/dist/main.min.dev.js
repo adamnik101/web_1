@@ -57,10 +57,8 @@ function sideNav() {
         _b2 = document.createElement("hr");
 
     _b2.after(_a3), _a3.classList.add("slideIn"), d.appendChild(_a3);
-
-    var _c = document.createElement("a");
-
-    _a3.appendChild(_c), _c.setAttribute("href", "".concat(navigacijaLinkovi[indeks])), _c.innerHTML = "".concat(navigacija[indeks][0] + " " + navigacija[indeks][1]);
+    var e = document.createElement("a");
+    _a3.appendChild(e), e.setAttribute("href", "".concat(navigacijaLinkovi[indeks])), e.innerHTML = "".concat(navigacija[indeks][0] + " " + navigacija[indeks][1]);
   }
 }
 
@@ -167,31 +165,6 @@ function upisVrednosti() {
           c.style.visibility = "hidden", c.style.opacity = "0";
         });
       }
-
-      $(document).ready(function () {
-        $(".another-owl").owlCarousel({
-          responsiveClass: !0,
-          loop: !0,
-          nav: !1,
-          dots: !1,
-          responsive: {
-            0: {
-              items: 1,
-              autoplay: !1
-            }
-          }
-        });
-        var a = $(".another-owl");
-        $("#desno").click(function () {
-          a.trigger("next.owl.carousel");
-        }), $("#levo").click(function () {
-          a.trigger("prev.owl.carousel");
-        }), $(".request").click(function () {
-          $("html,body").animate({
-            scrollTop: $(".back").offset().top
-          }, 1500);
-        });
-      });
     });
   };
 
@@ -205,7 +178,7 @@ function ispisCarContent() {
   var a = document.getElementById("showCars");
 
   for (var _b3 = 0; _b3 < carContent.length - 6; _b3++) {
-    a.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\"><div class=\"imgHolder\"><img src=\"".concat(carContent[random[_b3]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_b3]][1], "\"></div><div class=\"holder\"><h5 class=\"mb-3\">").concat(carContent[random[_b3]][1], "</h5><p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_b3]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_b3]][3], "</p><button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_b3]][1], "\">See more</button></div></div>");
+    a.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\"><div class=\"imgHolder\"><img src=\"".concat(carContent[random[_b3]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_b3]][1], "\"></div><div class=\"holder\"><h5 class=\"mb-3\">").concat(carContent[random[_b3]][1], "</h5><p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_b3]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_b3]][3], "</p><button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_b3]][1], "\">See more</button></div>\n</div>");
   }
 
   upisVrednosti();
@@ -223,7 +196,7 @@ function ispisCarContent() {
 
     if (0 < b) {
       for (var a = 9; a < carContent.length; a++) {
-        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\"><div class=\"imgHolder\"><img src=\"".concat(carContent[random[a]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[a]][1], "\"></div><div class=\"holder\"><h5 class=\"mb-3\">").concat(carContent[random[a]][1], "</h5><p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[a]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[a]][3], "</p><button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[a]][1], "\">See more</button>\n</div></div>");
+        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\"><div class=\"imgHolder\"><img src=\"".concat(carContent[random[a]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[a]][1], "\"></div><div class=\"holder\"><h5 class=\"mb-3\">").concat(carContent[random[a]][1], "</h5><p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[a]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[a]][3], "</p><button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[a]][1], "\">See more</button></div></div>");
       }
 
       upisVrednosti();
@@ -478,7 +451,7 @@ function testimonials() {
 
 function autor() {
   var a = document.getElementById("box");
-  a.innerHTML = "<div class=\"col-12 col-md-5 p-0\"><img src=\"assets/img/autor.jpg\" class=\"img-fluid\" alt=\"autor\"></div><div class=\"col-12 col-md-7 p-0 p-lg-5 pb-2 pb-md-0\" id=\"infoAutor\"><div class=\"row m-0\"><div class=\"col-12 d-flex justify-content-end p-1\"><button type=\"button\" id=\"closeAutor\"><i class=\"fas fa-times\"></i></button></div></div><div class=\"row m-0\"><div class=\"col-12 p-1 font-weight-bold\"><h3 class=\"text-center font-weight-bold\">".concat("Adam Nikoli\u0107", " <span>", "101/19", "</span></h3><p>", "Hi. I'm a web developer from Po\u017Eega, Serbia. Right now I'm studying Internet Technologies at Information and Communication Technologies College in Belgrade and I'm pursuing career in Web programming.", "</p></div></div><div class=\"row m-0\"><div class=\"col-12 d-flex flex-row flex-wrap linkovi justify-content-center\"><div > <a href=\"https://github.com/adamnik101\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-github-alt\"></i></button></a> <a href=\"https://www.linkedin.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-linkedin-in\"></i></button></a><a href=\"https://www.twitter.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-twitter\"></i></button></a><a href=\"https://adamnik101.github.io/adamportfolio/index.html\"><button type=\"button\" class=\"linkBtn\"><i class=\"fas fa-address-book\"></i></button></a></div> </div></div></div>");
+  a.innerHTML = "<div class=\"col-12 col-md-5 p-0\"><img src=\"assets/img/autor.jpg\" class=\"img-fluid\" alt=\"autor\"></div><div class=\"col-12 col-md-7 p-0 p-lg-5 pb-2 pb-md-0\" id=\"infoAutor\"><div class=\"row m-0\"><div class=\"col-12 d-flex justify-content-end p-1\"><button type=\"button\" id=\"closeAutor\"><i class=\"fas fa-times\"></i></button></div></div><div class=\"row m-0\"><div class=\"col-12 p-1 font-weight-bold\"><h3 class=\"text-center font-weight-bold\">".concat("Adam Nikoli\u0107", " <span>", "101/19", "</span></h3><p>", "Hi. I'm a web developer from Po\u017Eega, Serbia. Right now I'm studying Internet Technologies at Information and Communication Technologies College in Belgrade and I'm pursuing career in Web programming.", "</p></div></div><div class=\"row m-0\"><div class=\"col-12 d-flex flex-row flex-wrap linkovi justify-content-center\"><div > <a href=\"https://github.com/adamnik101\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-github-alt\"></i></button></a>  <a href=\"https://www.linkedin.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-linkedin-in\"></i></button></a> <a href=\"https://www.twitter.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-twitter\"></i></button></a> <a href=\"https://adamnik101.github.io/adamportfolio/index.html\"><button type=\"button\" class=\"linkBtn\"><i class=\"fas fa-address-book\"></i></button></a></div> </div></div></div>");
 }
 
 function initMap() {
@@ -495,86 +468,3 @@ function initMap() {
     map: b
   });
 }
-
-$(document).ready(function () {
-  $("#clickSide").click(function () {
-    $(".slideIn").each(function (a) {
-      $(this).delay(200 * a).animate({
-        left: "0",
-        opacity: "1"
-      }, 700);
-    }), $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
-  }), $("#closeSide").click(function () {
-    $(".slideIn").each(function () {
-      $(this).animate({
-        left: "-250px"
-      }).finish();
-    }), $("#openSide").css("box-shadow", "none");
-  }), $("body").tooltip({
-    selector: ".fa-info-circle"
-  }), $(".canvasTekst").animate({
-    right: "0"
-  }, 2e3), $(window).scroll(function () {
-    500 < $(this).scrollTop() && $(".sectionContent").each(function (a) {
-      $(this).delay(200 * a).animate({
-        opacity: "1",
-        top: "0"
-      }, "slow");
-    }), 900 < $(this).scrollTop() && $(".featured").animate({
-      left: "0",
-      opacity: "1"
-    }), 300 < $(this).scrollTop() ? $("#btnTop").fadeIn() : $("#btnTop").fadeOut();
-  }), $("#btnTop").click(function () {
-    return $("html, body").animate({
-      scrollTop: 0
-    }, 300), !1;
-  }), $("#loadMore").click(function () {
-    $(".slide").each(function (a) {
-      $(this).delay(450 * a).animate({
-        top: "0",
-        opacity: "1"
-      });
-    });
-  }), $("#requestBtn").click(function () {
-    $("html,body").animate({
-      scrollTop: $(".back").offset().top
-    }, 1500);
-  }), $(".first-owl").owlCarousel({
-    responsiveClass: !0,
-    autoplay: !0,
-    animateIn: !0,
-    loop: !0,
-    nav: !1,
-    dots: !0,
-    dotsEach: !0,
-    responsive: {
-      0: {
-        items: 1,
-        autoplay: !1
-      },
-      850: {
-        items: 2
-      },
-      1e3: {
-        items: 3
-      }
-    }
-  });
-  var a = $(".first-owl");
-  $("#btnDesno").click(function () {
-    a.trigger("next.owl.carousel");
-  }), $("#btnLevo").click(function () {
-    a.trigger("prev.owl.carousel");
-  }), $("#form").on("submit", function () {
-    $("#modal").animate({
-      opacity: "1"
-    }, 1e3), $("#modal .row").animate({
-      opacity: "1",
-      top: "0"
-    }, 1e3);
-  }), $("#autorBtn").click(function () {
-    autor(), $("#autor").fadeIn(), $("#closeAutor").click(function () {
-      $("#autor").fadeOut();
-    });
-  });
-});
