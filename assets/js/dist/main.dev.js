@@ -14,7 +14,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
 window.onload = function () {
   showImg();
-  initMap();
 };
 
 window.onscroll = function () {
