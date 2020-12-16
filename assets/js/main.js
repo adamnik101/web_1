@@ -21,7 +21,7 @@ window.onscroll = function(){
 };
 
 
-var navigacija = ["Home", "Introduction", "Featured", "Rent a car", "Testimonials"];
+var navigacija = [["<i class='fas fa-home'></i>", "Home"], ["<i class='fas fa-chalkboard-teacher'></i>", "Introduction"], ["<i class='fas fa-star'></i>", "Featured"], ["<i class='fas fa-car'></i>", "Rent a car"], ["<i class='fas fa-user'></i>", "Testimonials"]];
 var navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov", "#TestimonialsSection"];
 
 var navigacija1 = function(){
@@ -42,21 +42,9 @@ var navigacija1 = function(){
         let aList = document.createElement("a");
         liList.appendChild(aList);
         aList.setAttribute("href", `${navigacijaLinkovi[indeks]}`);
-        aList.textContent = `${navigacija[indeks]}`;
+        aList.textContent = `${navigacija[indeks][1]}`;
     }
-}
-var izabranAuto;
-var cena = [["Chevrolet", 180], 
-            ["Dodge", 200], 
-            ["BMW", 120], 
-            ["Subaru", 130], 
-            ["Mitsubishi", 110], 
-            ["Ford", 160],
-            ["Honda", 120], 
-            ["Toyota", 300],
-            ["Mercedes", 160]];
-            
-
+}          
 
 function scrollUp1(){
     let myBtn = document.getElementById("btnTop");
@@ -112,16 +100,18 @@ function sideNav(){
 
     let sideUl = document.createElement("ul");
     nav.appendChild(sideUl);
-
+    
     for(indeks in navigacija){
         let sideLi = document.createElement("li");
+        let hr = document.createElement("hr");
+        hr.after(sideLi);
         sideLi.classList.add("slideIn");
         sideUl.appendChild(sideLi);
 
         let sideA = document.createElement("a");
         sideLi.appendChild(sideA);
         sideA.setAttribute("href", `${navigacijaLinkovi[indeks]}`);
-        sideA.textContent = `${navigacija[indeks]}`;
+        sideA.innerHTML = `${navigacija[indeks][0] + ' ' + navigacija[indeks][1]}`;
     }
 }
 function openNav() {
@@ -133,6 +123,17 @@ function closeNav() {
 document.getElementById("clickSide").addEventListener("click", openNav);
 document.getElementById("closeSide").addEventListener("click", closeNav);
 
+var izabranAuto;
+var cena = [["Chevrolet", 180], 
+            ["Dodge", 200], 
+            ["BMW", 120], 
+            ["Subaru", 130], 
+            ["Mitsubishi", 110], 
+            ["Ford", 160],
+            ["Honda", 120], 
+            ["Toyota", 300],
+            ["Mercedes", 160]];
+  
 // dinamicko ispisivanje ddl
 function ddl(){
     var carsAndModels = {};
@@ -187,7 +188,7 @@ document.getElementById("carType").onchange = function(){
 var ispisivanjeOpt = function(){
     var type = document.getElementById("carType");
     for(let i = 0; i < Object.keys(carsAndModels).length; i++){
-        
+        //preuzimanje vrednosti iz objekata
         var opt = document.createElement("option");
             opt.setAttribute("value", Object.keys(carsAndModels)[i]);
         var text = document.createTextNode(Object.keys(carsAndModels)[i]);
@@ -198,7 +199,7 @@ var ispisivanjeOpt = function(){
 ispisivanjeOpt();
 }
 
-// dinamicko i nasumicno ispisivanje automobila u index.html
+// dinamicko i nasumicno ispisivanje automobila u featured sekciji
 var carContent = [
     ["assets/img/sports_civic1.jpg", "Honda Civic Type R", 120, "350hp"],
     ["assets/img/sports_supra1.jpg", "Toyota Supra", 300, "382hp"],
@@ -226,7 +227,7 @@ function generate(){
         else i--;
     }
 }
-
+//generisanje sadrzaja za svaki element owl-carousel-a
 function owlCarouselContent(){
         generate();
         let parent = document.getElementById("automobili");
@@ -268,30 +269,31 @@ function upisVrednosti(){
                             })
                         }
                         //ponovni carousel zbog dugmadi da ne bi kontrolisali onaj prvi
-                        $(".another-owl").owlCarousel({
-                            responsiveClass:true,
-                            loop: true,
-                            nav:false,
-                            dots:false,
-                            responsive:{
-                            0:{
-                                items:1,
-                                autoplay:false,
+                        $(document).ready(function(){
+                            $(".another-owl").owlCarousel({
+                                responsiveClass:true,
+                                loop: true,
+                                nav:false,
+                                dots:false,
+                                responsive:{
+                                0:{
+                                    items:1,
+                                    autoplay:false,
+                                }
                             }
-                        }
-                        });
-                        let $owl = $(".another-owl");
-                        $("#desno").click(function(){
-                            $owl.trigger("next.owl.carousel");
-                        })
-                        $("#levo").click(function(){
-                            $owl.trigger("prev.owl.carousel");
-                        })
-                        $(".request").click(function(){
-                            $("html,body").animate({
-                                scrollTop: $(".back").offset().top}, 1500)
+                            });
+                            let $owl = $(".another-owl");
+                            $("#desno").click(function(){
+                                $owl.trigger("next.owl.carousel");
                             })
-                
+                            $("#levo").click(function(){
+                                $owl.trigger("prev.owl.carousel");
+                            })
+                            $(".request").click(function(){
+                                $("html,body").animate({
+                                    scrollTop: $(".back").offset().top}, 1500)
+                                })
+                        })
         })
     }
 }
@@ -477,7 +479,7 @@ var disabledDate = document.getElementById("drop");
 disabledDate.disabled = true;
 
 var proveraPick = function(){
-    //provera da li je korisnik izabrao datum -------
+    //provera da li je korisnik izabrao datum
     from = new Date(pick.value);
     to = new Date(drop.value)
     today = new Date();
@@ -644,19 +646,8 @@ payment[1].onclick =  function (){
         proveraCardNumber();
     } 
 }
-//ako je korisnik izabrao cash
-payment[0].onclick = function(){
-    if(cardMade > 0){
-        document.querySelector(".cardHolder").remove();
-        cardMade--;
-    }
-}
-//za menjanje metoda placanja, izlaskom misa
-payment.forEach(
-    selected => selected.onchange = function(){
-        proveraCashCard();
-    }
-)
+
+
 //provera da li je korisnik uneo broj kartice
 function proveraCardNumber(){
     var regExCardNumber = /^5[0-9]{15}$/;
@@ -733,6 +724,19 @@ fullName.onchange = function(){
 mail.onchange = function(){
     proveraMail();
 }
+//za menjanje metoda placanja
+payment.forEach(
+    selected => selected.onchange = function(){
+        proveraCashCard();
+    }
+)
+//ako je korisnik izabrao cash
+payment[0].onclick = function(){
+    if(cardMade > 0){
+        document.querySelector(".cardHolder").remove();
+        cardMade--;
+    }
+}
 //provera nakon klika da li su pravilno uneti podaci
 document.getElementById("form").onsubmit = function(e){
     e.preventDefault();
@@ -764,7 +768,8 @@ function celokupnaProvera(imeProvera, mailProvera,typeProvera, cashCardProvera, 
             //upisivanje podataka u niz
             dataArray.push(fullName.value);
             dataArray.push(mail.value);
-            carContent[type.options[type.options]]
+            let sss = carContent[type.options[type.options]]
+            console.log(sss)
             dataArray.push(type.options[type.options.selectedIndex].value);
             dataArray.push(model.options[model.options.selectedIndex].text);
             dataArray.push(konacniDani * izabranAuto);
@@ -892,12 +897,11 @@ function initMap() {
   $(document).ready(function(){
     //animacija sidenav elemenata liste linkova
     $("#clickSide").click(function (){
-        let i = 1;
-        $(".slideIn").each(function(){
+        $(".slideIn").each(function(i){
             $(this).delay(200*i).animate({
                 left : "0",
                 opacity : "1"
-            },700); i++
+            },700)
     })
     $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
 })
@@ -905,7 +909,7 @@ function initMap() {
         $(".slideIn").each(function(){
             $(this).animate({
                 left : "-250px"
-            })
+            }).finish();
     })
     $("#openSide").css("box-shadow", "none");
     })
@@ -916,7 +920,7 @@ function initMap() {
     //canvasTekst animacija sa desno na levo
     $(".canvasTekst").animate({
         right : "0"
-    }, 1000)
+    }, 2000)
     //animations card block & btn top
     $(window).scroll(function(){
         if($(this).scrollTop() > 500){

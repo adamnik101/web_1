@@ -8,8 +8,7 @@ window.addEventListener("DOMContentLoaded", function () {
   scrollUp1();
 };
 
-var izabranAuto,
-    navigacija = ["Home", "Introduction", "Featured", "Rent a car", "Testimonials"],
+var navigacija = [["<i class='fas fa-home'></i>", "Home"], ["<i class='fas fa-chalkboard-teacher'></i>", "Introduction"], ["<i class='fas fa-star'></i>", "Featured"], ["<i class='fas fa-car'></i>", "Rent a car"], ["<i class='fas fa-user'></i>", "Testimonials"]],
     navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov", "#TestimonialsSection"],
     navigacija1 = function navigacija1() {
   var a = document.getElementById("navigacija"),
@@ -24,10 +23,9 @@ var izabranAuto,
 
     var _b = document.createElement("a");
 
-    _a.appendChild(_b), _b.setAttribute("href", "".concat(navigacijaLinkovi[indeks])), _b.textContent = "".concat(navigacija[indeks]);
+    _a.appendChild(_b), _b.setAttribute("href", "".concat(navigacijaLinkovi[indeks])), _b.textContent = "".concat(navigacija[indeks][1]);
   }
-},
-    cena = [["Chevrolet", 180], ["Dodge", 200], ["BMW", 120], ["Subaru", 130], ["Mitsubishi", 110], ["Ford", 160], ["Honda", 120], ["Toyota", 300], ["Mercedes", 160]];
+};
 
 function scrollUp1() {
   var a = document.getElementById("btnTop");
@@ -55,13 +53,14 @@ function sideNav() {
   var d = document.createElement("ul");
 
   for (indeks in b.appendChild(d), navigacija) {
-    var _a3 = document.createElement("li");
+    var _a3 = document.createElement("li"),
+        _b2 = document.createElement("hr");
 
-    _a3.classList.add("slideIn"), d.appendChild(_a3);
+    _b2.after(_a3), _a3.classList.add("slideIn"), d.appendChild(_a3);
 
-    var _b2 = document.createElement("a");
+    var _c = document.createElement("a");
 
-    _a3.appendChild(_b2), _b2.setAttribute("href", "".concat(navigacijaLinkovi[indeks])), _b2.textContent = "".concat(navigacija[indeks]);
+    _a3.appendChild(_c), _c.setAttribute("href", "".concat(navigacijaLinkovi[indeks])), _c.innerHTML = "".concat(navigacija[indeks][0] + " " + navigacija[indeks][1]);
   }
 }
 
@@ -74,6 +73,8 @@ function closeNav() {
 }
 
 document.getElementById("clickSide").addEventListener("click", openNav), document.getElementById("closeSide").addEventListener("click", closeNav);
+var izabranAuto,
+    cena = [["Chevrolet", 180], ["Dodge", 200], ["BMW", 120], ["Subaru", 130], ["Mitsubishi", 110], ["Ford", 160], ["Honda", 120], ["Toyota", 300], ["Mercedes", 160]];
 
 function ddl() {
   var a = {
@@ -167,27 +168,29 @@ function upisVrednosti() {
         });
       }
 
-      $(".another-owl").owlCarousel({
-        responsiveClass: !0,
-        loop: !0,
-        nav: !1,
-        dots: !1,
-        responsive: {
-          0: {
-            items: 1,
-            autoplay: !1
+      $(document).ready(function () {
+        $(".another-owl").owlCarousel({
+          responsiveClass: !0,
+          loop: !0,
+          nav: !1,
+          dots: !1,
+          responsive: {
+            0: {
+              items: 1,
+              autoplay: !1
+            }
           }
-        }
-      });
-      var g = $(".another-owl");
-      $("#desno").click(function () {
-        g.trigger("next.owl.carousel");
-      }), $("#levo").click(function () {
-        g.trigger("prev.owl.carousel");
-      }), $(".request").click(function () {
-        $("html,body").animate({
-          scrollTop: $(".back").offset().top
-        }, 1500);
+        });
+        var a = $(".another-owl");
+        $("#desno").click(function () {
+          a.trigger("next.owl.carousel");
+        }), $("#levo").click(function () {
+          a.trigger("prev.owl.carousel");
+        }), $(".request").click(function () {
+          $("html,body").animate({
+            scrollTop: $(".back").offset().top
+          }, 1500);
+        });
       });
     });
   };
@@ -220,7 +223,7 @@ function ispisCarContent() {
 
     if (0 < b) {
       for (var a = 9; a < carContent.length; a++) {
-        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\"><div class=\"imgHolder\"><img src=\"".concat(carContent[random[a]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[a]][1], "\"></div><div class=\"holder\"><h5 class=\"mb-3\">").concat(carContent[random[a]][1], "</h5><p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[a]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[a]][3], "</p><button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[a]][1], "\">See more</button></div></div>");
+        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\"><div class=\"imgHolder\"><img src=\"".concat(carContent[random[a]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[a]][1], "\"></div><div class=\"holder\"><h5 class=\"mb-3\">").concat(carContent[random[a]][1], "</h5><p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[a]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[a]][3], "</p><button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[a]][1], "\">See more</button>\n</div></div>");
       }
 
       upisVrednosti();
@@ -335,6 +338,7 @@ function miliseconds() {
 }
 
 var cardMade = 0;
+
 payment[1].onclick = function () {
   if (0 == cardMade) {
     var a = ["MM/YY", "***"],
@@ -378,13 +382,7 @@ payment[1].onclick = function () {
   }, document.getElementById("cardContent").onchange = function () {
     proveraCardNumber();
   };
-}, payment[0].onclick = function () {
-  0 < cardMade && (document.querySelector(".cardHolder").remove(), cardMade--);
-}, payment.forEach(function (a) {
-  return a.onchange = function () {
-    proveraCashCard();
-  };
-});
+};
 
 function proveraCardNumber() {
   var a = document.getElementById("cardContent"),
@@ -412,6 +410,12 @@ fullName.onchange = function () {
   proveraFullName();
 }, mail.onchange = function () {
   proveraMail();
+}, payment.forEach(function (a) {
+  return a.onchange = function () {
+    proveraCashCard();
+  };
+}), payment[0].onclick = function () {
+  0 < cardMade && (document.querySelector(".cardHolder").remove(), cardMade--);
 }, document.getElementById("form").onsubmit = function (a) {
   a.preventDefault();
   var b = proveraFullName(),
@@ -434,7 +438,12 @@ fullName.onchange = function () {
 
 function celokupnaProvera(a, b, c, d, e) {
   var f = 0;
-  a && b && c && d && e && 0 == dataArray.length && (dataArray.push(fullName.value), dataArray.push(mail.value), carContent[type.options[type.options]], dataArray.push(type.options[type.options.selectedIndex].value), dataArray.push(model.options[model.options.selectedIndex].text), dataArray.push(konacniDani * izabranAuto), f++, modal());
+
+  if (a && b && c && d && e && 0 == dataArray.length) {
+    dataArray.push(fullName.value), dataArray.push(mail.value);
+    var _a9 = carContent[type.options[type.options]];
+    console.log(_a9), dataArray.push(type.options[type.options.selectedIndex].value), dataArray.push(model.options[model.options.selectedIndex].text), dataArray.push(konacniDani * izabranAuto), f++, modal();
+  }
 }
 
 function modal() {
@@ -449,7 +458,7 @@ function modal() {
   var f = document.createElement("div");
   f.setAttribute("id", "body"), f.classList.add("col-12", "p-2");
   var g = document.createElement("p");
-  g.innerHTML = "<span>".concat(a[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n<span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
+  g.innerHTML = "<span>".concat(a[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br><span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
   var h = document.createElement("div");
   h.setAttribute("id", "footer"), h.classList.add("col-12", "text-right");
   var i = document.createElement("button");
@@ -463,13 +472,13 @@ function testimonials() {
       b = document.getElementById("testimonials");
 
   for (var c = 0; c < a.length; c++) {
-    b.innerHTML += " <div class=\"col-12 col-md-4 mb-3 mb-md-0\">\n<div class=\"col-12 testContent p-3\"><i class=\"fas fa-quote-right\"></i><div class=\"d-flex justify-content-center p-2\"><div class=\"testImage\"><img src=\"".concat(a[c][0], "\" alt=\"guy\"></div></div><span><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></span>\n<blockquote class=\"blockquote text-center\"><p class=\"mb-0\">").concat(a[c][1], "</p><footer class=\"blockquote-footer\"><cite>").concat(a[c][2], "</cite></footer></blockquote></div></div>");
+    b.innerHTML += " <div class=\"col-12 col-md-4 mb-3 mb-md-0\"><div class=\"col-12 testContent p-3\"><i class=\"fas fa-quote-right\"></i><div class=\"d-flex justify-content-center p-2\"><div class=\"testImage\"><img src=\"".concat(a[c][0], "\" alt=\"guy\"></div></div><span><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></span><blockquote class=\"blockquote text-center\"><p class=\"mb-0\">").concat(a[c][1], "</p><footer class=\"blockquote-footer\"><cite>").concat(a[c][2], "</cite></footer></blockquote></div></div>");
   }
 }
 
 function autor() {
   var a = document.getElementById("box");
-  a.innerHTML = "<div class=\"col-12 col-md-5 p-0\"><img src=\"assets/img/autor.jpg\" class=\"img-fluid\" alt=\"autor\"></div><div class=\"col-12 col-md-7 p-0 p-lg-5 pb-2 pb-md-0\" id=\"infoAutor\"><div class=\"row m-0\"><div class=\"col-12 d-flex justify-content-end p-1\"><button type=\"button\" id=\"closeAutor\"><i class=\"fas fa-times\"></i></button></div></div><div class=\"row m-0\"><div class=\"col-12 p-1 font-weight-bold\"><h3 class=\"text-center font-weight-bold\">".concat("Adam Nikoli\u0107", " <span>", "101/19", "</span></h3><p>", "Hi. I'm a web developer from Po\u017Eega, Serbia. Right now I'm studying Internet Technologies at Information and Communication Technologies College in Belgrade and I'm pursuing career in Web programming.", "</p></div></div><div class=\"row m-0\"><div class=\"col-12 d-flex flex-row flex-wrap linkovi justify-content-center\"><div ><a href=\"https://github.com/adamnik101\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-github-alt\"></i></button></a> <a href=\"https://www.linkedin.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-linkedin-in\"></i></button></a><a href=\"https://www.twitter.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-twitter\"></i></button></a><a href=\"https://adamnik101.github.io/adamportfolio/index.html\"><button type=\"button\" class=\"linkBtn\"><i class=\"fas fa-address-book\"></i></button></a></div></div></div></div>");
+  a.innerHTML = "<div class=\"col-12 col-md-5 p-0\"><img src=\"assets/img/autor.jpg\" class=\"img-fluid\" alt=\"autor\"></div><div class=\"col-12 col-md-7 p-0 p-lg-5 pb-2 pb-md-0\" id=\"infoAutor\"><div class=\"row m-0\"><div class=\"col-12 d-flex justify-content-end p-1\"><button type=\"button\" id=\"closeAutor\"><i class=\"fas fa-times\"></i></button></div></div><div class=\"row m-0\"><div class=\"col-12 p-1 font-weight-bold\"><h3 class=\"text-center font-weight-bold\">".concat("Adam Nikoli\u0107", " <span>", "101/19", "</span></h3><p>", "Hi. I'm a web developer from Po\u017Eega, Serbia. Right now I'm studying Internet Technologies at Information and Communication Technologies College in Belgrade and I'm pursuing career in Web programming.", "</p></div></div><div class=\"row m-0\"><div class=\"col-12 d-flex flex-row flex-wrap linkovi justify-content-center\"><div > <a href=\"https://github.com/adamnik101\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-github-alt\"></i></button></a> <a href=\"https://www.linkedin.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-linkedin-in\"></i></button></a><a href=\"https://www.twitter.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-twitter\"></i></button></a><a href=\"https://adamnik101.github.io/adamportfolio/index.html\"><button type=\"button\" class=\"linkBtn\"><i class=\"fas fa-address-book\"></i></button></a></div> </div></div></div>");
 }
 
 function initMap() {
@@ -489,24 +498,23 @@ function initMap() {
 
 $(document).ready(function () {
   $("#clickSide").click(function () {
-    var a = 1;
-    $(".slideIn").each(function () {
+    $(".slideIn").each(function (a) {
       $(this).delay(200 * a).animate({
         left: "0",
         opacity: "1"
-      }, 700), a++;
+      }, 700);
     }), $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
   }), $("#closeSide").click(function () {
     $(".slideIn").each(function () {
       $(this).animate({
         left: "-250px"
-      });
+      }).finish();
     }), $("#openSide").css("box-shadow", "none");
   }), $("body").tooltip({
     selector: ".fa-info-circle"
   }), $(".canvasTekst").animate({
     right: "0"
-  }, 1e3), $(window).scroll(function () {
+  }, 2e3), $(window).scroll(function () {
     500 < $(this).scrollTop() && $(".sectionContent").each(function (a) {
       $(this).delay(200 * a).animate({
         opacity: "1",

@@ -21,7 +21,7 @@ window.onscroll = function () {
   scrollUp1();
 };
 
-var navigacija = ["Home", "Introduction", "Featured", "Rent a car", "Testimonials"];
+var navigacija = [["<i class='fas fa-home'></i>", "Home"], ["<i class='fas fa-chalkboard-teacher'></i>", "Introduction"], ["<i class='fas fa-star'></i>", "Featured"], ["<i class='fas fa-car'></i>", "Rent a car"], ["<i class='fas fa-user'></i>", "Testimonials"]];
 var navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov", "#TestimonialsSection"];
 
 var navigacija1 = function navigacija1() {
@@ -39,12 +39,9 @@ var navigacija1 = function navigacija1() {
     var aList = document.createElement("a");
     liList.appendChild(aList);
     aList.setAttribute("href", "".concat(navigacijaLinkovi[indeks]));
-    aList.textContent = "".concat(navigacija[indeks]);
+    aList.textContent = "".concat(navigacija[indeks][1]);
   }
 };
-
-var izabranAuto;
-var cena = [["Chevrolet", 180], ["Dodge", 200], ["BMW", 120], ["Subaru", 130], ["Mitsubishi", 110], ["Ford", 160], ["Honda", 120], ["Toyota", 300], ["Mercedes", 160]];
 
 function scrollUp1() {
   var myBtn = document.getElementById("btnTop");
@@ -81,12 +78,14 @@ function sideNav() {
 
   for (indeks in navigacija) {
     var sideLi = document.createElement("li");
+    var hr = document.createElement("hr");
+    hr.after(sideLi);
     sideLi.classList.add("slideIn");
     sideUl.appendChild(sideLi);
     var sideA = document.createElement("a");
     sideLi.appendChild(sideA);
     sideA.setAttribute("href", "".concat(navigacijaLinkovi[indeks]));
-    sideA.textContent = "".concat(navigacija[indeks]);
+    sideA.innerHTML = "".concat(navigacija[indeks][0] + ' ' + navigacija[indeks][1]);
   }
 }
 
@@ -99,7 +98,9 @@ function closeNav() {
 }
 
 document.getElementById("clickSide").addEventListener("click", openNav);
-document.getElementById("closeSide").addEventListener("click", closeNav); // dinamicko ispisivanje ddl
+document.getElementById("closeSide").addEventListener("click", closeNav);
+var izabranAuto;
+var cena = [["Chevrolet", 180], ["Dodge", 200], ["BMW", 120], ["Subaru", 130], ["Mitsubishi", 110], ["Ford", 160], ["Honda", 120], ["Toyota", 300], ["Mercedes", 160]]; // dinamicko ispisivanje ddl
 
 function ddl() {
   var carsAndModels = {};
@@ -157,6 +158,7 @@ function ddl() {
     var type = document.getElementById("carType");
 
     for (var i = 0; i < Object.keys(carsAndModels).length; i++) {
+      //preuzimanje vrednosti iz objekata
       var opt = document.createElement("option");
       opt.setAttribute("value", Object.keys(carsAndModels)[i]);
       var text = document.createTextNode(Object.keys(carsAndModels)[i]);
@@ -166,7 +168,7 @@ function ddl() {
   };
 
   ispisivanjeOpt();
-} // dinamicko i nasumicno ispisivanje automobila u index.html
+} // dinamicko i nasumicno ispisivanje automobila u featured sekciji
 
 
 var carContent = [["assets/img/sports_civic1.jpg", "Honda Civic Type R", 120, "350hp"], ["assets/img/sports_supra1.jpg", "Toyota Supra", 300, "382hp"], ["assets/img/sports_subaru1.jpg", "Subaru Impreza WRX", 130, "340hp"], ["assets/img/muscle_chevy1.jpg", "Chevrolet ZL1", 180, "650hp"], ["assets/img/muscle_demon1.jpg", "Dodge Challenger", 200, "700hp"], ["assets/img/sports_benz1.jpg", "Mercedes 450 CLS", 160, "375hp"], ["assets/img/sports_evo.jpg", "Subaru WRX", 130, "360hp"], ["assets/img/sports_bmw1.jpg", "BMW 420d Coupe", 120, "310hp"], ["assets/img/sports_mitsubishi1.jpg", "Mitsubishi EVO X", 110, "290hp"], ["assets/img/muscle_mustang1.jpg", "Ford Mustang", 160, "750hp"], ["assets/img/sports_bmw2.jpg", "BMW X6m", 120, "310hp"], ["assets/img/suv_ford1.jpg", "Ford F-150", 160, "280hp"]]; //niz u koji ubacujemo DISTINCT vrednosti do 12
@@ -182,7 +184,8 @@ function generate() {
       random.push(trenutni);
     } else i--;
   }
-}
+} //generisanje sadrzaja za svaki element owl-carousel-a
+
 
 function owlCarouselContent() {
   generate();
@@ -227,29 +230,31 @@ function upisVrednosti() {
       } //ponovni carousel zbog dugmadi da ne bi kontrolisali onaj prvi
 
 
-      $(".another-owl").owlCarousel({
-        responsiveClass: true,
-        loop: true,
-        nav: false,
-        dots: false,
-        responsive: {
-          0: {
-            items: 1,
-            autoplay: false
+      $(document).ready(function () {
+        $(".another-owl").owlCarousel({
+          responsiveClass: true,
+          loop: true,
+          nav: false,
+          dots: false,
+          responsive: {
+            0: {
+              items: 1,
+              autoplay: false
+            }
           }
-        }
-      });
-      var $owl = $(".another-owl");
-      $("#desno").click(function () {
-        $owl.trigger("next.owl.carousel");
-      });
-      $("#levo").click(function () {
-        $owl.trigger("prev.owl.carousel");
-      });
-      $(".request").click(function () {
-        $("html,body").animate({
-          scrollTop: $(".back").offset().top
-        }, 1500);
+        });
+        var $owl = $(".another-owl");
+        $("#desno").click(function () {
+          $owl.trigger("next.owl.carousel");
+        });
+        $("#levo").click(function () {
+          $owl.trigger("prev.owl.carousel");
+        });
+        $(".request").click(function () {
+          $("html,body").animate({
+            scrollTop: $(".back").offset().top
+          }, 1500);
+        });
       });
     });
   };
@@ -428,7 +433,7 @@ var disabledDate = document.getElementById("drop");
 disabledDate.disabled = true;
 
 var proveraPick = function proveraPick() {
-  //provera da li je korisnik izabrao datum -------
+  //provera da li je korisnik izabrao datum
   from = new Date(pick.value);
   to = new Date(drop.value);
   today = new Date();
@@ -607,22 +612,8 @@ payment[1].onclick = function () {
   document.getElementById("cardContent").onchange = function () {
     proveraCardNumber();
   };
-}; //ako je korisnik izabrao cash
+}; //provera da li je korisnik uneo broj kartice
 
-
-payment[0].onclick = function () {
-  if (cardMade > 0) {
-    document.querySelector(".cardHolder").remove();
-    cardMade--;
-  }
-}; //za menjanje metoda placanja, izlaskom misa
-
-
-payment.forEach(function (selected) {
-  return selected.onchange = function () {
-    proveraCashCard();
-  };
-}); //provera da li je korisnik uneo broj kartice
 
 function proveraCardNumber() {
   var regExCardNumber = /^5[0-9]{15}$/;
@@ -698,6 +689,20 @@ fullName.onchange = function () {
 
 mail.onchange = function () {
   proveraMail();
+}; //za menjanje metoda placanja
+
+
+payment.forEach(function (selected) {
+  return selected.onchange = function () {
+    proveraCashCard();
+  };
+}); //ako je korisnik izabrao cash
+
+payment[0].onclick = function () {
+  if (cardMade > 0) {
+    document.querySelector(".cardHolder").remove();
+    cardMade--;
+  }
 }; //provera nakon klika da li su pravilno uneti podaci
 
 
@@ -736,7 +741,8 @@ function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera,
       //upisivanje podataka u niz
       dataArray.push(fullName.value);
       dataArray.push(mail.value);
-      carContent[type.options[type.options]];
+      var sss = carContent[type.options[type.options]];
+      console.log(sss);
       dataArray.push(type.options[type.options.selectedIndex].value);
       dataArray.push(model.options[model.options.selectedIndex].text);
       dataArray.push(konacniDani * izabranAuto);
@@ -825,13 +831,11 @@ function initMap() {
 $(document).ready(function () {
   //animacija sidenav elemenata liste linkova
   $("#clickSide").click(function () {
-    var i = 1;
-    $(".slideIn").each(function () {
+    $(".slideIn").each(function (i) {
       $(this).delay(200 * i).animate({
         left: "0",
         opacity: "1"
       }, 700);
-      i++;
     });
     $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
   });
@@ -839,7 +843,7 @@ $(document).ready(function () {
     $(".slideIn").each(function () {
       $(this).animate({
         left: "-250px"
-      });
+      }).finish();
     });
     $("#openSide").css("box-shadow", "none");
   }); //tooltip inicijalizacija bootstrap
@@ -850,7 +854,7 @@ $(document).ready(function () {
 
   $(".canvasTekst").animate({
     right: "0"
-  }, 1000); //animations card block & btn top
+  }, 2000); //animations card block & btn top
 
   $(window).scroll(function () {
     if ($(this).scrollTop() > 500) {

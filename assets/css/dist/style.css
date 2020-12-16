@@ -205,6 +205,8 @@ h2 span {
 }
 #canvas #navigacija ul li a {
   color: #242424;
+  transition: 0.3s;
+  border-bottom: 3px solid transparent;
 }
 #canvas #navigacija ul li a:hover {
   color: #d3002a;
@@ -241,7 +243,7 @@ h2 span {
   z-index: 999;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #242424;
   overflow-x: hidden;
   transition: 0.5s;
 }
@@ -268,15 +270,18 @@ h2 span {
   opacity: 0;
 }
 #canvas #openSide nav ul .slideIn a {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 8px 20px 32px;
   text-decoration: none;
   font-size: 25px;
+  font-weight: bold;
   color: #818181;
   display: block;
   transition: 0.3s;
+  border-right: 5px solid transparent;
 }
 #canvas #openSide nav ul .slideIn a:hover {
   color: #d3002a;
+  border-right: 5px solid #d3002a;
 }
 #canvas .fab {
   color: black;
@@ -626,7 +631,7 @@ h2 span {
   padding: 7px 14px;
   background-color: #414141;
   color: #dadada;
-  border: none;
+  border: 2px solid transparent;
   outline: none;
   font-weight: bold;
   font-size: 14px;
@@ -755,6 +760,9 @@ h2 span {
   font-size: 17px;
   color: #dadada;
   font-weight: bold;
+}
+#pageFooter #copyright span {
+  color: #d3002a;
 }
 
 #autor {

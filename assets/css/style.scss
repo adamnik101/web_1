@@ -197,9 +197,11 @@ h2{
                 text-align: center;
                 a{
                     color:$black;
+                    transition: 0.3s;
+                    border-bottom: 3px solid transparent;
                     &:hover{
                         color:$red;
-                        border-bottom: 3px solid$red;
+                        border-bottom: 3px solid $red;
                     }
                 }
             }
@@ -236,7 +238,7 @@ h2{
         z-index: 999; 
         top: 0; 
         left: 0;
-        background-color: #111; 
+        background-color: $black; 
         overflow-x: hidden; 
         transition: 0.5s;
         button{
@@ -261,14 +263,17 @@ h2{
                         left: -250px;
                         opacity: 0;
                     a{
-                        padding: 8px 8px 8px 32px;
+                        padding: 8px 8px 20px 32px;
                         text-decoration: none;
                         font-size: 25px;
+                        font-weight: bold;
                         color: #818181;
                         display: block;
                         transition: 0.3s;
+                        border-right: 5px solid transparent;
                         &:hover{
                             color:$red;
+                            border-right:5px solid $red;
                         }
                     }
                 }
@@ -635,7 +640,7 @@ h2{
             padding: 7px 14px;
             background-color: rgb(65, 65, 65);
             color: $white;
-            border: none;
+            border: 2px solid transparent;
             outline: none;
             font-weight: bold;
             font-size: 14px;
@@ -693,7 +698,7 @@ h2{
             }
         }
         .greska{
-                border: 2px solid$red;
+                border: 2px solid $red;
         }
         .greskaTekst{
             color:$red;
@@ -782,6 +787,11 @@ h2{
         font-size: 17px;
         color: $white;
         font-weight: bold;
+    }
+    #copyright{
+        span{
+            color: $red;
+        }
     }
 }
 #autor{
