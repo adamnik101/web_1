@@ -1,10 +1,10 @@
 "use strict";
 
-$(window).on("load", function () {
-  $('.preloader').fadeOut('slow');
-});
 $(document).ready(function () {
-  //animacija sidenav elemenata liste linkova
+  $(window).on("load", function () {
+    $('.preloader').fadeOut('slow');
+  }); //animacija sidenav elemenata liste linkova
+
   $("#clickSide").click(function () {
     $(".slideIn").each(function (i) {
       $(this).delay(200 * i).animate({

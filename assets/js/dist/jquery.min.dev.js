@@ -1,9 +1,9 @@
 "use strict";
 
-$(window).on("load", function () {
-  $(".preloader").fadeOut("slow");
-}), $(document).ready(function () {
-  $("#clickSide").click(function () {
+$(document).ready(function () {
+  $(window).on("load", function () {
+    $(".preloader").fadeOut("slow");
+  }), $("#clickSide").click(function () {
     $(".slideIn").each(function (o) {
       $(this).delay(200 * o).animate({
         left: "0",

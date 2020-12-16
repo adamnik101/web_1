@@ -1,8 +1,8 @@
-$(window).on("load",function() {
-    $('.preloader').fadeOut('slow');
- });
-$(document).ready(function(){
 
+$(document).ready(function(){
+    $(window).on("load",function() {
+        $('.preloader').fadeOut('slow');
+     });
     //animacija sidenav elemenata liste linkova
     $("#clickSide").click(function (){
         $(".slideIn").each(function(i){
