@@ -740,6 +740,63 @@ h2{
         }
     }
 }
+#about{
+    background-color: #f4f4f4;;
+    h3{
+        font-weight: bold;
+        span{
+            color: $red;
+        }
+    }
+    .textAbout{
+        font-size: 17px;
+        span{
+            color: $red;
+        }
+    }
+    #tabs{
+        background-color: $white;
+        padding: 10px;
+        ul{
+            list-style: none;
+            margin: 0;
+            padding-bottom: 10px;
+            overflow: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            li{
+                padding: 10px;
+                text-align: center;
+                margin-right: 10px;
+                background-color: rgb(192, 192, 192);
+                transition: 0.5s;
+                a{
+                    color: $black;
+                    font-weight: lighter;
+                }
+                &:hover{
+                    background-color: rgb(73, 73, 73);
+                    cursor: pointer;
+                    a{
+                        color: $white;
+                    }
+                }
+            }
+        }
+        #tabs-content{
+            background-color: rgb(192, 192, 192);
+            padding: 10px;
+        }
+        .active{
+            transition: 0.5s;
+            background-color: rgb(73, 73, 73);
+            a{
+                color: $white;
+            }
+        }
+    }
+}
 #pageFooter{
     background-color: rgb(24, 24, 24);
     h2{
@@ -980,6 +1037,18 @@ h2{
             .w-50{
                 input{
                     width: 70% !important;
+                }
+            }
+        }
+    }
+    #about{
+        #tabs{
+            font-size: 16px;
+            ul{
+                flex-direction: column;
+                align-items: stretch;
+                li{
+                    margin-right: 0;
                 }
             }
         }

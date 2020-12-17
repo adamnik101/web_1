@@ -1,7 +1,7 @@
 "use strict";
 
 window.addEventListener("DOMContentLoaded", function () {
-  navigacija1(), info1(), owlCarouselContent(), ispisCarContent(), crossfade(), ddl(), testimonials(), sideNav();
+  navigacija1(), info1(), owlCarouselContent(), ispisCarContent(), crossfade(), ddl(), testimonials(), sideNav(), about();
 }), window.onload = function () {
   showImg();
 }, window.onscroll = function () {
@@ -474,24 +474,20 @@ function testimonials() {
   }
 }
 
+function about() {
+  sadrzajTab = [["What we're about", "We want to make renting a car as simple and personal as driving your own. Renting a car brings you freedom, and we'll help you find the right car for you at a great price. But there's much more to us than that. We're here to make renting a car a lot less hassle."], ["How we work", "Making sure you have a great experience every time you rent a car makes us happy. We use our massive buying power to bring you great deals."], ["Why use us", "We use all our experience \u2013 and the experiences of thousands of our customers \u2013 to bring you the car you need and the quality of service you want. Always at the best price."], ["Who we are", "Our founders had the simple idea of wanting to make renting cars much better. And we\u2019ve flourished because our customers love how we work."]];
+  var a = document.getElementsByClassName("tab-content");
+
+  for (var b = 0; b < sadrzajTab.length; b++) {
+    var c = document.createElement("h3"),
+        d = document.createElement("p");
+    c.textContent = sadrzajTab[b][0], d.textContent = sadrzajTab[b][1], a[b].appendChild(c), a[b].appendChild(d);
+  }
+}
+
 function autor() {
   var a = document.getElementById("box");
   a.innerHTML = "<div class=\"col-12 col-md-5 p-0\">\n<img src=\"assets/img/autor.jpg\" class=\"img-fluid\" alt=\"autor\">\n</div>\n<div class=\"col-12 col-md-7 p-0 p-lg-5 pb-2 pb-md-0\" id=\"infoAutor\">\n<div class=\"row m-0\">\n<div class=\"col-12 d-flex justify-content-end p-1\">\n<button type=\"button\" id=\"closeAutor\"><i class=\"fas fa-times\"></i></button>\n</div>\n</div>\n<div class=\"row m-0\">\n<div class=\"col-12 p-1 font-weight-bold\">\n<h3 class=\"text-center font-weight-bold\">".concat("Adam Nikoli\u0107", " <span>", "101/19", "</span></h3>\n<p>", "Hi. I'm a web developer from Po\u017Eega, Serbia. Right now I'm studying Internet Technologies at Information and Communication Technologies College in Belgrade and I'm pursuing career in Web programming.", "\n</p>\n</div>\n</div>\n<div class=\"row m-0\">\n<div class=\"col-12 d-flex flex-row flex-wrap linkovi justify-content-center\">\n<div >\n <a href=\"https://github.com/adamnik101\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-github-alt\"></i></button></a> \n <a href=\"https://www.linkedin.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-linkedin-in\"></i></button></a>\n <a href=\"https://www.twitter.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-twitter\"></i></button></a>\n <a href=\"https://adamnik101.github.io/adamportfolio/index.html\"><button type=\"button\" class=\"linkBtn\"><i class=\"fas fa-address-book\"></i></button></a>\n</div> \n</div>\n</div>\n</div>");
-}
-
-function initMap() {
-  var a = {
-    lat: 33.992464973409135,
-    lng: -117.72586818553368
-  },
-      b = new google.maps.Map(document.getElementById("map"), {
-    zoom: 14,
-    center: a
-  }),
-      c = new google.maps.Marker({
-    position: a,
-    map: b
-  });
 }
 
 $(document).ready(function () {
@@ -565,112 +561,10 @@ $(document).ready(function () {
     a.trigger("next.owl.carousel");
   }), $("#btnLevo").click(function () {
     a.trigger("prev.owl.carousel");
-  }), $(".seeMore").click(function () {
-    $(".another-owl").owlCarousel({
-      responsiveClass: !0,
-      loop: !0,
-      nav: !1,
-      dots: !1,
-      responsive: {
-        0: {
-          items: 1,
-          autoplay: !1
-        }
-      }
-    });
-    var a = $(".another-owl");
-    $("#desno").click(function () {
-      a.trigger("next.owl.carousel");
-    }), $("#levo").click(function () {
-      a.trigger("prev.owl.carousel");
-    }), $(".request").click(function () {
-      $("html,body").animate({
-        scrollTop: $(".back").offset().top
-      }, 1500);
-    });
-  }), $("#form").on("submit", function () {
-    $("#modal").animate({
-      opacity: "1"
-    }, 1e3), $("#modal .row").animate({
-      opacity: "1",
-      top: "0"
-    }, 1e3);
-  }), $("#autorBtn").click(function () {
-    autor(), $("#autor").fadeIn(), $("#closeAutor").click(function () {
-      $("#autor").fadeOut();
-    });
-  });
-}), $(document).ready(function () {
-  $(window).on("load", function () {
-    $(".preloader").fadeOut("slow");
-  }), $("#clickSide").click(function () {
-    $(".slideIn").each(function (a) {
-      $(this).delay(200 * a).animate({
-        left: "0",
-        opacity: "1"
-      }, 700);
-    }), $(".slideIn").hover(function () {}), $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
-  }), $("#closeSide").click(function () {
-    $(".slideIn").each(function () {
-      $(this).animate({
-        left: "-250px"
-      }).finish();
-    }), $("#openSide").css("box-shadow", "none");
-  }), $("body").tooltip({
-    selector: ".fa-info-circle"
-  }), $(".canvasTekst").animate({
-    right: "0"
-  }, 2e3), $(window).scroll(function () {
-    500 < $(this).scrollTop() && $(".sectionContent").each(function (a) {
-      $(this).delay(200 * a).animate({
-        opacity: "1",
-        top: "0"
-      }, "slow");
-    }), 900 < $(this).scrollTop() && $(".featured").animate({
-      left: "0",
-      opacity: "1"
-    }), 300 < $(this).scrollTop() ? $("#btnTop").fadeIn() : $("#btnTop").fadeOut();
-  }), $("#btnTop").click(function () {
-    return $("html, body").animate({
-      scrollTop: 0
-    }, 300), !1;
-  }), $("#loadMore").click(function () {
-    $(".slide").each(function (a) {
-      $(this).delay(450 * a).animate({
-        top: "0",
-        opacity: "1"
-      });
-    });
-  }), $("#requestBtn").click(function () {
-    $("html,body").animate({
-      scrollTop: $(".back").offset().top
-    }, 1500);
-  }), $(".first-owl").owlCarousel({
-    responsiveClass: !0,
-    autoplay: !0,
-    animateIn: !0,
-    loop: !0,
-    nav: !1,
-    dots: !0,
-    dotsEach: !0,
-    responsive: {
-      0: {
-        items: 1,
-        autoplay: !1
-      },
-      850: {
-        items: 2
-      },
-      1e3: {
-        items: 3
-      }
-    }
-  });
-  var a = $(".first-owl");
-  $("#btnDesno").click(function () {
-    a.trigger("next.owl.carousel");
-  }), $("#btnLevo").click(function () {
-    a.trigger("prev.owl.carousel");
+  }), $("#tabs-nav li:first-child").addClass("active"), $(".tab-content").hide(), $(".tab-content:first").show(), $("#tabs-nav li").click(function () {
+    $("#tabs-nav li").removeClass("active"), $(this).addClass("active"), $(".tab-content").hide();
+    var a = $(this).find("a").attr("href");
+    return $(a).fadeIn("slow"), !1;
   }), $("#form").on("submit", function () {
     $("#modal").animate({
       opacity: "1"

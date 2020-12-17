@@ -8,6 +8,7 @@ window.addEventListener("DOMContentLoaded", function(){
     ddl();
     testimonials();
     sideNav();
+    about();
 })
 window.onload = function(){
     showImg();
@@ -842,6 +843,23 @@ function testimonials(){
     </div>`;
     }
 }
+function about(){
+    sadrzajTab = [
+        ["What we're about", "We want to make renting a car as simple and personal as driving your own. Renting a car brings you freedom, and we'll help you find the right car for you at a great price. But there's much more to us than that. We're here to make renting a car a lot less hassle."],
+        ["How we work", "Making sure you have a great experience every time you rent a car makes us happy. We use our massive buying power to bring you great deals."],
+        ["Why use us", "We use all our experience – and the experiences of thousands of our customers – to bring you the car you need and the quality of service you want. Always at the best price."],
+        ["Who we are", "Our founders had the simple idea of wanting to make renting cars much better. And we’ve flourished because our customers love how we work."]
+    ]
+    let tab = document.getElementsByClassName("tab-content");
+    for(let i = 0; i < sadrzajTab.length; i++){
+        let h3 = document.createElement("h3");
+        let p = document.createElement("p");
+        h3.textContent = sadrzajTab[i][0];
+        p.textContent = sadrzajTab[i][1];
+        tab[i].appendChild(h3);
+        tab[i].appendChild(p); 
+    }
+}
 // Ispisivanje informacije o autoru
 function autor(){
     let naziv = "Adam Nikolić";
@@ -979,32 +997,21 @@ function autor(){
     $("#btnLevo").click(function(){
         $owl.trigger("prev.owl.carousel");
     })
-    $(".seeMore").click(function(){
-        $(".another-owl").owlCarousel({
-            responsiveClass:true,
-            loop: true,
-            nav:false,
-            dots:false,
-            responsive:{
-            0:{
-                items:1,
-                autoplay:false,
-            }
-        }
-        });
-        let $owl = $(".another-owl");
-        $("#desno").click(function(){
-            $owl.trigger("next.owl.carousel");
-        })
-        $("#levo").click(function(){
-            $owl.trigger("prev.owl.carousel");
-        })
-        $(".request").click(function(){
-            $("html,body").animate({
-                scrollTop: $(".back").offset().top}, 1500)
-            })
-    })
+    // prikazi prvog, a ostale sakrij
+    $('#tabs-nav li:first-child').addClass('active');
+    $('.tab-content').hide();
+    $('.tab-content:first').show();
 
+    //promeni klikom
+    $('#tabs-nav li').click(function(){
+    $('#tabs-nav li').removeClass('active');
+    $(this).addClass('active');
+    $('.tab-content').hide();
+    
+    var activeTab = $(this).find('a').attr('href');
+    $(activeTab).fadeIn("slow");
+    return false;
+    });
     //animacija pri prikazivanju modala nakon uspesnog popunjavanja forme
     $("#form").on("submit", function(){
             $("#modal").animate({
