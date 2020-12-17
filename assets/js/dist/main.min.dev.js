@@ -8,8 +8,8 @@ window.addEventListener("DOMContentLoaded", function () {
   scrollUp1();
 };
 
-var navigacija = [["<i class='fas fa-home'></i>", "Home"], ["<i class='fas fa-chalkboard-teacher'></i>", "Introduction"], ["<i class='fas fa-star'></i>", "Featured"], ["<i class='fas fa-car'></i>", "Rent a car"], ["<i class='fas fa-user'></i>", "Testimonials"]],
-    navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov", "#TestimonialsSection"],
+var navigacija = [["<i class='fas fa-home'></i>", "Home"], ["<i class='fas fa-chalkboard-teacher'></i>", "Introduction"], ["<i class='fas fa-star'></i>", "Featured"], ["<i class='fas fa-car'></i>", "Rent a car"], ["<i class='fas fa-user'></i>", "Testimonials"], ["<i class='far fa-address-card'></i>", "About us"]],
+    navigacijaLinkovi = ["index.html", "#naslov", "#featuredSection", "#formNaslov", "#TestimonialsSection", "#about"],
     navigacija1 = function navigacija1() {
   var a = document.getElementById("navigacija"),
       b = document.createElement("nav");
@@ -436,12 +436,7 @@ fullName.onchange = function () {
 
 function celokupnaProvera(a, b, c, d, e) {
   var f = 0;
-
-  if (a && b && c && d && e && 0 == dataArray.length) {
-    dataArray.push(fullName.value), dataArray.push(mail.value);
-    var _a9 = carContent[type.options[type.options]];
-    console.log(_a9), dataArray.push(type.options[type.options.selectedIndex].value), dataArray.push(model.options[model.options.selectedIndex].text), dataArray.push(konacniDani * izabranAuto), f++, modal();
-  }
+  a && b && c && d && e && 0 == dataArray.length && (dataArray.push(fullName.value), dataArray.push(mail.value), dataArray.push(type.options[type.options.selectedIndex].value), dataArray.push(model.options[model.options.selectedIndex].text), dataArray.push(konacniDani * izabranAuto), f++, modal());
 }
 
 function modal() {
