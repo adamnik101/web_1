@@ -227,35 +227,7 @@ function upisVrednosti() {
           modal.style.visibility = "hidden";
           modal.style.opacity = "0";
         });
-      } //za ponovno pozivanje carousel-a da ne bi pokretao i prethodni pomocu strelica za ovaj
-
-
-      $(document).ready(function () {
-        $(".another-owl").owlCarousel({
-          responsiveClass: true,
-          loop: true,
-          nav: false,
-          dots: false,
-          responsive: {
-            0: {
-              items: 1,
-              autoplay: false
-            }
-          }
-        });
-        var $owl1 = $(".another-owl");
-        $("#desno").click(function () {
-          $owl1.trigger("next.owl.carousel");
-        });
-        $("#levo").click(function () {
-          $owl1.trigger("prev.owl.carousel");
-        });
-        $(".request").click(function () {
-          $("html,body").animate({
-            scrollTop: $(".back").offset().top
-          }, 1500);
-        });
-      });
+      }
     });
   };
 
@@ -930,6 +902,32 @@ $(document).ready(function () {
   });
   $("#btnLevo").click(function () {
     $owl.trigger("prev.owl.carousel");
+  });
+  $(document).on("click", ".seeMore", function () {
+    $(".another-owl").owlCarousel({
+      responsiveClass: true,
+      loop: true,
+      nav: false,
+      dots: false,
+      responsive: {
+        0: {
+          items: 1,
+          autoplay: true
+        }
+      }
+    });
+    var $owl1 = $(".another-owl");
+    $("#desno").click(function () {
+      $owl1.trigger("next.owl.carousel");
+    });
+    $("#levo").click(function () {
+      $owl1.trigger("prev.owl.carousel");
+    });
+    $(".request").click(function () {
+      $("html,body").animate({
+        scrollTop: $(".back").offset().top
+      }, 1500);
+    });
   }); // prikazi prvog, a ostale sakrij
 
   $('#tabs-nav li:first-child').addClass('active');

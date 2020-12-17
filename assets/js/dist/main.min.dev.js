@@ -165,31 +165,6 @@ function upisVrednosti() {
           c.style.visibility = "hidden", c.style.opacity = "0";
         });
       }
-
-      $(document).ready(function () {
-        $(".another-owl").owlCarousel({
-          responsiveClass: !0,
-          loop: !0,
-          nav: !1,
-          dots: !1,
-          responsive: {
-            0: {
-              items: 1,
-              autoplay: !1
-            }
-          }
-        });
-        var a = $(".another-owl");
-        $("#desno").click(function () {
-          a.trigger("next.owl.carousel");
-        }), $("#levo").click(function () {
-          a.trigger("prev.owl.carousel");
-        }), $(".request").click(function () {
-          $("html,body").animate({
-            scrollTop: $(".back").offset().top
-          }, 1500);
-        });
-      });
     });
   };
 
@@ -556,6 +531,29 @@ $(document).ready(function () {
     a.trigger("next.owl.carousel");
   }), $("#btnLevo").click(function () {
     a.trigger("prev.owl.carousel");
+  }), $(document).on("click", ".seeMore", function () {
+    $(".another-owl").owlCarousel({
+      responsiveClass: !0,
+      loop: !0,
+      nav: !1,
+      dots: !1,
+      responsive: {
+        0: {
+          items: 1,
+          autoplay: !0
+        }
+      }
+    });
+    var a = $(".another-owl");
+    $("#desno").click(function () {
+      a.trigger("next.owl.carousel");
+    }), $("#levo").click(function () {
+      a.trigger("prev.owl.carousel");
+    }), $(".request").click(function () {
+      $("html,body").animate({
+        scrollTop: $(".back").offset().top
+      }, 1500);
+    });
   }), $("#tabs-nav li:first-child").addClass("active"), $(".tab-content").hide(), $(".tab-content:first").show(), $("#tabs-nav li").click(function () {
     $("#tabs-nav li").removeClass("active"), $(this).addClass("active"), $(".tab-content").hide();
     var a = $(this).find("a").attr("href");
