@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", function(){
     testimonials();
     sideNav();
     about();
+    typeClick();
 })
 window.onload = function(){
     showImg();
@@ -144,8 +145,6 @@ function ddl(){
             carsAndModels["Toyota"] = ["Supra"];
             carsAndModels["Mercedes"] = ["450 CLS"];
 
-    var model = document.getElementById("carModel");
-        model.disabled=true;
 
     var firstOpt = document.createElement("option");
         firstOpt.setAttribute("value","0");
@@ -224,6 +223,7 @@ function generate(){
         else i--;
     }
 }
+var value = [];
 //generisanje sadrzaja za svaki element owl-carousel-a
 function owlCarouselContent(){
         generate();
@@ -232,6 +232,7 @@ function owlCarouselContent(){
             child.classList.add("owl-carousel", "first-owl");
             parent.appendChild(child);
         for(let i = 0; i < 6; i++){
+            value.push(carContent[random[i]][1].split(" "));
             child.innerHTML +=`<div class="slideContent"><img src="${carContent[random[i]][0]}" alt="${carContent[random[i]][1]}"><h5>${carContent[random[i]][1]}</h5>
             <p class="d-flex justify-content-between"><span><i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}/day</span><a href="#formNaslov"class="d-inline reqBtn">Request now</a></p>
         </div>`
@@ -331,6 +332,30 @@ function ispisCarContent(){
             click1++;
         })
        
+}
+//za upisivanje u dropdown iz sekcije best cars
+function typeClick(){
+    var type1 = document.getElementById("carType");
+    var model1 = document.getElementById("carModel");
+    var reqBtns = document.getElementsByClassName("reqBtn");
+        for(let i = 0; i < reqBtns.length; i++){
+            reqBtns[i].addEventListener("click", function(){
+                for(let j = 1; j < type.options.length; j++){
+                    if(type1.options[j].value == value[i][0]){
+                        type1.selectedIndex = j;
+                        type1.onchange(); 
+                         if(model1.options.length > 1){
+                            if((model1.options[model1.selectedIndex].text).includes(value[i][1])){
+                                model1.selectedIndex = 0;
+                            }
+                            else{
+                                model1.selectedIndex = 1;
+                            }
+                        } 
+                    }
+                } 
+            })
+        }
 }
 //ispisivanje slika za crossfade efekat
 function crossfade(){
@@ -942,9 +967,10 @@ function autor(){
     //plugin za carousel aka owl-carousel
     $(".first-owl").owlCarousel({
         responsiveClass:true,
-        autoplay: true,
         animateIn:true,
-        loop: true,
+        autoplay: true,
+        rewind: true,
+        loop: false,
         nav:false,
         dots:true,
         dotsEach:true,

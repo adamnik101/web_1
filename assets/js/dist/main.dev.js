@@ -11,6 +11,7 @@ window.addEventListener("DOMContentLoaded", function () {
   testimonials();
   sideNav();
   about();
+  typeClick();
 });
 
 window.onload = function () {
@@ -113,8 +114,6 @@ function ddl() {
   carsAndModels["Honda"] = ["Civic Type R"];
   carsAndModels["Toyota"] = ["Supra"];
   carsAndModels["Mercedes"] = ["450 CLS"];
-  var model = document.getElementById("carModel");
-  model.disabled = true;
   var firstOpt = document.createElement("option");
   firstOpt.setAttribute("value", "0");
   var sadrzaj = document.createTextNode("Choose a model");
@@ -184,8 +183,9 @@ function generate() {
       random.push(trenutni);
     } else i--;
   }
-} //generisanje sadrzaja za svaki element owl-carousel-a
+}
 
+var value = []; //generisanje sadrzaja za svaki element owl-carousel-a
 
 function owlCarouselContent() {
   generate();
@@ -195,6 +195,7 @@ function owlCarouselContent() {
   parent.appendChild(child);
 
   for (var i = 0; i < 6; i++) {
+    value.push(carContent[random[i]][1].split(" "));
     child.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[i]][0], "\" alt=\"").concat(carContent[random[i]][1], "\"><h5>").concat(carContent[random[i]][1], "</h5>\n            <p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[i]][2], "/day</span><a href=\"#formNaslov\"class=\"d-inline reqBtn\">Request now</a></p>\n        </div>");
   }
 
@@ -274,6 +275,36 @@ function ispisCarContent() {
 
     click1++;
   });
+} //za upisivanje u dropdown iz sekcije best cars
+
+
+function typeClick() {
+  var type1 = document.getElementById("carType");
+  var model1 = document.getElementById("carModel");
+  var reqBtns = document.getElementsByClassName("reqBtn");
+
+  var _loop2 = function _loop2(i) {
+    reqBtns[i].addEventListener("click", function () {
+      for (var j = 1; j < type.options.length; j++) {
+        if (type1.options[j].value == value[i][0]) {
+          type1.selectedIndex = j;
+          type1.onchange();
+
+          if (model1.options.length > 1) {
+            if (model1.options[model1.selectedIndex].text.includes(value[i][1])) {
+              model1.selectedIndex = 0;
+            } else {
+              model1.selectedIndex = 1;
+            }
+          }
+        }
+      }
+    });
+  };
+
+  for (var i = 0; i < reqBtns.length; i++) {
+    _loop2(i);
+  }
 } //ispisivanje slika za crossfade efekat
 
 
@@ -876,9 +907,10 @@ $(document).ready(function () {
 
   $(".first-owl").owlCarousel({
     responsiveClass: true,
-    autoplay: true,
     animateIn: true,
-    loop: true,
+    autoplay: true,
+    rewind: true,
+    loop: false,
     nav: false,
     dots: true,
     dotsEach: true,

@@ -1,7 +1,7 @@
 "use strict";
 
 window.addEventListener("DOMContentLoaded", function () {
-  navigacija1(), info1(), owlCarouselContent(), ispisCarContent(), crossfade(), ddl(), testimonials(), sideNav(), about();
+  navigacija1(), info1(), owlCarouselContent(), ispisCarContent(), crossfade(), ddl(), testimonials(), sideNav(), about(), typeClick();
 }), window.onload = function () {
   showImg();
 }, window.onscroll = function () {
@@ -86,29 +86,27 @@ function ddl() {
     Toyota: ["Supra"],
     Mercedes: ["450 CLS"]
   },
-      b = document.getElementById("carModel");
-  b.disabled = !0;
-  var c = document.createElement("option");
-  c.setAttribute("value", "0");
-  var d = document.createTextNode("Choose a model");
-  c.appendChild(d), b.appendChild(c), document.getElementById("carType").onchange = function () {
-    b.disabled = "0" == this.value;
-    var d = this.options[this.selectedIndex].value;
+      b = document.createElement("option");
+  b.setAttribute("value", "0");
+  var c = document.createTextNode("Choose a model");
+  b.appendChild(c), model.appendChild(b), document.getElementById("carType").onchange = function () {
+    model.disabled = "0" == this.value;
+    var c = this.options[this.selectedIndex].value;
 
-    for (b.appendChild(c); b.options.length;) {
-      b.remove(0);
+    for (model.appendChild(b); model.options.length;) {
+      model.remove(0);
     }
 
     for (var _a4 = 0; _a4 < cena.length; _a4++) {
-      d == cena[_a4][0] && (izabranAuto = cena[_a4][1]);
+      c == cena[_a4][0] && (izabranAuto = cena[_a4][1]);
     }
 
-    "0" == d && b.appendChild(c);
-    var e = a[d];
-    if (e) for (var f, g = 0; g < e.length; g++) {
-      f = document.createElement("option"), f.setAttribute("value", g);
-      var h = document.createTextNode(e[g]);
-      f.appendChild(h), b.options.add(f), document.getElementById("brandError").textContent = "";
+    "0" == c && model.appendChild(b);
+    var d = a[c];
+    if (d) for (var e, f = 0; f < d.length; f++) {
+      e = document.createElement("option"), e.setAttribute("value", f);
+      var g = document.createTextNode(d[f]);
+      e.appendChild(g), model.options.add(e), document.getElementById("brandError").textContent = "";
     }
   };
 
@@ -133,6 +131,8 @@ function generate() {
   }
 }
 
+var value = [];
+
 function owlCarouselContent() {
   generate();
   var a = document.getElementById("automobili"),
@@ -140,7 +140,7 @@ function owlCarouselContent() {
   b.classList.add("owl-carousel", "first-owl"), a.appendChild(b);
 
   for (var _a5 = 0; 6 > _a5; _a5++) {
-    b.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[_a5]][0], "\" alt=\"").concat(carContent[random[_a5]][1], "\"><h5>").concat(carContent[random[_a5]][1], "</h5>\n<p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_a5]][2], "/day</span><a href=\"#formNaslov\"class=\"d-inline reqBtn\">Request now</a></p>\n</div>");
+    value.push(carContent[random[_a5]][1].split(" ")), b.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[_a5]][0], "\" alt=\"").concat(carContent[random[_a5]][1], "\"><h5>").concat(carContent[random[_a5]][1], "</h5>\n<p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_a5]][2], "/day</span><a href=\"#formNaslov\"class=\"d-inline reqBtn\">Request now</a></p>\n</div>");
   }
 
   random = [];
@@ -204,6 +204,24 @@ function ispisCarContent() {
 
     b++;
   });
+}
+
+function typeClick() {
+  var a = document.getElementById("carType"),
+      b = document.getElementById("carModel"),
+      c = document.getElementsByClassName("reqBtn");
+
+  var _loop2 = function _loop2(d) {
+    c[d].addEventListener("click", function () {
+      for (var _c = 1; _c < type.options.length; _c++) {
+        a.options[_c].value == value[d][0] && (a.selectedIndex = _c, a.onchange(), 1 < b.options.length && (b.options[b.selectedIndex].text.includes(value[d][1]) ? b.selectedIndex = 0 : b.selectedIndex = 1));
+      }
+    });
+  };
+
+  for (var d = 0; d < c.length; d++) {
+    _loop2(d);
+  }
 }
 
 function crossfade() {
@@ -507,9 +525,10 @@ $(document).ready(function () {
     }, 1500);
   }), $(".first-owl").owlCarousel({
     responsiveClass: !0,
-    autoplay: !0,
     animateIn: !0,
-    loop: !0,
+    autoplay: !0,
+    rewind: !0,
+    loop: !1,
     nav: !1,
     dots: !0,
     dotsEach: !0,
