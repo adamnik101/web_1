@@ -965,7 +965,7 @@ function autor(){
     });
     //glatka animacija nakon klika na dugme za gore i mali delay
     $('#btnTop').click(function(){
-        $('html, body').animate({scrollTop : 0},300);
+        $('html, body').animate({scrollTop : 0},0);
         return false;
     });
     //animacija artikala sa automobilima koji se prikazuju sa animacijom jedan nakon drugog
@@ -976,12 +976,6 @@ function autor(){
                     opacity : "1"
                 })
         })
-        })
-
-    //Skrol do sekcije 
-    $("#requestBtn").click(function(){
-        $("html,body").animate({
-            scrollTop: $(".back").offset().top}, 1500)
         })
     //plugin za carousel aka owl-carousel
     $(".first-owl").owlCarousel({

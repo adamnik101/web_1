@@ -517,7 +517,7 @@ $(document).ready(function () {
   }), $("#btnTop").click(function () {
     return $("html, body").animate({
       scrollTop: 0
-    }, 300), !1;
+    }, 0), !1;
   }), $("#loadMore").click(function () {
     $(".slide").each(function (a) {
       $(this).delay(450 * a).animate({
@@ -525,10 +525,6 @@ $(document).ready(function () {
         opacity: "1"
       });
     });
-  }), $("#requestBtn").click(function () {
-    $("html,body").animate({
-      scrollTop: $(".back").offset().top
-    }, 1500);
   }), $(".first-owl").owlCarousel({
     responsiveClass: !0,
     animateIn: !0,

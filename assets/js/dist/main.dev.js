@@ -908,7 +908,7 @@ $(document).ready(function () {
   $('#btnTop').click(function () {
     $('html, body').animate({
       scrollTop: 0
-    }, 300);
+    }, 0);
     return false;
   }); //animacija artikala sa automobilima koji se prikazuju sa animacijom jedan nakon drugog
 
@@ -919,12 +919,6 @@ $(document).ready(function () {
         opacity: "1"
       });
     });
-  }); //Skrol do sekcije 
-
-  $("#requestBtn").click(function () {
-    $("html,body").animate({
-      scrollTop: $(".back").offset().top
-    }, 1500);
   }); //plugin za carousel aka owl-carousel
 
   $(".first-owl").owlCarousel({
