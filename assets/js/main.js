@@ -138,7 +138,7 @@ function ddl(){
             carsAndModels["Chevrolet"] = ["ZL1"];
             carsAndModels["Dodge"] = ["Challenger"];
             carsAndModels["BMW"] = ["420d Coupe", "X6m"];
-            carsAndModels["Subaru"] = ["Impreza WRX STi", "WRX"];
+            carsAndModels["Subaru"] = ["Impreza STi", "WRX"];
             carsAndModels["Mitsubishi"] = ["EVO X"];
             carsAndModels["Ford"] = ["Mustang", "F-150"]
             carsAndModels["Honda"] = ["Civic Type R"];
@@ -199,7 +199,7 @@ ispisivanjeOpt();
 var carContent = [
     ["assets/img/sports_civic1.jpg", "Honda Civic Type R", 120, "350hp"],
     ["assets/img/sports_supra1.jpg", "Toyota Supra", 300, "382hp"],
-    ["assets/img/sports_subaru1.jpg","Subaru Impreza WRX", 130, "340hp"],
+    ["assets/img/sports_subaru1.jpg","Subaru Impreza STi", 130, "340hp"],
     ["assets/img/muscle_chevy1.jpg","Chevrolet ZL1", 180, "650hp"],
     ["assets/img/muscle_demon1.jpg","Dodge Challenger", 200, "700hp"],
     ["assets/img/sports_benz1.jpg","Mercedes 450 CLS", 160,"375hp"],
@@ -245,31 +245,47 @@ function upisVrednosti(){
     let noveSlike = ["assets/img/seeMoreHonda.jpg", "assets/img/seeMoreSupra.jpeg", "assets/img/seeMoreRedSubaru.jpg", "assets/img/seeMoreChevy.jpg", "assets/img/seeMoreDemon.jpg", "assets/img/seeMoreMerc.jpeg", "assets/img/seeMoreSubaru.jpeg", "assets/img/seeMoreBmw.jpg", "assets/img/seeMore1.jpg", "assets/img/seeMoreMustang.jpeg","assets/img/seeMoreBmw2.jpg", "assets/img/seeMoreFord.jpeg"];
     var seeMore = document.getElementsByClassName("seeMore");
     let modal = document.getElementById("seeMoreModal");
-
+    let request = document.getElementsByClassName("request");
+    let typeNew = document.getElementById("carType");
+    let model2 = document.getElementById("carModel")
+    
         for(let i = 0; i < seeMore.length; i++){
             seeMore[i].addEventListener("click", function(){
                   if(seeMore[i].value == carContent[random[i]][1]){
+                    
                     modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"><button type="button" id="levo"><i class="fas fa-angle-left"></i></i></button><button type="button" id="desno"><i class="fas fa-angle-right"></i></button> <div class="owl-carousel another-owl"> <img src="${carContent[random[i]][0]}" class="img-fluid" alt="car"> <img src="${noveSlike[random[i]]}" class="img-fluid" alt="car"></div> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[random[i]][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Manual </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button" class="request">Request now!</button> </div></div></div>`
                     modal.style.visibility = "visible";
                     modal.style.opacity = "1"; 
                   }
-            var request = document.getElementsByClassName("request");
-            var closeSeeMore = document.getElementById("closeSeeMore");
+            
+            let closeSeeMore = document.getElementById("closeSeeMore");
 
                 closeSeeMore.addEventListener("click", function(){
                         modal.style.visibility = "hidden";
                         modal.style.opacity = "0";})
-
-                        for(let i = 0; i < request.length;i++){
-                            request[i].addEventListener("click", function(){
+                    // za promenu dropdown liste u formi na osnovu selektovanog automobila preko modala
+                        for(let j = 0; j < request.length; j++){
+                            request[j].addEventListener("click", function(){
                                 modal.style.visibility = "hidden";
-                                modal.style.opacity = "0";
-                            })
-                        }
-        })
+                                modal.style.opacity = "0"; 
+                            for(let t = 1; t < typeNew.options.length; t++){    
+                                if(typeNew.options[t].value == carTypeName[i][0]){
+                                    typeNew.selectedIndex = t;
+                                    typeNew.onchange(); 
+                                    if(model2.options.length > 1){
+                                        if((model2.options[model2.selectedIndex].text).includes(carTypeName[i][1])){
+                                            model2.selectedIndex = 0;
+                                        }
+                                        else{
+                                            model2.selectedIndex = 1;
+                                        }
+                                    } 
+                                }
+                            }})
+                        }})
     }
 }
-
+var carTypeName = [];
 function ispisCarContent(){
     generate();
     var div = document.getElementById("showCars");
@@ -284,7 +300,8 @@ function ispisCarContent(){
             <p><i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}/day &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
             <button type="button" class="seeMore" value="${carContent[random[i]][1]}">See more</button>
             </div>
-        </div>`    
+        </div>`;
+        carTypeName.push((carContent[random[i]][1]).split(" "));
         }
         upisVrednosti()
         
@@ -297,7 +314,7 @@ function ispisCarContent(){
             }
             if(click1 == 0){
                 //ispisivanje narednih 3 elemenata iz niza pocev od 6
-                for(var i = 6; i < carContent.length - 3; i++){
+                for(let i = 6; i < carContent.length - 3; i++){
                     let slide = document.createElement("div");
                     slide.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale");
                     document.getElementById("showCars").appendChild(slide);
@@ -309,14 +326,15 @@ function ispisCarContent(){
                     <h5 class="mb-3">${carContent[random[i]][1]}</h5>
                     <p><i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}/day &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
                     <button type="button" class="seeMore" value="${carContent[random[i]][1]}">See more</button>
-                    </div>`;       
+                    </div>`;
+                    carTypeName.push((carContent[random[i]][1]).split(" "))   
                 }
                 upisVrednosti()
             }
             
             if(click1 > 0){
                 //ispisivanje ostatka 
-                for(var i = 9; i < carContent.length; i++){
+                for(let i = 9; i < carContent.length; i++){
                     document.getElementById("showCars").innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4 slide scale">
                     <div class="imgHolder">
                         <img src="${carContent[random[i]][0]}" class="img-fluid" alt="${carContent[random[i]][1]}">
@@ -326,12 +344,13 @@ function ispisCarContent(){
                     <p><i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}/day &nbsp; <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]}</p>
                     <button type="button" class="seeMore" value="${carContent[random[i]][1]}">See more</button>
                     </div></div>`;
+                    carTypeName.push((carContent[random[i]][1]).split(" "))
                 }
                 upisVrednosti()
             }
             click1++;
         })
-       
+        
 }
 //za upisivanje u dropdown iz sekcije best cars
 function typeClick(){
@@ -1017,7 +1036,7 @@ function autor(){
         })
         $(".request").click(function(){
             $("html,body").animate({
-                scrollTop: $(".back").offset().top}, 1500)
+                scrollTop: $(".back").offset().top}, 0)
             })
     })
 
