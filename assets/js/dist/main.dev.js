@@ -6,17 +6,12 @@ window.addEventListener("DOMContentLoaded", function () {
   info1();
   owlCarouselContent();
   ispisCarContent();
-  crossfade();
   ddl();
   testimonials();
   sideNav();
   about();
   typeClick();
 });
-
-window.onload = function () {
-  showImg();
-};
 
 window.onscroll = function () {
   scrollUp1();
@@ -327,54 +322,6 @@ function typeClick() {
   for (var i = 0; i < reqBtns.length; i++) {
     _loop2(i);
   }
-} //ispisivanje slika za crossfade efekat
-
-
-function crossfade() {
-  var formCrossfade = ["assets/img/form1.jpg", "assets/img/form3.jpg", "assets/img/form4.jpg"];
-  var parent = document.getElementById("absolute");
-
-  for (indeks in formCrossfade) {
-    var img = document.createElement("img");
-    img.setAttribute("src", formCrossfade[indeks]);
-    img.className = "slideShow fadeIn fadeOut";
-    img.alt = "car";
-    parent.appendChild(img);
-  }
-} // kreiranje crossfade efekta za smooth prelazak sa slike na sliku
-
-
-var indeks = 0;
-var indeksOpacity = 0;
-
-function showImg() {
-  var slideShow = document.getElementsByClassName("slideShow");
-
-  for (var i = 0; i < slideShow.length; i++) {
-    slideShow[i].style.visibility = "hidden";
-    slideShow[i].classList.remove("fadeIn");
-    slideShow[i].classList.remove("fadeOut");
-  }
-
-  indeks++;
-  indeksOpacity++;
-
-  if (indeks > slideShow.length) {
-    indeks = 1;
-  }
-
-  ;
-
-  if (indeksOpacity > slideShow.length - 1) {
-    indeksOpacity = 0;
-  }
-
-  ;
-  slideShow[indeks - 1].style.visibility = "visible";
-  slideShow[indeks - 1].classList.add("fadeOut");
-  slideShow[indeksOpacity].style.visibility = "visible";
-  slideShow[indeksOpacity].classList.add("fadeIn");
-  setTimeout(showImg, 15000);
 } //dohvatanje elemenata
 
 
@@ -790,7 +737,7 @@ function modal() {
   body.setAttribute("id", "body");
   body.classList.add("col-12", "p-2");
   var p = document.createElement("p");
-  p.innerHTML = "<span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
+  p.innerHTML = "Dear <span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
   var footer = document.createElement("div");
   footer.setAttribute("id", "footer");
   footer.classList.add("col-12", "text-right");
@@ -976,6 +923,22 @@ $(document).ready(function () {
         scrollTop: $(".back").offset().top
       }, 0);
     });
+  }); //za fadeOut efekat owl-carousel
+
+  $("#fadeOwl").owlCarousel({
+    animateOut: "fadeOut",
+    autoplayTimeout: 10000,
+    nav: false,
+    loop: true,
+    touchDrag: false,
+    dots: false,
+    autoplay: true,
+    mouseDrag: false,
+    responsive: {
+      0: {
+        items: 1
+      }
+    }
   }); // prikazi prvog, a ostale sakrij
 
   $('#tabs-nav li:first-child').addClass('active');

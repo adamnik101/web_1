@@ -613,44 +613,13 @@ h2{
     }
     .formSlide{
         background-color:$black;
-        width: 450px;
-        height: 720px;
+        width: 500px;
+        height: 750px;
         box-shadow: 0px 0px 15px $black;
-        #absolute{
-            position: relative;
-            height: 100%;
-            .slideShow{
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
-            }//animacija za js crossfade sliding
-            .fadeIn{
-                animation-name: fadeIn;
-                animation-duration: 15s;
-            }
-            .fadeOut{
-                animation-name: fadeOut;
-                animation-duration: 15s;
-            }
-            @keyframes fadeIn {
-                0%{opacity: 0;}
-                25%{opacity: 0;}
-                75%{opacity: 1;}
-                100%{opacity: 1;}
-            }
-            @keyframes fadeOut {
-                0%{opacity: 1;}
-                25%{opacity: 1;}
-                75%{opacity: 0;}
-                100%{opacity: 0;}
-            }
-        }
     }
     .requestForm{
-        height: 720px;
-        width: 450px;
+        height: 750px;
+        width: 500px;
         box-shadow: 0px 0px 15px $black;
         input{
             padding: 7px 14px;
@@ -956,17 +925,6 @@ h2{
 
 @media screen and (max-width: 1016px) {
     .back{
-        .formSlide{
-            #absolute{
-                .slideShow{
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-        }
         .requestForm{
 
             .ddlCar{
@@ -1021,18 +979,7 @@ h2{
         }
     }
     .back{
-        .formSlide{
 
-            #absolute{
-                .slideShow{
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-        }
         .requestForm{
 
             font-size: 15px;
@@ -1103,13 +1050,11 @@ h2{
         .back{
             width: 100%;
             .formSlide{
-                max-height: 577px;
-                #absolute{
-                    min-height: auto;
-                }
+                max-width: 100%;
+                height: auto;
             }
             .requestForm{
-                max-width: 450px;
+                max-width: 100%;
                 height: auto;
                 font-size: 17px;
                 input{

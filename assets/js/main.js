@@ -4,16 +4,12 @@ window.addEventListener("DOMContentLoaded", function(){
     info1();
     owlCarouselContent();
     ispisCarContent();
-    crossfade();
     ddl();
     testimonials();
     sideNav();
     about();
     typeClick();
 })
-window.onload = function(){
-    showImg();
-}
 window.onscroll = function(){
     scrollUp1()
 };
@@ -376,42 +372,6 @@ function typeClick(){
             })
         }
 }
-//ispisivanje slika za crossfade efekat
-function crossfade(){
-    let formCrossfade = ["assets/img/form1.jpg", "assets/img/form3.jpg", "assets/img/form4.jpg"];
-
-    let parent = document.getElementById("absolute");
-    for(indeks in formCrossfade){
-        let img = document.createElement("img");
-        img.setAttribute("src",formCrossfade[indeks]);
-        img.className = "slideShow fadeIn fadeOut";
-        img.alt="car";
-        parent.appendChild(img);
-    }
-}
-// kreiranje crossfade efekta za smooth prelazak sa slike na sliku
-var indeks = 0;
-var indeksOpacity = 0;
-function showImg(){
-    var slideShow = document.getElementsByClassName("slideShow");
-        for(let i = 0; i < slideShow.length;i++){
-            slideShow[i].style.visibility = "hidden";
-            slideShow[i].classList.remove("fadeIn");
-            slideShow[i].classList.remove("fadeOut");
-        }
-        indeks++;
-        indeksOpacity++;
-        if (indeks > slideShow.length) {indeks = 1};
-        if(indeksOpacity > slideShow.length - 1){indeksOpacity = 0};
-        slideShow[indeks - 1].style.visibility="visible";
-        slideShow[indeks - 1].classList.add("fadeOut");
-        slideShow[indeksOpacity].style.visibility="visible";
-        slideShow[indeksOpacity].classList.add("fadeIn");
-        setTimeout(showImg, 15000);
-}
-
-
-
 
     //dohvatanje elemenata
     var fullName = document.getElementById("fullName");
@@ -805,7 +765,7 @@ function modal(){
     body.setAttribute("id", "body");
     body.classList.add("col-12", "p-2");
     let p = document.createElement("p");
-    p.innerHTML = `<span>${firstName[0]}</span>, you've successfully sent the request for the <span>${dataArray[2]} ${dataArray[3]}</span>, all other information has been sent to your mail.</br>
+    p.innerHTML = `Dear <span>${firstName[0]}</span>, you've successfully sent the request for the <span>${dataArray[2]} ${dataArray[3]}</span>, all other information has been sent to your mail.</br>
     <span>${dataArray[1]}</br></span> <span class="modalTotal"> TOTAL: <i class="fas fa-dollar-sign"></i> ${dataArray[4]}</span>`;
     let footer = document.createElement("div");
     footer.setAttribute("id", "footer");
@@ -1033,7 +993,22 @@ function autor(){
                 scrollTop: $(".back").offset().top}, 0)
             })
     })
-
+    //za fadeOut efekat owl-carousel
+    $("#fadeOwl").owlCarousel({
+        animateOut: "fadeOut",
+        autoplayTimeout: 10000,
+        nav:false,
+        loop: true,
+        touchDrag: false,
+        dots:false,
+        autoplay: true,
+        mouseDrag: false,
+        responsive:{
+        0:{
+            items:1
+        }
+    }
+    });
     // prikazi prvog, a ostale sakrij
     $('#tabs-nav li:first-child').addClass('active');
     $('.tab-content').hide();

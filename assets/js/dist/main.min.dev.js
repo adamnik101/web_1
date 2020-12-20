@@ -1,10 +1,8 @@
 "use strict";
 
 window.addEventListener("DOMContentLoaded", function () {
-  navigacija1(), info1(), owlCarouselContent(), ispisCarContent(), crossfade(), ddl(), testimonials(), sideNav(), about(), typeClick();
-}), window.onload = function () {
-  showImg();
-}, window.onscroll = function () {
+  navigacija1(), info1(), owlCarouselContent(), ispisCarContent(), ddl(), testimonials(), sideNav(), about(), typeClick();
+}), window.onscroll = function () {
   scrollUp1();
 };
 
@@ -230,31 +228,6 @@ function typeClick() {
   }
 }
 
-function crossfade() {
-  var a = ["assets/img/form1.jpg", "assets/img/form3.jpg", "assets/img/form4.jpg"],
-      b = document.getElementById("absolute");
-
-  for (indeks in a) {
-    var c = document.createElement("img");
-    c.setAttribute("src", a[indeks]), c.className = "slideShow fadeIn fadeOut", c.alt = "car", b.appendChild(c);
-  }
-}
-
-var indeks = 0,
-    indeksOpacity = 0;
-
-function showImg() {
-  var a = document.getElementsByClassName("slideShow");
-
-  for (var b = 0; b < a.length; b++) {
-    a[b].style.visibility = "hidden", a[b].classList.remove("fadeIn"), a[b].classList.remove("fadeOut");
-  }
-
-  indeks++, indeksOpacity++, indeks > a.length && (indeks = 1);
-  indeksOpacity > a.length - 1 && (indeksOpacity = 0);
-  a[indeks - 1].style.visibility = "visible", a[indeks - 1].classList.add("fadeOut"), a[indeksOpacity].style.visibility = "visible", a[indeksOpacity].classList.add("fadeIn"), setTimeout(showImg, 15e3);
-}
-
 var fullName = document.getElementById("fullName"),
     mail = document.getElementById("mail"),
     payment = document.getElementsByName("payment"),
@@ -450,7 +423,7 @@ function modal() {
   var f = document.createElement("div");
   f.setAttribute("id", "body"), f.classList.add("col-12", "p-2");
   var g = document.createElement("p");
-  g.innerHTML = "<span>".concat(a[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n<span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
+  g.innerHTML = "Dear <span>".concat(a[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n<span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
   var h = document.createElement("div");
   h.setAttribute("id", "footer"), h.classList.add("col-12", "text-right");
   var i = document.createElement("button");
@@ -575,6 +548,20 @@ $(document).ready(function () {
         scrollTop: $(".back").offset().top
       }, 0);
     });
+  }), $("#fadeOwl").owlCarousel({
+    animateOut: "fadeOut",
+    autoplayTimeout: 1e4,
+    nav: !1,
+    loop: !0,
+    touchDrag: !1,
+    dots: !1,
+    autoplay: !0,
+    mouseDrag: !1,
+    responsive: {
+      0: {
+        items: 1
+      }
+    }
   }), $("#tabs-nav li:first-child").addClass("active"), $(".tab-content").hide(), $(".tab-content:first").show(), $("#tabs-nav li").click(function () {
     $("#tabs-nav li").removeClass("active"), $(this).addClass("active"), $(".tab-content").hide();
     var a = $(this).find("a").attr("href");
