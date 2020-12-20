@@ -196,7 +196,7 @@ var carContent = [
     ["assets/img/sports_civic1.jpg", "Honda Civic Type R", 120, "350hp"],
     ["assets/img/sports_supra1.jpg", "Toyota Supra", 300, "382hp"],
     ["assets/img/sports_subaru1.jpg","Subaru Impreza STi", 130, "340hp"],
-    ["assets/img/muscle_chevy1.jpg","Chevrolet ZL1", 180, "650hp"],
+    ["assets/img/muscle_chevy.jpg","Chevrolet ZL1", 180, "650hp"],
     ["assets/img/muscle_demon1.jpg","Dodge Challenger", 200, "700hp"],
     ["assets/img/sports_benz1.jpg","Mercedes 450 CLS", 160,"375hp"],
     ["assets/img/sports_evo.jpg","Subaru WRX",130, "360hp"],
