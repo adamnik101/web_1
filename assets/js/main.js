@@ -250,20 +250,10 @@ function upisVrednosti(){
                   if(seeMore[i].value == carContent[random[i]][1]){
                     
                     modal.innerHTML = `<div class="row relative"> <div class="col-12 p-0"> <div id="header1"> <div class="col-12 p-3 d-flex justify-content-between"> <h2>CAR <span>ZONE</span></h2> <button type="button" id="closeSeeMore"><i class="fas fa-times-circle"></i></button> </div></div><div id="body1"> <div class="col-12 p-0"><button type="button" id="levo"><i class="fas fa-angle-left"></i></i></button><button type="button" id="desno"><i class="fas fa-angle-right"></i></button> <div class="owl-carousel another-owl"> <img src="${carContent[random[i]][0]}" class="img-fluid" alt="car"> <img src="${noveSlike[random[i]]}" class="img-fluid" alt="car"></div> </div><div class="col-12 p-2"> <h3 class="text-center">${carContent[random[i]][1]}</h3> <hr class="m-0"> <div class="row m-0 p-0"> <div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Chilled AC </li><li> <i class="fas fa-check"></i> Heated seats </li><li> <i class="fas fa-check"></i> Audio input </li><li> <i class="fas fa-check"></i> Bluetooth </li></ul> </div><div class="col-6 p-0"> <ul class="d-flex flex-column text-left p-2"> <li> <i class="fas fa-check"></i> Manual </li><li> <i class="fas fa-check"></i> Unlimited mileage </li><li> <i class="fas fa-tachometer-alt"></i> ${carContent[random[i]][3]} </li></ul> </div></div></div><div class="row m-0"> <div class="col-12 font-weight-bold euro"> <i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}<span>/ per day</span> </div></div></div><div id="footer1" class="text-right"> <button type="button" class="request">Request now!</button> </div></div></div>`
-                    modal.style.visibility = "visible";
-                    modal.style.opacity = "1"; 
                   }
-            
-            let closeSeeMore = document.getElementById("closeSeeMore");
-
-                closeSeeMore.addEventListener("click", function(){
-                        modal.style.visibility = "hidden";
-                        modal.style.opacity = "0";})
                     // za promenu dropdown liste u formi na osnovu selektovanog automobila preko modala
                         for(let j = 0; j < request.length; j++){
                             request[j].addEventListener("click", function(){
-                                modal.style.visibility = "hidden";
-                                modal.style.opacity = "0"; 
                             for(let t = 1; t < typeNew.options.length; t++){    
                                 if(typeNew.options[t].value == carTypeName[i][0]){
                                     typeNew.selectedIndex = t;
@@ -968,7 +958,29 @@ function autor(){
     $("#btnLevo").click(function(){
         $owl.trigger("prev.owl.carousel");
     })
+    $("#seeMoreModal").addClass("hide");
     $(document).on("click", ".seeMore", function(){
+        $("#seeMoreModal").fadeIn("slow");
+        $("#seeMoreModal").addClass("block");
+        $("#seeMoreModal").removeClass("hide");
+        
+        $("#closeSeeMore").on("click", function(){
+            $("#seeMoreModal").fadeOut("slow", function(){
+                $("#seeMoreModal").addClass("hide");
+                $("#seeMoreModal").removeClass("block");
+            });
+        }
+        )
+
+        $(".request").on("click", function(){
+            $("html,body").animate({
+                scrollTop: $(".back").offset().top}, 0)
+                $("#seeMoreModal").fadeOut("slow", function(){
+                    $("#seeMoreModal").addClass("hide");
+                    $("#seeMoreModal").removeClass("block");
+                });
+            })
+
         $(".another-owl").owlCarousel({
             responsiveClass:true,
             loop: true,
@@ -988,10 +1000,7 @@ function autor(){
         $("#levo").click(function(){
             $owl1.trigger("prev.owl.carousel");
         })
-        $(".request").click(function(){
-            $("html,body").animate({
-                scrollTop: $(".back").offset().top}, 0)
-            })
+        
     })
     //za fadeOut efekat owl-carousel
     $("#fadeOwl").owlCarousel({

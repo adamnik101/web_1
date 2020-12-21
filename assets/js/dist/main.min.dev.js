@@ -154,16 +154,10 @@ function upisVrednosti() {
 
   var _loop = function _loop(g) {
     b[g].addEventListener("click", function () {
-      b[g].value == carContent[random[g]][1] && (c.innerHTML = "<div class=\"row relative\"> <div class=\"col-12 p-0\"> <div id=\"header1\"> <div class=\"col-12 p-3 d-flex justify-content-between\"> <h2>CAR <span>ZONE</span></h2> <button type=\"button\" id=\"closeSeeMore\"><i class=\"fas fa-times-circle\"></i></button> </div></div><div id=\"body1\"> <div class=\"col-12 p-0\"><button type=\"button\" id=\"levo\"><i class=\"fas fa-angle-left\"></i></i></button><button type=\"button\" id=\"desno\"><i class=\"fas fa-angle-right\"></i></button> <div class=\"owl-carousel another-owl\"> <img src=\"".concat(carContent[random[g]][0], "\" class=\"img-fluid\" alt=\"car\"> <img src=\"").concat(a[random[g]], "\" class=\"img-fluid\" alt=\"car\"></div> </div><div class=\"col-12 p-2\"> <h3 class=\"text-center\">").concat(carContent[random[g]][1], "</h3> <hr class=\"m-0\"> <div class=\"row m-0 p-0\"> <div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Chilled AC </li><li> <i class=\"fas fa-check\"></i> Heated seats </li><li> <i class=\"fas fa-check\"></i> Audio input </li><li> <i class=\"fas fa-check\"></i> Bluetooth </li></ul> </div><div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Manual </li><li> <i class=\"fas fa-check\"></i> Unlimited mileage </li><li> <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[g]][3], " </li></ul> </div></div></div><div class=\"row m-0\"> <div class=\"col-12 font-weight-bold euro\"> <i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[g]][2], "<span>/ per day</span> </div></div></div><div id=\"footer1\" class=\"text-right\"> <button type=\"button\" class=\"request\">Request now!</button> </div></div></div>"), c.style.visibility = "visible", c.style.opacity = "1");
-      var h = document.getElementById("closeSeeMore");
-      h.addEventListener("click", function () {
-        c.style.visibility = "hidden", c.style.opacity = "0";
-      });
+      b[g].value == carContent[random[g]][1] && (c.innerHTML = "<div class=\"row relative\"> <div class=\"col-12 p-0\"> <div id=\"header1\"> <div class=\"col-12 p-3 d-flex justify-content-between\"> <h2>CAR <span>ZONE</span></h2> <button type=\"button\" id=\"closeSeeMore\"><i class=\"fas fa-times-circle\"></i></button> </div></div><div id=\"body1\"> <div class=\"col-12 p-0\"><button type=\"button\" id=\"levo\"><i class=\"fas fa-angle-left\"></i></i></button><button type=\"button\" id=\"desno\"><i class=\"fas fa-angle-right\"></i></button> <div class=\"owl-carousel another-owl\"> <img src=\"".concat(carContent[random[g]][0], "\" class=\"img-fluid\" alt=\"car\"> <img src=\"").concat(a[random[g]], "\" class=\"img-fluid\" alt=\"car\"></div> </div><div class=\"col-12 p-2\"> <h3 class=\"text-center\">").concat(carContent[random[g]][1], "</h3> <hr class=\"m-0\"> <div class=\"row m-0 p-0\"> <div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Chilled AC </li><li> <i class=\"fas fa-check\"></i> Heated seats </li><li> <i class=\"fas fa-check\"></i> Audio input </li><li> <i class=\"fas fa-check\"></i> Bluetooth </li></ul> </div><div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Manual </li><li> <i class=\"fas fa-check\"></i> Unlimited mileage </li><li> <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[g]][3], " </li></ul> </div></div></div><div class=\"row m-0\"> <div class=\"col-12 font-weight-bold euro\"> <i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[g]][2], "<span>/ per day</span> </div></div></div><div id=\"footer1\" class=\"text-right\"> <button type=\"button\" class=\"request\">Request now!</button> </div></div></div>"));
 
       for (var _a6 = 0; _a6 < d.length; _a6++) {
         d[_a6].addEventListener("click", function () {
-          c.style.visibility = "hidden", c.style.opacity = "0";
-
           for (var _a7 = 1; _a7 < e.options.length; _a7++) {
             e.options[_a7].value == carTypeName[g][0] && (e.selectedIndex = _a7, e.onchange(), 1 < f.options.length && (f.options[f.selectedIndex].text.includes(carTypeName[g][1]) ? f.selectedIndex = 0 : f.selectedIndex = 1));
           }
@@ -525,8 +519,18 @@ $(document).ready(function () {
     a.trigger("next.owl.carousel");
   }), $("#btnLevo").click(function () {
     a.trigger("prev.owl.carousel");
-  }), $(document).on("click", ".seeMore", function () {
-    $(".another-owl").owlCarousel({
+  }), $("#seeMoreModal").addClass("hide"), $(document).on("click", ".seeMore", function () {
+    $("#seeMoreModal").fadeIn("slow"), $("#seeMoreModal").addClass("block"), $("#seeMoreModal").removeClass("hide"), $("#closeSeeMore").on("click", function () {
+      $("#seeMoreModal").fadeOut("slow", function () {
+        $("#seeMoreModal").addClass("hide"), $("#seeMoreModal").removeClass("block");
+      });
+    }), $(".request").on("click", function () {
+      $("html,body").animate({
+        scrollTop: $(".back").offset().top
+      }, 0), $("#seeMoreModal").fadeOut("slow", function () {
+        $("#seeMoreModal").addClass("hide"), $("#seeMoreModal").removeClass("block");
+      });
+    }), $(".another-owl").owlCarousel({
       responsiveClass: !0,
       loop: !0,
       nav: !1,
@@ -543,10 +547,6 @@ $(document).ready(function () {
       a.trigger("next.owl.carousel");
     }), $("#levo").click(function () {
       a.trigger("prev.owl.carousel");
-    }), $(".request").click(function () {
-      $("html,body").animate({
-        scrollTop: $(".back").offset().top
-      }, 0);
     });
   }), $("#fadeOwl").owlCarousel({
     animateOut: "fadeOut",
