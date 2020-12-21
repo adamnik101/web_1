@@ -849,12 +849,15 @@ $(document).ready(function () {
     return false;
   }); //animacija artikala sa automobilima koji se prikazuju sa animacijom jedan nakon drugog
 
+  var i = 0;
+  var delay = 0;
   $("#loadMore").click(function () {
-    $(".slide").each(function (i) {
-      $(this).delay(450 * i).animate({
+    delay = 0;
+    $(".slide").each(function () {
+      $(".slide").eq(i).delay(450 * delay++).animate({
         top: "0",
         opacity: "1"
-      });
+      }), i++;
     });
   }); //plugin za carousel aka owl-carousel
 

@@ -485,12 +485,15 @@ $(document).ready(function () {
     return $("html, body").animate({
       scrollTop: 0
     }, 0), !1;
-  }), $("#loadMore").click(function () {
-    $(".slide").each(function (a) {
-      $(this).delay(450 * a).animate({
+  });
+  var a = 0,
+      b = 0;
+  $("#loadMore").click(function () {
+    b = 0, $(".slide").each(function () {
+      $(".slide").eq(a).delay(450 * b++).animate({
         top: "0",
         opacity: "1"
-      });
+      }), a++;
     });
   }), $(".first-owl").owlCarousel({
     responsiveClass: !0,
@@ -514,11 +517,11 @@ $(document).ready(function () {
       }
     }
   });
-  var a = $(".first-owl");
+  var c = $(".first-owl");
   $("#btnDesno").click(function () {
-    a.trigger("next.owl.carousel");
+    c.trigger("next.owl.carousel");
   }), $("#btnLevo").click(function () {
-    a.trigger("prev.owl.carousel");
+    c.trigger("prev.owl.carousel");
   }), $("#seeMoreModal").addClass("hide"), $(document).on("click", ".seeMore", function () {
     $("#seeMoreModal").fadeIn("fast"), $("#seeMoreModal").addClass("block"), $("#seeMoreModal").removeClass("hide"), $("#closeSeeMore").on("click", function () {
       $("#seeMoreModal").fadeOut("fast", function () {
