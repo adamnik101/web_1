@@ -890,11 +890,11 @@ $(document).ready(function () {
   });
   $("#seeMoreModal").addClass("hide");
   $(document).on("click", ".seeMore", function () {
-    $("#seeMoreModal").fadeIn("slow");
+    $("#seeMoreModal").fadeIn("fast");
     $("#seeMoreModal").addClass("block");
     $("#seeMoreModal").removeClass("hide");
     $("#closeSeeMore").on("click", function () {
-      $("#seeMoreModal").fadeOut("slow", function () {
+      $("#seeMoreModal").fadeOut("fast", function () {
         $("#seeMoreModal").addClass("hide");
         $("#seeMoreModal").removeClass("block");
       });
@@ -903,7 +903,7 @@ $(document).ready(function () {
       $("html,body").animate({
         scrollTop: $(".back").offset().top
       }, 0);
-      $("#seeMoreModal").fadeOut("slow", function () {
+      $("#seeMoreModal").fadeOut("fast", function () {
         $("#seeMoreModal").addClass("hide");
         $("#seeMoreModal").removeClass("block");
       });

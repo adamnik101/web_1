@@ -520,14 +520,14 @@ $(document).ready(function () {
   }), $("#btnLevo").click(function () {
     a.trigger("prev.owl.carousel");
   }), $("#seeMoreModal").addClass("hide"), $(document).on("click", ".seeMore", function () {
-    $("#seeMoreModal").fadeIn("slow"), $("#seeMoreModal").addClass("block"), $("#seeMoreModal").removeClass("hide"), $("#closeSeeMore").on("click", function () {
-      $("#seeMoreModal").fadeOut("slow", function () {
+    $("#seeMoreModal").fadeIn("fast"), $("#seeMoreModal").addClass("block"), $("#seeMoreModal").removeClass("hide"), $("#closeSeeMore").on("click", function () {
+      $("#seeMoreModal").fadeOut("fast", function () {
         $("#seeMoreModal").addClass("hide"), $("#seeMoreModal").removeClass("block");
       });
     }), $(".request").on("click", function () {
       $("html,body").animate({
         scrollTop: $(".back").offset().top
-      }, 0), $("#seeMoreModal").fadeOut("slow", function () {
+      }, 0), $("#seeMoreModal").fadeOut("fast", function () {
         $("#seeMoreModal").addClass("hide"), $("#seeMoreModal").removeClass("block");
       });
     }), $(".another-owl").owlCarousel({
