@@ -547,6 +547,8 @@ var proveraDrop = function(){
         drop.classList.remove("correct")
         pick.classList.add("greska");
         pick.classList.remove("correct")
+        dropError.innerHTML = "";
+        pickError.innerHTML = "";
         return false;
     }
     else if(to < from){ 

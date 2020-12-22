@@ -501,6 +501,8 @@ var proveraDrop = function proveraDrop() {
     drop.classList.remove("correct");
     pick.classList.add("greska");
     pick.classList.remove("correct");
+    dropError.innerHTML = "";
+    pickError.innerHTML = "";
     return false;
   } else if (to < from) {
     allError.innerHTML = "Drop off date can't be before pick up date!";
