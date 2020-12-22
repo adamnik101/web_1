@@ -27,22 +27,14 @@
     <div class="container-fluid" id="canvas">
         <button id="btnTop"><i class="fas fa-angle-up"></i></button>
         <div class="row pt-1 pb-1 border-bottom">
-            <div class="col-6 d-flex justify-content-center p-0">
+            <div class="col-12 d-flex justify-content-around p-0">
                 <span class="font-weight-bold">
                     <i class="fas fa-map-marked-alt"></i> 71 Dr.Chino, CA 91710
                 </span>
-            </div>
-            <div class="col-6 d-flex justify-content-center p-0">
-                <a href="https://www.facebook.com" target="_blank" class="mr-3 p-1">
-                    <i class="fab fa-facebook align-middle"></i>
-                </a>
-                <a href="https://www.twitter.com" target="_blank" class="mr-3 p-1">
-                    <i class="fab fa-twitter align-middle"></i>
-                </a>
-                <a href="https://www.linkedin.com" target="_blank" class="p-1">
-                    <i class="fab fa-linkedin align-middle"></i>
-                </a>
-            </div>
+                <span class="font-weight-bold">
+                    <i class="fas fa-phone"></i> +1-202-555-0192
+                </span>
+        </div>
         </div>
         <div class="row pt-2 d-flex justify-content-between" id="fixed">
             <div class="col-10 col-md-5 d-flex justify-content-center logo pl-md-5">
@@ -55,9 +47,15 @@
             <div class="col-12 col-md-7 d-none d-lg-block p-0" id="navigacija">
             </div>
             <div id="openSide" class="d-block d-lg-none">
-                <button id="closeSide" class="float-right">
-                    <i class="fas fa-times"></i>
-                </button>
+                <div class="d-flex align-items-center justify-content-around naslovBtn">
+                    <h2 id="naslov">CAR <span>ZONE</span></h2>
+                    <button id="closeSide">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="copy">
+                    <p class="m-0 text-center">Made by <a href="https://adamnik101.github.io/adamportfolio/">Adam Nikolić <span>101/19</span></a> with <span><i class="fas fa-heart"></i></span> </p>
+                </div>
             </div>
             <div class="col-2 d-block d-lg-none p-0">
                 <button id="clickSide">

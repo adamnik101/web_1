@@ -63,6 +63,8 @@ var info1 = function info1() {
   document.getElementsByClassName("naslovContent")[0].innerHTML += "\n        <div class=\"col-12 col-sm-12 col-lg-4 text-center\">\n                        <div class=\"col-12 sectionContent p-2 mb-3\">\n                            <i class=\"".concat(content[2][2], "\"></i>\n                        <h5>").concat(content[2][0], "</h5>\n                        <p>").concat(content[2][1], "</p>\n                        </div>\n                    </div>");
 };
 
+var naslov = document.getElementById("naslov");
+
 function sideNav() {
   var sideNav = document.getElementById("openSide");
   var nav = document.createElement("nav");
@@ -74,8 +76,6 @@ function sideNav() {
 
   for (indeks in navigacija) {
     var sideLi = document.createElement("li");
-    var hr = document.createElement("hr");
-    hr.after(sideLi);
     sideLi.classList.add("slideIn");
     sideUl.appendChild(sideLi);
     var sideA = document.createElement("a");
@@ -842,7 +842,14 @@ $(document).ready(function () {
         left: "0",
         opacity: "1"
       }, 700);
-    });
+    }); // da se tekstovi ne bi raspadali prilikom smanjivanja side navigacije
+
+    $("#naslov").delay(500).animate({
+      opacity: "1"
+    }, 200);
+    $("#copy").delay(500).animate({
+      opacity: "1"
+    }, 200);
     $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)"); // box shadow za efekat van side navigacije
   });
   $("#closeSide").click(function () {
@@ -852,6 +859,8 @@ $(document).ready(function () {
         left: "-250px"
       }).finish(); // finish() da bi se zaustavilo beskonacno ponavljanje animacije ukoliko se brze otvara i zatvara side navigacija
     });
+    $("#naslov").css("opacity", "0");
+    $("#copy").css("opacity", "0");
     $("#openSide").css("box-shadow", "none");
   }); //tooltip inicijalizacija bootstrap
 

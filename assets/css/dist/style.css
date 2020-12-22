@@ -10,6 +10,10 @@
   scroll-behavior: smooth;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .preloader {
   position: fixed;
   top: 0;
@@ -211,22 +215,19 @@ h2 span {
   transition: 0.5s;
   bottom: 40px;
 }
-#canvas #navigacija ul {
-  list-style-type: none;
-}
-#canvas #navigacija ul li {
+#canvas #navigacija li {
   padding: 5px;
   margin-right: 10px;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
 }
-#canvas #navigacija ul li a {
+#canvas #navigacija li a {
   color: #242424;
   transition: 0.3s;
   border-bottom: 3px solid transparent;
 }
-#canvas #navigacija ul li a:hover {
+#canvas #navigacija li a:hover {
   color: #d3002a;
   border-bottom: 3px solid #d3002a;
 }
@@ -250,6 +251,7 @@ h2 span {
 }
 #canvas #clickSide i {
   font-size: 30px;
+  transition: 0.5s;
 }
 #canvas #clickSide i:hover {
   color: #181818;
@@ -261,26 +263,65 @@ h2 span {
   z-index: 999;
   top: 0;
   left: 0;
-  background-color: #242424;
+  background-color: #dadada;
   overflow-x: hidden;
   transition: 0.5s;
 }
-#canvas #openSide button {
-  border: none;
-  outline: none;
-  margin-right: 30px;
-  margin-top: 20px;
-  background-color: transparent;
+#canvas #openSide .naslovBtn {
+  height: 80px;
+  background-color: #242424;
+  border-bottom: 5px solid #d3002a;
 }
-#canvas #openSide button i {
-  font-size: 40px;
-  color: #414141;
+#canvas #openSide .naslovBtn #naslov {
+  color: #dadada;
+  font-weight: bold;
+  opacity: 0;
 }
-#canvas #openSide button i:hover {
+#canvas #openSide .naslovBtn #naslov span {
   color: #d3002a;
 }
+#canvas #openSide .naslovBtn button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+#canvas #openSide .naslovBtn button i {
+  font-size: 40px;
+  color: #414141;
+  transition: 0.5s;
+}
+#canvas #openSide .naslovBtn button i:hover {
+  color: #d3002a;
+}
+#canvas #openSide #copy {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  padding: 10px;
+  opacity: 0;
+  color: #242424;
+  font-weight: bold;
+}
+#canvas #openSide #copy a {
+  color: #242424;
+  transition: 0.5s;
+}
+#canvas #openSide #copy a span {
+  color: #d3002a;
+  transition: 0.5s;
+}
+#canvas #openSide #copy a:hover {
+  color: #d3002a;
+}
+#canvas #openSide #copy a:hover span {
+  color: #242424;
+}
+#canvas #openSide #copy span {
+  color: #d3002a;
+  transition: 0.5s;
+}
 #canvas #openSide nav ul {
-  margin-top: 100px;
+  margin-top: 30px;
 }
 #canvas #openSide nav ul .slideIn {
   position: relative;
@@ -292,7 +333,7 @@ h2 span {
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
-  color: #818181;
+  color: #242424;
   display: block;
   transition: 0.3s;
   border-right: 5px solid transparent;

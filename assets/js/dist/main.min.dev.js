@@ -40,7 +40,8 @@ var info1 = function info1() {
   }
 
   document.getElementsByClassName("naslovContent")[0].innerHTML += "\n<div class=\"col-12 col-sm-12 col-lg-4 text-center\">\n<div class=\"col-12 sectionContent p-2 mb-3\">\n<i class=\"".concat(b[2][2], "\"></i>\n<h5>").concat(b[2][0], "</h5>\n<p>").concat(b[2][1], "</p>\n</div>\n</div>");
-};
+},
+    naslov = document.getElementById("naslov");
 
 function sideNav() {
   var a = document.getElementById("openSide"),
@@ -51,10 +52,9 @@ function sideNav() {
   var d = document.createElement("ul");
 
   for (indeks in b.appendChild(d), navigacija) {
-    var _a3 = document.createElement("li"),
-        _b2 = document.createElement("hr");
+    var _a3 = document.createElement("li");
 
-    _b2.after(_a3), _a3.classList.add("slideIn"), d.appendChild(_a3);
+    _a3.classList.add("slideIn"), d.appendChild(_a3);
     var e = document.createElement("a");
     _a3.appendChild(e), e.setAttribute("href", "".concat(navigacijaLinkovi[indeks])), e.innerHTML = "".concat(navigacija[indeks][0] + " " + navigacija[indeks][1]);
   }
@@ -177,16 +177,16 @@ function ispisCarContent() {
   generate();
   var a = document.getElementById("showCars");
 
-  for (var _b3 = 0; _b3 < carContent.length - 6; _b3++) {
-    a.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\">\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[_b3]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_b3]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[_b3]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_b3]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_b3]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_b3]][1], "\">See more</button>\n</div>\n</div>"), carTypeName.push(carContent[random[_b3]][1].split(" "));
+  for (var _b2 = 0; _b2 < carContent.length - 6; _b2++) {
+    a.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\">\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[_b2]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_b2]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[_b2]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_b2]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_b2]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_b2]][1], "\">See more</button>\n</div>\n</div>"), carTypeName.push(carContent[random[_b2]][1].split(" "));
   }
 
   upisVrednosti();
   var b = 0;
   document.getElementById("loadMore").addEventListener("click", function () {
     if (1 == b && (document.getElementById("loadMore").style.display = "none"), 0 == b) {
-      for (var _a8, _b4 = 6; _b4 < carContent.length - 3; _b4++) {
-        _a8 = document.createElement("div"), _a8.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale"), document.getElementById("showCars").appendChild(_a8), _a8.innerHTML += "\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[_b4]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_b4]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[_b4]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_b4]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_b4]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_b4]][1], "\">See more</button>\n</div>"), carTypeName.push(carContent[random[_b4]][1].split(" "));
+      for (var _a8, _b3 = 6; _b3 < carContent.length - 3; _b3++) {
+        _a8 = document.createElement("div"), _a8.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale"), document.getElementById("showCars").appendChild(_a8), _a8.innerHTML += "\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[_b3]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_b3]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[_b3]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_b3]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_b3]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_b3]][1], "\">See more</button>\n</div>"), carTypeName.push(carContent[random[_b3]][1].split(" "));
       }
 
       upisVrednosti();
@@ -452,13 +452,17 @@ $(document).ready(function () {
         left: "0",
         opacity: "1"
       }, 700);
-    }), $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
+    }), $("#naslov").delay(500).animate({
+      opacity: "1"
+    }, 200), $("#copy").delay(500).animate({
+      opacity: "1"
+    }, 200), $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
   }), $("#closeSide").click(function () {
     $(".slideIn").each(function () {
       $(this).animate({
         left: "-250px"
       }).finish();
-    }), $("#openSide").css("box-shadow", "none");
+    }), $("#naslov").css("opacity", "0"), $("#copy").css("opacity", "0"), $("#openSide").css("box-shadow", "none");
   }), $("body").tooltip({
     selector: ".fa-info-circle"
   }), $(".canvasTekst").animate({
