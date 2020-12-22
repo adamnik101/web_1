@@ -927,8 +927,7 @@ $(document).ready(function () {
     dotsEach: true,
     responsive: {
       0: {
-        items: 1,
-        autoplay: false
+        items: 1
       },
       850: {
         items: 2

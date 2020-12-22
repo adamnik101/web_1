@@ -272,12 +272,12 @@ h2 span {
   background-color: #242424;
   border-bottom: 5px solid #d3002a;
 }
-#canvas #openSide .naslovBtn #naslovSlide {
+#canvas #openSide .naslovBtn #naslovSide {
   color: #dadada;
   font-weight: bold;
   opacity: 0;
 }
-#canvas #openSide .naslovBtn #naslovSlide span {
+#canvas #openSide .naslovBtn #naslovSide span {
   color: #d3002a;
 }
 #canvas #openSide .naslovBtn button {
