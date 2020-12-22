@@ -87,7 +87,9 @@ function ddl() {
       b = document.createElement("option");
   b.setAttribute("value", "0");
   var c = document.createTextNode("Choose a model");
-  b.appendChild(c), model.appendChild(b), document.getElementById("carType").onchange = function () {
+  b.appendChild(c), model.appendChild(b), model.disabled = true;
+
+  document.getElementById("carType").onchange = function () {
     model.disabled = "0" == this.value;
     var c = this.options[this.selectedIndex].value;
 
@@ -154,7 +156,7 @@ function upisVrednosti() {
 
   var _loop = function _loop(g) {
     b[g].addEventListener("click", function () {
-      b[g].value == carContent[random[g]][1] && (c.innerHTML = "<div class=\"row relative\"> <div class=\"col-12 p-0\"> <div id=\"header1\"> <div class=\"col-12 p-3 d-flex justify-content-between\"> <h2>CAR <span>ZONE</span></h2> <button type=\"button\" id=\"closeSeeMore\"><i class=\"fas fa-times-circle\"></i></button> </div></div><div id=\"body1\"> <div class=\"col-12 p-0\"><button type=\"button\" id=\"levo\"><i class=\"fas fa-angle-left\"></i></i></button><button type=\"button\" id=\"desno\"><i class=\"fas fa-angle-right\"></i></button> <div class=\"owl-carousel another-owl\"> <img src=\"".concat(carContent[random[g]][0], "\" class=\"img-fluid\" alt=\"car\"> <img src=\"").concat(a[random[g]], "\" class=\"img-fluid\" alt=\"car\"></div> </div><div class=\"col-12 p-2\"> <h3 class=\"text-center\">").concat(carContent[random[g]][1], "</h3> <hr class=\"m-0\"> <div class=\"row m-0 p-0\"> <div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Chilled AC </li><li> <i class=\"fas fa-check\"></i> Heated seats </li><li> <i class=\"fas fa-check\"></i> Audio input </li><li> <i class=\"fas fa-check\"></i> Bluetooth </li></ul> </div><div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Manual </li><li> <i class=\"fas fa-check\"></i> Unlimited mileage </li><li> <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[g]][3], " </li></ul> </div></div></div><div class=\"row m-0\"> <div class=\"col-12 font-weight-bold euro\"> <i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[g]][2], "<span>/ per day</span> </div></div></div><div id=\"footer1\" class=\"text-right\"> <button type=\"button\" class=\"request\">Request now!</button> </div></div></div>"));
+      b[g].value == carContent[random[g]][1] && (c.innerHTML = "<div class=\"row relative\"> <div class=\"col-12 p-0\"> <div id=\"header1\"> <div class=\"col-12 p-3 d-flex justify-content-between\"> <h2>CAR <span>ZONE</span></h2> <button type=\"button\" id=\"closeSeeMore\"><i class=\"fas fa-times-circle\"></i></button> </div></div><div id=\"body1\"> <div class=\"col-12 p-0\"><button type=\"button\" id=\"levo\"><i class=\"fas fa-angle-left\"></i></i></button><button type=\"button\" id=\"desno\"><i class=\"fas fa-angle-right\"></i></button><div class=\"owl-carousel another-owl\"> <img src=\"".concat(carContent[random[g]][0], "\" class=\"img-fluid\" alt=\"car\"> <img src=\"").concat(a[random[g]], "\" class=\"img-fluid\" alt=\"car\"></div> </div><div class=\"col-12 p-2\"> <h3 class=\"text-center\">").concat(carContent[random[g]][1], "</h3> <hr class=\"m-0\"> <div class=\"row m-0 p-0\"> <div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Chilled AC </li><li> <i class=\"fas fa-check\"></i> Heated seats </li><li> <i class=\"fas fa-check\"></i> Audio input </li><li> <i class=\"fas fa-check\"></i> Bluetooth </li></ul> </div><div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Manual </li><li> <i class=\"fas fa-check\"></i> Unlimited mileage </li><li> <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[g]][3], " </li></ul> </div></div></div><div class=\"row m-0\"> <div class=\"col-12 font-weight-bold euro\"> <i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[g]][2], "<span>/ per day</span> </div></div></div><div id=\"footer1\" class=\"text-right\"> <button type=\"button\" class=\"request\">Request now!</button> </div></div></div>"));
 
       for (var _a6 = 0; _a6 < d.length; _a6++) {
         d[_a6].addEventListener("click", function () {
@@ -272,35 +274,26 @@ var from,
     today,
     disabledDate = document.getElementById("drop");
 disabledDate.disabled = !0;
+var today1 = new Date(),
+    day = today1.getDate(),
+    month = today1.getMonth() + 1,
+    year = today1.getFullYear();
+10 > day && (day = "0" + day), 10 > month && (month = "0" + month), today1 = year + "-" + month + "-" + day, pick.setAttribute("min", today1);
 
-var konacanBroj,
-    konacanBool,
+var ukupanBrojDana,
+    daniMs = 864e5,
     proveraPick = function proveraPick() {
-  return (from = new Date(pick.value), to = new Date(drop.value), today = new Date(), from > today) ? (pickError.innerHTML = "", pick.classList.add("correct"), pick.classList.remove("greska"), disabledDate.disabled = !1, !0) : from < today ? (pickError.innerHTML = "Pick up date is before today's date!", pick.classList.add("greska"), pick.classList.remove("correct"), !1) : from > to ? (pickError.innerHTML = "Pick up date is after drop off date!", pick.classList.add("greska"), pick.classList.remove("correct"), !1) : null != from || null != to ? (pickError.innerHTML = "Please choose a date for rental", pick.classList.add("greska"), pick.classList.remove("correct"), !1) : void 0;
+  return from = new Date(pick.value), to = new Date(drop.value), today = new Date(), today.setHours(1, 0, 0), ukupanBrojDana = (to - from) / daniMs, isNaN(from) && isNaN(to) ? (pickError.innerHTML = "Please choose a pick up date!", pick.classList.add("greska"), pick.classList.remove("correct"), dropError.innerHTML = "", !1) : from.toString() == today.toString() ? (pickError.innerHTML = "We need at least one day from today to proccess your request!", pick.classList.add("greska"), pick.classList.remove("correct"), allError.innerHTML = "", !1) : from.toString() == to.toString() ? (allError.innerHTML = "You can't rent a car for the same day!", pick.classList.add("greska"), pick.classList.remove("correct"), drop.classList.add("greska"), drop.classList.remove("correct"), !1) : from > to ? (allError.innerHTML = "Pick up date can't be after drop off date!", pick.classList.add("greska"), pick.classList.remove("correct"), pickError.innerHTML = "", dropError.innerHTML = "", !1) : 30 < ukupanBrojDana ? (allError.innerHTML = "You can't rent a car for more than 30 days!", pickError.innerHTML = "", pick.classList.add("greska"), pick.classList.remove("correct"), drop.classList.add("greska"), drop.classList.remove("correct"), !1) : (allError.innerHTML = "", pickError.innerHTML = "", pick.classList.remove("greska"), pick.classList.add("correct"), disabledDate.disabled = !1, 30 >= ukupanBrojDana && from.toString() != today.toString() && (dropError.innerHTML = "", drop.classList.add("correct"), drop.classList.remove("greska")), !0);
 },
     proveraDrop = function proveraDrop() {
-  return (from = new Date(pick.value), to = new Date(drop.value), today = new Date(), from > today) ? (dropError.innerHTML = "", drop.classList.add("correct"), drop.classList.remove("greska"), !0) : from < today ? (dropError.innerHTML = "Pick up date is before today's date!", drop.classList.add("greska"), drop.classList.remove("correct"), !1) : from > to ? (dropError.innerHTML = "Pick up date is after drop off date!", drop.classList.add("greska"), drop.classList.remove("correct"), !1) : null != from || null != to ? (dropError.innerHTML = "Please choose a date for rental", drop.classList.add("greska"), drop.classList.remove("correct"), !1) : void 0;
+  return from = new Date(pick.value), to = new Date(drop.value), ukupanBrojDana = (to - from) / daniMs, isNaN(to) ? (dropError.innerHTML = "Please choose a drop off date!", drop.classList.add("greska"), drop.classList.remove("correct"), !1) : to.toString() == from.toString() ? (allError.innerHTML = "You can't rent a car for the same day!", drop.classList.add("greska"), drop.classList.remove("correct"), pick.classList.add("greska"), pick.classList.remove("correct"), !1) : to < from ? (allError.innerHTML = "Drop off date can't be before pick up date!", drop.classList.add("greska"), drop.classList.remove("correct"), dropError.innerHTML = "", pickError.innerHTML = "", !1) : 30 < ukupanBrojDana ? (allError.innerHTML = "You can't rent a car for more than 30 days!", drop.classList.add("greska"), drop.classList.remove("correct"), pick.classList.add("greska"), pick.classList.remove("correct"), dropError.innerHTML = "", !1) : (allError.innerHTML = "", dropError.innerHTML = "", drop.classList.remove("greska"), drop.classList.add("correct"), 30 >= ukupanBrojDana && from.toString() != today.toString() && (pickError.innerHTML = "", pick.classList.add("correct"), pick.classList.remove("greska")), !0);
 };
 
 pick.onchange = function () {
   proveraPick();
-  var a = proveraPick();
-  a && miliseconds();
 }, drop.onchange = function () {
   proveraDrop();
-  var a = proveraDrop();
-  a && miliseconds();
 };
-var konacniDani = 0;
-
-function miliseconds() {
-  konacanBool = !1;
-  var a = from.getTime(),
-      b = to.getTime(),
-      c = (b - a) / 86400000;
-  30 < c || 0 >= c ? (drop.classList.remove("correct"), drop.classList.add("greska"), dropError.innerHTML = "You can't rent a car for the same day or more than 30 days!") : konacniDani = c, to < from && (drop.classList.remove("correct"), drop.classList.add("greska"), dropError.innerHTML = "Drop off date is before pick up date!"), 30 >= c && 0 < c && (konacanBool = !0);
-}
-
 var cardMade = 0;
 
 payment[1].onclick = function () {
@@ -387,22 +380,23 @@ fullName.onchange = function () {
       d = proveraType(),
       e = proveraCashCard(),
       f = e["boolean"],
-      g = e.value;
+      g = e.value,
+      h = proveraPick(),
+      i = proveraDrop();
 
-  if (proveraPick(), g == payment[1].value) {
+  if (g == payment[1].value) {
     var _a11 = proveraExpDate(),
         _e = proveraCvv(),
         _g = proveraCardNumber();
 
-    _a11 && _e && _g && celokupnaProvera(b, c, d, f, konacanBool);
+    _a11 && _e && _g && celokupnaProvera(b, c, d, f, h, i);
   }
 
-  g == payment[0].value && celokupnaProvera(b, c, d, f, konacanBool);
+  g == payment[0].value && celokupnaProvera(b, c, d, f, h, i);
 };
 
-function celokupnaProvera(a, b, c, d, e) {
-  var f = 0;
-  a && b && c && d && e && 0 == dataArray.length && (dataArray.push(fullName.value), dataArray.push(mail.value), dataArray.push(type.options[type.options.selectedIndex].value), dataArray.push(model.options[model.options.selectedIndex].text), dataArray.push(konacniDani * izabranAuto), f++, modal());
+function celokupnaProvera(a, b, c, d, e, f) {
+  a && b && c && d && e && f && 0 == dataArray.length && (dataArray.push(fullName.value), dataArray.push(mail.value), dataArray.push(type.options[type.options.selectedIndex].value), dataArray.push(model.options[model.options.selectedIndex].text), dataArray.push(ukupanBrojDana * izabranAuto), modal());
 }
 
 function modal() {
@@ -460,7 +454,7 @@ $(document).ready(function () {
         left: "0",
         opacity: "1"
       }, 700);
-    }), $(".slideIn").hover(function () {}), $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
+    }), $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
   }), $("#closeSide").click(function () {
     $(".slideIn").each(function () {
       $(this).animate({

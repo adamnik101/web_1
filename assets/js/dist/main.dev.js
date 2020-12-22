@@ -99,7 +99,8 @@ var izabranAuto;
 var cena = [["Chevrolet", 180], ["Dodge", 200], ["BMW", 120], ["Subaru", 130], ["Mitsubishi", 110], ["Ford", 160], ["Honda", 120], ["Toyota", 300], ["Mercedes", 160]]; // dinamicko ispisivanje ddl
 
 function ddl() {
-  var carsAndModels = {};
+  var carsAndModels = {}; // za vrednosti za dve dropdown liste
+
   carsAndModels["Chevrolet"] = ["ZL1"];
   carsAndModels["Dodge"] = ["Challenger"];
   carsAndModels["BMW"] = ["420d Coupe", "X6m"];
@@ -113,7 +114,8 @@ function ddl() {
   firstOpt.setAttribute("value", "0");
   var sadrzaj = document.createTextNode("Choose a model");
   firstOpt.appendChild(sadrzaj);
-  model.appendChild(firstOpt); //za upisivanje vrednosti na osnovu prvog selecta u drugi
+  model.appendChild(firstOpt);
+  model.disabled = true; //za upisivanje vrednosti na osnovu prvog selecta u drugi
 
   document.getElementById("carType").onchange = function () {
     model.disabled = this.value == '0';
@@ -162,25 +164,24 @@ function ddl() {
   };
 
   ispisivanjeOpt();
-} // dinamicko i nasumicno ispisivanje automobila u featured sekciji
+} // dinamicko i nasumicno ispisivanje automobila
 
 
-var carContent = [["assets/img/sports_civic1.jpg", "Honda Civic Type R", 120, "350hp"], ["assets/img/sports_supra1.jpg", "Toyota Supra", 300, "382hp"], ["assets/img/sports_subaru1.jpg", "Subaru Impreza STi", 130, "340hp"], ["assets/img/muscle_chevy.jpg", "Chevrolet ZL1", 180, "650hp"], ["assets/img/muscle_demon1.jpg", "Dodge Challenger", 200, "700hp"], ["assets/img/sports_benz1.jpg", "Mercedes 450 CLS", 160, "375hp"], ["assets/img/sports_evo.jpg", "Subaru WRX", 130, "360hp"], ["assets/img/sports_bmw1.jpg", "BMW 420d Coupe", 120, "310hp"], ["assets/img/sports_mitsubishi1.jpg", "Mitsubishi EVO X", 110, "290hp"], ["assets/img/muscle_mustang1.jpg", "Ford Mustang", 160, "750hp"], ["assets/img/sports_bmw2.jpg", "BMW X6m", 120, "310hp"], ["assets/img/suv_ford1.jpg", "Ford F-150", 160, "280hp"]]; //niz u koji ubacujemo DISTINCT vrednosti do 12
-
-var random = []; // funkcija za random ispisivanje iz niza
+var carContent = [["assets/img/sports_civic1.jpg", "Honda Civic Type R", 120, "350hp"], ["assets/img/sports_supra1.jpg", "Toyota Supra", 300, "382hp"], ["assets/img/sports_subaru1.jpg", "Subaru Impreza STi", 130, "340hp"], ["assets/img/muscle_chevy.jpg", "Chevrolet ZL1", 180, "650hp"], ["assets/img/muscle_demon1.jpg", "Dodge Challenger", 200, "700hp"], ["assets/img/sports_benz1.jpg", "Mercedes 450 CLS", 160, "375hp"], ["assets/img/sports_evo.jpg", "Subaru WRX", 130, "360hp"], ["assets/img/sports_bmw1.jpg", "BMW 420d Coupe", 120, "310hp"], ["assets/img/sports_mitsubishi1.jpg", "Mitsubishi EVO X", 110, "290hp"], ["assets/img/muscle_mustang1.jpg", "Ford Mustang", 160, "750hp"], ["assets/img/sports_bmw2.jpg", "BMW X6m", 120, "310hp"], ["assets/img/suv_ford1.jpg", "Ford F-150", 160, "280hp"]];
+var random = [];
 
 function generate() {
-  //broj elemenata niza
+  // funkcija za random ispisivanje iz niza
   for (var i = 0; i < carContent.length; i++) {
     var trenutni = Math.floor(Math.random() * carContent.length);
 
     if (random.indexOf(trenutni) == -1) {
-      random.push(trenutni);
+      random.push(trenutni); //niz u koji ubacujemo DISTINCT vrednosti do 12
     } else i--;
   }
 }
 
-var value = []; //generisanje sadrzaja za svaki element owl-carousel-a
+var value = []; //nasumicno generisanje sadrzaja za svaki element owl-carousel-a
 
 function owlCarouselContent() {
   generate();
@@ -209,7 +210,7 @@ function upisVrednosti() {
   var _loop = function _loop(i) {
     seeMore[i].addEventListener("click", function () {
       if (seeMore[i].value == carContent[random[i]][1]) {
-        modal.innerHTML = "<div class=\"row relative\"> <div class=\"col-12 p-0\"> <div id=\"header1\"> <div class=\"col-12 p-3 d-flex justify-content-between\"> <h2>CAR <span>ZONE</span></h2> <button type=\"button\" id=\"closeSeeMore\"><i class=\"fas fa-times-circle\"></i></button> </div></div><div id=\"body1\"> <div class=\"col-12 p-0\"><button type=\"button\" id=\"levo\"><i class=\"fas fa-angle-left\"></i></i></button><button type=\"button\" id=\"desno\"><i class=\"fas fa-angle-right\"></i></button> <div class=\"owl-carousel another-owl\"> <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"car\"> <img src=\"").concat(noveSlike[random[i]], "\" class=\"img-fluid\" alt=\"car\"></div> </div><div class=\"col-12 p-2\"> <h3 class=\"text-center\">").concat(carContent[random[i]][1], "</h3> <hr class=\"m-0\"> <div class=\"row m-0 p-0\"> <div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Chilled AC </li><li> <i class=\"fas fa-check\"></i> Heated seats </li><li> <i class=\"fas fa-check\"></i> Audio input </li><li> <i class=\"fas fa-check\"></i> Bluetooth </li></ul> </div><div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Manual </li><li> <i class=\"fas fa-check\"></i> Unlimited mileage </li><li> <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], " </li></ul> </div></div></div><div class=\"row m-0\"> <div class=\"col-12 font-weight-bold euro\"> <i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[i]][2], "<span>/ per day</span> </div></div></div><div id=\"footer1\" class=\"text-right\"> <button type=\"button\" class=\"request\">Request now!</button> </div></div></div>");
+        modal.innerHTML = "<div class=\"row relative\"> <div class=\"col-12 p-0\"> <div id=\"header1\"> <div class=\"col-12 p-3 d-flex justify-content-between\"> <h2>CAR <span>ZONE</span></h2> <button type=\"button\" id=\"closeSeeMore\"><i class=\"fas fa-times-circle\"></i></button> </div></div><div id=\"body1\"> <div class=\"col-12 p-0\"><button type=\"button\" id=\"levo\"><i class=\"fas fa-angle-left\"></i></i></button><button type=\"button\" id=\"desno\"><i class=\"fas fa-angle-right\"></i></button><div class=\"owl-carousel another-owl\"> <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"car\"> <img src=\"").concat(noveSlike[random[i]], "\" class=\"img-fluid\" alt=\"car\"></div> </div><div class=\"col-12 p-2\"> <h3 class=\"text-center\">").concat(carContent[random[i]][1], "</h3> <hr class=\"m-0\"> <div class=\"row m-0 p-0\"> <div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Chilled AC </li><li> <i class=\"fas fa-check\"></i> Heated seats </li><li> <i class=\"fas fa-check\"></i> Audio input </li><li> <i class=\"fas fa-check\"></i> Bluetooth </li></ul> </div><div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Manual </li><li> <i class=\"fas fa-check\"></i> Unlimited mileage </li><li> <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], " </li></ul> </div></div></div><div class=\"row m-0\"> <div class=\"col-12 font-weight-bold euro\"> <i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[i]][2], "<span>/ per day</span> </div></div></div><div id=\"footer1\" class=\"text-right\"> <button type=\"button\" class=\"request\">Request now!</button> </div></div></div>");
       } // za promenu dropdown liste u formi na osnovu selektovanog automobila preko modala
 
 
@@ -282,7 +283,7 @@ function ispisCarContent() {
 
     click1++;
   });
-} //za upisivanje u dropdown iz sekcije best cars
+} //za upisivanje u dropdown listu iz sekcije best cars
 
 
 function typeClick() {
@@ -390,122 +391,159 @@ function proveraCashCard() {
   };
 }
 
-var from, to, today;
-var disabledDate = document.getElementById("drop");
-disabledDate.disabled = true;
+var from,
+    to,
+    today,
+    disabledDate = document.getElementById("drop");
+disabledDate.disabled = true; //postavljanje danasnjeg dana kao minimalnu vrednostu u pick up polje
+
+var today1 = new Date(),
+    day = today1.getDate(),
+    month = today1.getMonth() + 1,
+    year = today1.getFullYear();
+
+if (day < 10) {
+  day = '0' + day;
+}
+
+if (month < 10) {
+  month = '0' + month;
+}
+
+today1 = year + '-' + month + '-' + day;
+pick.setAttribute("min", today1);
+var ukupanBrojDana,
+    daniMs = 86400000; //broj milisekundi u jednom danu, potrebno za kasnije racunanje broja dana -- proveraPick() i proveraDrop()
 
 var proveraPick = function proveraPick() {
-  //provera da li je korisnik izabrao datum
+  //uzimanje vrednosti iz polja -- date
   from = new Date(pick.value);
-  to = new Date(drop.value);
-  today = new Date();
+  to = new Date(drop.value); //uzimanje vrednosti tekuceg dana
 
-  if (from > today) {
+  today = new Date(); //postavljanje broja sati trenutnog dana radi poredjenja sa drugim datumom
+
+  today.setHours(1, 0, 0);
+  ukupanBrojDana = (to - from) / daniMs; //provera da li je datum uopste izabran
+
+  if (isNaN(from) && isNaN(to)) {
+    pickError.innerHTML = "Please choose a pick up date!";
+    pick.classList.add("greska");
+    pick.classList.remove("correct");
+    dropError.innerHTML = "";
+    return false;
+  } else if (from.toString() == today.toString()) {
+    //provera da li se pocetni dan poklapa sa tekucim danom
+    pickError.innerHTML = "We need at least one day from today to proccess your request!";
+    pick.classList.add("greska");
+    pick.classList.remove("correct");
+    allError.innerHTML = "";
+    return false;
+  } else if (from.toString() == to.toString()) {
+    //provera da li se poklapaju dani
+    allError.innerHTML = "You can't rent a car for the same day!";
+    pick.classList.add("greska");
+    pick.classList.remove("correct");
+    drop.classList.add("greska");
+    drop.classList.remove("correct");
     pickError.innerHTML = "";
-    pick.classList.add("correct");
+    dropError.innerHTML = "";
+    return false;
+  } else if (from > to) {
+    allError.innerHTML = "Pick up date can't be after drop off date!";
+    pick.classList.add("greska");
+    pick.classList.remove("correct");
+    pickError.innerHTML = "";
+    dropError.innerHTML = "";
+    return false;
+  } else if (ukupanBrojDana > 30) {
+    allError.innerHTML = "You can't rent a car for more than 30 days!";
+    pickError.innerHTML = "";
+    pick.classList.add("greska");
+    pick.classList.remove("correct");
+    drop.classList.add("greska");
+    drop.classList.remove("correct");
+    return false;
+  } else {
+    //ako je sve ispunjeno
+    allError.innerHTML = "";
+    pickError.innerHTML = "";
     pick.classList.remove("greska");
+    pick.classList.add("correct");
     disabledDate.disabled = false;
-    return true;
-  } else if (from < today) {
-    pickError.innerHTML = "Pick up date is before today's date!";
-    pick.classList.add("greska");
-    pick.classList.remove("correct");
-    return false;
-  }
 
-  if (from > to) {
-    pickError.innerHTML = "Pick up date is after drop off date!";
-    pick.classList.add("greska");
-    pick.classList.remove("correct");
-    return false;
-  } else if (!(from == undefined && to == undefined)) {
-    pickError.innerHTML = "Please choose a date for rental";
-    pick.classList.add("greska");
-    pick.classList.remove("correct");
-    return false;
+    if (ukupanBrojDana <= 30 && !(from.toString() == today.toString())) {
+      // malo dublja provera za polje ranije
+      dropError.innerHTML = "";
+      drop.classList.add("correct");
+      drop.classList.remove("greska");
+    }
+
+    return true;
   }
 };
 
 var proveraDrop = function proveraDrop() {
-  //provera da li je korisnik izabrao datum ------drop off input type date
+  //uzimanje vrednosti iz polja -- date
   from = new Date(pick.value);
-  to = new Date(drop.value);
-  today = new Date();
+  to = new Date(drop.value); //brojanje ukupnog broja dana koliko korisnik zeli da rentuje automobil
 
-  if (from > today) {
+  ukupanBrojDana = (to - from) / daniMs; //provera da li je izabran drop off datum
+
+  if (isNaN(to)) {
+    dropError.innerHTML = "Please choose a drop off date!";
+    drop.classList.add("greska");
+    drop.classList.remove("correct");
+    return false;
+  } else if (to.toString() == from.toString()) {
+    //provera da li se poklapaju dani
+    allError.innerHTML = "You can't rent a car for the same day!";
+    drop.classList.add("greska");
+    drop.classList.remove("correct");
+    pick.classList.add("greska");
+    pick.classList.remove("correct");
+    return false;
+  } else if (to < from) {
+    allError.innerHTML = "Drop off date can't be before pick up date!";
+    drop.classList.add("greska");
+    drop.classList.remove("correct");
     dropError.innerHTML = "";
-    drop.classList.add("correct");
+    pickError.innerHTML = "";
+    return false;
+  } else if (ukupanBrojDana > 30) {
+    allError.innerHTML = "You can't rent a car for more than 30 days!";
+    drop.classList.add("greska");
+    drop.classList.remove("correct");
+    pick.classList.add("greska");
+    pick.classList.remove("correct");
+    dropError.innerHTML = "";
+    return false;
+  } else {
+    //ako je sve ispunjeno
+    allError.innerHTML = "";
+    dropError.innerHTML = "";
     drop.classList.remove("greska");
-    return true;
-  } else if (from < today) {
-    dropError.innerHTML = "Pick up date is before today's date!";
-    drop.classList.add("greska");
-    drop.classList.remove("correct");
-    return false;
-  }
+    drop.classList.add("correct");
 
-  if (from > to) {
-    dropError.innerHTML = "Pick up date is after drop off date!";
-    drop.classList.add("greska");
-    drop.classList.remove("correct");
-    return false;
-  } else if (!(from == undefined && to == undefined)) {
-    dropError.innerHTML = "Please choose a date for rental";
-    drop.classList.add("greska");
-    drop.classList.remove("correct");
-    return false;
+    if (ukupanBrojDana <= 30 && !(from.toString() == today.toString())) {
+      // malo dublja provera za polje ranije
+      pickError.innerHTML = "";
+      pick.classList.add("correct");
+      pick.classList.remove("greska");
+    }
+
+    return true;
   }
 };
 
-var konacanBroj;
-var konacanBool;
-
 pick.onchange = function () {
+  // za svako izlazenje iz polja da proveri vrednosti unete u odredjeno polje
   proveraPick();
-  var provera = proveraPick();
-
-  if (provera) {
-    miliseconds();
-  }
 };
 
 drop.onchange = function () {
+  // za svako izlazenje iz polja da proveri vrednosti unete u odredjeno polje
   proveraDrop();
-  var provera = proveraDrop();
-
-  if (provera) {
-    miliseconds();
-  }
 };
-
-var konacniDani = 0;
-
-function miliseconds() {
-  konacanBool = false; //dohvatanje milisekundi
-
-  var miliFrom = from.getTime();
-  var miliTo = to.getTime(); //konvertovanje milisekunde u dane
-
-  var days = (miliTo - miliFrom) / (24 * 60 * 60 * 10 * 10 * 10);
-
-  if (days > 30 || days <= 0) {
-    drop.classList.remove("correct");
-    drop.classList.add("greska");
-    dropError.innerHTML = "You can't rent a car for the same day or more than 30 days!";
-  } else {
-    konacniDani = days;
-  }
-
-  if (to < from) {
-    drop.classList.remove("correct");
-    drop.classList.add("greska");
-    dropError.innerHTML = "Drop off date is before pick up date!";
-  }
-
-  if (days <= 30 && days > 0) {
-    konacanBool = true;
-  }
-}
 
 var cardMade = 0; //za pravljenje nova 3 polja ako je korisnik izabrao karticu
 
@@ -544,7 +582,8 @@ payment[1].onclick = function () {
       input2.setAttribute("placeholder", placeholder[i]);
       input2.setAttribute("id", id[i]);
       wrap.appendChild(input2);
-    }
+    } //greska
+
 
     var idGreska = ["expDateError", "cvvError"];
 
@@ -578,7 +617,9 @@ payment[1].onclick = function () {
 
 
 function proveraCardNumber() {
-  var regExCardNumber = /^5[0-9]{15}$/;
+  //pocinju sa brojem 5 i ima maks 16 brojeva
+  var regExCardNumber = /^5[0-9]{15}$/; //ovaj je jednostavan, jer jedino ovako prihvata ako korisnik zeli automatski da unese broj mastercard kartice koju vec ima sacuvanu u browser-u
+
   var cardNumber = document.getElementById("cardContent");
   var cardNumberError = document.getElementById("cardNumberError");
 
@@ -597,7 +638,8 @@ function proveraCardNumber() {
 
 function proveraExpDate() {
   // provera da li je kartica validna najmanje 5 godina
-  var regExExpDate = /^([0][1-9]|[1-2][0-2])\/(([2][0-6])|([2][0][2-3][0-6]))$/;
+  var regExExpDate = /^([0][1-9]|[1-2][0-2])\/(([2][0-6])|([2][0][2-3][0-6]))$/; // MM/YY ili MM/YYYY
+
   var expDate = document.getElementById("validThru");
   var expDateError = document.getElementById("expDateError");
 
@@ -665,7 +707,7 @@ payment[0].onclick = function () {
     document.querySelector(".cardHolder").remove();
     cardMade--;
   }
-}; //provera nakon klika da li su pravilno uneti podaci
+}; //provera nakon klika da li su pravilno uneti svi podaci
 
 
 document.getElementById("form").onsubmit = function (e) {
@@ -676,37 +718,37 @@ document.getElementById("form").onsubmit = function (e) {
   var cashOrCard = proveraCashCard();
   var bool = cashOrCard["boolean"];
   var cardValue = cashOrCard.value;
-  proveraPick();
+  var pick = proveraPick();
+  var drop = proveraDrop(); // provera za karticu
 
   if (cardValue == payment[1].value) {
     var exp = proveraExpDate();
 
     var _cvv = proveraCvv();
 
-    var card = proveraCardNumber();
+    var card = proveraCardNumber(); //provera novih polja za karticu
 
     if (exp && _cvv && card) {
-      celokupnaProvera(fullName, mail, type, bool, konacanBool);
+      celokupnaProvera(fullName, mail, type, bool, pick, drop);
     }
-  }
+  } // provera za cash
+
 
   if (cardValue == payment[0].value) {
-    celokupnaProvera(fullName, mail, type, bool, konacanBool);
+    celokupnaProvera(fullName, mail, type, bool, pick, drop);
   }
 };
 
-function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera, dateBool) {
-  var predajaPodataka = 0; //provera svih unetih podataka
-
-  if (imeProvera && mailProvera && typeProvera && cashCardProvera && dateBool) {
+function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera, proveraPick, proveraDrop) {
+  //provera svih unetih podataka
+  if (imeProvera && mailProvera && typeProvera && cashCardProvera && proveraPick && proveraDrop) {
     if (dataArray.length == 0) {
       //upisivanje podataka u niz
       dataArray.push(fullName.value);
       dataArray.push(mail.value);
       dataArray.push(type.options[type.options.selectedIndex].value);
       dataArray.push(model.options[model.options.selectedIndex].text);
-      dataArray.push(konacniDani * izabranAuto);
-      predajaPodataka++;
+      dataArray.push(ukupanBrojDana * izabranAuto);
       modal();
     }
   }
@@ -761,7 +803,8 @@ function testimonials() {
   for (var i = 0; i < testimonials.length; i++) {
     parent.innerHTML += " <div class=\"col-12 col-md-4 mb-3 mb-md-0\">\n        <div class=\"col-12 testContent p-3\">\n            <i class=\"fas fa-quote-right\"></i>\n            <div class=\"d-flex justify-content-center p-2\">\n                <div class=\"testImage\">\n                    <img src=\"".concat(testimonials[i][0], "\" alt=\"guy\">\n                </div>\n            </div>\n            <span><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></span>\n            <blockquote class=\"blockquote text-center\">\n                <p class=\"mb-0\">").concat(testimonials[i][1], "</p>\n                <footer class=\"blockquote-footer\"><cite>").concat(testimonials[i][2], "</cite></footer>\n              </blockquote>\n        </div>\n    </div>");
   }
-}
+} // ispisivanje sekcije about us
+
 
 function about() {
   sadrzajTab = [["What we're about", "We want to make renting a car as simple and personal as driving your own. Renting a car brings you freedom, and we'll help you find the right car for you at a great price. But there's much more to us than that. We're here to make renting a car a lot less hassle."], ["How we work", "Making sure you have a great experience every time you rent a car makes us happy. We use our massive buying power to bring you great deals."], ["Why use us", "We use all our experience – and the experiences of thousands of our customers – to bring you the car you need and the quality of service you want. Always at the best price."], ["Who we are", "Our founders had the simple idea of wanting to make renting cars much better. And we’ve flourished because our customers love how we work."]];
@@ -788,7 +831,7 @@ function autor() {
 
 $(document).ready(function () {
   $(window).on("load", function () {
-    $('.preloader').fadeOut('slow');
+    $('.preloader').fadeOut('slow'); // za ucitavanje preloader-a dok se cela stranica ne ucita
   }); //animacija sidenav elemenata liste linkova
 
   $("#clickSide").click(function () {
@@ -798,14 +841,14 @@ $(document).ready(function () {
         opacity: "1"
       }, 700);
     });
-    $(".slideIn").hover(function () {});
-    $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)");
+    $("#openSide").css("box-shadow", "0 0 0 10000px rgba(0,0,0,.50)"); // box shadow za efekat van side navigacije
   });
   $("#closeSide").click(function () {
+    // za animaciju svakog elementa liste jedan nakog drugog
     $(".slideIn").each(function () {
       $(this).animate({
         left: "-250px"
-      }).finish();
+      }).finish(); // finish() da bi se zaustavilo beskonacno ponavljanje animacije ukoliko se brze otvara i zatvara side navigacija
     });
     $("#openSide").css("box-shadow", "none");
   }); //tooltip inicijalizacija bootstrap
@@ -849,7 +892,8 @@ $(document).ready(function () {
     return false;
   }); //animacija artikala sa automobilima koji se prikazuju sa animacijom jedan nakon drugog
 
-  var i = 0;
+  var i = 0; // moglo je i preko indeks u each ali bi se drugim klikom cekalo i na prva 3 elementa
+
   var delay = 0;
   $("#loadMore").click(function () {
     delay = 0;
@@ -891,17 +935,21 @@ $(document).ready(function () {
   $("#btnLevo").click(function () {
     $owl.trigger("prev.owl.carousel");
   });
-  $("#seeMoreModal").addClass("hide");
+  $("#seeMoreModal").addClass("hide"); //pocetno stanje modala
+  //dodavanje klasa i efekata modalu
+
   $(document).on("click", ".seeMore", function () {
     $("#seeMoreModal").fadeIn("fast");
     $("#seeMoreModal").addClass("block");
-    $("#seeMoreModal").removeClass("hide");
+    $("#seeMoreModal").removeClass("hide"); // za zatvaranje modala
+
     $("#closeSeeMore").on("click", function () {
       $("#seeMoreModal").fadeOut("fast", function () {
         $("#seeMoreModal").addClass("hide");
         $("#seeMoreModal").removeClass("block");
       });
-    });
+    }); // isti efekat i preko dugmeta request sa slanjem ka formi
+
     $(".request").on("click", function () {
       $("html,body").animate({
         scrollTop: $(".back").offset().top
@@ -910,7 +958,8 @@ $(document).ready(function () {
         $("#seeMoreModal").addClass("hide");
         $("#seeMoreModal").removeClass("block");
       });
-    });
+    }); // owl carousel u see more 
+
     $(".another-owl").owlCarousel({
       responsiveClass: true,
       loop: true,
@@ -971,7 +1020,8 @@ $(document).ready(function () {
     }, 1000);
   });
   $("#autorBtn").click(function () {
-    autor();
+    autor(); //kreiranje dinamicki
+
     $("#autor").fadeIn();
     $("#closeAutor").click(function () {
       $("#autor").fadeOut();
