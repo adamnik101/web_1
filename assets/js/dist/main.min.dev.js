@@ -236,7 +236,7 @@ var fullName = document.getElementById("fullName"),
     dateError = document.getElementById("dateError"),
     cvvError = document.getElementById("cvvError"),
     brandError = document.getElementById("brandError"),
-    regExFullName = /^[A-ŠĐČĆŽ][a-zšđčćž]{2,14}(\s[A-ZČĆŽŠĐ][a-zšđčćž]{2,19})+$/,
+    regExFullName = /^[A-ZŠĐČĆŽ][a-zšđčćž]{2,14}(\s[A-ZČĆŽŠĐ][a-zšđčćž]{2,19})+$/,
     regExMail = /^[a-z][a-z\.\d-\_]+\@[a-z]+(\.[a-z]+)+$/,
     dataArray = [];
 
