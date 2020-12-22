@@ -440,7 +440,7 @@ function about() {
 
 function autor() {
   var a = document.getElementById("box");
-  a.innerHTML = "<div class=\"col-12 col-md-5 p-0\">\n<img src=\"assets/img/autor.jpg\" class=\"img-fluid\" alt=\"autor\">\n</div>\n<div class=\"col-12 col-md-7 p-0 p-lg-5 pb-2 pb-md-0\" id=\"infoAutor\">\n<div class=\"row m-0\">\n<div class=\"col-12 d-flex justify-content-end p-1\">\n<button type=\"button\" id=\"closeAutor\"><i class=\"fas fa-times\"></i></button>\n</div>\n</div>\n<div class=\"row m-0\">\n<div class=\"col-12 p-1 font-weight-bold\">\n<h3 class=\"text-center font-weight-bold\">".concat("Adam Nikoli\u0107", " <span>", "101/19", "</span></h3>\n<p>", "Hi. I'm a web developer from Po\u017Eega, Serbia. Right now I'm studying Internet Technologies at Information and Communication Technologies College in Belgrade and I'm pursuing career in Web programming.", "\n</p>\n</div>\n</div>\n<div class=\"row m-0\">\n<div class=\"col-12 d-flex flex-row flex-wrap linkovi justify-content-center\">\n<div >\n <a href=\"https://github.com/adamnik101\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-github-alt\"></i></button></a> \n <a href=\"https://www.linkedin.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-linkedin-in\"></i></button></a>\n <a href=\"https://www.twitter.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-twitter\"></i></button></a>\n <a href=\"https://adamnik101.github.io/adamportfolio/index.html\"><button type=\"button\" class=\"linkBtn\"><i class=\"fas fa-address-book\"></i></button></a>\n</div> \n</div>\n</div>\n</div>");
+  a.innerHTML = "<div class=\"col-12 col-md-5 p-0\">\n<img src=\"assets/img/autor.jpg\" class=\"img-fluid\" alt=\"autor\">\n</div>\n<div class=\"col-12 col-md-7 p-0 p-lg-5 pb-2 pb-md-0\" id=\"infoAutor\">\n<div class=\"row m-0\">\n<div class=\"col-12 d-flex justify-content-end p-1\">\n<button type=\"button\" id=\"closeAutor\"><i class=\"fas fa-times\"></i></button>\n</div>\n</div>\n<div class=\"row m-0\">\n<div class=\"col-12 p-1 font-weight-bold\">\n<h3 class=\"text-center font-weight-bold\">".concat("Adam Nikoli\u0107", " <span>", "101/19", "</span></h3>\n<p>", "Hi. I'm a web developer from Po\u017Eega, Serbia. Right now I'm studying Internet Technologies at Information and Communication Technologies College in Belgrade and I'm pursuing career in Web programming.", "\n</p>\n</div>\n</div>\n<div class=\"row m-0\">\n<div class=\"col-12 d-flex flex-row flex-wrap linkovi justify-content-center\">\n<div >\n <a href=\"https://github.com/adamnik101\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-github-alt\"></i></button></a> \n <a href=\"https://www.linkedin.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-linkedin-in\"></i></button></a>\n <a href=\"https://www.twitter.com\"><button type=\"button\" class=\"linkBtn\"><i class=\"fab fa-twitter\"></i></button></a>\n <a href=\"https://adamnik101.github.io/adamportfolio/index.html\"><button type=\"button\" class=\"linkBtn\"><i class=\"fas fa-address-book\"></i></button></a>\n</div>\n</div>\n</div>\n</div>");
 }
 
 $(document).ready(function () {
@@ -452,7 +452,7 @@ $(document).ready(function () {
         left: "0",
         opacity: "1"
       }, 700);
-    }), $("#naslov").delay(500).animate({
+    }), $("#naslovSide").delay(500).animate({
       opacity: "1"
     }, 200), $("#copy").delay(500).animate({
       opacity: "1"
@@ -462,7 +462,7 @@ $(document).ready(function () {
       $(this).animate({
         left: "-250px"
       }).finish();
-    }), $("#naslov").css("opacity", "0"), $("#copy").css("opacity", "0"), $("#openSide").css("box-shadow", "none");
+    }), $("#naslovSide").css("opacity", "0"), $("#copy").css("opacity", "0"), $("#openSide").css("box-shadow", "none");
   }), $("body").tooltip({
     selector: ".fa-info-circle"
   }), $(".canvasTekst").animate({

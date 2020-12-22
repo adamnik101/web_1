@@ -897,11 +897,12 @@ function autor(){
                <a href="https://www.linkedin.com"><button type="button" class="linkBtn"><i class="fab fa-linkedin-in"></i></button></a>
                <a href="https://www.twitter.com"><button type="button" class="linkBtn"><i class="fab fa-twitter"></i></button></a>
                <a href="https://adamnik101.github.io/adamportfolio/index.html"><button type="button" class="linkBtn"><i class="fas fa-address-book"></i></button></a>
-            </div>                             
+            </div>                          
         </div>
-    </div>
+    </div>  
 </div>`
 }
+
   $(document).ready(function(){
     $(window).on("load",function() {
         $('.preloader').fadeOut('slow'); // za ucitavanje preloader-a dok se cela stranica ne ucita
@@ -915,7 +916,7 @@ function autor(){
             },700)
     })
     // da se tekstovi ne bi raspadali prilikom smanjivanja side navigacije
-    $("#naslov").delay(500).animate({
+    $("#naslovSide").delay(500).animate({
         opacity : "1"
     }, 200)
     $("#copy").delay(500).animate({
@@ -929,7 +930,7 @@ function autor(){
                 left : "-250px"
             }).finish(); // finish() da bi se zaustavilo beskonacno ponavljanje animacije ukoliko se brze otvara i zatvara side navigacija
     })
-    $("#naslov").css("opacity", "0");
+    $("#naslovSide").css("opacity", "0");
     $("#copy").css("opacity", "0");
     $("#openSide").css("box-shadow", "none");
     })
