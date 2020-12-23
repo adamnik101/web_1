@@ -502,8 +502,7 @@ $(document).ready(function () {
     dotsEach: !0,
     responsive: {
       0: {
-        items: 1,
-        autoplay: !1
+        items: 1
       },
       850: {
         items: 2
