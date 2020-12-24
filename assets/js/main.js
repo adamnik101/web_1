@@ -298,14 +298,14 @@ function ispisCarContent(){
         }
         upisVrednosti()
         
-        var click1 = 0;
+        var loadMoreCount = 0;
 
         document.getElementById("loadMore").addEventListener("click", function(){
-            if(click1 == 1){
+            if(loadMoreCount == 1){
                 document.getElementById("loadMore").style.display = "none";
                 
             }
-            if(click1 == 0){
+            if(loadMoreCount == 0){
                 //ispisivanje narednih 3 elemenata iz niza pocev od 6
                 for(let i = brojElemenataOnLoad; i < brojElemenataOnLoad + brojNovihElemenata; i++){
                     let slide = document.createElement("div");
@@ -325,7 +325,7 @@ function ispisCarContent(){
                 upisVrednosti()
             }
             
-            if(click1 > 0){
+            if(loadMoreCount > 0){
                 //ispisivanje ostatka 
                 for(let i = brojElemenataOnLoad + brojNovihElemenata; i < carContent.length; i++){
                     document.getElementById("showCars").innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4 slide scale">
@@ -341,7 +341,7 @@ function ispisCarContent(){
                 }
                 upisVrednosti()
             }
-            click1++;
+            loadMoreCount++;
         })
         
 }
@@ -465,7 +465,7 @@ let today1 = new Date(),
         pick.setAttribute("min", today1);
 
         localStorage.setItem("proveriDatumIsteka", today1); // za proveru datuma ako je tekuci dan isti poslednjem danu prethodnog perioda trajanja usluge tj. za brisanje local storage-a
-var ukupanBrojDana,
+var ukupanBrojDana, maksBrojDana = 30,
 daniMs = 86400000; //broj milisekundi u jednom danu, potrebno za kasnije racunanje broja dana -- proveraPick() i proveraDrop()
 
 var proveraPick = function(){
@@ -511,7 +511,7 @@ var proveraPick = function(){
         dropError.innerHTML = "";
         return false;
     }
-    else if(ukupanBrojDana > 30){
+    else if(ukupanBrojDana > maksBrojDana){
         allError.innerHTML = "You can't rent a car for more than 30 days!";
         pickError.innerHTML = "";
         pick.classList.add("greska");
@@ -546,7 +546,7 @@ var proveraDrop = function(){
     
     //brojanje ukupnog broja dana koliko korisnik zeli da rentuje automobil
     ukupanBrojDana = (to - from) / daniMs;
-
+    maksBrojDana = 30;
     //provera da li je izabran drop off datum
     if(isNaN(to)){
         dropError.innerHTML = "Please choose a drop off date!"
@@ -572,7 +572,7 @@ var proveraDrop = function(){
         pickError.innerHTML = "";
         return false;
     }
-    else if(ukupanBrojDana > 30){
+    else if(ukupanBrojDana > maksBrojDana){
         allError.innerHTML = "You can't rent a car for more than 30 days!"
         drop.classList.add("greska");
         drop.classList.remove("correct")
@@ -643,7 +643,7 @@ payment[1].onclick =  function (){
     }
     //greska
     var idGreska = ["expDateError", "cvvError"];
-    for(let i = 0; i < 2; i++){
+    for(let i = 0; i < idGreska.length; i++){
         let greske = document.createElement("div");
         greske.classList.add("w-50");
         formMore.appendChild(greske);
@@ -670,7 +670,7 @@ payment[1].onclick =  function (){
 
 //provera da li je korisnik uneo broj kartice
 function proveraCardNumber(){                   //pocinju sa brojem 5 i ima maks 16 brojeva
-    let regExCardNumber = /^5[0-9]{15}$/;  //ovaj je jednostavan, jer jedino ovako prihvata ako korisnik zeli automatski da unese broj mastercard kartice koju vec ima sacuvanu u browser-u
+    let regExCardNumber = /^5[0-9]{15}$/;  // jedino ovako prihvata ako korisnik zeli automatski da unese broj mastercard kartice koju vec ima sacuvanu u browser-u
     let cardNumber = document.getElementById("cardContent");
     let cardNumberError = document.getElementById("cardNumberError");
 

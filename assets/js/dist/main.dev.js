@@ -262,13 +262,13 @@ function ispisCarContent() {
   }
 
   upisVrednosti();
-  var click1 = 0;
+  var loadMoreCount = 0;
   document.getElementById("loadMore").addEventListener("click", function () {
-    if (click1 == 1) {
+    if (loadMoreCount == 1) {
       document.getElementById("loadMore").style.display = "none";
     }
 
-    if (click1 == 0) {
+    if (loadMoreCount == 0) {
       //ispisivanje narednih 3 elemenata iz niza pocev od 6
       for (var _i8 = brojElemenataOnLoad; _i8 < brojElemenataOnLoad + brojNovihElemenata; _i8++) {
         var slide = document.createElement("div");
@@ -281,7 +281,7 @@ function ispisCarContent() {
       upisVrednosti();
     }
 
-    if (click1 > 0) {
+    if (loadMoreCount > 0) {
       //ispisivanje ostatka 
       for (var _i9 = brojElemenataOnLoad + brojNovihElemenata; _i9 < carContent.length; _i9++) {
         document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\">\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[_i9]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_i9]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[_i9]][1], "</h5>\n                    <p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_i9]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_i9]][3], "</p>\n                    <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_i9]][1], "\">See more</button>\n                    </div></div>");
@@ -291,7 +291,7 @@ function ispisCarContent() {
       upisVrednosti();
     }
 
-    click1++;
+    loadMoreCount++;
   });
 } //za upisivanje u dropdown listu iz sekcije best cars
 
@@ -425,6 +425,7 @@ pick.setAttribute("min", today1);
 localStorage.setItem("proveriDatumIsteka", today1); // za proveru datuma ako je tekuci dan isti poslednjem danu prethodnog perioda trajanja usluge tj. za brisanje local storage-a
 
 var ukupanBrojDana,
+    maksBrojDana = 30,
     daniMs = 86400000; //broj milisekundi u jednom danu, potrebno za kasnije racunanje broja dana -- proveraPick() i proveraDrop()
 
 var proveraPick = function proveraPick() {
@@ -467,7 +468,7 @@ var proveraPick = function proveraPick() {
     pickError.innerHTML = "";
     dropError.innerHTML = "";
     return false;
-  } else if (ukupanBrojDana > 30) {
+  } else if (ukupanBrojDana > maksBrojDana) {
     allError.innerHTML = "You can't rent a car for more than 30 days!";
     pickError.innerHTML = "";
     pick.classList.add("greska");
@@ -499,7 +500,8 @@ var proveraDrop = function proveraDrop() {
   from = new Date(pick.value);
   to = new Date(drop.value); //brojanje ukupnog broja dana koliko korisnik zeli da rentuje automobil
 
-  ukupanBrojDana = (to - from) / daniMs; //provera da li je izabran drop off datum
+  ukupanBrojDana = (to - from) / daniMs;
+  maksBrojDana = 30; //provera da li je izabran drop off datum
 
   if (isNaN(to)) {
     dropError.innerHTML = "Please choose a drop off date!";
@@ -523,7 +525,7 @@ var proveraDrop = function proveraDrop() {
     dropError.innerHTML = "";
     pickError.innerHTML = "";
     return false;
-  } else if (ukupanBrojDana > 30) {
+  } else if (ukupanBrojDana > maksBrojDana) {
     allError.innerHTML = "You can't rent a car for more than 30 days!";
     drop.classList.add("greska");
     drop.classList.remove("correct");
@@ -601,7 +603,7 @@ payment[1].onclick = function () {
 
     var idGreska = ["expDateError", "cvvError"];
 
-    for (var _i13 = 0; _i13 < 2; _i13++) {
+    for (var _i13 = 0; _i13 < idGreska.length; _i13++) {
       var greske = document.createElement("div");
       greske.classList.add("w-50");
       formMore.appendChild(greske);
@@ -632,7 +634,7 @@ payment[1].onclick = function () {
 
 function proveraCardNumber() {
   //pocinju sa brojem 5 i ima maks 16 brojeva
-  var regExCardNumber = /^5[0-9]{15}$/; //ovaj je jednostavan, jer jedino ovako prihvata ako korisnik zeli automatski da unese broj mastercard kartice koju vec ima sacuvanu u browser-u
+  var regExCardNumber = /^5[0-9]{15}$/; // jedino ovako prihvata ako korisnik zeli automatski da unese broj mastercard kartice koju vec ima sacuvanu u browser-u
 
   var cardNumber = document.getElementById("cardContent");
   var cardNumberError = document.getElementById("cardNumberError");
