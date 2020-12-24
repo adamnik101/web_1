@@ -339,7 +339,7 @@ var dataArray = [];
 function proveraFullName() {
   //full name error
   if (!regExFullName.test(fullName.value)) {
-    fullNameError.innerHTML = 'Incorrect format <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="e.g. John Doe"></i>';
+    fullNameError.innerHTML = 'Incorrect format <i class="fas fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="e.g. John Doe"></i>';
     fullName.classList.add("greska");
     fullName.classList.remove("correct");
     return false;
@@ -354,7 +354,7 @@ function proveraFullName() {
 function proveraMail() {
   //mail error
   if (!regExMail.test(mail.value)) {
-    mailError.innerHTML = 'Please enter a valid email address. <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="e.g. johndoe@example.com"></i>';
+    mailError.innerHTML = 'Please enter a valid email address. <i class="fas fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="e.g. johndoe@example.com"></i>';
     mail.classList.add("greska");
     mail.classList.remove("correct");
     return false;
@@ -646,7 +646,7 @@ function proveraExpDate() {
   var expDateError = document.getElementById("expDateError");
 
   if (!regExExpDate.test(expDate.value)) {
-    expDateError.innerHTML = 'Incorrect format <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="e.g. 05/21 OR 05/2021"></i>';
+    expDateError.innerHTML = 'Incorrect format <i class="fas fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="e.g. 05/21 OR 05/2021"></i>';
     expDate.classList.add("greska");
     expDate.classList.remove("correct");
     return false;
@@ -665,7 +665,7 @@ function proveraCvv() {
   var cvvError = document.getElementById("cvvError");
 
   if (!regExCvv.test(cvv.value)) {
-    cvvError.innerHTML = 'Incorrect format <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="e.g. 123"></i>';
+    cvvError.innerHTML = 'Incorrect format <i class="fas fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="e.g. 123"></i>';
     cvv.classList.add("greska");
     cvv.classList.remove("correct");
     return false;
@@ -865,7 +865,7 @@ $(document).ready(function () {
   }); //tooltip inicijalizacija bootstrap
 
   $('body').tooltip({
-    selector: '.fa-info-circle'
+    selector: '.fa-question-circle'
   }); //canvasTekst animacija sa desno na levo
 
   $(".canvasTekst").animate({

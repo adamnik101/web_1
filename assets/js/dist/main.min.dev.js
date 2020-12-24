@@ -241,11 +241,11 @@ var fullName = document.getElementById("fullName"),
     dataArray = [];
 
 function proveraFullName() {
-  return regExFullName.test(fullName.value) ? (fullNameError.textContent = "", fullName.classList.remove("greska"), fullName.classList.add("correct"), !0) : (fullNameError.innerHTML = "Incorrect format <i class=\"fas fa-info-circle\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"e.g. John Doe\"></i>", fullName.classList.add("greska"), fullName.classList.remove("correct"), !1);
+  return regExFullName.test(fullName.value) ? (fullNameError.textContent = "", fullName.classList.remove("greska"), fullName.classList.add("correct"), !0) : (fullNameError.innerHTML = "Incorrect format <i class=\"fas fa-question-circle\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"e.g. John Doe\"></i>", fullName.classList.add("greska"), fullName.classList.remove("correct"), !1);
 }
 
 function proveraMail() {
-  return regExMail.test(mail.value) ? (mailError.textContent = "", mail.classList.remove("greska"), mail.classList.add("correct"), !0) : (mailError.innerHTML = "Please enter a valid email address. <i class=\"fas fa-info-circle\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"e.g. johndoe@example.com\"></i>", mail.classList.add("greska"), mail.classList.remove("correct"), !1);
+  return regExMail.test(mail.value) ? (mailError.textContent = "", mail.classList.remove("greska"), mail.classList.add("correct"), !0) : (mailError.innerHTML = "Please enter a valid email address. <i class=\"fas fa-question-circle\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"e.g. johndoe@example.com\"></i>", mail.classList.add("greska"), mail.classList.remove("correct"), !1);
 }
 
 function proveraCashCard() {
@@ -348,13 +348,13 @@ function proveraCardNumber() {
 function proveraExpDate() {
   var a = document.getElementById("validThru"),
       b = document.getElementById("expDateError");
-  return /^([0][1-9]|[1-2][0-2])\/(([2][0-6])|([2][0][2-3][0-6]))$/.test(a.value) ? (b.textContent = "", a.classList.remove("greska"), a.classList.add("correct"), !0) : (b.innerHTML = "Incorrect format <i class=\"fas fa-info-circle\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"e.g. 05/21 OR 05/2021\"></i>", a.classList.add("greska"), a.classList.remove("correct"), !1);
+  return /^([0][1-9]|[1-2][0-2])\/(([2][0-6])|([2][0][2-3][0-6]))$/.test(a.value) ? (b.textContent = "", a.classList.remove("greska"), a.classList.add("correct"), !0) : (b.innerHTML = "Incorrect format <i class=\"fas fa-question-circle\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"e.g. 05/21 OR 05/2021\"></i>", a.classList.add("greska"), a.classList.remove("correct"), !1);
 }
 
 function proveraCvv() {
   var a = document.getElementById("cvv"),
       b = document.getElementById("cvvError");
-  return /^[0-9]{3}$/.test(a.value) ? (b.textContent = "", a.classList.remove("greska"), a.classList.add("correct"), !0) : (b.innerHTML = "Incorrect format <i class=\"fas fa-info-circle\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"e.g. 123\"></i>", a.classList.add("greska"), a.classList.remove("correct"), !1);
+  return /^[0-9]{3}$/.test(a.value) ? (b.textContent = "", a.classList.remove("greska"), a.classList.add("correct"), !0) : (b.innerHTML = "Incorrect format <i class=\"fas fa-question-circle\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"e.g. 123\"></i>", a.classList.add("greska"), a.classList.remove("correct"), !1);
 }
 
 function proveraType() {
@@ -464,7 +464,7 @@ $(document).ready(function () {
       }).finish();
     }), $("#naslovSide").css("opacity", "0"), $("#copy").css("opacity", "0"), $("#openSide").css("box-shadow", "none");
   }), $("body").tooltip({
-    selector: ".fa-info-circle"
+    selector: ".fa-question-circle"
   }), $(".canvasTekst").animate({
     right: "0"
   }, 2e3), $(window).scroll(function () {
