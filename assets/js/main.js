@@ -546,7 +546,6 @@ var proveraDrop = function(){
     
     //brojanje ukupnog broja dana koliko korisnik zeli da rentuje automobil
     ukupanBrojDana = (to - from) / daniMs;
-    maksBrojDana = 30;
     //provera da li je izabran drop off datum
     if(isNaN(to)){
         dropError.innerHTML = "Please choose a drop off date!"
