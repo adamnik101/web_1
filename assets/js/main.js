@@ -465,7 +465,6 @@ let today1 = new Date(),
         pick.setAttribute("min", today1);
 
         localStorage.setItem("proveriDatumIsteka", today1); // za proveru datuma ako je tekuci dan isti poslednjem danu prethodnog perioda trajanja usluge tj. za brisanje local storage-a
-
 var ukupanBrojDana,
 daniMs = 86400000; //broj milisekundi u jednom danu, potrebno za kasnije racunanje broja dana -- proveraPick() i proveraDrop()
 
