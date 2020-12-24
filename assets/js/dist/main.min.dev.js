@@ -274,7 +274,7 @@ var today1 = new Date(),
     day = today1.getDate(),
     month = today1.getMonth() + 1,
     year = today1.getFullYear();
-10 > day && (day = "0" + day), 10 > month && (month = "0" + month), today1 = year + "-" + month + "-" + day, pick.setAttribute("min", today1);
+10 > day && (day = "0" + day), 10 > month && (month = "0" + month), today1 = year + "-" + month + "-" + day, pick.setAttribute("min", today1), localStorage.setItem("proveriDatumIsteka", today1);
 
 var ukupanBrojDana,
     daniMs = 864e5,
@@ -393,31 +393,35 @@ fullName.onchange = function () {
   }
 
   g == payment[0].value && celokupnaProvera(b, c, d, f, h, i);
-};
-var jePoslato = !1;
+}, localStorage.getItem("proveriDatumIsteka") == localStorage.getItem("vremeIsteka") && localStorage.clear();
 
 function celokupnaProvera(a, b, c, d, e, f) {
-  a && b && c && d && e && f && (0 == dataArray.length ? (dataArray.push(fullName.value), dataArray.push(mail.value), dataArray.push(type.options[type.options.selectedIndex].value), dataArray.push(model.options[model.options.selectedIndex].text), dataArray.push(ukupanBrojDana * izabranAuto), modal(), jePoslato = !0) : modal());
+  if (a && b && c && d && e && f) if (0 == dataArray.length && null == localStorage.getItem("poslato")) {
+    dataArray.push(fullName.value), dataArray.push(mail.value), dataArray.push(type.options[type.options.selectedIndex].value), dataArray.push(model.options[model.options.selectedIndex].text), dataArray.push(ukupanBrojDana * izabranAuto);
+
+    var _a13 = dataArray[0].split(" ");
+
+    localStorage.setItem("ime", _a13[0]), localStorage.setItem("brend", dataArray[2]), localStorage.setItem("model", dataArray[3]), localStorage.setItem("vremeIsteka", drop.value), modal();
+  } else modal();
 }
 
 function modal() {
-  var a = dataArray[0].split(" "),
-      b = document.getElementById("modal"),
-      c = document.createElement("div");
-  c.classList.add("row", "regenerate");
-  var d = document.createElement("div");
-  d.setAttribute("id", "header"), d.classList.add("col-12", "text-left", "p-3");
-  var e = document.createElement("h2");
-  e.innerHTML += "CAR <span>ZONE</span>";
-  var f = document.createElement("div");
-  f.setAttribute("id", "body"), f.classList.add("col-12", "p-2");
-  var g = document.createElement("p");
-  g.innerHTML = jePoslato ? "Dear <span>".concat(a[0], "</span>, You have already sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>!") : "Dear <span>".concat(a[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n<span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
-  var h = document.createElement("div");
-  h.setAttribute("id", "footer"), h.classList.add("col-12", "text-right");
-  var i = document.createElement("button");
-  i.setAttribute("type", "button"), i.setAttribute("id", "closeModal"), i.textContent = "Close", b.appendChild(c), c.appendChild(d), d.appendChild(e), c.appendChild(f), c.appendChild(h), f.appendChild(g), h.appendChild(i), b.style.visibility = "visible", i.onclick = function () {
-    b.style.visibility = "hidden", b.style.opacity = "0", c.remove();
+  var a = document.getElementById("modal"),
+      b = document.createElement("div");
+  b.classList.add("row", "regenerate");
+  var c = document.createElement("div");
+  c.setAttribute("id", "header"), c.classList.add("col-12", "text-left", "p-3");
+  var d = document.createElement("h2");
+  d.innerHTML += "CAR <span>ZONE</span>";
+  var e = document.createElement("div");
+  e.setAttribute("id", "body"), e.classList.add("col-12", "p-2");
+  var f = document.createElement("p");
+  "true" == localStorage.getItem("poslato") ? f.innerHTML = "Oops, looks like you have already sent the request for the <span>".concat(localStorage.getItem("brend"), " ").concat(localStorage.getItem("model"), "</span>!<br> You can make another request after <span>").concat(localStorage.getItem("vremeIsteka"), "</span>") : (localStorage.setItem("poslato", "true"), f.innerHTML = "Dear <span>".concat(localStorage.getItem("ime"), "</span>, you've successfully sent the request for the <span>").concat(localStorage.getItem("brend"), " ").concat(localStorage.getItem("model"), "</span>, all other information has been sent to your mail.</br>\n<span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>"));
+  var g = document.createElement("div");
+  g.setAttribute("id", "footer"), g.classList.add("col-12", "text-right");
+  var h = document.createElement("button");
+  h.setAttribute("type", "button"), h.setAttribute("id", "closeModal"), h.textContent = "Close", a.appendChild(b), b.appendChild(c), c.appendChild(d), b.appendChild(e), b.appendChild(g), e.appendChild(f), g.appendChild(h), a.style.visibility = "visible", h.onclick = function () {
+    a.style.visibility = "hidden", a.style.opacity = "0", b.remove();
   };
 }
 

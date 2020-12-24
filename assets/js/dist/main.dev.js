@@ -422,6 +422,8 @@ if (month < 10) {
 
 today1 = year + '-' + month + '-' + day;
 pick.setAttribute("min", today1);
+localStorage.setItem("proveriDatumIsteka", today1); // za proveru datuma ako je tekuci dan isti poslednjem danu prethodnog perioda trajanja usluge tj. za brisanje local storage-a
+
 var ukupanBrojDana,
     daniMs = 86400000; //broj milisekundi u jednom danu, potrebno za kasnije racunanje broja dana -- proveraPick() i proveraDrop()
 
@@ -751,20 +753,28 @@ document.getElementById("form").onsubmit = function (e) {
   }
 };
 
-var jePoslato = false;
+if (localStorage.getItem("proveriDatumIsteka") == localStorage.getItem("vremeIsteka")) {
+  // ako je poslednji dan prethodnog perioda jednak danasnjem, onda se brise local storage
+  localStorage.clear();
+}
 
 function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera, proveraPick, proveraDrop) {
   //provera svih unetih podataka
   if (imeProvera && mailProvera && typeProvera && cashCardProvera && proveraPick && proveraDrop) {
-    if (dataArray.length == 0) {
+    if (dataArray.length == 0 && localStorage.getItem("poslato") == null) {
       //upisivanje podataka u niz
       dataArray.push(fullName.value);
       dataArray.push(mail.value);
       dataArray.push(type.options[type.options.selectedIndex].value);
       dataArray.push(model.options[model.options.selectedIndex].text);
       dataArray.push(ukupanBrojDana * izabranAuto);
+      var firstName = dataArray[0].split(" "); // upis podataka u local storage
+
+      localStorage.setItem("ime", firstName[0]);
+      localStorage.setItem("brend", dataArray[2]);
+      localStorage.setItem("model", dataArray[3]);
+      localStorage.setItem("vremeIsteka", drop.value);
       modal();
-      jePoslato = true;
     } else {
       modal();
     }
@@ -773,7 +783,6 @@ function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera,
 
 
 function modal() {
-  var firstName = dataArray[0].split(" ");
   var modal = document.getElementById("modal");
   var row = document.createElement("div");
   row.classList.add("row", "regenerate");
@@ -787,10 +796,12 @@ function modal() {
   body.classList.add("col-12", "p-2");
   var p = document.createElement("p");
 
-  if (jePoslato) {
-    p.innerHTML = "Dear <span>".concat(firstName[0], "</span>, You have already sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>!");
+  if (localStorage.getItem("poslato") == "true") {
+    // ako su podaci uneti vec u lokal storage
+    p.innerHTML = "Oops, looks like you have already sent the request for the <span>".concat(localStorage.getItem("brend"), " ").concat(localStorage.getItem("model"), "</span>!<br> You can make another request after <span>").concat(localStorage.getItem("vremeIsteka"), "</span>");
   } else {
-    p.innerHTML = "Dear <span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
+    localStorage.setItem("poslato", "true");
+    p.innerHTML = "Dear <span>".concat(localStorage.getItem("ime"), "</span>, you've successfully sent the request for the <span>").concat(localStorage.getItem("brend"), " ").concat(localStorage.getItem("model"), "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
   }
 
   var footer = document.createElement("div");
