@@ -55,8 +55,10 @@ function sideNav() {
     var _a3 = document.createElement("li");
 
     _a3.classList.add("slideIn"), d.appendChild(_a3);
-    var e = document.createElement("a");
-    _a3.appendChild(e), e.setAttribute("href", "".concat(navigacijaLinkovi[indeks])), e.innerHTML = "".concat(navigacija[indeks][0] + " " + navigacija[indeks][1]);
+
+    var _b2 = document.createElement("a");
+
+    _a3.appendChild(_b2), _b2.setAttribute("href", "".concat(navigacijaLinkovi[indeks])), _b2.innerHTML = "".concat(navigacija[indeks][0] + " " + navigacija[indeks][1]);
   }
 }
 
@@ -69,63 +71,57 @@ function closeNav() {
 }
 
 document.getElementById("clickSide").addEventListener("click", openNav), document.getElementById("closeSide").addEventListener("click", closeNav);
+var carContent = [["assets/img/sports_civic1.jpg", "Honda Civic Type R", 120, "350hp"], ["assets/img/sports_supra1.jpg", "Toyota Supra", 300, "382hp"], ["assets/img/sports_subaru1.jpg", "Subaru Impreza STi", 130, "340hp"], ["assets/img/muscle_chevy.jpg", "Chevrolet ZL1", 180, "650hp"], ["assets/img/muscle_demon1.jpg", "Dodge Challenger", 200, "700hp"], ["assets/img/sports_benz1.jpg", "Mercedes 450 CLS", 160, "375hp"], ["assets/img/sports_evo.jpg", "Subaru WRX", 130, "360hp"], ["assets/img/sports_bmw1.jpg", "BMW 420d Coupe", 120, "310hp"], ["assets/img/sports_mitsubishi1.jpg", "Mitsubishi EVO X", 110, "290hp"], ["assets/img/muscle_mustang1.jpg", "Ford Mustang", 160, "750hp"], ["assets/img/sports_bmw2.jpg", "BMW X6m", 120, "310hp"], ["assets/img/suv_ford1.jpg", "Ford F-150", 160, "280hp"]],
+    carsAndModels = {};
+carsAndModels.Chevrolet = ["ZL1"], carsAndModels.Dodge = ["Challenger"], carsAndModels.BMW = ["420d Coupe", "X6m"], carsAndModels.Subaru = ["Impreza STi", "WRX"], carsAndModels.Mitsubishi = ["EVO X"], carsAndModels.Ford = ["Mustang", "F-150"], carsAndModels.Honda = ["Civic Type R"], carsAndModels.Toyota = ["Supra"], carsAndModels.Mercedes = ["450 CLS"];
 var izabranAuto,
-    cena = [["Chevrolet", 180], ["Dodge", 200], ["BMW", 120], ["Subaru", 130], ["Mitsubishi", 110], ["Ford", 160], ["Honda", 120], ["Toyota", 300], ["Mercedes", 160]];
+    cena = [[180], [200], [120], [130], [110], [160], [120], [300], [160]];
+
+for (var a = 0; a < Object.keys(carsAndModels).length; a++) {
+  cena[a].unshift(Object.keys(carsAndModels)[a]);
+}
 
 function ddl() {
-  var a = {
-    Chevrolet: ["ZL1"],
-    Dodge: ["Challenger"],
-    BMW: ["420d Coupe", "X6m"],
-    Subaru: ["Impreza STi", "WRX"],
-    Mitsubishi: ["EVO X"],
-    Ford: ["Mustang", "F-150"],
-    Honda: ["Civic Type R"],
-    Toyota: ["Supra"],
-    Mercedes: ["450 CLS"]
-  },
-      b = document.createElement("option");
-  b.setAttribute("value", "0");
-  var c = document.createTextNode("Choose a model");
-  b.appendChild(c), model.appendChild(b), model.disabled = !0, document.getElementById("carType").onchange = function () {
+  var a = document.createElement("option");
+  a.setAttribute("value", "0");
+  var b = document.createTextNode("Choose a model");
+  a.appendChild(b), model.appendChild(a), model.disabled = !0, document.getElementById("carType").onchange = function () {
     model.disabled = "0" == this.value;
-    var c = this.options[this.selectedIndex].value;
+    var b = this.options[this.selectedIndex].value;
 
-    for (model.appendChild(b); model.options.length;) {
+    for (model.appendChild(a); model.options.length;) {
       model.remove(0);
     }
 
     for (var _a4 = 0; _a4 < cena.length; _a4++) {
-      c == cena[_a4][0] && (izabranAuto = cena[_a4][1]);
+      b == cena[_a4][0] && (izabranAuto = cena[_a4][1]);
     }
 
-    "0" == c && model.appendChild(b);
-    var d = a[c];
-    if (d) for (var e, f = 0; f < d.length; f++) {
-      e = document.createElement("option"), e.setAttribute("value", f);
-      var g = document.createTextNode(d[f]);
-      e.appendChild(g), model.options.add(e), document.getElementById("brandError").textContent = "";
+    "0" == b && model.appendChild(a);
+    var c = carsAndModels[b];
+    if (c) for (var _a5, _b3 = 0; _b3 < c.length; _b3++) {
+      _a5 = document.createElement("option"), _a5.setAttribute("value", _b3);
+      var d = document.createTextNode(c[_b3]);
+      _a5.appendChild(d), model.options.add(_a5), document.getElementById("brandError").textContent = "";
     }
   };
 
   (function () {
-    var b = document.getElementById("carType");
+    var a = document.getElementById("carType");
 
-    for (var e = 0; e < Object.keys(a).length; e++) {
-      var c = document.createElement("option");
-      c.setAttribute("value", Object.keys(a)[e]);
-      var d = document.createTextNode(Object.keys(a)[e]);
-      c.appendChild(d), b.appendChild(c);
+    for (var _b4, c = 0; c < Object.keys(carsAndModels).length; c++) {
+      _b4 = document.createElement("option"), _b4.setAttribute("value", Object.keys(carsAndModels)[c]);
+      var d = document.createTextNode(Object.keys(carsAndModels)[c]);
+      _b4.appendChild(d), a.appendChild(_b4);
     }
   })();
 }
 
-var carContent = [["assets/img/sports_civic1.jpg", "Honda Civic Type R", 120, "350hp"], ["assets/img/sports_supra1.jpg", "Toyota Supra", 300, "382hp"], ["assets/img/sports_subaru1.jpg", "Subaru Impreza STi", 130, "340hp"], ["assets/img/muscle_chevy.jpg", "Chevrolet ZL1", 180, "650hp"], ["assets/img/muscle_demon1.jpg", "Dodge Challenger", 200, "700hp"], ["assets/img/sports_benz1.jpg", "Mercedes 450 CLS", 160, "375hp"], ["assets/img/sports_evo.jpg", "Subaru WRX", 130, "360hp"], ["assets/img/sports_bmw1.jpg", "BMW 420d Coupe", 120, "310hp"], ["assets/img/sports_mitsubishi1.jpg", "Mitsubishi EVO X", 110, "290hp"], ["assets/img/muscle_mustang1.jpg", "Ford Mustang", 160, "750hp"], ["assets/img/sports_bmw2.jpg", "BMW X6m", 120, "310hp"], ["assets/img/suv_ford1.jpg", "Ford F-150", 160, "280hp"]],
-    random = [];
+var random = [];
 
 function generate() {
-  for (var a, b = 0; b < carContent.length; b++) {
-    a = Math.floor(Math.random() * carContent.length), -1 == random.indexOf(a) ? random.push(a) : b--;
+  for (var _a6, b = 0; b < carContent.length; b++) {
+    _a6 = Math.floor(Math.random() * carContent.length), -1 == random.indexOf(_a6) ? random.push(_a6) : b--;
   }
 }
 
@@ -137,17 +133,17 @@ function owlCarouselContent() {
       b = document.createElement("div");
   b.classList.add("owl-carousel", "first-owl"), a.appendChild(b);
 
-  for (var _a5 = 0; 6 > _a5; _a5++) {
-    value.push(carContent[random[_a5]][1].split(" ")), b.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[_a5]][0], "\" alt=\"").concat(carContent[random[_a5]][1], "\"><h5>").concat(carContent[random[_a5]][1], "</h5>\n<p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_a5]][2], "/day</span><a href=\"#formNaslov\"class=\"d-inline reqBtn\">Request now</a></p>\n</div>");
+  for (var _a7 = 0; _a7 < 6; _a7++) {
+    value.push(carContent[random[_a7]][1].split(" ")), b.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[_a7]][0], "\" alt=\"").concat(carContent[random[_a7]][1], "\"><h5>").concat(carContent[random[_a7]][1], "</h5>\n<p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_a7]][2], "/day</span><a href=\"#formNaslov\"class=\"d-inline reqBtn\">Request now</a></p>\n</div>");
   }
 
   random = [];
 }
 
 function upisVrednosti() {
-  var a = ["assets/img/seeMoreHonda.jpg", "assets/img/seeMoreSupra.jpeg", "assets/img/seeMoreRedSubaru.jpg", "assets/img/seeMoreChevy.jpg", "assets/img/seeMoreDemon.jpg", "assets/img/seeMoreMerc.jpeg", "assets/img/seeMoreSubaru.jpeg", "assets/img/seeMoreBmw.jpg", "assets/img/seeMore1.jpg", "assets/img/seeMoreMustang.jpeg", "assets/img/seeMoreBmw2.jpg", "assets/img/seeMoreFord.jpeg"];
-  var b = document.getElementsByClassName("seeMore");
-  var c = document.getElementById("seeMoreModal"),
+  var a = ["assets/img/seeMoreHonda.jpg", "assets/img/seeMoreSupra.jpeg", "assets/img/seeMoreRedSubaru.jpg", "assets/img/seeMoreChevy.jpg", "assets/img/seeMoreDemon.jpg", "assets/img/seeMoreMerc.jpeg", "assets/img/seeMoreSubaru.jpeg", "assets/img/seeMoreBmw.jpg", "assets/img/seeMore1.jpg", "assets/img/seeMoreMustang.jpeg", "assets/img/seeMoreBmw2.jpg", "assets/img/seeMoreFord.jpeg"],
+      b = document.getElementsByClassName("seeMore"),
+      c = document.getElementById("seeMoreModal"),
       d = document.getElementsByClassName("request"),
       e = document.getElementById("carType"),
       f = document.getElementById("carModel");
@@ -156,10 +152,10 @@ function upisVrednosti() {
     b[g].addEventListener("click", function () {
       b[g].value == carContent[random[g]][1] && (c.innerHTML = "<div class=\"row relative\"> <div class=\"col-12 p-0\"> <div id=\"header1\"> <div class=\"col-12 p-3 d-flex justify-content-between\"> <h2>CAR <span>ZONE</span></h2> <button type=\"button\" id=\"closeSeeMore\"><i class=\"fas fa-times-circle\"></i></button> </div></div><div id=\"body1\"> <div class=\"col-12 p-0\"><button type=\"button\" id=\"levo\"><i class=\"fas fa-angle-left\"></i></i></button><button type=\"button\" id=\"desno\"><i class=\"fas fa-angle-right\"></i></button><div class=\"owl-carousel another-owl\"> <img src=\"".concat(carContent[random[g]][0], "\" class=\"img-fluid\" alt=\"car\"> <img src=\"").concat(a[random[g]], "\" class=\"img-fluid\" alt=\"car\"></div> </div><div class=\"col-12 p-2\"> <h3 class=\"text-center\">").concat(carContent[random[g]][1], "</h3> <hr class=\"m-0\"> <div class=\"row m-0 p-0\"> <div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Chilled AC </li><li> <i class=\"fas fa-check\"></i> Heated seats </li><li> <i class=\"fas fa-check\"></i> Audio input </li><li> <i class=\"fas fa-check\"></i> Bluetooth </li></ul> </div><div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Manual </li><li> <i class=\"fas fa-check\"></i> Unlimited mileage </li><li> <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[g]][3], " </li></ul> </div></div></div><div class=\"row m-0\"> <div class=\"col-12 font-weight-bold euro\"> <i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[g]][2], "<span>/ per day</span> </div></div></div><div id=\"footer1\" class=\"text-right\"> <button type=\"button\" class=\"request\">Request now!</button> </div></div></div>"));
 
-      for (var _a6 = 0; _a6 < d.length; _a6++) {
-        d[_a6].addEventListener("click", function () {
-          for (var _a7 = 1; _a7 < e.options.length; _a7++) {
-            e.options[_a7].value == carTypeName[g][0] && (e.selectedIndex = _a7, e.onchange(), 1 < f.options.length && (f.options[f.selectedIndex].text.includes(carTypeName[g][1]) ? f.selectedIndex = 0 : f.selectedIndex = 1));
+      for (var _a8 = 0; _a8 < d.length; _a8++) {
+        d[_a8].addEventListener("click", function () {
+          for (var _a9 = 1; _a9 < e.options.length; _a9++) {
+            e.options[_a9].value == carTypeName[g][0] && (e.selectedIndex = _a9, e.onchange(), 1 < f.options.length && (f.options[f.selectedIndex].text.includes(carTypeName[g][1]) ? f.selectedIndex = 0 : f.selectedIndex = 1));
           }
         });
       }
@@ -175,32 +171,34 @@ var carTypeName = [];
 
 function ispisCarContent() {
   generate();
-  var a = document.getElementById("showCars");
+  var a = 3,
+      b = 6;
+  var c = document.getElementById("showCars");
 
-  for (var _b2 = 0; _b2 < carContent.length - 6; _b2++) {
-    a.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\">\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[_b2]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_b2]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[_b2]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_b2]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_b2]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_b2]][1], "\">See more</button>\n</div>\n</div>"), carTypeName.push(carContent[random[_b2]][1].split(" "));
+  for (var _a10 = 0; _a10 < b; _a10++) {
+    c.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\">\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[_a10]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_a10]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[_a10]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_a10]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_a10]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_a10]][1], "\">See more</button>\n</div>\n</div>"), carTypeName.push(carContent[random[_a10]][1].split(" "));
   }
 
   upisVrednosti();
-  var b = 0;
+  var d = 0;
   document.getElementById("loadMore").addEventListener("click", function () {
-    if (1 == b && (document.getElementById("loadMore").style.display = "none"), 0 == b) {
-      for (var _a8, _b3 = 6; _b3 < carContent.length - 3; _b3++) {
-        _a8 = document.createElement("div"), _a8.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale"), document.getElementById("showCars").appendChild(_a8), _a8.innerHTML += "\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[_b3]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_b3]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[_b3]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_b3]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_b3]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_b3]][1], "\">See more</button>\n</div>"), carTypeName.push(carContent[random[_b3]][1].split(" "));
+    if (1 == d && (document.getElementById("loadMore").style.display = "none"), 0 == d) {
+      for (var _c, _d = b; _d < b + a; _d++) {
+        _c = document.createElement("div"), _c.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale"), document.getElementById("showCars").appendChild(_c), _c.innerHTML += "\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[_d]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_d]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[_d]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_d]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_d]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_d]][1], "\">See more</button>\n</div>"), carTypeName.push(carContent[random[_d]][1].split(" "));
       }
 
       upisVrednosti();
     }
 
-    if (0 < b) {
-      for (var _a9 = 9; _a9 < carContent.length; _a9++) {
-        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\">\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[_a9]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_a9]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[_a9]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_a9]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_a9]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_a9]][1], "\">See more</button>\n</div></div>"), carTypeName.push(carContent[random[_a9]][1].split(" "));
+    if (0 < d) {
+      for (var _c2 = b + a; _c2 < carContent.length; _c2++) {
+        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\">\n<div class=\"imgHolder\">\n<img src=\"".concat(carContent[random[_c2]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_c2]][1], "\">\n</div>\n<div class=\"holder\">\n<h5 class=\"mb-3\">").concat(carContent[random[_c2]][1], "</h5>\n<p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_c2]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_c2]][3], "</p>\n<button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_c2]][1], "\">See more</button>\n</div></div>"), carTypeName.push(carContent[random[_c2]][1].split(" "));
       }
 
       upisVrednosti();
     }
 
-    b++;
+    d++;
   });
 }
 
@@ -211,8 +209,8 @@ function typeClick() {
 
   var _loop2 = function _loop2(d) {
     c[d].addEventListener("click", function () {
-      for (var _c = 1; _c < type.options.length; _c++) {
-        a.options[_c].value == value[d][0] && (a.selectedIndex = _c, a.onchange(), 1 < b.options.length && (b.options[b.selectedIndex].text.includes(value[d][1]) ? b.selectedIndex = 0 : b.selectedIndex = 1));
+      for (var _c3 = 1; _c3 < type.options.length; _c3++) {
+        a.options[_c3].value == value[d][0] && (a.selectedIndex = _c3, a.onchange(), 1 < b.options.length && (b.options[b.selectedIndex].text.includes(value[d][1]) ? b.selectedIndex = 0 : b.selectedIndex = 1));
       }
     });
   };
@@ -296,38 +294,42 @@ var cardMade = 0;
 
 payment[1].onclick = function () {
   if (0 == cardMade) {
-    var a = ["MM/YY", "***"],
-        b = ["validThru", "cvv"],
-        c = ["Expiration date:", "CVV:"],
-        d = document.getElementById("card"),
-        e = document.createElement("div");
-    e.classList.add("d-flex", "justify-content-between", "flex-wrap", "mt-2", "mb-2", "cardHolder");
-    var f = document.createElement("input");
-    f.classList.add("w-100"), f.setAttribute("type", "text"), f.setAttribute("placeholder", "Card number: 5XXXXXXXXXXXXXXX"), f.setAttribute("id", "cardContent");
-    var g = document.createElement("span");
-    g.classList.add("greskaTekst", "w-100"), g.setAttribute("id", "cardNumberError"), e.appendChild(f), e.appendChild(g);
+    var b = ["MM/YY", "***"],
+        c = ["validThru", "cvv"],
+        d = ["Expiration date:", "CVV:"],
+        e = document.getElementById("card"),
+        f = document.createElement("div");
+    f.classList.add("d-flex", "justify-content-between", "flex-wrap", "mt-2", "mb-2", "cardHolder");
+    var g = document.createElement("input");
+    g.classList.add("w-100"), g.setAttribute("type", "text"), g.setAttribute("placeholder", "Card number: 5XXXXXXXXXXXXXXX"), g.setAttribute("id", "cardContent");
+    var h = document.createElement("span");
+    h.classList.add("greskaTekst", "w-100"), h.setAttribute("id", "cardNumberError"), f.appendChild(g), f.appendChild(h);
 
-    for (var _d = 0; 2 > _d; _d++) {
-      var h = document.createElement("div");
-      h.classList.add("w-50"), e.appendChild(h);
-      var j = document.createElement("label");
-      j.classList.add("w-100"), j.setAttribute("for", b[_d]);
-      var k = document.createTextNode(c[_d]);
-      j.appendChild(k), h.appendChild(j);
-      var l = document.createElement("input");
-      l.classList.add("w-50"), l.setAttribute("type", "text"), l.setAttribute("placeholder", a[_d]), l.setAttribute("id", b[_d]), h.appendChild(l);
+    for (var _a11, _e = 0; 2 > _e; _e++) {
+      _a11 = document.createElement("div"), _a11.classList.add("w-50"), f.appendChild(_a11);
+
+      var _g = document.createElement("label");
+
+      _g.classList.add("w-100"), _g.setAttribute("for", c[_e]);
+
+      var _h = document.createTextNode(d[_e]);
+
+      _g.appendChild(_h), _a11.appendChild(_g);
+      var i = document.createElement("input");
+      i.classList.add("w-50"), i.setAttribute("type", "text"), i.setAttribute("placeholder", b[_e]), i.setAttribute("id", c[_e]), _a11.appendChild(i);
     }
 
-    var m = ["expDateError", "cvvError"];
+    var a = ["expDateError", "cvvError"];
 
-    for (var _a10 = 0; 2 > _a10; _a10++) {
-      var n = document.createElement("div");
-      n.classList.add("w-50"), e.appendChild(n);
-      var o = document.createElement("span");
-      o.setAttribute("id", m[_a10]), o.classList.add("greskaTekst"), n.appendChild(o);
+    for (var _b5, _c4 = 0; 2 > _c4; _c4++) {
+      _b5 = document.createElement("div"), _b5.classList.add("w-50"), f.appendChild(_b5);
+
+      var _d2 = document.createElement("span");
+
+      _d2.setAttribute("id", a[_c4]), _d2.classList.add("greskaTekst"), _b5.appendChild(_d2);
     }
 
-    cardMade++, d.appendChild(e);
+    cardMade++, e.appendChild(f);
   }
 
   document.getElementById("validThru").onchange = function () {
@@ -383,18 +385,19 @@ fullName.onchange = function () {
       i = proveraDrop();
 
   if (g == payment[1].value) {
-    var _a11 = proveraExpDate(),
-        _e = proveraCvv(),
-        _g = proveraCardNumber();
+    var _a12 = proveraExpDate(),
+        _e2 = proveraCvv(),
+        _g2 = proveraCardNumber();
 
-    _a11 && _e && _g && celokupnaProvera(b, c, d, f, h, i);
+    _a12 && _e2 && _g2 && celokupnaProvera(b, c, d, f, h, i);
   }
 
   g == payment[0].value && celokupnaProvera(b, c, d, f, h, i);
 };
+var jePoslato = !1;
 
 function celokupnaProvera(a, b, c, d, e, f) {
-  a && b && c && d && e && f && 0 == dataArray.length && (dataArray.push(fullName.value), dataArray.push(mail.value), dataArray.push(type.options[type.options.selectedIndex].value), dataArray.push(model.options[model.options.selectedIndex].text), dataArray.push(ukupanBrojDana * izabranAuto), modal());
+  a && b && c && d && e && f && (0 == dataArray.length ? (dataArray.push(fullName.value), dataArray.push(mail.value), dataArray.push(type.options[type.options.selectedIndex].value), dataArray.push(model.options[model.options.selectedIndex].text), dataArray.push(ukupanBrojDana * izabranAuto), modal(), jePoslato = !0) : modal());
 }
 
 function modal() {
@@ -409,12 +412,12 @@ function modal() {
   var f = document.createElement("div");
   f.setAttribute("id", "body"), f.classList.add("col-12", "p-2");
   var g = document.createElement("p");
-  g.innerHTML = "Dear <span>".concat(a[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n<span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
+  g.innerHTML = jePoslato ? "Dear <span>".concat(a[0], "</span>, You have already sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>!") : "Dear <span>".concat(a[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n<span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
   var h = document.createElement("div");
   h.setAttribute("id", "footer"), h.classList.add("col-12", "text-right");
   var i = document.createElement("button");
   i.setAttribute("type", "button"), i.setAttribute("id", "closeModal"), i.textContent = "Close", b.appendChild(c), c.appendChild(d), d.appendChild(e), c.appendChild(f), c.appendChild(h), f.appendChild(g), h.appendChild(i), b.style.visibility = "visible", i.onclick = function () {
-    b.style.visibility = "hidden", b.style.opacity = "0", dataArray = [], c.remove();
+    b.style.visibility = "hidden", b.style.opacity = "0", c.remove();
   };
 }
 

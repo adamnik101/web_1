@@ -100,7 +100,7 @@ function sideNav(){
         sideLi.classList.add("slideIn");
         sideUl.appendChild(sideLi);
         
-        var sideA = document.createElement("a");
+        let sideA = document.createElement("a");
         sideLi.appendChild(sideA);
         sideA.setAttribute("href", `${navigacijaLinkovi[indeks]}`);
         sideA.innerHTML = `${navigacija[indeks][0] + ' ' + navigacija[indeks][1]}`;
@@ -115,79 +115,6 @@ function closeNav() {
 document.getElementById("clickSide").addEventListener("click", openNav);
 document.getElementById("closeSide").addEventListener("click", closeNav);
 
-var izabranAuto;
-var cena = [["Chevrolet", 180],
-            ["Dodge", 200], 
-            ["BMW", 120], 
-            ["Subaru", 130], 
-            ["Mitsubishi", 110], 
-            ["Ford", 160],
-            ["Honda", 120], 
-            ["Toyota", 300],
-            ["Mercedes", 160]];
-  
-// dinamicko ispisivanje ddl
-function ddl(){
-    var carsAndModels = {};  // za vrednosti za dve dropdown liste
-            carsAndModels["Chevrolet"] = ["ZL1"];
-            carsAndModels["Dodge"] = ["Challenger"];
-            carsAndModels["BMW"] = ["420d Coupe", "X6m"];
-            carsAndModels["Subaru"] = ["Impreza STi", "WRX"];
-            carsAndModels["Mitsubishi"] = ["EVO X"];
-            carsAndModels["Ford"] = ["Mustang", "F-150"]
-            carsAndModels["Honda"] = ["Civic Type R"];
-            carsAndModels["Toyota"] = ["Supra"];
-            carsAndModels["Mercedes"] = ["450 CLS"];
-
-
-    var firstOpt = document.createElement("option");
-        firstOpt.setAttribute("value","0");
-    var sadrzaj = document.createTextNode("Choose a model");
-        firstOpt.appendChild(sadrzaj);
-        model.appendChild(firstOpt);
-
-model.disabled = true;
-//za upisivanje vrednosti na osnovu prvog selecta u drugi
-document.getElementById("carType").onchange = function(){
-    model.disabled = this.value == '0'
-    var selCar = this.options[this.selectedIndex].value;
-        model.appendChild(firstOpt);
-    while (model.options.length) {
-        model.remove(0); 
-    }
-     for(let i = 0; i < cena.length;i++){
-        if(selCar == cena[i][0]){
-            izabranAuto = cena[i][1];
-        }
-    } 
-    if(selCar == "0"){
-        model.appendChild(firstOpt);
-    }
-    var cars = carsAndModels[selCar];
-    if (cars) {
-        for (var i = 0; i < cars.length; i++) {
-        var car = document.createElement("option");
-            car.setAttribute("value", i);
-        var text = document.createTextNode(cars[i]);
-            car.appendChild(text);
-            model.options.add(car);
-        document.getElementById("brandError").textContent = "";
-        }
-    } 
-}
-var ispisivanjeOpt = function(){
-    var type = document.getElementById("carType");
-    for(let i = 0; i < Object.keys(carsAndModels).length; i++){
-        //preuzimanje vrednosti iz objekata
-        var opt = document.createElement("option");
-            opt.setAttribute("value", Object.keys(carsAndModels)[i]);
-        var text = document.createTextNode(Object.keys(carsAndModels)[i]);
-            opt.appendChild(text);
-            type.appendChild(opt);
-    }
-}
-ispisivanjeOpt();
-}
 
 // dinamicko i nasumicno ispisivanje automobila
 var carContent = [
@@ -204,12 +131,92 @@ var carContent = [
     ["assets/img/sports_bmw2.jpg","BMW X6m",120, "310hp"],
     ["assets/img/suv_ford1.jpg","Ford F-150",160, "280hp"]];
 
+var carsAndModels = {};  // za vrednosti za dve dropdown liste
+    carsAndModels["Chevrolet"] = ["ZL1"];
+    carsAndModels["Dodge"] = ["Challenger"];
+    carsAndModels["BMW"] = ["420d Coupe", "X6m"];
+    carsAndModels["Subaru"] = ["Impreza STi", "WRX"];
+    carsAndModels["Mitsubishi"] = ["EVO X"];
+    carsAndModels["Ford"] = ["Mustang", "F-150"]
+    carsAndModels["Honda"] = ["Civic Type R"];
+    carsAndModels["Toyota"] = ["Supra"];
+    carsAndModels["Mercedes"] = ["450 CLS"];
+
+var izabranAuto; // za uzimanje cene na osnovu izabranog automobila preko dropdown 
+
+var cena = [[180],
+            [200], 
+            [120], 
+            [130], 
+            [110], 
+            [160],
+            [120], 
+            [300],
+            [160]];
+for(let i = 0; i < Object.keys(carsAndModels).length; i++){ // za upis cena modela
+    cena[i].unshift(Object.keys(carsAndModels)[i]);
+}
+
+// dinamicko ispisivanje ddl
+function ddl(){
+    
+
+    let firstOpt = document.createElement("option");
+        firstOpt.setAttribute("value","0");
+        let sadrzaj = document.createTextNode("Choose a model");
+        firstOpt.appendChild(sadrzaj);
+        model.appendChild(firstOpt);
+
+model.disabled = true;
+//za upisivanje vrednosti na osnovu prvog selecta u drugi
+document.getElementById("carType").onchange = function(){
+    model.disabled = this.value == '0'
+    let selCar = this.options[this.selectedIndex].value;
+        model.appendChild(firstOpt);
+    while (model.options.length) {
+        model.remove(0); 
+    }
+     for(let i = 0; i < cena.length;i++){
+        if(selCar == cena[i][0]){
+            izabranAuto = cena[i][1];
+        }
+    } 
+    if(selCar == "0"){
+        model.appendChild(firstOpt);
+    }
+    let cars = carsAndModels[selCar];
+    if (cars) {
+        for (let i = 0; i < cars.length; i++) {
+            let car = document.createElement("option");
+            car.setAttribute("value", i);
+            let text = document.createTextNode(cars[i]);
+            car.appendChild(text);
+            model.options.add(car);
+        document.getElementById("brandError").textContent = "";
+        }
+    } 
+}
+var ispisivanjeOpt = function(){
+    let type = document.getElementById("carType");
+    for(let i = 0; i < Object.keys(carsAndModels).length; i++){
+        //preuzimanje vrednosti iz objekata
+        let opt = document.createElement("option");
+            opt.setAttribute("value", Object.keys(carsAndModels)[i]);
+        let text = document.createTextNode(Object.keys(carsAndModels)[i]);
+            opt.appendChild(text);
+            type.appendChild(opt);
+    }
+}
+ispisivanjeOpt();
+}
+
+
     
 var random = [];
     
 function generate(){ // funkcija za random ispisivanje iz niza
-    for (var i = 0; i < carContent.length; i++){
-        var trenutni = Math.floor(Math.random() * carContent.length);
+    for (let i = 0; i < carContent.length; i++){
+        let trenutni = Math.floor(Math.random() * carContent.length);
         if(random.indexOf(trenutni) == -1){
             random.push(trenutni); //niz u koji ubacujemo DISTINCT vrednosti do 12
         }
@@ -220,11 +227,12 @@ var value = [];
 //nasumicno generisanje sadrzaja za svaki element owl-carousel-a
 function owlCarouselContent(){
         generate();
+        let brojElemenataCarousel = 6;
         let parent = document.getElementById("automobili");
         let child = document.createElement("div");
             child.classList.add("owl-carousel", "first-owl");
             parent.appendChild(child);
-        for(let i = 0; i < 6; i++){
+        for(let i = 0; i < brojElemenataCarousel; i++){
             value.push(carContent[random[i]][1].split(" "));
             child.innerHTML +=`<div class="slideContent"><img src="${carContent[random[i]][0]}" alt="${carContent[random[i]][1]}"><h5>${carContent[random[i]][1]}</h5>
             <p class="d-flex justify-content-between"><span><i class="fas fa-dollar-sign"></i> ${carContent[random[i]][2]}/day</span><a href="#formNaslov"class="d-inline reqBtn">Request now</a></p>
@@ -236,7 +244,7 @@ function owlCarouselContent(){
 //modal sa vise informacija
 function upisVrednosti(){
     let noveSlike = ["assets/img/seeMoreHonda.jpg", "assets/img/seeMoreSupra.jpeg", "assets/img/seeMoreRedSubaru.jpg", "assets/img/seeMoreChevy.jpg", "assets/img/seeMoreDemon.jpg", "assets/img/seeMoreMerc.jpeg", "assets/img/seeMoreSubaru.jpeg", "assets/img/seeMoreBmw.jpg", "assets/img/seeMore1.jpg", "assets/img/seeMoreMustang.jpeg","assets/img/seeMoreBmw2.jpg", "assets/img/seeMoreFord.jpeg"];
-    var seeMore = document.getElementsByClassName("seeMore");
+    let seeMore = document.getElementsByClassName("seeMore");
     let modal = document.getElementById("seeMoreModal");
     let request = document.getElementsByClassName("request");
     let typeNew = document.getElementById("carType");
@@ -270,9 +278,11 @@ function upisVrednosti(){
 var carTypeName = [];
 function ispisCarContent(){
     generate();
-    var div = document.getElementById("showCars");
+    const brojNovihElemenata = 3;
+    const brojElemenataOnLoad = 6;
+    let div = document.getElementById("showCars");
         // ispisivanje prvih 6 artikala
-        for(let i = 0; i < carContent.length - 6; i++){
+        for(let i = 0; i < brojElemenataOnLoad; i++){
             div.innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4 scale">
             <div class="imgHolder">
                 <img src="${carContent[random[i]][0]}" class="img-fluid" alt="${carContent[random[i]][1]}">
@@ -296,7 +306,7 @@ function ispisCarContent(){
             }
             if(click1 == 0){
                 //ispisivanje narednih 3 elemenata iz niza pocev od 6
-                for(let i = 6; i < carContent.length - 3; i++){
+                for(let i = brojElemenataOnLoad; i < brojElemenataOnLoad + brojNovihElemenata; i++){
                     let slide = document.createElement("div");
                     slide.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale");
                     document.getElementById("showCars").appendChild(slide);
@@ -316,7 +326,7 @@ function ispisCarContent(){
             
             if(click1 > 0){
                 //ispisivanje ostatka 
-                for(let i = 9; i < carContent.length; i++){
+                for(let i = brojElemenataOnLoad + brojNovihElemenata; i < carContent.length; i++){
                     document.getElementById("showCars").innerHTML += `<div class="col-lg-4 col-12 col-sm-6 mb-4 slide scale">
                     <div class="imgHolder">
                         <img src="${carContent[random[i]][0]}" class="img-fluid" alt="${carContent[random[i]][1]}">
@@ -336,9 +346,9 @@ function ispisCarContent(){
 }
 //za upisivanje u dropdown listu iz sekcije best cars
 function typeClick(){
-    var type1 = document.getElementById("carType");
-    var model1 = document.getElementById("carModel");
-    var reqBtns = document.getElementsByClassName("reqBtn");
+    let type1 = document.getElementById("carType");
+    let model1 = document.getElementById("carModel");
+    let reqBtns = document.getElementsByClassName("reqBtn");
         for(let i = 0; i < reqBtns.length; i++){
             reqBtns[i].addEventListener("click", function(){
                 for(let j = 1; j < type.options.length; j++){
@@ -589,36 +599,36 @@ var cardMade = 0;
 //za pravljenje nova 3 polja ako je korisnik izabrao karticu
 payment[1].onclick =  function (){
     if(cardMade == 0){
-        var placeholder = ["MM/YY", "***"];
-        var id = ["validThru", "cvv"];
-        var labelMain = ["Expiration date:", "CVV:"];
+        let placeholder = ["MM/YY", "***"];
+        let id = ["validThru", "cvv"];
+        let labelMain = ["Expiration date:", "CVV:"];
 
-        var parentDiv = document.getElementById("card");
-        var formMore = document.createElement("div");
+        let parentDiv = document.getElementById("card");
+        let formMore = document.createElement("div");
         formMore.classList.add("d-flex", "justify-content-between", "flex-wrap", "mt-2", "mb-2", "cardHolder");
 
-        var input1 = document.createElement("input");
+        let input1 = document.createElement("input");
         input1.classList.add("w-100");
         input1.setAttribute("type", "text");
         input1.setAttribute("placeholder", "Card number: 5XXXXXXXXXXXXXXX");
         input1.setAttribute("id", "cardContent");
 
-        var inputGreska = document.createElement("span");
+        let inputGreska = document.createElement("span");
         inputGreska.classList.add("greskaTekst", "w-100");
         inputGreska.setAttribute("id", "cardNumberError");
         formMore.appendChild(input1);
         formMore.appendChild(inputGreska);
     for(let i = 0; i < 2; i++){
-        var wrap = document.createElement("div");
+        let wrap = document.createElement("div");
         wrap.classList.add("w-50");
         formMore.appendChild(wrap);
-        var label = document.createElement("label");
+        let label = document.createElement("label");
         label.classList.add("w-100");
         label.setAttribute("for", id[i]);
-        var labelText = document.createTextNode(labelMain[i]);
+        let labelText = document.createTextNode(labelMain[i]);
         label.appendChild(labelText);
         wrap.appendChild(label);
-        var input2 = document.createElement("input");
+        let input2 = document.createElement("input");
         input2.classList.add("w-50");
         input2.setAttribute("type", "text");
         input2.setAttribute("placeholder", placeholder[i]);
@@ -628,10 +638,10 @@ payment[1].onclick =  function (){
     //greska
     var idGreska = ["expDateError", "cvvError"];
     for(let i = 0; i < 2; i++){
-        var greske = document.createElement("div");
+        let greske = document.createElement("div");
         greske.classList.add("w-50");
         formMore.appendChild(greske);
-        var span = document.createElement("span");
+        let span = document.createElement("span");
         span.setAttribute("id", idGreska[i]);
         span.classList.add("greskaTekst");
         greske.appendChild(span);
@@ -654,9 +664,9 @@ payment[1].onclick =  function (){
 
 //provera da li je korisnik uneo broj kartice
 function proveraCardNumber(){                   //pocinju sa brojem 5 i ima maks 16 brojeva
-    var regExCardNumber = /^5[0-9]{15}$/;  //ovaj je jednostavan, jer jedino ovako prihvata ako korisnik zeli automatski da unese broj mastercard kartice koju vec ima sacuvanu u browser-u
-    var cardNumber = document.getElementById("cardContent");
-    var cardNumberError = document.getElementById("cardNumberError");
+    let regExCardNumber = /^5[0-9]{15}$/;  //ovaj je jednostavan, jer jedino ovako prihvata ako korisnik zeli automatski da unese broj mastercard kartice koju vec ima sacuvanu u browser-u
+    let cardNumber = document.getElementById("cardContent");
+    let cardNumberError = document.getElementById("cardNumberError");
 
     if(!regExCardNumber.test(cardNumber.value)){
         cardNumberError.innerHTML = "Format: 5XXXXXXXXXXXXXXX(16 digits)";
@@ -674,9 +684,9 @@ function proveraCardNumber(){                   //pocinju sa brojem 5 i ima maks
 
 function proveraExpDate(){
     // provera da li je kartica validna najmanje 5 godina
-    var regExExpDate = /^([0][1-9]|[1-2][0-2])\/(([2][0-6])|([2][0][2-3][0-6]))$/ // MM/YY ili MM/YYYY
-    var expDate = document.getElementById("validThru");
-    var expDateError = document.getElementById("expDateError");
+    let regExExpDate = /^([0][1-9]|[1-2][0-2])\/(([2][0-6])|([2][0][2-3][0-6]))$/ // MM/YY ili MM/YYYY
+    let expDate = document.getElementById("validThru");
+    let expDateError = document.getElementById("expDateError");
 
     if(!regExExpDate.test(expDate.value)){
         expDateError.innerHTML = 'Incorrect format <i class="fas fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="e.g. 05/21 OR 05/2021"></i>';
@@ -693,9 +703,9 @@ function proveraExpDate(){
 }
 //provera da li je unet cvv/cvc
 function proveraCvv(){
-    var regExCvv = /^[0-9]{3}$/;
-    var cvv = document.getElementById("cvv");
-    var cvvError = document.getElementById("cvvError"); 
+    let regExCvv = /^[0-9]{3}$/;
+    let cvv = document.getElementById("cvv");
+    let cvvError = document.getElementById("cvvError"); 
     if(!regExCvv.test(cvv.value)){
         cvvError.innerHTML = 'Incorrect format <i class="fas fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="e.g. 123"></i>';
         cvv.classList.add("greska");
@@ -767,7 +777,7 @@ document.getElementById("form").onsubmit = function(e){
         celokupnaProvera(fullName, mail, type, bool, pick, drop);
     }
 };
-
+var jePoslato = false;
 function celokupnaProvera(imeProvera, mailProvera,typeProvera, cashCardProvera, proveraPick, proveraDrop){
     //provera svih unetih podataka
     if(imeProvera && mailProvera && typeProvera && cashCardProvera && proveraPick && proveraDrop){
@@ -779,10 +789,16 @@ function celokupnaProvera(imeProvera, mailProvera,typeProvera, cashCardProvera, 
             dataArray.push(model.options[model.options.selectedIndex].text);
             dataArray.push(ukupanBrojDana * izabranAuto);
             modal();
+            jePoslato = true;
         }
+        else{
+            modal();
+        }
+        
 }}
 //dinamicko kreiranje modala 
 function modal(){
+
     let firstName = dataArray[0].split(" ");
     let modal = document.getElementById("modal");
     let row = document.createElement("div");
@@ -796,8 +812,13 @@ function modal(){
     body.setAttribute("id", "body");
     body.classList.add("col-12", "p-2");
     let p = document.createElement("p");
-    p.innerHTML = `Dear <span>${firstName[0]}</span>, you've successfully sent the request for the <span>${dataArray[2]} ${dataArray[3]}</span>, all other information has been sent to your mail.</br>
+    if(jePoslato){
+        p.innerHTML = `Dear <span>${firstName[0]}</span>, You have already sent the request for the <span>${dataArray[2]} ${dataArray[3]}</span>!`
+    }
+    else{
+        p.innerHTML = `Dear <span>${firstName[0]}</span>, you've successfully sent the request for the <span>${dataArray[2]} ${dataArray[3]}</span>, all other information has been sent to your mail.</br>
     <span>${dataArray[1]}</br></span> <span class="modalTotal"> TOTAL: <i class="fas fa-dollar-sign"></i> ${dataArray[4]}</span>`;
+    }
     let footer = document.createElement("div");
     footer.setAttribute("id", "footer");
     footer.classList.add("col-12", "text-right");
@@ -821,7 +842,6 @@ function modal(){
     modal.style.visibility = "hidden";
     modal.style.opacity = "0";
     //brisanje prethodnog niza i modala
-    dataArray = []
     row.remove();
 }}  
 //ispisivanje testimonials-a

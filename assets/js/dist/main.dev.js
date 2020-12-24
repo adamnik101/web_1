@@ -94,22 +94,31 @@ function closeNav() {
 }
 
 document.getElementById("clickSide").addEventListener("click", openNav);
-document.getElementById("closeSide").addEventListener("click", closeNav);
-var izabranAuto;
-var cena = [["Chevrolet", 180], ["Dodge", 200], ["BMW", 120], ["Subaru", 130], ["Mitsubishi", 110], ["Ford", 160], ["Honda", 120], ["Toyota", 300], ["Mercedes", 160]]; // dinamicko ispisivanje ddl
+document.getElementById("closeSide").addEventListener("click", closeNav); // dinamicko i nasumicno ispisivanje automobila
+
+var carContent = [["assets/img/sports_civic1.jpg", "Honda Civic Type R", 120, "350hp"], ["assets/img/sports_supra1.jpg", "Toyota Supra", 300, "382hp"], ["assets/img/sports_subaru1.jpg", "Subaru Impreza STi", 130, "340hp"], ["assets/img/muscle_chevy.jpg", "Chevrolet ZL1", 180, "650hp"], ["assets/img/muscle_demon1.jpg", "Dodge Challenger", 200, "700hp"], ["assets/img/sports_benz1.jpg", "Mercedes 450 CLS", 160, "375hp"], ["assets/img/sports_evo.jpg", "Subaru WRX", 130, "360hp"], ["assets/img/sports_bmw1.jpg", "BMW 420d Coupe", 120, "310hp"], ["assets/img/sports_mitsubishi1.jpg", "Mitsubishi EVO X", 110, "290hp"], ["assets/img/muscle_mustang1.jpg", "Ford Mustang", 160, "750hp"], ["assets/img/sports_bmw2.jpg", "BMW X6m", 120, "310hp"], ["assets/img/suv_ford1.jpg", "Ford F-150", 160, "280hp"]];
+var carsAndModels = {}; // za vrednosti za dve dropdown liste
+
+carsAndModels["Chevrolet"] = ["ZL1"];
+carsAndModels["Dodge"] = ["Challenger"];
+carsAndModels["BMW"] = ["420d Coupe", "X6m"];
+carsAndModels["Subaru"] = ["Impreza STi", "WRX"];
+carsAndModels["Mitsubishi"] = ["EVO X"];
+carsAndModels["Ford"] = ["Mustang", "F-150"];
+carsAndModels["Honda"] = ["Civic Type R"];
+carsAndModels["Toyota"] = ["Supra"];
+carsAndModels["Mercedes"] = ["450 CLS"];
+var izabranAuto; // za uzimanje cene na osnovu izabranog automobila preko dropdown 
+
+var cena = [[180], [200], [120], [130], [110], [160], [120], [300], [160]];
+
+for (var i = 0; i < Object.keys(carsAndModels).length; i++) {
+  // za upis cena modela
+  cena[i].unshift(Object.keys(carsAndModels)[i]);
+} // dinamicko ispisivanje ddl
+
 
 function ddl() {
-  var carsAndModels = {}; // za vrednosti za dve dropdown liste
-
-  carsAndModels["Chevrolet"] = ["ZL1"];
-  carsAndModels["Dodge"] = ["Challenger"];
-  carsAndModels["BMW"] = ["420d Coupe", "X6m"];
-  carsAndModels["Subaru"] = ["Impreza STi", "WRX"];
-  carsAndModels["Mitsubishi"] = ["EVO X"];
-  carsAndModels["Ford"] = ["Mustang", "F-150"];
-  carsAndModels["Honda"] = ["Civic Type R"];
-  carsAndModels["Toyota"] = ["Supra"];
-  carsAndModels["Mercedes"] = ["450 CLS"];
   var firstOpt = document.createElement("option");
   firstOpt.setAttribute("value", "0");
   var sadrzaj = document.createTextNode("Choose a model");
@@ -139,10 +148,10 @@ function ddl() {
     var cars = carsAndModels[selCar];
 
     if (cars) {
-      for (var i = 0; i < cars.length; i++) {
+      for (var _i2 = 0; _i2 < cars.length; _i2++) {
         var car = document.createElement("option");
-        car.setAttribute("value", i);
-        var text = document.createTextNode(cars[i]);
+        car.setAttribute("value", _i2);
+        var text = document.createTextNode(cars[_i2]);
         car.appendChild(text);
         model.options.add(car);
         document.getElementById("brandError").textContent = "";
@@ -153,31 +162,29 @@ function ddl() {
   var ispisivanjeOpt = function ispisivanjeOpt() {
     var type = document.getElementById("carType");
 
-    for (var i = 0; i < Object.keys(carsAndModels).length; i++) {
+    for (var _i3 = 0; _i3 < Object.keys(carsAndModels).length; _i3++) {
       //preuzimanje vrednosti iz objekata
       var opt = document.createElement("option");
-      opt.setAttribute("value", Object.keys(carsAndModels)[i]);
-      var text = document.createTextNode(Object.keys(carsAndModels)[i]);
+      opt.setAttribute("value", Object.keys(carsAndModels)[_i3]);
+      var text = document.createTextNode(Object.keys(carsAndModels)[_i3]);
       opt.appendChild(text);
       type.appendChild(opt);
     }
   };
 
   ispisivanjeOpt();
-} // dinamicko i nasumicno ispisivanje automobila
+}
 
-
-var carContent = [["assets/img/sports_civic1.jpg", "Honda Civic Type R", 120, "350hp"], ["assets/img/sports_supra1.jpg", "Toyota Supra", 300, "382hp"], ["assets/img/sports_subaru1.jpg", "Subaru Impreza STi", 130, "340hp"], ["assets/img/muscle_chevy.jpg", "Chevrolet ZL1", 180, "650hp"], ["assets/img/muscle_demon1.jpg", "Dodge Challenger", 200, "700hp"], ["assets/img/sports_benz1.jpg", "Mercedes 450 CLS", 160, "375hp"], ["assets/img/sports_evo.jpg", "Subaru WRX", 130, "360hp"], ["assets/img/sports_bmw1.jpg", "BMW 420d Coupe", 120, "310hp"], ["assets/img/sports_mitsubishi1.jpg", "Mitsubishi EVO X", 110, "290hp"], ["assets/img/muscle_mustang1.jpg", "Ford Mustang", 160, "750hp"], ["assets/img/sports_bmw2.jpg", "BMW X6m", 120, "310hp"], ["assets/img/suv_ford1.jpg", "Ford F-150", 160, "280hp"]];
 var random = [];
 
 function generate() {
   // funkcija za random ispisivanje iz niza
-  for (var i = 0; i < carContent.length; i++) {
+  for (var _i4 = 0; _i4 < carContent.length; _i4++) {
     var trenutni = Math.floor(Math.random() * carContent.length);
 
     if (random.indexOf(trenutni) == -1) {
       random.push(trenutni); //niz u koji ubacujemo DISTINCT vrednosti do 12
-    } else i--;
+    } else _i4--;
   }
 }
 
@@ -185,14 +192,15 @@ var value = []; //nasumicno generisanje sadrzaja za svaki element owl-carousel-a
 
 function owlCarouselContent() {
   generate();
+  var brojElemenataCarousel = 6;
   var parent = document.getElementById("automobili");
   var child = document.createElement("div");
   child.classList.add("owl-carousel", "first-owl");
   parent.appendChild(child);
 
-  for (var i = 0; i < 6; i++) {
-    value.push(carContent[random[i]][1].split(" "));
-    child.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[i]][0], "\" alt=\"").concat(carContent[random[i]][1], "\"><h5>").concat(carContent[random[i]][1], "</h5>\n            <p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[i]][2], "/day</span><a href=\"#formNaslov\"class=\"d-inline reqBtn\">Request now</a></p>\n        </div>");
+  for (var _i5 = 0; _i5 < brojElemenataCarousel; _i5++) {
+    value.push(carContent[random[_i5]][1].split(" "));
+    child.innerHTML += "<div class=\"slideContent\"><img src=\"".concat(carContent[random[_i5]][0], "\" alt=\"").concat(carContent[random[_i5]][1], "\"><h5>").concat(carContent[random[_i5]][1], "</h5>\n            <p class=\"d-flex justify-content-between\"><span><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_i5]][2], "/day</span><a href=\"#formNaslov\"class=\"d-inline reqBtn\">Request now</a></p>\n        </div>");
   }
 
   random = [];
@@ -207,22 +215,22 @@ function upisVrednosti() {
   var typeNew = document.getElementById("carType");
   var model2 = document.getElementById("carModel");
 
-  var _loop = function _loop(i) {
-    seeMore[i].addEventListener("click", function () {
-      if (seeMore[i].value == carContent[random[i]][1]) {
-        modal.innerHTML = "<div class=\"row relative\"> <div class=\"col-12 p-0\"> <div id=\"header1\"> <div class=\"col-12 p-3 d-flex justify-content-between\"> <h2>CAR <span>ZONE</span></h2> <button type=\"button\" id=\"closeSeeMore\"><i class=\"fas fa-times-circle\"></i></button> </div></div><div id=\"body1\"> <div class=\"col-12 p-0\"><button type=\"button\" id=\"levo\"><i class=\"fas fa-angle-left\"></i></i></button><button type=\"button\" id=\"desno\"><i class=\"fas fa-angle-right\"></i></button><div class=\"owl-carousel another-owl\"> <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"car\"> <img src=\"").concat(noveSlike[random[i]], "\" class=\"img-fluid\" alt=\"car\"></div> </div><div class=\"col-12 p-2\"> <h3 class=\"text-center\">").concat(carContent[random[i]][1], "</h3> <hr class=\"m-0\"> <div class=\"row m-0 p-0\"> <div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Chilled AC </li><li> <i class=\"fas fa-check\"></i> Heated seats </li><li> <i class=\"fas fa-check\"></i> Audio input </li><li> <i class=\"fas fa-check\"></i> Bluetooth </li></ul> </div><div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Manual </li><li> <i class=\"fas fa-check\"></i> Unlimited mileage </li><li> <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], " </li></ul> </div></div></div><div class=\"row m-0\"> <div class=\"col-12 font-weight-bold euro\"> <i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[i]][2], "<span>/ per day</span> </div></div></div><div id=\"footer1\" class=\"text-right\"> <button type=\"button\" class=\"request\">Request now!</button> </div></div></div>");
+  var _loop = function _loop(_i6) {
+    seeMore[_i6].addEventListener("click", function () {
+      if (seeMore[_i6].value == carContent[random[_i6]][1]) {
+        modal.innerHTML = "<div class=\"row relative\"> <div class=\"col-12 p-0\"> <div id=\"header1\"> <div class=\"col-12 p-3 d-flex justify-content-between\"> <h2>CAR <span>ZONE</span></h2> <button type=\"button\" id=\"closeSeeMore\"><i class=\"fas fa-times-circle\"></i></button> </div></div><div id=\"body1\"> <div class=\"col-12 p-0\"><button type=\"button\" id=\"levo\"><i class=\"fas fa-angle-left\"></i></i></button><button type=\"button\" id=\"desno\"><i class=\"fas fa-angle-right\"></i></button><div class=\"owl-carousel another-owl\"> <img src=\"".concat(carContent[random[_i6]][0], "\" class=\"img-fluid\" alt=\"car\"> <img src=\"").concat(noveSlike[random[_i6]], "\" class=\"img-fluid\" alt=\"car\"></div> </div><div class=\"col-12 p-2\"> <h3 class=\"text-center\">").concat(carContent[random[_i6]][1], "</h3> <hr class=\"m-0\"> <div class=\"row m-0 p-0\"> <div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Chilled AC </li><li> <i class=\"fas fa-check\"></i> Heated seats </li><li> <i class=\"fas fa-check\"></i> Audio input </li><li> <i class=\"fas fa-check\"></i> Bluetooth </li></ul> </div><div class=\"col-6 p-0\"> <ul class=\"d-flex flex-column text-left p-2\"> <li> <i class=\"fas fa-check\"></i> Manual </li><li> <i class=\"fas fa-check\"></i> Unlimited mileage </li><li> <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_i6]][3], " </li></ul> </div></div></div><div class=\"row m-0\"> <div class=\"col-12 font-weight-bold euro\"> <i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_i6]][2], "<span>/ per day</span> </div></div></div><div id=\"footer1\" class=\"text-right\"> <button type=\"button\" class=\"request\">Request now!</button> </div></div></div>");
       } // za promenu dropdown liste u formi na osnovu selektovanog automobila preko modala
 
 
       for (var j = 0; j < request.length; j++) {
         request[j].addEventListener("click", function () {
           for (var t = 1; t < typeNew.options.length; t++) {
-            if (typeNew.options[t].value == carTypeName[i][0]) {
+            if (typeNew.options[t].value == carTypeName[_i6][0]) {
               typeNew.selectedIndex = t;
               typeNew.onchange();
 
               if (model2.options.length > 1) {
-                if (model2.options[model2.selectedIndex].text.includes(carTypeName[i][1])) {
+                if (model2.options[model2.selectedIndex].text.includes(carTypeName[_i6][1])) {
                   model2.selectedIndex = 0;
                 } else {
                   model2.selectedIndex = 1;
@@ -235,8 +243,8 @@ function upisVrednosti() {
     });
   };
 
-  for (var i = 0; i < seeMore.length; i++) {
-    _loop(i);
+  for (var _i6 = 0; _i6 < seeMore.length; _i6++) {
+    _loop(_i6);
   }
 }
 
@@ -244,11 +252,13 @@ var carTypeName = [];
 
 function ispisCarContent() {
   generate();
+  var brojNovihElemenata = 3;
+  var brojElemenataOnLoad = 6;
   var div = document.getElementById("showCars"); // ispisivanje prvih 6 artikala
 
-  for (var i = 0; i < carContent.length - 6; i++) {
-    div.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carContent[random[i]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[i]][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carContent[random[i]][1], "</h5>\n            <p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[i]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[i]][3], "</p>\n            <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[i]][1], "\">See more</button>\n            </div>\n        </div>");
-    carTypeName.push(carContent[random[i]][1].split(" "));
+  for (var _i7 = 0; _i7 < brojElemenataOnLoad; _i7++) {
+    div.innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 scale\">\n            <div class=\"imgHolder\">\n                <img src=\"".concat(carContent[random[_i7]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_i7]][1], "\">\n            </div>\n            <div class=\"holder\">\n            <h5 class=\"mb-3\">").concat(carContent[random[_i7]][1], "</h5>\n            <p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_i7]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_i7]][3], "</p>\n            <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_i7]][1], "\">See more</button>\n            </div>\n        </div>");
+    carTypeName.push(carContent[random[_i7]][1].split(" "));
   }
 
   upisVrednosti();
@@ -260,12 +270,12 @@ function ispisCarContent() {
 
     if (click1 == 0) {
       //ispisivanje narednih 3 elemenata iz niza pocev od 6
-      for (var _i2 = 6; _i2 < carContent.length - 3; _i2++) {
+      for (var _i8 = brojElemenataOnLoad; _i8 < brojElemenataOnLoad + brojNovihElemenata; _i8++) {
         var slide = document.createElement("div");
         slide.classList.add("slide", "col-lg-4", "mr-auto", "col-12", "col-sm-6", "mb-4", "scale");
         document.getElementById("showCars").appendChild(slide);
-        slide.innerHTML += "\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[_i2]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_i2]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[_i2]][1], "</h5>\n                    <p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_i2]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_i2]][3], "</p>\n                    <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_i2]][1], "\">See more</button>\n                    </div>");
-        carTypeName.push(carContent[random[_i2]][1].split(" "));
+        slide.innerHTML += "\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[_i8]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_i8]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[_i8]][1], "</h5>\n                    <p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_i8]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_i8]][3], "</p>\n                    <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_i8]][1], "\">See more</button>\n                    </div>");
+        carTypeName.push(carContent[random[_i8]][1].split(" "));
       }
 
       upisVrednosti();
@@ -273,9 +283,9 @@ function ispisCarContent() {
 
     if (click1 > 0) {
       //ispisivanje ostatka 
-      for (var _i3 = 9; _i3 < carContent.length; _i3++) {
-        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\">\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[_i3]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_i3]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[_i3]][1], "</h5>\n                    <p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_i3]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_i3]][3], "</p>\n                    <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_i3]][1], "\">See more</button>\n                    </div></div>");
-        carTypeName.push(carContent[random[_i3]][1].split(" "));
+      for (var _i9 = brojElemenataOnLoad + brojNovihElemenata; _i9 < carContent.length; _i9++) {
+        document.getElementById("showCars").innerHTML += "<div class=\"col-lg-4 col-12 col-sm-6 mb-4 slide scale\">\n                    <div class=\"imgHolder\">\n                        <img src=\"".concat(carContent[random[_i9]][0], "\" class=\"img-fluid\" alt=\"").concat(carContent[random[_i9]][1], "\">\n                    </div>\n                    <div class=\"holder\">\n                    <h5 class=\"mb-3\">").concat(carContent[random[_i9]][1], "</h5>\n                    <p><i class=\"fas fa-dollar-sign\"></i> ").concat(carContent[random[_i9]][2], "/day &nbsp; <i class=\"fas fa-tachometer-alt\"></i> ").concat(carContent[random[_i9]][3], "</p>\n                    <button type=\"button\" class=\"seeMore\" value=\"").concat(carContent[random[_i9]][1], "\">See more</button>\n                    </div></div>");
+        carTypeName.push(carContent[random[_i9]][1].split(" "));
       }
 
       upisVrednosti();
@@ -291,15 +301,15 @@ function typeClick() {
   var model1 = document.getElementById("carModel");
   var reqBtns = document.getElementsByClassName("reqBtn");
 
-  var _loop2 = function _loop2(i) {
-    reqBtns[i].addEventListener("click", function () {
+  var _loop2 = function _loop2(_i10) {
+    reqBtns[_i10].addEventListener("click", function () {
       for (var j = 1; j < type.options.length; j++) {
-        if (type1.options[j].value == value[i][0]) {
+        if (type1.options[j].value == value[_i10][0]) {
           type1.selectedIndex = j;
           type1.onchange();
 
           if (model1.options.length > 1) {
-            if (model1.options[model1.selectedIndex].text.includes(value[i][1])) {
+            if (model1.options[model1.selectedIndex].text.includes(value[_i10][1])) {
               model1.selectedIndex = 0;
             } else {
               model1.selectedIndex = 1;
@@ -310,8 +320,8 @@ function typeClick() {
     });
   };
 
-  for (var i = 0; i < reqBtns.length; i++) {
-    _loop2(i);
+  for (var _i10 = 0; _i10 < reqBtns.length; _i10++) {
+    _loop2(_i10);
   }
 } //dohvatanje elemenata
 
@@ -372,15 +382,15 @@ function proveraCashCard() {
 
   var _boolean;
 
-  for (var i = 0; i < payment.length; i++) {
-    if (!payment[i].checked) {
+  for (var _i11 = 0; _i11 < payment.length; _i11++) {
+    if (!payment[_i11].checked) {
       paymentError.innerHTML = "Required";
       _boolean = false;
       continue;
     } else {
       paymentError.innerHTML = "";
       _boolean = true;
-      value = payment[i].value;
+      value = payment[_i11].value;
       break;
     }
   }
@@ -568,33 +578,33 @@ payment[1].onclick = function () {
     formMore.appendChild(input1);
     formMore.appendChild(inputGreska);
 
-    for (var i = 0; i < 2; i++) {
+    for (var _i12 = 0; _i12 < 2; _i12++) {
       var wrap = document.createElement("div");
       wrap.classList.add("w-50");
       formMore.appendChild(wrap);
       var label = document.createElement("label");
       label.classList.add("w-100");
-      label.setAttribute("for", id[i]);
-      var labelText = document.createTextNode(labelMain[i]);
+      label.setAttribute("for", id[_i12]);
+      var labelText = document.createTextNode(labelMain[_i12]);
       label.appendChild(labelText);
       wrap.appendChild(label);
       var input2 = document.createElement("input");
       input2.classList.add("w-50");
       input2.setAttribute("type", "text");
-      input2.setAttribute("placeholder", placeholder[i]);
-      input2.setAttribute("id", id[i]);
+      input2.setAttribute("placeholder", placeholder[_i12]);
+      input2.setAttribute("id", id[_i12]);
       wrap.appendChild(input2);
     } //greska
 
 
     var idGreska = ["expDateError", "cvvError"];
 
-    for (var _i4 = 0; _i4 < 2; _i4++) {
+    for (var _i13 = 0; _i13 < 2; _i13++) {
       var greske = document.createElement("div");
       greske.classList.add("w-50");
       formMore.appendChild(greske);
       var span = document.createElement("span");
-      span.setAttribute("id", idGreska[_i4]);
+      span.setAttribute("id", idGreska[_i13]);
       span.classList.add("greskaTekst");
       greske.appendChild(span);
     }
@@ -741,6 +751,8 @@ document.getElementById("form").onsubmit = function (e) {
   }
 };
 
+var jePoslato = false;
+
 function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera, proveraPick, proveraDrop) {
   //provera svih unetih podataka
   if (imeProvera && mailProvera && typeProvera && cashCardProvera && proveraPick && proveraDrop) {
@@ -751,6 +763,9 @@ function celokupnaProvera(imeProvera, mailProvera, typeProvera, cashCardProvera,
       dataArray.push(type.options[type.options.selectedIndex].value);
       dataArray.push(model.options[model.options.selectedIndex].text);
       dataArray.push(ukupanBrojDana * izabranAuto);
+      modal();
+      jePoslato = true;
+    } else {
       modal();
     }
   }
@@ -771,7 +786,13 @@ function modal() {
   body.setAttribute("id", "body");
   body.classList.add("col-12", "p-2");
   var p = document.createElement("p");
-  p.innerHTML = "Dear <span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
+
+  if (jePoslato) {
+    p.innerHTML = "Dear <span>".concat(firstName[0], "</span>, You have already sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>!");
+  } else {
+    p.innerHTML = "Dear <span>".concat(firstName[0], "</span>, you've successfully sent the request for the <span>").concat(dataArray[2], " ").concat(dataArray[3], "</span>, all other information has been sent to your mail.</br>\n    <span>").concat(dataArray[1], "</br></span> <span class=\"modalTotal\"> TOTAL: <i class=\"fas fa-dollar-sign\"></i> ").concat(dataArray[4], "</span>");
+  }
+
   var footer = document.createElement("div");
   footer.setAttribute("id", "footer");
   footer.classList.add("col-12", "text-right");
@@ -792,7 +813,6 @@ function modal() {
     modal.style.visibility = "hidden";
     modal.style.opacity = "0"; //brisanje prethodnog niza i modala
 
-    dataArray = [];
     row.remove();
   };
 } //ispisivanje testimonials-a
@@ -802,8 +822,8 @@ function testimonials() {
   var testimonials = [["assets/img/test1.png", "During all the years we have rented a car from you, there has never been any problems. We are satisfied with both price and quality of your cars!", "Michael De Santa"], ["assets/img/test2.png", "Thank you all once again for your exceptional service level. The customer experience served by everyone at CarZone is 1st class!", "Trevor Philips"], ["assets/img/test3.png", "Friendly and reliable service on site. The booking went smoothly and was handled quickly. The car was perfect and very new!", "Franklin Clinton"]];
   var parent = document.getElementById("testimonials");
 
-  for (var i = 0; i < testimonials.length; i++) {
-    parent.innerHTML += " <div class=\"col-12 col-md-4 mb-3 mb-md-0\">\n        <div class=\"col-12 testContent p-3\">\n            <i class=\"fas fa-quote-right\"></i>\n            <div class=\"d-flex justify-content-center p-2\">\n                <div class=\"testImage\">\n                    <img src=\"".concat(testimonials[i][0], "\" alt=\"guy\">\n                </div>\n            </div>\n            <span><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></span>\n            <blockquote class=\"blockquote text-center\">\n                <p class=\"mb-0\">").concat(testimonials[i][1], "</p>\n                <footer class=\"blockquote-footer\"><cite>").concat(testimonials[i][2], "</cite></footer>\n              </blockquote>\n        </div>\n    </div>");
+  for (var _i14 = 0; _i14 < testimonials.length; _i14++) {
+    parent.innerHTML += " <div class=\"col-12 col-md-4 mb-3 mb-md-0\">\n        <div class=\"col-12 testContent p-3\">\n            <i class=\"fas fa-quote-right\"></i>\n            <div class=\"d-flex justify-content-center p-2\">\n                <div class=\"testImage\">\n                    <img src=\"".concat(testimonials[_i14][0], "\" alt=\"guy\">\n                </div>\n            </div>\n            <span><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></span>\n            <blockquote class=\"blockquote text-center\">\n                <p class=\"mb-0\">").concat(testimonials[_i14][1], "</p>\n                <footer class=\"blockquote-footer\"><cite>").concat(testimonials[_i14][2], "</cite></footer>\n              </blockquote>\n        </div>\n    </div>");
   }
 } // ispisivanje sekcije about us
 
@@ -812,13 +832,15 @@ function about() {
   sadrzajTab = [["What we're about", "We want to make renting a car as simple and personal as driving your own. Renting a car brings you freedom, and we'll help you find the right car for you at a great price. But there's much more to us than that. We're here to make renting a car a lot less hassle."], ["How we work", "Making sure you have a great experience every time you rent a car makes us happy. We use our massive buying power to bring you great deals."], ["Why use us", "We use all our experience – and the experiences of thousands of our customers – to bring you the car you need and the quality of service you want. Always at the best price."], ["Who we are", "Our founders had the simple idea of wanting to make renting cars much better. And we’ve flourished because our customers love how we work."]];
   var tab = document.getElementsByClassName("tab-content");
 
-  for (var i = 0; i < sadrzajTab.length; i++) {
+  for (var _i15 = 0; _i15 < sadrzajTab.length; _i15++) {
     var h3 = document.createElement("h3");
     var p = document.createElement("p");
-    h3.textContent = sadrzajTab[i][0];
-    p.textContent = sadrzajTab[i][1];
-    tab[i].appendChild(h3);
-    tab[i].appendChild(p);
+    h3.textContent = sadrzajTab[_i15][0];
+    p.textContent = sadrzajTab[_i15][1];
+
+    tab[_i15].appendChild(h3);
+
+    tab[_i15].appendChild(p);
   }
 } // Ispisivanje informacije o autoru
 
